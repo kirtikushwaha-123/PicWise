@@ -89,6 +89,46 @@ def process_region(image, region_result, mode, save_prefix, output_dir=None, tes
     return crop, best_processed_image, ensemble_result
 
 
+def _reconstruct_nutrition_table_text(matched_items):
+    """
+    Pairs nutrient labels with nearby value cells based on geometry and y-alignment.
+    Preserves row reading order and formats clean lines:
+    'Label Value' (e.g. 'Calories 160', 'Total Fat 10g')
+    """
+    if not matched_items:
+        return ""
+
+    import numpy as np
+    sorted_items = sorted(
+        matched_items,
+        key=lambda it: (it["rect"][1] + it["rect"][3]) / 2.0
+    )
+
+    rows = []
+    for it in sorted_items:
+        it_yc = (it["rect"][1] + it["rect"][3]) / 2.0
+        it_h = max(1.0, it["rect"][3] - it["rect"][1])
+        placed = False
+        for row in rows:
+            row_yc = row["yc"]
+            if abs(it_yc - row_yc) <= it_h * 0.7:
+                row["items"].append(it)
+                row["yc"] = float(np.mean([(m["rect"][1] + m["rect"][3]) / 2.0 for m in row["items"]]))
+                placed = True
+                break
+        if not placed:
+            rows.append({"yc": it_yc, "items": [it]})
+
+    formatted_lines = []
+    for row in rows:
+        row_items = sorted(row["items"], key=lambda it: it["rect"][0])
+        row_text = " ".join(m.get("text", "").strip() for m in row_items if m.get("text", "").strip())
+        if row_text:
+            formatted_lines.append(row_text)
+
+    return "\n".join(formatted_lines)
+
+
 def run_ocr(image_bytes, category="food", output_dir=None, test_mode=False, kb=None):
     """
     Executes category-aware OCR analysis on an input image.
@@ -237,9 +277,39 @@ def run_ocr(image_bytes, category="food", output_dir=None, test_mode=False, kb=N
     nutrition_output = None
     best_nutrition_variant = None
     nut_text = nut_ocr.get("best_text", "") if nut_ocr else ""
-    if domain == "food" and nut_ocr:
-        best_nutrition_variant = nut_ocr.get("best_variant")
-        nutrition_output = parse_nutrition(nut_text, nut_ocr)
+
+    matched_nut_lines = nutrition_result.get("matched_items", []) or nutrition_result.get("lines", [])
+    reconstructed_nut_text = ""
+    if matched_nut_lines:
+        reconstructed_nut_text = _reconstruct_nutrition_table_text(matched_nut_lines)
+
+    if domain == "food":
+        import re
+        has_numbers_nut = bool(re.search(r"\d", nut_text))
+        has_numbers_recon = bool(re.search(r"\d", reconstructed_nut_text))
+        if (not nut_text) or (not has_numbers_nut and has_numbers_recon) or (len(reconstructed_nut_text) > 1.5 * len(nut_text)):
+            nut_text = reconstructed_nut_text
+
+        if nut_ocr and nut_ocr.get("best_items"):
+            best_nutrition_variant = nut_ocr.get("best_variant")
+            nutrition_output = parse_nutrition(nut_text, nut_ocr)
+        elif nut_text:
+            best_nutrition_variant = "full_image_layout"
+            nutrition_output = parse_nutrition(nut_text)
+
+    # Build other_text from lines not in ingredients or nutrition
+    other_lines = []
+    ing_lower = ing_text.lower()
+    nut_lower = nut_text.lower()
+    for it in all_items:
+        t = it.get("text", "").strip()
+        t_low = t.lower()
+        if not t:
+            continue
+        if t_low in ing_lower or t_low in nut_lower:
+            continue
+        other_lines.append(t)
+    other_text = "\n".join(other_lines)
 
     elapsed = round(time.time() - t_start, 3)
 
@@ -275,6 +345,7 @@ def run_ocr(image_bytes, category="food", output_dir=None, test_mode=False, kb=N
             "all_text": all_text_lower,
             "ingredients_text": ing_text,
             "nutrition_text": nut_text,
+            "other_text": other_text,
         },
         "processing": {
             "best_ingredient_variant": best_ingredient_variant,

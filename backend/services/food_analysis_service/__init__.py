@@ -4,7 +4,7 @@ backend/services/food_analysis_service/__init__.py
 Public package exports for PicWise Unified Food Analysis Service.
 """
 
-from .analyzer import analyze_food
+from .analyzer import analyze_food, analyze_food_from_text
 from .errors import (
     FoodAnalysisError,
     InvalidCategoryError,
@@ -20,6 +20,7 @@ from .models import (
 
 __all__ = [
     "analyze_food",
+    "analyze_food_from_text",
     "FoodAnalysisResult",
     "FoodSafetyResult",
     "FoodSafetyIngredientResult",

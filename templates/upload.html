@@ -76,6 +76,61 @@
     <div class="spinner"></div>
     <h2>Analyzing your product...</h2>
     <p>PicWise is sending the label through the Phase 1 API pipeline.</p>
+  <!-- Image Quality Error / Blurry Image Gate Panel (STEP 9) -->
+  <section id="qualityErrorPanel" class="status-panel card hidden" aria-live="polite">
+    <div class="quality-warning-icon">
+      <svg viewBox="0 0 24 24" width="48" height="48" stroke="#dc2626" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+    </div>
+    <h2>Image quality is too low to reliably read the label.</h2>
+    <p>Please upload a clearer, sharper photo of the product label.</p>
+    <div class="quality-error-actions">
+      <button id="uploadAnotherBtn" class="primary-action" type="button">Upload Another Image</button>
+    </div>
+  </section>
+
+  <!-- OCR Review / Edit Panel (STEP 9) -->
+  <section id="ocrReviewPanel" class="ocr-review-panel card hidden" aria-live="polite">
+    <div class="section-title-row">
+      <div>
+        <h2>OCR Review</h2>
+        <p>Review and correct the extracted text before running analysis.</p>
+      </div>
+    </div>
+
+    <div class="ocr-review-form">
+      <div class="ocr-field-group">
+        <label for="ocrIngredientsInput" class="ocr-field-label">
+          <strong>Ingredients detected</strong>
+          <span class="ocr-field-hint">Comma-separated list or paragraphs of ingredients</span>
+        </label>
+        <textarea id="ocrIngredientsInput" class="ocr-textarea" rows="5" placeholder="Extracted ingredients will appear here..."></textarea>
+      </div>
+
+      <div class="ocr-field-group">
+        <label for="ocrNutritionInput" class="ocr-field-label">
+          <strong>Nutrition Information detected</strong>
+          <span class="ocr-field-hint">Nutrient lines or table rows (e.g. Protein 6.7g, Calories 160)</span>
+        </label>
+        <textarea id="ocrNutritionInput" class="ocr-textarea" rows="7" placeholder="Extracted nutrition rows will appear here..."></textarea>
+      </div>
+
+      <div class="ocr-field-group">
+        <label for="ocrOtherInput" class="ocr-field-label">
+          <strong>Other extracted text</strong>
+          <span class="ocr-field-hint">Product title, marketing claims, or other label text</span>
+        </label>
+        <textarea id="ocrOtherInput" class="ocr-textarea" rows="3" placeholder="Other extracted text will appear here..."></textarea>
+      </div>
+
+      <div class="ocr-actions-row">
+        <button id="rerunOcrBtn" class="secondary-action" type="button">Re-run OCR</button>
+        <button id="confirmAnalyzeBtn" class="primary-action" type="button">Analyze</button>
+      </div>
+    </div>
   </section>
 
   <section id="resultsPanel" class="results-panel card hidden" aria-live="polite">

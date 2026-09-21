@@ -14,15 +14,16 @@ from backend.services.ocr_service.detection.ocr_detector import normalize_ocr_te
 
 # Canonical nutrient key -> list of text patterns (already lowercase) that
 # should map to it. Longer/more specific phrases are listed first so they
-# match before their shorter substrings (e.g. "total sugars" before "sugar").
+# match before their shorter substrings (e.g. "saturated fat" before "fat").
 NUTRIENT_KEY_PATTERNS = [
-    ("energy", [r"energy", r"calories"]),
-    ("protein", [r"protein"]),
-    ("total_carbohydrate", [r"total\s*carbohydrate", r"carbohydrate"]),
-    ("total_sugars", [r"total\s*sugars", r"added\s*sugars", r"sugars?"]),
-    ("total_fat", [r"total\s*fat", r"fat"]),
-    ("saturated_fat", [r"saturated\s*fat"]),
-    ("trans_fat", [r"trans\s*fat"]),
+    ("energy", [r"energy", r"calories?", r"caloric\s*value"]),
+    ("protein", [r"proteins?", r"total\s*protein"]),
+    ("saturated_fat", [r"saturated\s*fat", r"saturates?", r"saturated"]),
+    ("trans_fat", [r"trans\s*fat", r"trans\s*fatty\s*acids?"]),
+    ("total_fat", [r"total\s*fat", r"fats?"]),
+    ("added_sugars", [r"added\s*sugars?"]),
+    ("total_sugars", [r"total\s*sugars?", r"sugars?"]),
+    ("total_carbohydrate", [r"total\s*carbohydrates?", r"carbohydrates?", r"carbs?"]),
     ("dietary_fibre", [r"dietary\s*fib(?:re|er)", r"fib(?:re|er)"]),
     ("sodium", [r"sodium"]),
     ("salt", [r"salt"]),
@@ -34,9 +35,10 @@ NUTRIENT_KEY_PATTERNS = [
 
 # Units we recognize, ordered longest-first so e.g. "kcal" matches before "cal"
 UNIT_PATTERN = r"(kcal|kj|mcg|mg|iu|g|%)"
+COMPARISON_PATTERN = r"(?:<=|>=|<|>|~)?\s*"
 
 VALUE_UNIT_PATTERN = re.compile(
-    r"(\d+(?:\.\d+)?)\s*" + UNIT_PATTERN, re.IGNORECASE
+    COMPARISON_PATTERN + r"(\d+(?:\.\d+)?)\s*" + UNIT_PATTERN, re.IGNORECASE
 )
 
 
@@ -45,6 +47,77 @@ def _find_key(line_lower):
         for pat in patterns:
             if re.search(r"\b" + pat + r"\b", line_lower):
                 return key
+    return None
+
+
+def _extract_value_and_unit(text, nutrient_key=None):
+    if not text:
+        return None
+
+    # 1. Check for explicit kcal or kJ
+    kcal_m = re.search(COMPARISON_PATTERN + r"(\d+(?:\.\d+)?)\s*kcal\b", text, re.IGNORECASE)
+    if kcal_m:
+        try:
+            return float(kcal_m.group(1)), "kcal"
+        except ValueError:
+            pass
+
+    kj_m = re.search(COMPARISON_PATTERN + r"(\d+(?:\.\d+)?)\s*kj\b", text, re.IGNORECASE)
+    if kj_m:
+        try:
+            return float(kj_m.group(1)), "kj"
+        except ValueError:
+            pass
+
+    # 2. Check for general value + unit (with optional comparison sign <, <=, etc.)
+    val_unit_m = VALUE_UNIT_PATTERN.search(text)
+    if val_unit_m:
+        try:
+            val = float(val_unit_m.group(1))
+            unit = val_unit_m.group(2).lower()
+            return val, unit
+        except ValueError:
+            pass
+
+    # 3. Dimensionless Calories/Energy check
+    if nutrient_key == "energy":
+        dim_m = re.search(
+            r"(?:calories?|energy)?\s*[:\-\s]?\s*" + COMPARISON_PATTERN + r"(\d+(?:\.\d+)?)",
+            text,
+            re.IGNORECASE,
+        )
+        if dim_m:
+            try:
+                return float(dim_m.group(1)), "kcal"
+            except ValueError:
+                pass
+
+    # 4. If in a cell that contains only a number (e.g. '192', '2.97', '<0.4', '14.9')
+    # and nutrient_key is known:
+    if nutrient_key:
+        dim_m = re.search(r"^" + COMPARISON_PATTERN + r"(\d+(?:\.\d+)?)\s*$", text.strip())
+        if dim_m:
+            try:
+                val = float(dim_m.group(1))
+                if nutrient_key == "energy":
+                    return val, "kcal"
+                elif nutrient_key in (
+                    "protein",
+                    "total_carbohydrate",
+                    "total_sugars",
+                    "added_sugars",
+                    "total_fat",
+                    "saturated_fat",
+                    "trans_fat",
+                    "dietary_fibre",
+                ):
+                    return val, "g"
+                elif nutrient_key == "sodium":
+                    unit = "mg" if val >= 10.0 else "g"
+                    return val, unit
+            except ValueError:
+                pass
+
     return None
 
 
@@ -170,19 +243,10 @@ def parse_nutrition(raw_text, ocr_dict=None):
         row_data = {}
         for val_cell in r[1:]:
             val_text = val_cell["text"]
-            # If dual units (e.g. kJ and kcal), prefer kcal
-            kcal_m = re.search(r"(\d+(?:\.\d+)?)\s*kcal\b", val_text, re.IGNORECASE)
-            if kcal_m:
-                value_str, unit = kcal_m.group(1), "kcal"
-            else:
-                match = VALUE_UNIT_PATTERN.search(val_text)
-                if not match:
-                    continue
-                value_str, unit = match.group(1), match.group(2).lower()
-            try:
-                val = float(value_str)
-            except ValueError:
+            extracted = _extract_value_and_unit(val_text, nutrient_key=nutrient_key)
+            if not extracted:
                 continue
+            val, unit = extracted
 
             cx = val_cell["center_x"]
             col_key = "per_100g"
@@ -199,7 +263,7 @@ def parse_nutrition(raw_text, ocr_dict=None):
                     col_key = "per_100g"
                 elif val_cell_idx == 2:
                     col_key = "per_serving"
-                    
+
             row_data[col_key] = {"value": val, "unit": unit}
 
         if row_data:
@@ -215,6 +279,59 @@ def parse_nutrition(raw_text, ocr_dict=None):
     return result
 
 
+def _split_line_into_nutrient_segments(line: str) -> list:
+    if not line or not line.strip():
+        return []
+
+    line_lower = line.lower()
+    matches = []
+    for key, patterns in NUTRIENT_KEY_PATTERNS:
+        for pat in patterns:
+            for m in re.finditer(r"\b" + pat + r"\b", line_lower):
+                matches.append((m.start(), m.end(), key))
+
+    if not matches:
+        return [line.strip()]
+
+    # Filter out matches that are strictly contained within longer matches
+    # e.g., "fat" inside "saturated fat" or "sugars" inside "total sugars"
+    valid_matches = []
+    for start, end, key in matches:
+        contained = False
+        for o_start, o_end, o_key in matches:
+            if o_start <= start and end <= o_end and (o_end - o_start) > (end - start):
+                contained = True
+                break
+        if not contained:
+            valid_matches.append((start, end, key))
+
+    # Sort matches by start position; if same start, take longest
+    valid_matches.sort(key=lambda x: (x[0], -(x[1] - x[0])))
+    unique_matches = []
+    last_end = -1
+    for start, end, key in valid_matches:
+        if start >= last_end:
+            unique_matches.append((start, end, key))
+            last_end = end
+
+    if not unique_matches:
+        return [line.strip()]
+
+    segments = []
+    if unique_matches[0][0] > 0:
+        prefix = line[:unique_matches[0][0]].strip()
+        if prefix:
+            segments.append(prefix)
+
+    for idx, (start, end, key) in enumerate(unique_matches):
+        next_start = unique_matches[idx + 1][0] if idx + 1 < len(unique_matches) else len(line)
+        seg = line[start:next_start].strip()
+        if seg:
+            segments.append(seg)
+
+    return segments
+
+
 def _parse_nutrition_string_fallback(raw_text):
     if not raw_text or not raw_text.strip():
         return {}
@@ -222,37 +339,42 @@ def _parse_nutrition_string_fallback(raw_text):
     lines = re.split(r"[\n]+", raw_text)
     expanded_lines = []
     for line in lines:
-        parts = re.split(
-            r"(?=(?:" + "|".join(config.NUTRIENT_KEYWORDS) + r"))",
-            line,
-            flags=re.IGNORECASE,
-        )
-        expanded_lines.extend([p for p in parts if p.strip()])
+        line_s = line.strip()
+        if not line_s:
+            continue
+        segs = _split_line_into_nutrient_segments(line_s)
+        expanded_lines.extend(segs)
 
     result = {}
-    for line in expanded_lines:
+    i = 0
+    while i < len(expanded_lines):
+        line = expanded_lines[i]
         line_lower = line.lower()
         key = _find_key(line_lower)
         if key is None or key in result:
+            i += 1
             continue
 
-        kcal_m = re.search(r"(\d+(?:\.\d+)?)\s*kcal\b", line, re.IGNORECASE)
-        if kcal_m:
-            value_str, unit = kcal_m.group(1), "kcal"
-        else:
-            match = VALUE_UNIT_PATTERN.search(line)
-            if not match:
-                continue
-            value_str, unit = match.group(1), match.group(2).lower()
-        try:
-            value = float(value_str)
-        except ValueError:
+        extracted = _extract_value_and_unit(line, nutrient_key=key)
+        # If value was not on the same line, check if it is on the next line (requirement 8)
+        if not extracted and i + 1 < len(expanded_lines):
+            next_line = expanded_lines[i + 1]
+            if _find_key(next_line.lower()) is None:
+                next_extracted = _extract_value_and_unit(next_line, nutrient_key=key)
+                if next_extracted:
+                    extracted = next_extracted
+                    i += 1
+
+        if not extracted:
+            i += 1
             continue
 
+        value, unit = extracted
         result[key] = {
             "value": value,
             "unit": unit,
             "per_100g": {"value": value, "unit": unit}
         }
+        i += 1
 
     return result

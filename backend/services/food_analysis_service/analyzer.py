@@ -130,10 +130,129 @@ def analyze_food(
             presentation=map_food_analysis_presentation(None, None, None).to_dict(),
         )
 
+    if not ocr_output:
+        ocr_output = {}
+
+    raw_ingredients = ocr_output.get("ingredients", [])
+    raw_nutrition = ocr_output.get("nutrition")
+    raw_text_dict = ocr_output.get("raw_text") or {}
+    product_text = raw_text_dict.get("all_text", "")
+    ingredient_text = raw_text_dict.get("ingredients_text", "")
+
+    return _evaluate_food_components(
+        raw_ingredients=raw_ingredients,
+        raw_nutrition=raw_nutrition,
+        product_text=product_text,
+        ingredient_text=ingredient_text,
+        knowledge_base=knowledge_base,
+        ocr_output=ocr_output,
+    )
+
+
+def analyze_food_from_text(
+    ingredients_text: str,
+    nutrition_text: str,
+    all_text: str = "",
+    category: str = "food",
+    knowledge_base: Optional[Any] = None,
+) -> FoodAnalysisResult:
+    """
+    Analyzes food product from user-reviewed / edited OCR text.
+    Reuses the existing:
+    - ingredient parser / corrector
+    - nutrition parser
+    - Food Safety analyzer
+    - Allergy analyzer
+    - Nutrition analyzer
+    """
+    if not category or not isinstance(category, str):
+        raise InvalidCategoryError("Category is required and must be 'food'.")
+
+    category_norm = category.strip().lower()
+    if category_norm != "food":
+        raise InvalidCategoryError(
+            f"Invalid category '{category}'. The Food Analysis service strictly handles 'food'."
+        )
+
+    ocr_kb = knowledge_base if (knowledge_base and hasattr(knowledge_base, "get_ingredient_names")) else None
+
+    # 1. Parse Ingredients from corrected text
+    ingredients_output = []
+    if ingredients_text and ingredients_text.strip():
+        from backend.services.ocr_service.nlp.ingredient_corrector import IngredientCorrector
+        from backend.services.ocr_service.parsing.ingredient_parser import parse_ingredients
+        corrector = IngredientCorrector(kb=ocr_kb)
+        ingredients_output = corrector.correct_and_match(ingredients_text.strip(), domain="food")
+        if not ingredients_output:
+            parsed_tokens = parse_ingredients(ingredients_text)
+            if parsed_tokens and ocr_kb:
+                matched_kb = ocr_kb.match_ingredient_list(parsed_tokens, domain="food")
+                for tok, m in zip(parsed_tokens, matched_kb):
+                    sim = m["similarity"] / 100.0 if m["matched_name"] else None
+                    ingredients_output.append({
+                        "ocr_text": tok,
+                        "normalized_text": tok,
+                        "corrected_ingredient": m["matched_name"],
+                        "match_confidence": sim,
+                        "matched_name": m["matched_name"],
+                        "confidence": sim,
+                    })
+            else:
+                for tok in parsed_tokens:
+                    ingredients_output.append({
+                        "ocr_text": tok,
+                        "normalized_text": tok,
+                        "corrected_ingredient": None,
+                        "match_confidence": None,
+                        "matched_name": None,
+                        "confidence": None,
+                    })
+
+    # 2. Parse Nutrition from corrected text
+    nutrition_output = None
+    if nutrition_text and nutrition_text.strip():
+        from backend.services.ocr_service.parsing.nutrition_parser import parse_nutrition
+        nutrition_output = parse_nutrition(nutrition_text.strip())
+
+    # 3. Construct synthetic ocr dictionary for downstream consistency
+    ocr_dict = {
+        "domain": "food",
+        "ingredients": ingredients_output,
+        "nutrition": nutrition_output,
+        "raw_text": {
+            "ingredients_text": ingredients_text or "",
+            "nutrition_text": nutrition_text or "",
+            "other_text": all_text or "",
+            "all_text": f"{ingredients_text or ''}\n{nutrition_text or ''}\n{all_text or ''}".strip(),
+        },
+    }
+
+    # 4. Evaluate all food components using the exact same evaluation logic
+    return _evaluate_food_components(
+        raw_ingredients=ingredients_output,
+        raw_nutrition=nutrition_output,
+        product_text=ocr_dict["raw_text"]["all_text"],
+        ingredient_text=ingredients_text or "",
+        knowledge_base=knowledge_base,
+        ocr_output=ocr_dict,
+    )
+
+
+def _evaluate_food_components(
+    raw_ingredients: List[Any],
+    raw_nutrition: Optional[Dict[str, Any]],
+    product_text: str = "",
+    ingredient_text: str = "",
+    knowledge_base: Optional[Any] = None,
+    ocr_output: Optional[Dict[str, Any]] = None,
+) -> FoodAnalysisResult:
+    """
+    Unified evaluation engine for food components (Food Safety, Nutrition, Allergy).
+    Used by both image-based analyze_food and text-based analyze_food_from_text.
+    """
     all_warnings: List[str] = []
 
     # 4. Food Safety ML Inference
-    raw_ingredients = ocr_output.get("ingredients", [])
     food_safety_dict: Dict[str, Any]
 
     if not raw_ingredients:
@@ -303,18 +422,11 @@ def analyze_food(
             ).to_dict()
 
     # Food Safety presentation mapping
-    # Maps product-level risk_class if present; otherwise status='unavailable' is preserved
-    # adhering strictly to Unknown != Safe.
     fs_pres = map_food_safety_status(food_safety_dict.get("risk_class"))
     food_safety_dict["presentation_status"] = fs_pres.status
     food_safety_dict["presentation"] = fs_pres.to_dict()
 
     # 5. Nutrition Scoring Engine Execution
-    raw_nutrition = ocr_output.get("nutrition")
-    raw_text_dict = ocr_output.get("raw_text") or {}
-    product_text = raw_text_dict.get("all_text", "")
-    ingredient_text = raw_text_dict.get("ingredients_text", "")
-
     nutrition_dict: Dict[str, Any]
     try:
         nutrition_res = calculate_nutrition_score(

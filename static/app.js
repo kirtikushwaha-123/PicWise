@@ -13,6 +13,16 @@ const analyzeButton = document.querySelector("#analyzeButton");
 const loadingState = document.querySelector("#loadingState");
 const resultsPanel = document.querySelector("#resultsPanel");
 
+// OCR Review & Quality Gate Elements (STEP 9)
+const qualityErrorPanel = document.querySelector("#qualityErrorPanel");
+const uploadAnotherBtn = document.querySelector("#uploadAnotherBtn");
+const ocrReviewPanel = document.querySelector("#ocrReviewPanel");
+const ocrIngredientsInput = document.querySelector("#ocrIngredientsInput");
+const ocrNutritionInput = document.querySelector("#ocrNutritionInput");
+const ocrOtherInput = document.querySelector("#ocrOtherInput");
+const rerunOcrBtn = document.querySelector("#rerunOcrBtn");
+const confirmAnalyzeBtn = document.querySelector("#confirmAnalyzeBtn");
+
 // Food-specific result elements
 const foodResultsContainer = document.querySelector("#foodResultsContainer");
 const personalCareResultsContainer = document.querySelector("#personalCareResultsContainer");
@@ -93,6 +103,12 @@ removeImage.addEventListener("click", () => {
   resetResults();
 });
 
+if (uploadAnotherBtn) {
+  uploadAnotherBtn.addEventListener("click", () => {
+    removeImage.click();
+  });
+}
+
 // Form Submission
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -121,31 +137,63 @@ form.addEventListener("submit", async (event) => {
   fileError.textContent = "";
 
   try {
-    const endpoint = selectedCategory === "food" ? "/api/food/analyze" : "/api/personal-care/analyze";
-    const response = await fetch(endpoint, {
-      method: "POST",
-      body: formData,
-    });
-
-    let data;
-    try {
-      data = await response.json();
-    } catch (parseErr) {
-      throw new Error("Received an invalid response from the server.");
-    }
-
-    if (!response.ok) {
-      const errMsg = (data && data.error) || (data && Array.isArray(data.errors) && data.errors[0]) || "Analysis failed.";
-      throw new Error(errMsg);
-    }
-
     if (selectedCategory === "food") {
-      renderFoodAnalysis(data);
-    } else {
-      renderPersonalCareAnalysis(data);
-    }
+      // Step 1, 2, 3: Quality Check & OCR
+      const response = await fetch("/api/food/ocr", {
+        method: "POST",
+        body: formData,
+      });
 
-    resultsPanel.classList.remove("hidden");
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseErr) {
+        throw new Error("Received an invalid response from the server.");
+      }
+
+      if (!response.ok) {
+        if (data && data.status === "unusable_image") {
+          if (qualityErrorPanel) qualityErrorPanel.classList.remove("hidden");
+          return;
+        }
+        const errMsg = (data && data.error) || (data && Array.isArray(data.errors) && data.errors[0]) || "OCR extraction failed.";
+        throw new Error(errMsg);
+      }
+
+      // Step 4: Show OCR Review Screen
+      if (ocrIngredientsInput) {
+        ocrIngredientsInput.value = (data.raw_text && data.raw_text.ingredients_text) || "";
+      }
+      if (ocrNutritionInput) {
+        ocrNutritionInput.value = (data.raw_text && data.raw_text.nutrition_text) || "";
+      }
+      if (ocrOtherInput) {
+        ocrOtherInput.value = (data.raw_text && data.raw_text.other_text) || "";
+      }
+
+      if (ocrReviewPanel) ocrReviewPanel.classList.remove("hidden");
+    } else {
+      // Personal care flow remains direct
+      const response = await fetch("/api/personal-care/analyze", {
+        method: "POST",
+        body: formData,
+      });
+
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseErr) {
+        throw new Error("Received an invalid response from the server.");
+      }
+
+      if (!response.ok) {
+        const errMsg = (data && data.error) || (data && Array.isArray(data.errors) && data.errors[0]) || "Analysis failed.";
+        throw new Error(errMsg);
+      }
+
+      renderPersonalCareAnalysis(data);
+      resultsPanel.classList.remove("hidden");
+    }
   } catch (error) {
     const networkMsg = "Unable to connect to the server. Please check that PicWise is running and try again.";
     fileError.textContent = (error.message === "Failed to fetch") ? networkMsg : (error.message || "An error occurred during analysis.");
@@ -153,6 +201,60 @@ form.addEventListener("submit", async (event) => {
     setLoadingState(false);
   }
 });
+
+// Re-run OCR Action
+if (rerunOcrBtn) {
+  rerunOcrBtn.addEventListener("click", () => {
+    form.requestSubmit();
+  });
+}
+
+// Confirm and Analyze Action (STEP 9)
+if (confirmAnalyzeBtn) {
+  confirmAnalyzeBtn.addEventListener("click", async () => {
+    if (isAnalyzing) return;
+    setLoadingState(true);
+    fileError.textContent = "";
+
+    try {
+      const payload = {
+        category: "food",
+        ingredients_text: ocrIngredientsInput ? ocrIngredientsInput.value : "",
+        nutrition_text: ocrNutritionInput ? ocrNutritionInput.value : "",
+        all_text: ocrOtherInput ? ocrOtherInput.value : "",
+      };
+
+      const response = await fetch("/api/food/analyze-text", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseErr) {
+        throw new Error("Received an invalid response from the server.");
+      }
+
+      if (!response.ok) {
+        const errMsg = (data && data.error) || (data && Array.isArray(data.errors) && data.errors[0]) || "Analysis failed.";
+        throw new Error(errMsg);
+      }
+
+      renderFoodAnalysis(data);
+      resultsPanel.classList.remove("hidden");
+      if (ocrReviewPanel) ocrReviewPanel.classList.add("hidden");
+    } catch (err) {
+      const networkMsg = "Unable to connect to the server. Please check that PicWise is running and try again.";
+      fileError.textContent = (err.message === "Failed to fetch") ? networkMsg : (err.message || "An error occurred during analysis.");
+    } finally {
+      setLoadingState(false);
+    }
+  });
+}
 
 function setSelectedFile(file) {
   fileError.textContent = "";
@@ -208,6 +310,11 @@ function setLoadingState(isLoading) {
 
 function resetResults() {
   resultsPanel.classList.add("hidden");
+  if (ocrReviewPanel) ocrReviewPanel.classList.add("hidden");
+  if (qualityErrorPanel) qualityErrorPanel.classList.add("hidden");
+  if (ocrIngredientsInput) ocrIngredientsInput.value = "";
+  if (ocrNutritionInput) ocrNutritionInput.value = "";
+  if (ocrOtherInput) ocrOtherInput.value = "";
   if (foodResultsContainer) foodResultsContainer.classList.add("hidden");
   if (personalCareResultsContainer) personalCareResultsContainer.classList.add("hidden");
   if (foodWarningsBanner) foodWarningsBanner.classList.add("hidden");

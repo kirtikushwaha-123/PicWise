@@ -289,6 +289,53 @@ def _spatial_semantic_fallback_candidate_nutrition(lines, max_gap_y, band_tolera
     return scored[0] if scored else None
 
 
+def _absorb_table_columns(collected, all_lines, line_h):
+    """
+    In multi-column nutrition tables, value cells (e.g. '160', '10g', '<0.4g')
+    may be placed in a separate OCR column to the right of nutrient labels.
+    Absorbs lines from all_lines that:
+    - Vertically overlap with the collected nutrient rows (or table vertical span)
+    - Are horizontally aligned/to the right of the table within reasonable table width
+    - Do not belong to competitor sections (ingredients, manufacturer, instructions, legal, etc.)
+    """
+    if not collected:
+        return collected
+
+    y_min = min(ln["rect"][1] for ln in collected)
+    y_max = max(ln["rect"][3] for ln in collected)
+    x_min = min(ln["rect"][0] for ln in collected)
+    x_max = max(ln["rect"][2] for ln in collected)
+
+    absorbed = []
+    collected_ids = set(id(ln) for ln in collected)
+
+    for ln in all_lines:
+        if id(ln) in collected_ids:
+            continue
+        r = ln["rect"]
+        # Must fall within the vertical extent of the table (with a small margin)
+        if r[1] >= y_min - line_h * 0.75 and r[3] <= y_max + line_h * 0.75:
+            # Must be within horizontal proximity to the table
+            if r[0] >= x_min - line_h and r[0] <= x_max + line_h * 35:
+                # Exclude competitor sections
+                if ln.get("ingredient_score", 0.0) >= 0.50:
+                    continue
+                if ln.get("manufacturer_score", 0.0) >= 0.50:
+                    continue
+                if ln.get("instruction_score", 0.0) >= 0.50:
+                    continue
+                if ln.get("contact_score", 0.0) >= 0.50:
+                    continue
+                if ln.get("storage_score", 0.0) >= 0.50:
+                    continue
+                norm_text = normalize_ocr_text(ln["text"])
+                if any(sw in norm_text for sw in ["ingredients:", "ingredients", "mfg", "fssai", "batch"]):
+                    continue
+                absorbed.append(ln)
+
+    return collected + absorbed
+
+
 def expand_nutrition_region(anchor_line, all_lines, image_shape, ingredient_vocab=None):
     """
     Expands the nutrition region from the anchor heading.
@@ -312,6 +359,7 @@ def expand_nutrition_region(anchor_line, all_lines, image_shape, ingredient_voca
     )
 
     collected = [anchor_line] + collected_rest
+    collected = _absorb_table_columns(collected, all_lines, line_h)
     bbox = union_rect([ln["rect"] for ln in collected])
 
     debug_info = {
@@ -414,6 +462,7 @@ def detect_nutrition_rows(lines, image_shape, ingredient_vocab=None):
     )
 
     collected = list(reversed(up_collected)) + [seed_line] + down_collected
+    collected = _absorb_table_columns(collected, lines, line_h)
     bbox = union_rect([ln["rect"] for ln in collected])
 
     confidence = round(float(min(0.9, best_score)), 3)

@@ -203,3 +203,68 @@ def check_image_quality(image):
         "is_too_dark": bool(is_too_dark),
         "is_too_bright": bool(is_too_bright),
     }
+
+
+def assess_image_quality_gate(image, quality_dict=None, ocr_items=None):
+    """
+    Evaluates whether an image is usable for label reading.
+    Conservative gate: avoids rejecting normal or imperfect packaging photos.
+    Only rejects genuinely unusable images:
+    - severe blur (laplacian_var < 35.0 AND contrast_std < 20.0)
+    - extremely low resolution (w < 80 or h < 80 or w*h < 10000)
+    - almost completely blank/uniform image (contrast_std < 4.0 or laplacian_var < 4.0)
+
+    Returns:
+        (is_usable: bool, status: str, message: str, details: dict)
+    """
+    if image is None or image.size == 0:
+        return (
+            False,
+            "unusable_image",
+            "Image quality is too low to reliably read the label. Please upload a clearer, sharper photo of the product label.",
+            {"reason": "empty_image"},
+        )
+
+    h, w = image.shape[:2]
+    total_pixels = h * w
+
+    if quality_dict is None:
+        quality_dict = check_image_quality(image)
+
+    lap_var = quality_dict.get("laplacian_variance", 0.0)
+    contrast = quality_dict.get("contrast_std", 0.0)
+    brightness = quality_dict.get("brightness_mean", 0.0)
+
+    # 1. Extremely low resolution
+    if w < 80 or h < 80 or total_pixels < 10000:
+        return (
+            False,
+            "unusable_image",
+            "Image quality is too low to reliably read the label. Please upload a clearer, sharper photo of the product label.",
+            {"reason": "extremely_low_resolution", "dimensions": [w, h], "pixels": total_pixels},
+        )
+
+    # 2. Blank / uniform image (nearly 0 contrast or 0 variance)
+    if contrast < 4.0 or (lap_var < 4.0 and (brightness < 20.0 or brightness > 235.0)):
+        return (
+            False,
+            "unusable_image",
+            "Image quality is too low to reliably read the label. Please upload a clearer, sharper photo of the product label.",
+            {"reason": "blank_or_uniform_image", "contrast_std": contrast, "laplacian_variance": lap_var},
+        )
+
+    # 3. Severe blur combined with low contrast
+    if lap_var < 35.0 and contrast < 20.0:
+        return (
+            False,
+            "unusable_image",
+            "Image quality is too low to reliably read the label. Please upload a clearer, sharper photo of the product label.",
+            {"reason": "severe_blur", "laplacian_variance": lap_var, "contrast_std": contrast},
+        )
+
+    return (
+        True,
+        "usable",
+        "",
+        {"laplacian_variance": lap_var, "contrast_std": contrast, "dimensions": [w, h]},
+    )

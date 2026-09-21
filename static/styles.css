@@ -1871,3 +1871,78 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+/* OCR Review / Edit Panel & Quality Error Panel (STEP 9) */
+.ocr-review-panel {
+  margin-top: 24px;
+  padding: 24px;
+  background-color: var(--card-bg, #ffffff);
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--border-color, #e5e7eb);
+}
+
+.ocr-review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.ocr-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ocr-field-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+  color: var(--text-dark, #1f2937);
+}
+
+.ocr-field-hint {
+  font-size: 12px;
+  color: var(--text-muted, #6b7280);
+}
+
+.ocr-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: monospace, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-dark, #1f2937);
+  background-color: #f9fafb;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 8px;
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ocr-textarea:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: var(--primary-blue, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.ocr-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.quality-warning-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.quality-error-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
