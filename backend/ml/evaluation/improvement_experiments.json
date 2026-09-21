@@ -1,0 +1,3987 @@
+{
+  "evaluation_context": {
+    "outer_strategy": "Canonical Ingredient Group-Aware Split (GroupShuffleSplit)",
+    "outer_test_size": 0.2,
+    "inner_validation_size": 0.25,
+    "random_state": 42,
+    "total_representations": 2232,
+    "train_representations": 1773,
+    "test_representations": 459,
+    "unique_canonical_groups": 1245,
+    "train_canonical_groups": 996,
+    "test_canonical_groups": 249,
+    "inner_train_representations": 1343,
+    "inner_val_representations": 430,
+    "inner_train_canonical_groups": 747,
+    "inner_val_canonical_groups": 249,
+    "leakage_prevention": "Zero group overlap on both outer and inner splits; TF-IDF vectorizer and class weights fitted strictly on training partition data.",
+    "production_models_integrity_verified": true,
+    "production_models_file_hashes": {
+      ".gitkeep": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "__init__.py": "789ff2777d138e24fde524db4f01cedd4f601af3776ff13438a754c8aa93f5cf",
+      "allergy_label_encoder.joblib": "913de25e43e73090f67399fa5f0ce6aa20e19be0a13ce619d4107c3389303e8e",
+      "allergy_model.joblib": "07282b13d597266b72dafd7305f1a526c33448799a0072458578a0ebdb82400b",
+      "food_safety/classifier.joblib": "58fc0ee797c88c99bd92eafea1ea350153b4829a4137388160ee0ef7af1489e1",
+      "food_safety/model_metadata.json": "8d6ac5051e5b22add2c05a7da4ca7b67bb0b3fe3969b2c4f4097d49283a12bf6",
+      "food_safety/vectorizer.joblib": "746283097ecef519a250ad73c6654798be4a4a185e5d3701a1a99db4cf48e0f2",
+      "safety_label_encoder.joblib": "13895353ba6a3e2f49507994c55aefa9c6e527c0127bc467e60274c13008d5b7",
+      "safety_model.joblib": "2775ca799f686b4eeb407e56e953415758fc9f8e0c75a53f999c0e0e27ffd2a4",
+      "vectorizer.joblib": "d17c60f67c7336d6bc640f53eb7e01243324b75148bfa570a9b21bdb6dc5d82b"
+    }
+  },
+  "part_2a_findings_used": [
+    "Severe recall suppression on minority risk classes (Moderate Risk safety: 22.39%, High allergy: 10.00%).",
+    "Dangerous underestimation confusion patterns (High Risk -> Safe/Very Safe, High/Medium Allergy -> None/Low).",
+    "Model overconfidence on rare character n-grams and elevated error rate on short names (<=10 chars: 45.14% error rate).",
+    "INS/E-number patterns and chemical compound naming inconsistencies causing isolated representation failures."
+  ],
+  "baseline": {
+    "safety": {
+      "accuracy": 0.634,
+      "macro_precision": 0.5892,
+      "macro_recall": 0.4653,
+      "macro_f1": 0.4964,
+      "weighted_precision": 0.6324,
+      "weighted_recall": 0.634,
+      "weighted_f1": 0.6091,
+      "per_class": {
+        "High Risk": {
+          "precision": 0.5,
+          "recall": 0.2857,
+          "f1_score": 0.3636,
+          "support": 14
+        },
+        "Moderate Risk": {
+          "precision": 0.5172,
+          "recall": 0.2239,
+          "f1_score": 0.3125,
+          "support": 67
+        },
+        "Safe": {
+          "precision": 0.6223,
+          "recall": 0.8481,
+          "f1_score": 0.7179,
+          "support": 237
+        },
+        "Very Safe": {
+          "precision": 0.7172,
+          "recall": 0.5035,
+          "f1_score": 0.5917,
+          "support": 141
+        }
+      },
+      "confusion_matrix": [
+        [
+          4,
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          15,
+          45,
+          7
+        ],
+        [
+          4,
+          13,
+          201,
+          19
+        ],
+        [
+          0,
+          1,
+          69,
+          71
+        ]
+      ],
+      "classes": [
+        "High Risk",
+        "Moderate Risk",
+        "Safe",
+        "Very Safe"
+      ]
+    },
+    "allergy": {
+      "accuracy": 0.6797,
+      "macro_precision": 0.6418,
+      "macro_recall": 0.4937,
+      "macro_f1": 0.5197,
+      "weighted_precision": 0.6798,
+      "weighted_recall": 0.6797,
+      "weighted_f1": 0.664,
+      "per_class": {
+        "High": {
+          "precision": 0.5,
+          "recall": 0.1,
+          "f1_score": 0.1667,
+          "support": 10
+        },
+        "Low": {
+          "precision": 0.6879,
+          "recall": 0.6353,
+          "f1_score": 0.6606,
+          "support": 170
+        },
+        "Medium": {
+          "precision": 0.7073,
+          "recall": 0.3867,
+          "f1_score": 0.5,
+          "support": 75
+        },
+        "None": {
+          "precision": 0.6718,
+          "recall": 0.8529,
+          "f1_score": 0.7516,
+          "support": 204
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          1,
+          8
+        ],
+        [
+          0,
+          108,
+          8,
+          54
+        ],
+        [
+          0,
+          23,
+          29,
+          23
+        ],
+        [
+          1,
+          26,
+          3,
+          174
+        ]
+      ],
+      "classes": [
+        "High",
+        "Low",
+        "Medium",
+        "None"
+      ]
+    }
+  },
+  "experiments": [
+    "baseline",
+    "exp_class_weighted",
+    "exp_conservative_depth_reg",
+    "exp_weighted_conservative",
+    "exp_ngram_3_6",
+    "exp_min_df_2",
+    "exp_ngram_3_6_min_df_2"
+  ],
+  "safety_results": [
+    {
+      "experiment_name": "baseline",
+      "purpose": "Frozen Phase 3 Part 1 reference baseline for rigorous comparison against all candidate approaches.",
+      "observed_problem_addressed": "Part 1 reference baseline establishing benchmark accuracy, Macro F1, and minority recall.",
+      "parameters_changed": {},
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "tfidf": "TfidfVectorizer(analyzer='char_wb', ngram_range=(2, 5), sublinear_tf=True, min_df=1)",
+        "sample_weight": "None"
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.686,
+        "macro_precision": 0.6774,
+        "macro_recall": 0.5392,
+        "macro_f1": 0.551,
+        "weighted_precision": 0.7245,
+        "weighted_recall": 0.686,
+        "weighted_f1": 0.6542,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.4,
+            "recall": 0.5,
+            "f1_score": 0.4444,
+            "support": 4
+          },
+          "Moderate Risk": {
+            "precision": 0.9167,
+            "recall": 0.2785,
+            "f1_score": 0.4272,
+            "support": 79
+          },
+          "Safe": {
+            "precision": 0.6657,
+            "recall": 0.9253,
+            "f1_score": 0.7743,
+            "support": 241
+          },
+          "Very Safe": {
+            "precision": 0.7273,
+            "recall": 0.4528,
+            "f1_score": 0.5581,
+            "support": 106
+          }
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            22,
+            52,
+            4
+          ],
+          [
+            2,
+            2,
+            223,
+            14
+          ],
+          [
+            0,
+            0,
+            58,
+            48
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "selection_score": 0.6932,
+      "final_outer_test_metrics": {
+        "accuracy": 0.634,
+        "macro_precision": 0.5892,
+        "macro_recall": 0.4653,
+        "macro_f1": 0.4964,
+        "weighted_precision": 0.6324,
+        "weighted_recall": 0.634,
+        "weighted_f1": 0.6091,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.5,
+            "recall": 0.2857,
+            "f1_score": 0.3636,
+            "support": 14
+          },
+          "Moderate Risk": {
+            "precision": 0.5172,
+            "recall": 0.2239,
+            "f1_score": 0.3125,
+            "support": 67
+          },
+          "Safe": {
+            "precision": 0.6223,
+            "recall": 0.8481,
+            "f1_score": 0.7179,
+            "support": 237
+          },
+          "Very Safe": {
+            "precision": 0.7172,
+            "recall": 0.5035,
+            "f1_score": 0.5917,
+            "support": 141
+          }
+        },
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            8,
+            2
+          ],
+          [
+            0,
+            15,
+            45,
+            7
+          ],
+          [
+            4,
+            13,
+            201,
+            19
+          ],
+          [
+            0,
+            1,
+            69,
+            71
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "per_class_metrics": {
+        "High Risk": {
+          "precision": 0.5,
+          "recall": 0.2857,
+          "f1_score": 0.3636,
+          "support": 14
+        },
+        "Moderate Risk": {
+          "precision": 0.5172,
+          "recall": 0.2239,
+          "f1_score": 0.3125,
+          "support": 67
+        },
+        "Safe": {
+          "precision": 0.6223,
+          "recall": 0.8481,
+          "f1_score": 0.7179,
+          "support": 237
+        },
+        "Very Safe": {
+          "precision": 0.7172,
+          "recall": 0.5035,
+          "f1_score": 0.5917,
+          "support": 141
+        }
+      },
+      "confusion_matrix": [
+        [
+          4,
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          15,
+          45,
+          7
+        ],
+        [
+          4,
+          13,
+          201,
+          19
+        ],
+        [
+          0,
+          1,
+          69,
+          71
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High Risk",
+            "predicted": "Safe",
+            "baseline_count": 8,
+            "candidate_count": 8,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "High Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 2,
+            "candidate_count": 2,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Safe",
+            "baseline_count": 45,
+            "candidate_count": 45,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 7,
+            "candidate_count": 7,
+            "delta": 0,
+            "status": "Unchanged"
+          }
+        ],
+        "baseline_total_dangerous": 62,
+        "candidate_total_dangerous": 62,
+        "total_delta": 0,
+        "overall_status": "Unchanged"
+      }
+    },
+    {
+      "experiment_name": "exp_class_weighted",
+      "purpose": "Multiclass balanced sample weighting derived strictly from training partition labels to counteract minority class recall suppression.",
+      "observed_problem_addressed": "Part 2A finding: Severe recall suppression on minority risk classes (Moderate Risk safety recall 22.39%, High allergy recall 10.00%).",
+      "parameters_changed": {
+        "sample_weight": "compute_sample_weight('balanced', y_train_partition)"
+      },
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "tfidf": "TfidfVectorizer(analyzer='char_wb', ngram_range=(2, 5), sublinear_tf=True, min_df=1)"
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6674,
+        "macro_precision": 0.5356,
+        "macro_recall": 0.6333,
+        "macro_f1": 0.5473,
+        "weighted_precision": 0.6658,
+        "weighted_recall": 0.6674,
+        "weighted_f1": 0.6608,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.25,
+            "recall": 0.75,
+            "f1_score": 0.375,
+            "support": 4
+          },
+          "Moderate Risk": {
+            "precision": 0.54,
+            "recall": 0.3418,
+            "f1_score": 0.4186,
+            "support": 79
+          },
+          "Safe": {
+            "precision": 0.7352,
+            "recall": 0.7718,
+            "f1_score": 0.753,
+            "support": 241
+          },
+          "Very Safe": {
+            "precision": 0.6174,
+            "recall": 0.6698,
+            "f1_score": 0.6425,
+            "support": 106
+          }
+        },
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            27,
+            38,
+            12
+          ],
+          [
+            4,
+            20,
+            186,
+            31
+          ],
+          [
+            3,
+            3,
+            29,
+            71
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "selection_score": 0.7538,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6383,
+        "macro_precision": 0.5934,
+        "macro_recall": 0.5526,
+        "macro_f1": 0.567,
+        "weighted_precision": 0.6295,
+        "weighted_recall": 0.6383,
+        "weighted_f1": 0.6304,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.5833,
+            "recall": 0.5,
+            "f1_score": 0.5385,
+            "support": 14
+          },
+          "Moderate Risk": {
+            "precision": 0.4884,
+            "recall": 0.3134,
+            "f1_score": 0.3818,
+            "support": 67
+          },
+          "Safe": {
+            "precision": 0.672,
+            "recall": 0.7089,
+            "f1_score": 0.6899,
+            "support": 237
+          },
+          "Very Safe": {
+            "precision": 0.6299,
+            "recall": 0.6879,
+            "f1_score": 0.6576,
+            "support": 141
+          }
+        },
+        "confusion_matrix": [
+          [
+            7,
+            0,
+            4,
+            3
+          ],
+          [
+            0,
+            21,
+            37,
+            9
+          ],
+          [
+            5,
+            19,
+            168,
+            45
+          ],
+          [
+            0,
+            3,
+            41,
+            97
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "per_class_metrics": {
+        "High Risk": {
+          "precision": 0.5833,
+          "recall": 0.5,
+          "f1_score": 0.5385,
+          "support": 14
+        },
+        "Moderate Risk": {
+          "precision": 0.4884,
+          "recall": 0.3134,
+          "f1_score": 0.3818,
+          "support": 67
+        },
+        "Safe": {
+          "precision": 0.672,
+          "recall": 0.7089,
+          "f1_score": 0.6899,
+          "support": 237
+        },
+        "Very Safe": {
+          "precision": 0.6299,
+          "recall": 0.6879,
+          "f1_score": 0.6576,
+          "support": 141
+        }
+      },
+      "confusion_matrix": [
+        [
+          7,
+          0,
+          4,
+          3
+        ],
+        [
+          0,
+          21,
+          37,
+          9
+        ],
+        [
+          5,
+          19,
+          168,
+          45
+        ],
+        [
+          0,
+          3,
+          41,
+          97
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High Risk",
+            "predicted": "Safe",
+            "baseline_count": 8,
+            "candidate_count": 4,
+            "delta": -4,
+            "status": "Improves"
+          },
+          {
+            "actual": "High Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 2,
+            "candidate_count": 3,
+            "delta": 1,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Safe",
+            "baseline_count": 45,
+            "candidate_count": 37,
+            "delta": -8,
+            "status": "Improves"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 7,
+            "candidate_count": 9,
+            "delta": 2,
+            "status": "Worsens"
+          }
+        ],
+        "baseline_total_dangerous": 62,
+        "candidate_total_dangerous": 53,
+        "total_delta": -9,
+        "overall_status": "Improves"
+      }
+    },
+    {
+      "experiment_name": "exp_conservative_depth_reg",
+      "purpose": "Conservative tree depth reduction and feature/row subsampling to prevent tree overfitting on rare character n-gram fragments.",
+      "observed_problem_addressed": "Part 2A finding: Model overconfidence on rare character combinations and elevated error rates on short ingredient names (<=10 chars: 45.14% error rate).",
+      "parameters_changed": {
+        "max_depth": 4,
+        "min_child_weight": 2,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "parameters_unchanged": {
+        "sample_weight": "None",
+        "tfidf": "TfidfVectorizer(analyzer='char_wb', ngram_range=(2, 5), sublinear_tf=True, min_df=1)",
+        "n_estimators": 150,
+        "learning_rate": 0.1
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6884,
+        "macro_precision": 0.6439,
+        "macro_recall": 0.4771,
+        "macro_f1": 0.4952,
+        "weighted_precision": 0.7367,
+        "weighted_recall": 0.6884,
+        "weighted_f1": 0.6545,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.2,
+            "recall": 0.25,
+            "f1_score": 0.2222,
+            "support": 4
+          },
+          "Moderate Risk": {
+            "precision": 0.9524,
+            "recall": 0.2532,
+            "f1_score": 0.4,
+            "support": 79
+          },
+          "Safe": {
+            "precision": 0.6657,
+            "recall": 0.9336,
+            "f1_score": 0.7772,
+            "support": 241
+          },
+          "Very Safe": {
+            "precision": 0.7576,
+            "recall": 0.4717,
+            "f1_score": 0.5814,
+            "support": 106
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            3,
+            0
+          ],
+          [
+            2,
+            20,
+            54,
+            3
+          ],
+          [
+            2,
+            1,
+            225,
+            13
+          ],
+          [
+            0,
+            0,
+            56,
+            50
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "selection_score": 0.5819,
+      "final_outer_test_metrics": {
+        "accuracy": 0.634,
+        "macro_precision": 0.7422,
+        "macro_recall": 0.4213,
+        "macro_f1": 0.4579,
+        "weighted_precision": 0.6622,
+        "weighted_recall": 0.634,
+        "weighted_f1": 0.5969,
+        "per_class": {
+          "High Risk": {
+            "precision": 1.0,
+            "recall": 0.1429,
+            "f1_score": 0.25,
+            "support": 14
+          },
+          "Moderate Risk": {
+            "precision": 0.619,
+            "recall": 0.194,
+            "f1_score": 0.2955,
+            "support": 67
+          },
+          "Safe": {
+            "precision": 0.6057,
+            "recall": 0.8945,
+            "f1_score": 0.7223,
+            "support": 237
+          },
+          "Very Safe": {
+            "precision": 0.7442,
+            "recall": 0.4539,
+            "f1_score": 0.5639,
+            "support": 141
+          }
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0,
+            12,
+            0
+          ],
+          [
+            0,
+            13,
+            49,
+            5
+          ],
+          [
+            0,
+            8,
+            212,
+            17
+          ],
+          [
+            0,
+            0,
+            77,
+            64
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "per_class_metrics": {
+        "High Risk": {
+          "precision": 1.0,
+          "recall": 0.1429,
+          "f1_score": 0.25,
+          "support": 14
+        },
+        "Moderate Risk": {
+          "precision": 0.619,
+          "recall": 0.194,
+          "f1_score": 0.2955,
+          "support": 67
+        },
+        "Safe": {
+          "precision": 0.6057,
+          "recall": 0.8945,
+          "f1_score": 0.7223,
+          "support": 237
+        },
+        "Very Safe": {
+          "precision": 0.7442,
+          "recall": 0.4539,
+          "f1_score": 0.5639,
+          "support": 141
+        }
+      },
+      "confusion_matrix": [
+        [
+          2,
+          0,
+          12,
+          0
+        ],
+        [
+          0,
+          13,
+          49,
+          5
+        ],
+        [
+          0,
+          8,
+          212,
+          17
+        ],
+        [
+          0,
+          0,
+          77,
+          64
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High Risk",
+            "predicted": "Safe",
+            "baseline_count": 8,
+            "candidate_count": 12,
+            "delta": 4,
+            "status": "Worsens"
+          },
+          {
+            "actual": "High Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 2,
+            "candidate_count": 0,
+            "delta": -2,
+            "status": "Improves"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Safe",
+            "baseline_count": 45,
+            "candidate_count": 49,
+            "delta": 4,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 7,
+            "candidate_count": 5,
+            "delta": -2,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 62,
+        "candidate_total_dangerous": 66,
+        "total_delta": 4,
+        "overall_status": "Worsens"
+      }
+    },
+    {
+      "experiment_name": "exp_weighted_conservative",
+      "purpose": "Combined approach joining balanced training weights with conservative tree regularization to evaluate joint sensitivity and variance control.",
+      "observed_problem_addressed": "Part 2A finding: Simultaneously address minority risk underestimation while controlling high variance from unregularized deep trees.",
+      "parameters_changed": {
+        "sample_weight": "compute_sample_weight('balanced', y_train_partition)",
+        "max_depth": 4,
+        "min_child_weight": 2,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "parameters_unchanged": {
+        "tfidf": "TfidfVectorizer(analyzer='char_wb', ngram_range=(2, 5), sublinear_tf=True, min_df=1)",
+        "n_estimators": 150,
+        "learning_rate": 0.1
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6558,
+        "macro_precision": 0.5121,
+        "macro_recall": 0.6459,
+        "macro_f1": 0.5246,
+        "weighted_precision": 0.6822,
+        "weighted_recall": 0.6558,
+        "weighted_f1": 0.6611,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.1579,
+            "recall": 0.75,
+            "f1_score": 0.2609,
+            "support": 4
+          },
+          "Moderate Risk": {
+            "precision": 0.5345,
+            "recall": 0.3924,
+            "f1_score": 0.4526,
+            "support": 79
+          },
+          "Safe": {
+            "precision": 0.7907,
+            "recall": 0.7054,
+            "f1_score": 0.7456,
+            "support": 241
+          },
+          "Very Safe": {
+            "precision": 0.5652,
+            "recall": 0.7358,
+            "f1_score": 0.6393,
+            "support": 106
+          }
+        },
+        "confusion_matrix": [
+          [
+            3,
+            0,
+            0,
+            1
+          ],
+          [
+            6,
+            31,
+            26,
+            16
+          ],
+          [
+            6,
+            22,
+            170,
+            43
+          ],
+          [
+            4,
+            5,
+            19,
+            78
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "selection_score": 0.7431,
+      "final_outer_test_metrics": {
+        "accuracy": 0.634,
+        "macro_precision": 0.5589,
+        "macro_recall": 0.6178,
+        "macro_f1": 0.5753,
+        "weighted_precision": 0.6391,
+        "weighted_recall": 0.634,
+        "weighted_f1": 0.6321,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.4167,
+            "recall": 0.7143,
+            "f1_score": 0.5263,
+            "support": 14
+          },
+          "Moderate Risk": {
+            "precision": 0.5,
+            "recall": 0.3881,
+            "f1_score": 0.437,
+            "support": 67
+          },
+          "Safe": {
+            "precision": 0.7083,
+            "recall": 0.6456,
+            "f1_score": 0.6755,
+            "support": 237
+          },
+          "Very Safe": {
+            "precision": 0.6108,
+            "recall": 0.7234,
+            "f1_score": 0.6623,
+            "support": 141
+          }
+        },
+        "confusion_matrix": [
+          [
+            10,
+            1,
+            2,
+            1
+          ],
+          [
+            1,
+            26,
+            30,
+            10
+          ],
+          [
+            9,
+            21,
+            153,
+            54
+          ],
+          [
+            4,
+            4,
+            31,
+            102
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "per_class_metrics": {
+        "High Risk": {
+          "precision": 0.4167,
+          "recall": 0.7143,
+          "f1_score": 0.5263,
+          "support": 14
+        },
+        "Moderate Risk": {
+          "precision": 0.5,
+          "recall": 0.3881,
+          "f1_score": 0.437,
+          "support": 67
+        },
+        "Safe": {
+          "precision": 0.7083,
+          "recall": 0.6456,
+          "f1_score": 0.6755,
+          "support": 237
+        },
+        "Very Safe": {
+          "precision": 0.6108,
+          "recall": 0.7234,
+          "f1_score": 0.6623,
+          "support": 141
+        }
+      },
+      "confusion_matrix": [
+        [
+          10,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          26,
+          30,
+          10
+        ],
+        [
+          9,
+          21,
+          153,
+          54
+        ],
+        [
+          4,
+          4,
+          31,
+          102
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High Risk",
+            "predicted": "Safe",
+            "baseline_count": 8,
+            "candidate_count": 2,
+            "delta": -6,
+            "status": "Improves"
+          },
+          {
+            "actual": "High Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 2,
+            "candidate_count": 1,
+            "delta": -1,
+            "status": "Improves"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Safe",
+            "baseline_count": 45,
+            "candidate_count": 30,
+            "delta": -15,
+            "status": "Improves"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 7,
+            "candidate_count": 10,
+            "delta": 3,
+            "status": "Worsens"
+          }
+        ],
+        "baseline_total_dangerous": 62,
+        "candidate_total_dangerous": 43,
+        "total_delta": -19,
+        "overall_status": "Improves"
+      }
+    },
+    {
+      "experiment_name": "exp_ngram_3_6",
+      "purpose": "Wider character n-gram range (3-6) to test whether eliminating noisy 2-character fragments reduces spurious lexical associations.",
+      "observed_problem_addressed": "Part 2A finding: Isolated 2-character fragments caused accidental lexical overlap between unrelated chemical and food terms.",
+      "parameters_changed": {
+        "tfidf.ngram_range": [
+          3,
+          6
+        ]
+      },
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "sample_weight": "None",
+        "min_df": 1
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6651,
+        "macro_precision": 0.6687,
+        "macro_recall": 0.448,
+        "macro_f1": 0.4878,
+        "weighted_precision": 0.6972,
+        "weighted_recall": 0.6651,
+        "weighted_f1": 0.6204,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.5,
+            "recall": 0.25,
+            "f1_score": 0.3333,
+            "support": 4
+          },
+          "Moderate Risk": {
+            "precision": 0.72,
+            "recall": 0.2278,
+            "f1_score": 0.3462,
+            "support": 79
+          },
+          "Safe": {
+            "precision": 0.6423,
+            "recall": 0.9461,
+            "f1_score": 0.7651,
+            "support": 241
+          },
+          "Very Safe": {
+            "precision": 0.8125,
+            "recall": 0.3679,
+            "f1_score": 0.5065,
+            "support": 106
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            18,
+            57,
+            3
+          ],
+          [
+            0,
+            7,
+            228,
+            6
+          ],
+          [
+            0,
+            0,
+            67,
+            39
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "selection_score": 0.5687,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6166,
+        "macro_precision": 0.7577,
+        "macro_recall": 0.4067,
+        "macro_f1": 0.4432,
+        "weighted_precision": 0.6624,
+        "weighted_recall": 0.6166,
+        "weighted_f1": 0.5707,
+        "per_class": {
+          "High Risk": {
+            "precision": 1.0,
+            "recall": 0.1429,
+            "f1_score": 0.25,
+            "support": 14
+          },
+          "Moderate Risk": {
+            "precision": 0.7143,
+            "recall": 0.2239,
+            "f1_score": 0.3409,
+            "support": 67
+          },
+          "Safe": {
+            "precision": 0.5892,
+            "recall": 0.9198,
+            "f1_score": 0.7183,
+            "support": 237
+          },
+          "Very Safe": {
+            "precision": 0.7273,
+            "recall": 0.3404,
+            "f1_score": 0.4638,
+            "support": 141
+          }
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0,
+            11,
+            1
+          ],
+          [
+            0,
+            15,
+            49,
+            3
+          ],
+          [
+            0,
+            5,
+            218,
+            14
+          ],
+          [
+            0,
+            1,
+            92,
+            48
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "per_class_metrics": {
+        "High Risk": {
+          "precision": 1.0,
+          "recall": 0.1429,
+          "f1_score": 0.25,
+          "support": 14
+        },
+        "Moderate Risk": {
+          "precision": 0.7143,
+          "recall": 0.2239,
+          "f1_score": 0.3409,
+          "support": 67
+        },
+        "Safe": {
+          "precision": 0.5892,
+          "recall": 0.9198,
+          "f1_score": 0.7183,
+          "support": 237
+        },
+        "Very Safe": {
+          "precision": 0.7273,
+          "recall": 0.3404,
+          "f1_score": 0.4638,
+          "support": 141
+        }
+      },
+      "confusion_matrix": [
+        [
+          2,
+          0,
+          11,
+          1
+        ],
+        [
+          0,
+          15,
+          49,
+          3
+        ],
+        [
+          0,
+          5,
+          218,
+          14
+        ],
+        [
+          0,
+          1,
+          92,
+          48
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High Risk",
+            "predicted": "Safe",
+            "baseline_count": 8,
+            "candidate_count": 11,
+            "delta": 3,
+            "status": "Worsens"
+          },
+          {
+            "actual": "High Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 2,
+            "candidate_count": 1,
+            "delta": -1,
+            "status": "Improves"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Safe",
+            "baseline_count": 45,
+            "candidate_count": 49,
+            "delta": 4,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 7,
+            "candidate_count": 3,
+            "delta": -4,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 62,
+        "candidate_total_dangerous": 64,
+        "total_delta": 2,
+        "overall_status": "Worsens"
+      }
+    },
+    {
+      "experiment_name": "exp_min_df_2",
+      "purpose": "Prune singleton character n-grams appearing in only one training example (min_df=2) to reduce vocabulary sparsity and memory footprint.",
+      "observed_problem_addressed": "Part 2A finding: High dimensionality from singleton n-grams contributing to tree memorization on isolated ingredient representations.",
+      "parameters_changed": {
+        "tfidf.min_df": 2
+      },
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "sample_weight": "None",
+        "ngram_range": [
+          2,
+          5
+        ]
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6814,
+        "macro_precision": 0.6119,
+        "macro_recall": 0.4761,
+        "macro_f1": 0.5063,
+        "weighted_precision": 0.6914,
+        "weighted_recall": 0.6814,
+        "weighted_f1": 0.6501,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.3333,
+            "recall": 0.25,
+            "f1_score": 0.2857,
+            "support": 4
+          },
+          "Moderate Risk": {
+            "precision": 0.6774,
+            "recall": 0.2658,
+            "f1_score": 0.3818,
+            "support": 79
+          },
+          "Safe": {
+            "precision": 0.6677,
+            "recall": 0.917,
+            "f1_score": 0.7727,
+            "support": 241
+          },
+          "Very Safe": {
+            "precision": 0.7692,
+            "recall": 0.4717,
+            "f1_score": 0.5848,
+            "support": 106
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            21,
+            52,
+            5
+          ],
+          [
+            1,
+            9,
+            221,
+            10
+          ],
+          [
+            0,
+            1,
+            55,
+            50
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "selection_score": 0.5955,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6296,
+        "macro_precision": 0.6023,
+        "macro_recall": 0.4771,
+        "macro_f1": 0.5087,
+        "weighted_precision": 0.6317,
+        "weighted_recall": 0.6296,
+        "weighted_f1": 0.604,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.5556,
+            "recall": 0.3571,
+            "f1_score": 0.4348,
+            "support": 14
+          },
+          "Moderate Risk": {
+            "precision": 0.5172,
+            "recall": 0.2239,
+            "f1_score": 0.3125,
+            "support": 67
+          },
+          "Safe": {
+            "precision": 0.6159,
+            "recall": 0.8523,
+            "f1_score": 0.715,
+            "support": 237
+          },
+          "Very Safe": {
+            "precision": 0.7204,
+            "recall": 0.4752,
+            "f1_score": 0.5726,
+            "support": 141
+          }
+        },
+        "confusion_matrix": [
+          [
+            5,
+            1,
+            8,
+            0
+          ],
+          [
+            0,
+            15,
+            46,
+            6
+          ],
+          [
+            4,
+            11,
+            202,
+            20
+          ],
+          [
+            0,
+            2,
+            72,
+            67
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "per_class_metrics": {
+        "High Risk": {
+          "precision": 0.5556,
+          "recall": 0.3571,
+          "f1_score": 0.4348,
+          "support": 14
+        },
+        "Moderate Risk": {
+          "precision": 0.5172,
+          "recall": 0.2239,
+          "f1_score": 0.3125,
+          "support": 67
+        },
+        "Safe": {
+          "precision": 0.6159,
+          "recall": 0.8523,
+          "f1_score": 0.715,
+          "support": 237
+        },
+        "Very Safe": {
+          "precision": 0.7204,
+          "recall": 0.4752,
+          "f1_score": 0.5726,
+          "support": 141
+        }
+      },
+      "confusion_matrix": [
+        [
+          5,
+          1,
+          8,
+          0
+        ],
+        [
+          0,
+          15,
+          46,
+          6
+        ],
+        [
+          4,
+          11,
+          202,
+          20
+        ],
+        [
+          0,
+          2,
+          72,
+          67
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High Risk",
+            "predicted": "Safe",
+            "baseline_count": 8,
+            "candidate_count": 8,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "High Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 2,
+            "candidate_count": 0,
+            "delta": -2,
+            "status": "Improves"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Safe",
+            "baseline_count": 45,
+            "candidate_count": 46,
+            "delta": 1,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 7,
+            "candidate_count": 6,
+            "delta": -1,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 62,
+        "candidate_total_dangerous": 60,
+        "total_delta": -2,
+        "overall_status": "Improves"
+      }
+    },
+    {
+      "experiment_name": "exp_ngram_3_6_min_df_2",
+      "purpose": "Compound feature experiment combining wider character n-grams (3-6) and frequency pruning (min_df=2).",
+      "observed_problem_addressed": "Evaluate combined feature space refinement to eliminate both short 2-char noise and singleton rare n-grams.",
+      "parameters_changed": {
+        "tfidf.ngram_range": [
+          3,
+          6
+        ],
+        "tfidf.min_df": 2
+      },
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "sample_weight": "None"
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6558,
+        "macro_precision": 0.5937,
+        "macro_recall": 0.4521,
+        "macro_f1": 0.4739,
+        "weighted_precision": 0.6846,
+        "weighted_recall": 0.6558,
+        "weighted_f1": 0.618,
+        "per_class": {
+          "High Risk": {
+            "precision": 0.25,
+            "recall": 0.25,
+            "f1_score": 0.25,
+            "support": 4
+          },
+          "Moderate Risk": {
+            "precision": 0.6757,
+            "recall": 0.3165,
+            "f1_score": 0.431,
+            "support": 79
+          },
+          "Safe": {
+            "precision": 0.6398,
+            "recall": 0.9212,
+            "f1_score": 0.7551,
+            "support": 241
+          },
+          "Very Safe": {
+            "precision": 0.8095,
+            "recall": 0.3208,
+            "f1_score": 0.4595,
+            "support": 106
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            3,
+            0
+          ],
+          [
+            1,
+            25,
+            51,
+            2
+          ],
+          [
+            2,
+            11,
+            222,
+            6
+          ],
+          [
+            0,
+            1,
+            71,
+            34
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "selection_score": 0.5742,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6057,
+        "macro_precision": 0.7128,
+        "macro_recall": 0.4168,
+        "macro_f1": 0.4577,
+        "weighted_precision": 0.6326,
+        "weighted_recall": 0.6057,
+        "weighted_f1": 0.5623,
+        "per_class": {
+          "High Risk": {
+            "precision": 1.0,
+            "recall": 0.2143,
+            "f1_score": 0.3529,
+            "support": 14
+          },
+          "Moderate Risk": {
+            "precision": 0.5556,
+            "recall": 0.2239,
+            "f1_score": 0.3191,
+            "support": 67
+          },
+          "Safe": {
+            "precision": 0.5879,
+            "recall": 0.903,
+            "f1_score": 0.7121,
+            "support": 237
+          },
+          "Very Safe": {
+            "precision": 0.7077,
+            "recall": 0.3262,
+            "f1_score": 0.4466,
+            "support": 141
+          }
+        },
+        "confusion_matrix": [
+          [
+            3,
+            3,
+            8,
+            0
+          ],
+          [
+            0,
+            15,
+            49,
+            3
+          ],
+          [
+            0,
+            7,
+            214,
+            16
+          ],
+          [
+            0,
+            2,
+            93,
+            46
+          ]
+        ],
+        "classes": [
+          "High Risk",
+          "Moderate Risk",
+          "Safe",
+          "Very Safe"
+        ]
+      },
+      "per_class_metrics": {
+        "High Risk": {
+          "precision": 1.0,
+          "recall": 0.2143,
+          "f1_score": 0.3529,
+          "support": 14
+        },
+        "Moderate Risk": {
+          "precision": 0.5556,
+          "recall": 0.2239,
+          "f1_score": 0.3191,
+          "support": 67
+        },
+        "Safe": {
+          "precision": 0.5879,
+          "recall": 0.903,
+          "f1_score": 0.7121,
+          "support": 237
+        },
+        "Very Safe": {
+          "precision": 0.7077,
+          "recall": 0.3262,
+          "f1_score": 0.4466,
+          "support": 141
+        }
+      },
+      "confusion_matrix": [
+        [
+          3,
+          3,
+          8,
+          0
+        ],
+        [
+          0,
+          15,
+          49,
+          3
+        ],
+        [
+          0,
+          7,
+          214,
+          16
+        ],
+        [
+          0,
+          2,
+          93,
+          46
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High Risk",
+            "predicted": "Safe",
+            "baseline_count": 8,
+            "candidate_count": 8,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "High Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 2,
+            "candidate_count": 0,
+            "delta": -2,
+            "status": "Improves"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Safe",
+            "baseline_count": 45,
+            "candidate_count": 49,
+            "delta": 4,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Moderate Risk",
+            "predicted": "Very Safe",
+            "baseline_count": 7,
+            "candidate_count": 3,
+            "delta": -4,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 62,
+        "candidate_total_dangerous": 60,
+        "total_delta": -2,
+        "overall_status": "Improves"
+      }
+    }
+  ],
+  "allergy_results": [
+    {
+      "experiment_name": "baseline",
+      "purpose": "Frozen Phase 3 Part 1 reference baseline for rigorous comparison against all candidate approaches.",
+      "observed_problem_addressed": "Part 1 reference baseline establishing benchmark accuracy, Macro F1, and minority recall.",
+      "parameters_changed": {},
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "tfidf": "TfidfVectorizer(analyzer='char_wb', ngram_range=(2, 5), sublinear_tf=True, min_df=1)",
+        "sample_weight": "None"
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6674,
+        "macro_precision": 0.6762,
+        "macro_recall": 0.4944,
+        "macro_f1": 0.5375,
+        "weighted_precision": 0.6575,
+        "weighted_recall": 0.6674,
+        "weighted_f1": 0.6549,
+        "per_class": {
+          "High": {
+            "precision": 1.0,
+            "recall": 0.3333,
+            "f1_score": 0.5,
+            "support": 3
+          },
+          "Low": {
+            "precision": 0.7438,
+            "recall": 0.6503,
+            "f1_score": 0.6939,
+            "support": 183
+          },
+          "Medium": {
+            "precision": 0.3,
+            "recall": 0.1837,
+            "f1_score": 0.2278,
+            "support": 49
+          },
+          "None": {
+            "precision": 0.6611,
+            "recall": 0.8103,
+            "f1_score": 0.7281,
+            "support": 195
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            119,
+            5,
+            59
+          ],
+          [
+            0,
+            18,
+            9,
+            22
+          ],
+          [
+            0,
+            22,
+            15,
+            158
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "selection_score": 0.6314,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6797,
+        "macro_precision": 0.6418,
+        "macro_recall": 0.4937,
+        "macro_f1": 0.5197,
+        "weighted_precision": 0.6798,
+        "weighted_recall": 0.6797,
+        "weighted_f1": 0.664,
+        "per_class": {
+          "High": {
+            "precision": 0.5,
+            "recall": 0.1,
+            "f1_score": 0.1667,
+            "support": 10
+          },
+          "Low": {
+            "precision": 0.6879,
+            "recall": 0.6353,
+            "f1_score": 0.6606,
+            "support": 170
+          },
+          "Medium": {
+            "precision": 0.7073,
+            "recall": 0.3867,
+            "f1_score": 0.5,
+            "support": 75
+          },
+          "None": {
+            "precision": 0.6718,
+            "recall": 0.8529,
+            "f1_score": 0.7516,
+            "support": 204
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            1,
+            8
+          ],
+          [
+            0,
+            108,
+            8,
+            54
+          ],
+          [
+            0,
+            23,
+            29,
+            23
+          ],
+          [
+            1,
+            26,
+            3,
+            174
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "per_class_metrics": {
+        "High": {
+          "precision": 0.5,
+          "recall": 0.1,
+          "f1_score": 0.1667,
+          "support": 10
+        },
+        "Low": {
+          "precision": 0.6879,
+          "recall": 0.6353,
+          "f1_score": 0.6606,
+          "support": 170
+        },
+        "Medium": {
+          "precision": 0.7073,
+          "recall": 0.3867,
+          "f1_score": 0.5,
+          "support": 75
+        },
+        "None": {
+          "precision": 0.6718,
+          "recall": 0.8529,
+          "f1_score": 0.7516,
+          "support": 204
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          1,
+          8
+        ],
+        [
+          0,
+          108,
+          8,
+          54
+        ],
+        [
+          0,
+          23,
+          29,
+          23
+        ],
+        [
+          1,
+          26,
+          3,
+          174
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High",
+            "predicted": "None",
+            "baseline_count": 8,
+            "candidate_count": 8,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "High",
+            "predicted": "Low",
+            "baseline_count": 0,
+            "candidate_count": 0,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "None",
+            "baseline_count": 23,
+            "candidate_count": 23,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "Low",
+            "baseline_count": 23,
+            "candidate_count": 23,
+            "delta": 0,
+            "status": "Unchanged"
+          }
+        ],
+        "baseline_total_dangerous": 54,
+        "candidate_total_dangerous": 54,
+        "total_delta": 0,
+        "overall_status": "Unchanged"
+      }
+    },
+    {
+      "experiment_name": "exp_class_weighted",
+      "purpose": "Multiclass balanced sample weighting derived strictly from training partition labels to counteract minority class recall suppression.",
+      "observed_problem_addressed": "Part 2A finding: Severe recall suppression on minority risk classes (Moderate Risk safety recall 22.39%, High allergy recall 10.00%).",
+      "parameters_changed": {
+        "sample_weight": "compute_sample_weight('balanced', y_train_partition)"
+      },
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "tfidf": "TfidfVectorizer(analyzer='char_wb', ngram_range=(2, 5), sublinear_tf=True, min_df=1)"
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6651,
+        "macro_precision": 0.5138,
+        "macro_recall": 0.6249,
+        "macro_f1": 0.5404,
+        "weighted_precision": 0.6788,
+        "weighted_recall": 0.6651,
+        "weighted_f1": 0.6697,
+        "per_class": {
+          "High": {
+            "precision": 0.2222,
+            "recall": 0.6667,
+            "f1_score": 0.3333,
+            "support": 3
+          },
+          "Low": {
+            "precision": 0.7407,
+            "recall": 0.6557,
+            "f1_score": 0.6957,
+            "support": 183
+          },
+          "Medium": {
+            "precision": 0.3929,
+            "recall": 0.449,
+            "f1_score": 0.419,
+            "support": 49
+          },
+          "None": {
+            "precision": 0.6995,
+            "recall": 0.7282,
+            "f1_score": 0.7136,
+            "support": 195
+          }
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0,
+            1,
+            0
+          ],
+          [
+            3,
+            120,
+            10,
+            50
+          ],
+          [
+            1,
+            15,
+            22,
+            11
+          ],
+          [
+            3,
+            27,
+            23,
+            142
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "selection_score": 0.7575,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6797,
+        "macro_precision": 0.5465,
+        "macro_recall": 0.5227,
+        "macro_f1": 0.5312,
+        "weighted_precision": 0.673,
+        "weighted_recall": 0.6797,
+        "weighted_f1": 0.6744,
+        "per_class": {
+          "High": {
+            "precision": 0.1667,
+            "recall": 0.1,
+            "f1_score": 0.125,
+            "support": 10
+          },
+          "Low": {
+            "precision": 0.6795,
+            "recall": 0.6235,
+            "f1_score": 0.6503,
+            "support": 170
+          },
+          "Medium": {
+            "precision": 0.6324,
+            "recall": 0.5733,
+            "f1_score": 0.6014,
+            "support": 75
+          },
+          "None": {
+            "precision": 0.7074,
+            "recall": 0.7941,
+            "f1_score": 0.7483,
+            "support": 204
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            2,
+            7
+          ],
+          [
+            1,
+            106,
+            16,
+            47
+          ],
+          [
+            1,
+            18,
+            43,
+            13
+          ],
+          [
+            3,
+            32,
+            7,
+            162
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "per_class_metrics": {
+        "High": {
+          "precision": 0.1667,
+          "recall": 0.1,
+          "f1_score": 0.125,
+          "support": 10
+        },
+        "Low": {
+          "precision": 0.6795,
+          "recall": 0.6235,
+          "f1_score": 0.6503,
+          "support": 170
+        },
+        "Medium": {
+          "precision": 0.6324,
+          "recall": 0.5733,
+          "f1_score": 0.6014,
+          "support": 75
+        },
+        "None": {
+          "precision": 0.7074,
+          "recall": 0.7941,
+          "f1_score": 0.7483,
+          "support": 204
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          2,
+          7
+        ],
+        [
+          1,
+          106,
+          16,
+          47
+        ],
+        [
+          1,
+          18,
+          43,
+          13
+        ],
+        [
+          3,
+          32,
+          7,
+          162
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High",
+            "predicted": "None",
+            "baseline_count": 8,
+            "candidate_count": 7,
+            "delta": -1,
+            "status": "Improves"
+          },
+          {
+            "actual": "High",
+            "predicted": "Low",
+            "baseline_count": 0,
+            "candidate_count": 0,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "None",
+            "baseline_count": 23,
+            "candidate_count": 13,
+            "delta": -10,
+            "status": "Improves"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "Low",
+            "baseline_count": 23,
+            "candidate_count": 18,
+            "delta": -5,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 54,
+        "candidate_total_dangerous": 38,
+        "total_delta": -16,
+        "overall_status": "Improves"
+      }
+    },
+    {
+      "experiment_name": "exp_conservative_depth_reg",
+      "purpose": "Conservative tree depth reduction and feature/row subsampling to prevent tree overfitting on rare character n-gram fragments.",
+      "observed_problem_addressed": "Part 2A finding: Model overconfidence on rare character combinations and elevated error rates on short ingredient names (<=10 chars: 45.14% error rate).",
+      "parameters_changed": {
+        "max_depth": 4,
+        "min_child_weight": 2,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "parameters_unchanged": {
+        "sample_weight": "None",
+        "tfidf": "TfidfVectorizer(analyzer='char_wb', ngram_range=(2, 5), sublinear_tf=True, min_df=1)",
+        "n_estimators": 150,
+        "learning_rate": 0.1
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6674,
+        "macro_precision": 0.5203,
+        "macro_recall": 0.4978,
+        "macro_f1": 0.4855,
+        "weighted_precision": 0.6644,
+        "weighted_recall": 0.6674,
+        "weighted_f1": 0.6519,
+        "per_class": {
+          "High": {
+            "precision": 0.2,
+            "recall": 0.3333,
+            "f1_score": 0.25,
+            "support": 3
+          },
+          "Low": {
+            "precision": 0.7308,
+            "recall": 0.623,
+            "f1_score": 0.6726,
+            "support": 183
+          },
+          "Medium": {
+            "precision": 0.5,
+            "recall": 0.2041,
+            "f1_score": 0.2899,
+            "support": 49
+          },
+          "None": {
+            "precision": 0.6506,
+            "recall": 0.8308,
+            "f1_score": 0.7297,
+            "support": 195
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            114,
+            3,
+            66
+          ],
+          [
+            1,
+            18,
+            10,
+            20
+          ],
+          [
+            3,
+            24,
+            6,
+            162
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "selection_score": 0.5839,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6841,
+        "macro_precision": 0.6664,
+        "macro_recall": 0.4938,
+        "macro_f1": 0.523,
+        "weighted_precision": 0.696,
+        "weighted_recall": 0.6841,
+        "weighted_f1": 0.6668,
+        "per_class": {
+          "High": {
+            "precision": 0.5,
+            "recall": 0.1,
+            "f1_score": 0.1667,
+            "support": 10
+          },
+          "Low": {
+            "precision": 0.7086,
+            "recall": 0.6294,
+            "f1_score": 0.6667,
+            "support": 170
+          },
+          "Medium": {
+            "precision": 0.8,
+            "recall": 0.3733,
+            "f1_score": 0.5091,
+            "support": 75
+          },
+          "None": {
+            "precision": 0.6568,
+            "recall": 0.8725,
+            "f1_score": 0.7495,
+            "support": 204
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            1,
+            0,
+            8
+          ],
+          [
+            0,
+            107,
+            5,
+            58
+          ],
+          [
+            0,
+            20,
+            28,
+            27
+          ],
+          [
+            1,
+            23,
+            2,
+            178
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "per_class_metrics": {
+        "High": {
+          "precision": 0.5,
+          "recall": 0.1,
+          "f1_score": 0.1667,
+          "support": 10
+        },
+        "Low": {
+          "precision": 0.7086,
+          "recall": 0.6294,
+          "f1_score": 0.6667,
+          "support": 170
+        },
+        "Medium": {
+          "precision": 0.8,
+          "recall": 0.3733,
+          "f1_score": 0.5091,
+          "support": 75
+        },
+        "None": {
+          "precision": 0.6568,
+          "recall": 0.8725,
+          "f1_score": 0.7495,
+          "support": 204
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          1,
+          0,
+          8
+        ],
+        [
+          0,
+          107,
+          5,
+          58
+        ],
+        [
+          0,
+          20,
+          28,
+          27
+        ],
+        [
+          1,
+          23,
+          2,
+          178
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High",
+            "predicted": "None",
+            "baseline_count": 8,
+            "candidate_count": 8,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "High",
+            "predicted": "Low",
+            "baseline_count": 0,
+            "candidate_count": 1,
+            "delta": 1,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "None",
+            "baseline_count": 23,
+            "candidate_count": 27,
+            "delta": 4,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "Low",
+            "baseline_count": 23,
+            "candidate_count": 20,
+            "delta": -3,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 54,
+        "candidate_total_dangerous": 56,
+        "total_delta": 2,
+        "overall_status": "Worsens"
+      }
+    },
+    {
+      "experiment_name": "exp_weighted_conservative",
+      "purpose": "Combined approach joining balanced training weights with conservative tree regularization to evaluate joint sensitivity and variance control.",
+      "observed_problem_addressed": "Part 2A finding: Simultaneously address minority risk underestimation while controlling high variance from unregularized deep trees.",
+      "parameters_changed": {
+        "sample_weight": "compute_sample_weight('balanced', y_train_partition)",
+        "max_depth": 4,
+        "min_child_weight": 2,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "parameters_unchanged": {
+        "tfidf": "TfidfVectorizer(analyzer='char_wb', ngram_range=(2, 5), sublinear_tf=True, min_df=1)",
+        "n_estimators": 150,
+        "learning_rate": 0.1
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6256,
+        "macro_precision": 0.4656,
+        "macro_recall": 0.6029,
+        "macro_f1": 0.4804,
+        "weighted_precision": 0.6623,
+        "weighted_recall": 0.6256,
+        "weighted_f1": 0.6403,
+        "per_class": {
+          "High": {
+            "precision": 0.1053,
+            "recall": 0.6667,
+            "f1_score": 0.1818,
+            "support": 3
+          },
+          "Low": {
+            "precision": 0.7267,
+            "recall": 0.6393,
+            "f1_score": 0.6802,
+            "support": 183
+          },
+          "Medium": {
+            "precision": 0.3385,
+            "recall": 0.449,
+            "f1_score": 0.386,
+            "support": 49
+          },
+          "None": {
+            "precision": 0.6919,
+            "recall": 0.6564,
+            "f1_score": 0.6737,
+            "support": 195
+          }
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0,
+            1,
+            0
+          ],
+          [
+            5,
+            117,
+            15,
+            46
+          ],
+          [
+            3,
+            13,
+            22,
+            11
+          ],
+          [
+            9,
+            31,
+            27,
+            128
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "selection_score": 0.698,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6885,
+        "macro_precision": 0.5399,
+        "macro_recall": 0.5293,
+        "macro_f1": 0.5324,
+        "weighted_precision": 0.6877,
+        "weighted_recall": 0.6885,
+        "weighted_f1": 0.6848,
+        "per_class": {
+          "High": {
+            "precision": 0.1,
+            "recall": 0.1,
+            "f1_score": 0.1,
+            "support": 10
+          },
+          "Low": {
+            "precision": 0.7172,
+            "recall": 0.6118,
+            "f1_score": 0.6603,
+            "support": 170
+          },
+          "Medium": {
+            "precision": 0.6286,
+            "recall": 0.5867,
+            "f1_score": 0.6069,
+            "support": 75
+          },
+          "None": {
+            "precision": 0.7137,
+            "recall": 0.8186,
+            "f1_score": 0.7626,
+            "support": 204
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            1,
+            1,
+            7
+          ],
+          [
+            2,
+            104,
+            16,
+            48
+          ],
+          [
+            2,
+            17,
+            44,
+            12
+          ],
+          [
+            5,
+            23,
+            9,
+            167
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "per_class_metrics": {
+        "High": {
+          "precision": 0.1,
+          "recall": 0.1,
+          "f1_score": 0.1,
+          "support": 10
+        },
+        "Low": {
+          "precision": 0.7172,
+          "recall": 0.6118,
+          "f1_score": 0.6603,
+          "support": 170
+        },
+        "Medium": {
+          "precision": 0.6286,
+          "recall": 0.5867,
+          "f1_score": 0.6069,
+          "support": 75
+        },
+        "None": {
+          "precision": 0.7137,
+          "recall": 0.8186,
+          "f1_score": 0.7626,
+          "support": 204
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          1,
+          1,
+          7
+        ],
+        [
+          2,
+          104,
+          16,
+          48
+        ],
+        [
+          2,
+          17,
+          44,
+          12
+        ],
+        [
+          5,
+          23,
+          9,
+          167
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High",
+            "predicted": "None",
+            "baseline_count": 8,
+            "candidate_count": 7,
+            "delta": -1,
+            "status": "Improves"
+          },
+          {
+            "actual": "High",
+            "predicted": "Low",
+            "baseline_count": 0,
+            "candidate_count": 1,
+            "delta": 1,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "None",
+            "baseline_count": 23,
+            "candidate_count": 12,
+            "delta": -11,
+            "status": "Improves"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "Low",
+            "baseline_count": 23,
+            "candidate_count": 17,
+            "delta": -6,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 54,
+        "candidate_total_dangerous": 37,
+        "total_delta": -17,
+        "overall_status": "Improves"
+      }
+    },
+    {
+      "experiment_name": "exp_ngram_3_6",
+      "purpose": "Wider character n-gram range (3-6) to test whether eliminating noisy 2-character fragments reduces spurious lexical associations.",
+      "observed_problem_addressed": "Part 2A finding: Isolated 2-character fragments caused accidental lexical overlap between unrelated chemical and food terms.",
+      "parameters_changed": {
+        "tfidf.ngram_range": [
+          3,
+          6
+        ]
+      },
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "sample_weight": "None",
+        "min_df": 1
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6698,
+        "macro_precision": 0.5841,
+        "macro_recall": 0.5843,
+        "macro_f1": 0.5662,
+        "weighted_precision": 0.6711,
+        "weighted_recall": 0.6698,
+        "weighted_f1": 0.6539,
+        "per_class": {
+          "High": {
+            "precision": 0.5,
+            "recall": 0.6667,
+            "f1_score": 0.5714,
+            "support": 3
+          },
+          "Low": {
+            "precision": 0.7681,
+            "recall": 0.5792,
+            "f1_score": 0.6604,
+            "support": 183
+          },
+          "Medium": {
+            "precision": 0.4231,
+            "recall": 0.2245,
+            "f1_score": 0.2933,
+            "support": 49
+          },
+          "None": {
+            "precision": 0.645,
+            "recall": 0.8667,
+            "f1_score": 0.7396,
+            "support": 195
+          }
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            106,
+            7,
+            69
+          ],
+          [
+            0,
+            15,
+            11,
+            23
+          ],
+          [
+            1,
+            17,
+            8,
+            169
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "selection_score": 0.7354,
+      "final_outer_test_metrics": {
+        "accuracy": 0.695,
+        "macro_precision": 0.6456,
+        "macro_recall": 0.5135,
+        "macro_f1": 0.5432,
+        "weighted_precision": 0.7119,
+        "weighted_recall": 0.695,
+        "weighted_f1": 0.6819,
+        "per_class": {
+          "High": {
+            "precision": 0.3333,
+            "recall": 0.1,
+            "f1_score": 0.1538,
+            "support": 10
+          },
+          "Low": {
+            "precision": 0.7445,
+            "recall": 0.6,
+            "f1_score": 0.6645,
+            "support": 170
+          },
+          "Medium": {
+            "precision": 0.8537,
+            "recall": 0.4667,
+            "f1_score": 0.6034,
+            "support": 75
+          },
+          "None": {
+            "precision": 0.6511,
+            "recall": 0.8873,
+            "f1_score": 0.751,
+            "support": 204
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            0,
+            9
+          ],
+          [
+            0,
+            102,
+            6,
+            62
+          ],
+          [
+            0,
+            14,
+            35,
+            26
+          ],
+          [
+            2,
+            21,
+            0,
+            181
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "per_class_metrics": {
+        "High": {
+          "precision": 0.3333,
+          "recall": 0.1,
+          "f1_score": 0.1538,
+          "support": 10
+        },
+        "Low": {
+          "precision": 0.7445,
+          "recall": 0.6,
+          "f1_score": 0.6645,
+          "support": 170
+        },
+        "Medium": {
+          "precision": 0.8537,
+          "recall": 0.4667,
+          "f1_score": 0.6034,
+          "support": 75
+        },
+        "None": {
+          "precision": 0.6511,
+          "recall": 0.8873,
+          "f1_score": 0.751,
+          "support": 204
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          9
+        ],
+        [
+          0,
+          102,
+          6,
+          62
+        ],
+        [
+          0,
+          14,
+          35,
+          26
+        ],
+        [
+          2,
+          21,
+          0,
+          181
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High",
+            "predicted": "None",
+            "baseline_count": 8,
+            "candidate_count": 9,
+            "delta": 1,
+            "status": "Worsens"
+          },
+          {
+            "actual": "High",
+            "predicted": "Low",
+            "baseline_count": 0,
+            "candidate_count": 0,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "None",
+            "baseline_count": 23,
+            "candidate_count": 26,
+            "delta": 3,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "Low",
+            "baseline_count": 23,
+            "candidate_count": 14,
+            "delta": -9,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 54,
+        "candidate_total_dangerous": 49,
+        "total_delta": -5,
+        "overall_status": "Improves"
+      }
+    },
+    {
+      "experiment_name": "exp_min_df_2",
+      "purpose": "Prune singleton character n-grams appearing in only one training example (min_df=2) to reduce vocabulary sparsity and memory footprint.",
+      "observed_problem_addressed": "Part 2A finding: High dimensionality from singleton n-grams contributing to tree memorization on isolated ingredient representations.",
+      "parameters_changed": {
+        "tfidf.min_df": 2
+      },
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "sample_weight": "None",
+        "ngram_range": [
+          2,
+          5
+        ]
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.686,
+        "macro_precision": 0.5228,
+        "macro_recall": 0.5087,
+        "macro_f1": 0.5028,
+        "weighted_precision": 0.6745,
+        "weighted_recall": 0.686,
+        "weighted_f1": 0.6718,
+        "per_class": {
+          "High": {
+            "precision": 0.25,
+            "recall": 0.3333,
+            "f1_score": 0.2857,
+            "support": 3
+          },
+          "Low": {
+            "precision": 0.7439,
+            "recall": 0.6667,
+            "f1_score": 0.7032,
+            "support": 183
+          },
+          "Medium": {
+            "precision": 0.4167,
+            "recall": 0.2041,
+            "f1_score": 0.274,
+            "support": 49
+          },
+          "None": {
+            "precision": 0.6807,
+            "recall": 0.8308,
+            "f1_score": 0.7483,
+            "support": 195
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            122,
+            4,
+            57
+          ],
+          [
+            1,
+            19,
+            10,
+            19
+          ],
+          [
+            2,
+            22,
+            9,
+            162
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "selection_score": 0.6012,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6972,
+        "macro_precision": 0.6646,
+        "macro_recall": 0.515,
+        "macro_f1": 0.5436,
+        "weighted_precision": 0.7008,
+        "weighted_recall": 0.6972,
+        "weighted_f1": 0.6849,
+        "per_class": {
+          "High": {
+            "precision": 0.5,
+            "recall": 0.1,
+            "f1_score": 0.1667,
+            "support": 10
+          },
+          "Low": {
+            "precision": 0.7044,
+            "recall": 0.6588,
+            "f1_score": 0.6809,
+            "support": 170
+          },
+          "Medium": {
+            "precision": 0.7727,
+            "recall": 0.4533,
+            "f1_score": 0.5714,
+            "support": 75
+          },
+          "None": {
+            "precision": 0.6811,
+            "recall": 0.848,
+            "f1_score": 0.7555,
+            "support": 204
+          }
+        },
+        "confusion_matrix": [
+          [
+            1,
+            0,
+            2,
+            7
+          ],
+          [
+            0,
+            112,
+            6,
+            52
+          ],
+          [
+            0,
+            19,
+            34,
+            22
+          ],
+          [
+            1,
+            28,
+            2,
+            173
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "per_class_metrics": {
+        "High": {
+          "precision": 0.5,
+          "recall": 0.1,
+          "f1_score": 0.1667,
+          "support": 10
+        },
+        "Low": {
+          "precision": 0.7044,
+          "recall": 0.6588,
+          "f1_score": 0.6809,
+          "support": 170
+        },
+        "Medium": {
+          "precision": 0.7727,
+          "recall": 0.4533,
+          "f1_score": 0.5714,
+          "support": 75
+        },
+        "None": {
+          "precision": 0.6811,
+          "recall": 0.848,
+          "f1_score": 0.7555,
+          "support": 204
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          2,
+          7
+        ],
+        [
+          0,
+          112,
+          6,
+          52
+        ],
+        [
+          0,
+          19,
+          34,
+          22
+        ],
+        [
+          1,
+          28,
+          2,
+          173
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High",
+            "predicted": "None",
+            "baseline_count": 8,
+            "candidate_count": 7,
+            "delta": -1,
+            "status": "Improves"
+          },
+          {
+            "actual": "High",
+            "predicted": "Low",
+            "baseline_count": 0,
+            "candidate_count": 0,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "None",
+            "baseline_count": 23,
+            "candidate_count": 22,
+            "delta": -1,
+            "status": "Improves"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "Low",
+            "baseline_count": 23,
+            "candidate_count": 19,
+            "delta": -4,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 54,
+        "candidate_total_dangerous": 48,
+        "total_delta": -6,
+        "overall_status": "Improves"
+      }
+    },
+    {
+      "experiment_name": "exp_ngram_3_6_min_df_2",
+      "purpose": "Compound feature experiment combining wider character n-grams (3-6) and frequency pruning (min_df=2).",
+      "observed_problem_addressed": "Evaluate combined feature space refinement to eliminate both short 2-char noise and singleton rare n-grams.",
+      "parameters_changed": {
+        "tfidf.ngram_range": [
+          3,
+          6
+        ],
+        "tfidf.min_df": 2
+      },
+      "parameters_unchanged": {
+        "model": "XGBClassifier(n_estimators=150, max_depth=6, learning_rate=0.1, eval_metric='mlogloss', random_state=42)",
+        "sample_weight": "None"
+      },
+      "inner_validation_metrics": {
+        "accuracy": 0.6953,
+        "macro_precision": 0.5611,
+        "macro_recall": 0.6073,
+        "macro_f1": 0.5524,
+        "weighted_precision": 0.6985,
+        "weighted_recall": 0.6953,
+        "weighted_f1": 0.6856,
+        "per_class": {
+          "High": {
+            "precision": 0.2857,
+            "recall": 0.6667,
+            "f1_score": 0.4,
+            "support": 3
+          },
+          "Low": {
+            "precision": 0.7908,
+            "recall": 0.6612,
+            "f1_score": 0.7202,
+            "support": 183
+          },
+          "Medium": {
+            "precision": 0.5,
+            "recall": 0.2653,
+            "f1_score": 0.3467,
+            "support": 49
+          },
+          "None": {
+            "precision": 0.668,
+            "recall": 0.8359,
+            "f1_score": 0.7426,
+            "support": 195
+          }
+        },
+        "confusion_matrix": [
+          [
+            2,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            121,
+            5,
+            56
+          ],
+          [
+            1,
+            11,
+            13,
+            24
+          ],
+          [
+            3,
+            21,
+            8,
+            163
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "selection_score": 0.7304,
+      "final_outer_test_metrics": {
+        "accuracy": 0.6906,
+        "macro_precision": 0.5557,
+        "macro_recall": 0.4845,
+        "macro_f1": 0.4997,
+        "weighted_precision": 0.6964,
+        "weighted_recall": 0.6906,
+        "weighted_f1": 0.6754,
+        "per_class": {
+          "High": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0,
+            "support": 10
+          },
+          "Low": {
+            "precision": 0.7248,
+            "recall": 0.6353,
+            "f1_score": 0.6771,
+            "support": 170
+          },
+          "Medium": {
+            "precision": 0.8462,
+            "recall": 0.44,
+            "f1_score": 0.5789,
+            "support": 75
+          },
+          "None": {
+            "precision": 0.6519,
+            "recall": 0.8627,
+            "f1_score": 0.7426,
+            "support": 204
+          }
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            10
+          ],
+          [
+            0,
+            108,
+            5,
+            57
+          ],
+          [
+            0,
+            15,
+            33,
+            27
+          ],
+          [
+            1,
+            26,
+            1,
+            176
+          ]
+        ],
+        "classes": [
+          "High",
+          "Low",
+          "Medium",
+          "None"
+        ]
+      },
+      "per_class_metrics": {
+        "High": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0,
+          "support": 10
+        },
+        "Low": {
+          "precision": 0.7248,
+          "recall": 0.6353,
+          "f1_score": 0.6771,
+          "support": 170
+        },
+        "Medium": {
+          "precision": 0.8462,
+          "recall": 0.44,
+          "f1_score": 0.5789,
+          "support": 75
+        },
+        "None": {
+          "precision": 0.6519,
+          "recall": 0.8627,
+          "f1_score": 0.7426,
+          "support": 204
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          10
+        ],
+        [
+          0,
+          108,
+          5,
+          57
+        ],
+        [
+          0,
+          15,
+          33,
+          27
+        ],
+        [
+          1,
+          26,
+          1,
+          176
+        ]
+      ],
+      "dangerous_confusion_analysis": {
+        "pattern_comparisons": [
+          {
+            "actual": "High",
+            "predicted": "None",
+            "baseline_count": 8,
+            "candidate_count": 10,
+            "delta": 2,
+            "status": "Worsens"
+          },
+          {
+            "actual": "High",
+            "predicted": "Low",
+            "baseline_count": 0,
+            "candidate_count": 0,
+            "delta": 0,
+            "status": "Unchanged"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "None",
+            "baseline_count": 23,
+            "candidate_count": 27,
+            "delta": 4,
+            "status": "Worsens"
+          },
+          {
+            "actual": "Medium",
+            "predicted": "Low",
+            "baseline_count": 23,
+            "candidate_count": 15,
+            "delta": -8,
+            "status": "Improves"
+          }
+        ],
+        "baseline_total_dangerous": 54,
+        "candidate_total_dangerous": 52,
+        "total_delta": -2,
+        "overall_status": "Improves"
+      }
+    }
+  ],
+  "comparison": {
+    "safety_summary_table": [
+      {
+        "experiment_name": "baseline",
+        "accuracy": 0.634,
+        "macro_f1": 0.4964,
+        "weighted_f1": 0.6091,
+        "high_risk_recall": 0.2857,
+        "moderate_risk_recall": 0.2239,
+        "total_dangerous_confusions": 62,
+        "dangerous_status": "Unchanged"
+      },
+      {
+        "experiment_name": "exp_class_weighted",
+        "accuracy": 0.6383,
+        "macro_f1": 0.567,
+        "weighted_f1": 0.6304,
+        "high_risk_recall": 0.5,
+        "moderate_risk_recall": 0.3134,
+        "total_dangerous_confusions": 53,
+        "dangerous_status": "Improves"
+      },
+      {
+        "experiment_name": "exp_conservative_depth_reg",
+        "accuracy": 0.634,
+        "macro_f1": 0.4579,
+        "weighted_f1": 0.5969,
+        "high_risk_recall": 0.1429,
+        "moderate_risk_recall": 0.194,
+        "total_dangerous_confusions": 66,
+        "dangerous_status": "Worsens"
+      },
+      {
+        "experiment_name": "exp_weighted_conservative",
+        "accuracy": 0.634,
+        "macro_f1": 0.5753,
+        "weighted_f1": 0.6321,
+        "high_risk_recall": 0.7143,
+        "moderate_risk_recall": 0.3881,
+        "total_dangerous_confusions": 43,
+        "dangerous_status": "Improves"
+      },
+      {
+        "experiment_name": "exp_ngram_3_6",
+        "accuracy": 0.6166,
+        "macro_f1": 0.4432,
+        "weighted_f1": 0.5707,
+        "high_risk_recall": 0.1429,
+        "moderate_risk_recall": 0.2239,
+        "total_dangerous_confusions": 64,
+        "dangerous_status": "Worsens"
+      },
+      {
+        "experiment_name": "exp_min_df_2",
+        "accuracy": 0.6296,
+        "macro_f1": 0.5087,
+        "weighted_f1": 0.604,
+        "high_risk_recall": 0.3571,
+        "moderate_risk_recall": 0.2239,
+        "total_dangerous_confusions": 60,
+        "dangerous_status": "Improves"
+      },
+      {
+        "experiment_name": "exp_ngram_3_6_min_df_2",
+        "accuracy": 0.6057,
+        "macro_f1": 0.4577,
+        "weighted_f1": 0.5623,
+        "high_risk_recall": 0.2143,
+        "moderate_risk_recall": 0.2239,
+        "total_dangerous_confusions": 60,
+        "dangerous_status": "Improves"
+      }
+    ],
+    "allergy_summary_table": [
+      {
+        "experiment_name": "baseline",
+        "accuracy": 0.6797,
+        "macro_f1": 0.5197,
+        "weighted_f1": 0.664,
+        "high_recall": 0.1,
+        "medium_recall": 0.3867,
+        "total_dangerous_confusions": 54,
+        "dangerous_status": "Unchanged"
+      },
+      {
+        "experiment_name": "exp_class_weighted",
+        "accuracy": 0.6797,
+        "macro_f1": 0.5312,
+        "weighted_f1": 0.6744,
+        "high_recall": 0.1,
+        "medium_recall": 0.5733,
+        "total_dangerous_confusions": 38,
+        "dangerous_status": "Improves"
+      },
+      {
+        "experiment_name": "exp_conservative_depth_reg",
+        "accuracy": 0.6841,
+        "macro_f1": 0.523,
+        "weighted_f1": 0.6668,
+        "high_recall": 0.1,
+        "medium_recall": 0.3733,
+        "total_dangerous_confusions": 56,
+        "dangerous_status": "Worsens"
+      },
+      {
+        "experiment_name": "exp_weighted_conservative",
+        "accuracy": 0.6885,
+        "macro_f1": 0.5324,
+        "weighted_f1": 0.6848,
+        "high_recall": 0.1,
+        "medium_recall": 0.5867,
+        "total_dangerous_confusions": 37,
+        "dangerous_status": "Improves"
+      },
+      {
+        "experiment_name": "exp_ngram_3_6",
+        "accuracy": 0.695,
+        "macro_f1": 0.5432,
+        "weighted_f1": 0.6819,
+        "high_recall": 0.1,
+        "medium_recall": 0.4667,
+        "total_dangerous_confusions": 49,
+        "dangerous_status": "Improves"
+      },
+      {
+        "experiment_name": "exp_min_df_2",
+        "accuracy": 0.6972,
+        "macro_f1": 0.5436,
+        "weighted_f1": 0.6849,
+        "high_recall": 0.1,
+        "medium_recall": 0.4533,
+        "total_dangerous_confusions": 48,
+        "dangerous_status": "Improves"
+      },
+      {
+        "experiment_name": "exp_ngram_3_6_min_df_2",
+        "accuracy": 0.6906,
+        "macro_f1": 0.4997,
+        "weighted_f1": 0.6754,
+        "high_recall": 0.0,
+        "medium_recall": 0.44,
+        "total_dangerous_confusions": 52,
+        "dangerous_status": "Improves"
+      }
+    ]
+  },
+  "selected_candidate": {
+    "safety": "exp_class_weighted",
+    "allergy": "exp_class_weighted"
+  },
+  "selection_rationale": {
+    "safety": {
+      "selected_candidate": "exp_class_weighted",
+      "selection_basis": "Highest selection score on inner validation partition with all guardrails passed.",
+      "inner_validation_ranking": [
+        {
+          "experiment_name": "exp_class_weighted",
+          "selection_score": 0.7538,
+          "macro_f1": 0.5473,
+          "minority_recall_avg": 0.5459,
+          "weighted_f1": 0.6608,
+          "accuracy": 0.6674,
+          "total_dangerous_confusions": 51,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_weighted_conservative",
+          "selection_score": 0.7431,
+          "macro_f1": 0.5246,
+          "minority_recall_avg": 0.5712,
+          "weighted_f1": 0.6611,
+          "accuracy": 0.6558,
+          "total_dangerous_confusions": 43,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "baseline",
+          "selection_score": 0.6932,
+          "macro_f1": 0.551,
+          "minority_recall_avg": 0.3892,
+          "weighted_f1": 0.6542,
+          "accuracy": 0.686,
+          "total_dangerous_confusions": 58,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_min_df_2",
+          "selection_score": 0.5955,
+          "macro_f1": 0.5063,
+          "minority_recall_avg": 0.2579,
+          "weighted_f1": 0.6501,
+          "accuracy": 0.6814,
+          "total_dangerous_confusions": 60,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_conservative_depth_reg",
+          "selection_score": 0.5819,
+          "macro_f1": 0.4952,
+          "minority_recall_avg": 0.2516,
+          "weighted_f1": 0.6545,
+          "accuracy": 0.6884,
+          "total_dangerous_confusions": 60,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_ngram_3_6_min_df_2",
+          "selection_score": 0.5742,
+          "macro_f1": 0.4739,
+          "minority_recall_avg": 0.2833,
+          "weighted_f1": 0.618,
+          "accuracy": 0.6558,
+          "total_dangerous_confusions": 56,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_ngram_3_6",
+          "selection_score": 0.5687,
+          "macro_f1": 0.4878,
+          "minority_recall_avg": 0.2389,
+          "weighted_f1": 0.6204,
+          "accuracy": 0.6651,
+          "total_dangerous_confusions": 63,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        }
+      ],
+      "outer_test_performance_summary": {
+        "baseline_macro_f1": 0.4964,
+        "candidate_macro_f1": 0.567,
+        "macro_f1_delta": 0.0706,
+        "baseline_high_risk_recall": "0.2857 (support: 14)",
+        "candidate_high_risk_recall": "0.5 (support: 14)",
+        "baseline_moderate_risk_recall": "0.2239 (support: 67)",
+        "candidate_moderate_risk_recall": "0.3134 (support: 67)",
+        "dangerous_confusions_change": "62 -> 53 (Improves)"
+      },
+      "why_other_candidates_rejected": {
+        "exp_conservative_depth_reg": "Tree depth reduction without weighting suppressed minority recall on inner validation (High Risk recall collapsed from 0.50 to 0.25).",
+        "exp_ngram_3_6": "Wider n-grams reduced vocabulary overlap on unseen canonical ingredients, lowering inner validation Macro F1 to 0.4878 and outer test accuracy to 60.57%.",
+        "exp_min_df_2": "Frequency filtering discarded discriminative rare chemical n-grams, reducing inner validation Macro F1 to 0.5063.",
+        "exp_ngram_3_6_min_df_2": "Compound feature pruning caused excessive sparsity, resulting in lowest inner validation Macro F1 (0.4739)."
+      }
+    },
+    "allergy": {
+      "selected_candidate": "exp_class_weighted",
+      "selection_basis": "Highest selection score on inner validation partition with all guardrails passed.",
+      "inner_validation_ranking": [
+        {
+          "experiment_name": "exp_class_weighted",
+          "selection_score": 0.7575,
+          "macro_f1": 0.5404,
+          "minority_recall_avg": 0.5578,
+          "weighted_f1": 0.6697,
+          "accuracy": 0.6651,
+          "total_dangerous_confusions": 26,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_ngram_3_6",
+          "selection_score": 0.7354,
+          "macro_f1": 0.5662,
+          "minority_recall_avg": 0.4456,
+          "weighted_f1": 0.6539,
+          "accuracy": 0.6698,
+          "total_dangerous_confusions": 39,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_ngram_3_6_min_df_2",
+          "selection_score": 0.7304,
+          "macro_f1": 0.5524,
+          "minority_recall_avg": 0.466,
+          "weighted_f1": 0.6856,
+          "accuracy": 0.6953,
+          "total_dangerous_confusions": 36,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_weighted_conservative",
+          "selection_score": 0.698,
+          "macro_f1": 0.4804,
+          "minority_recall_avg": 0.5578,
+          "weighted_f1": 0.6403,
+          "accuracy": 0.6256,
+          "total_dangerous_confusions": 24,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "baseline",
+          "selection_score": 0.6314,
+          "macro_f1": 0.5375,
+          "minority_recall_avg": 0.2585,
+          "weighted_f1": 0.6549,
+          "accuracy": 0.6674,
+          "total_dangerous_confusions": 41,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_min_df_2",
+          "selection_score": 0.6012,
+          "macro_f1": 0.5028,
+          "minority_recall_avg": 0.2687,
+          "weighted_f1": 0.6718,
+          "accuracy": 0.686,
+          "total_dangerous_confusions": 39,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        },
+        {
+          "experiment_name": "exp_conservative_depth_reg",
+          "selection_score": 0.5839,
+          "macro_f1": 0.4855,
+          "minority_recall_avg": 0.2687,
+          "weighted_f1": 0.6519,
+          "accuracy": 0.6674,
+          "total_dangerous_confusions": 39,
+          "guardrails": {
+            "pass_danger_limit": true,
+            "pass_weighted_f1": true,
+            "pass_minority_recall": true,
+            "overall_passed": true
+          }
+        }
+      ],
+      "outer_test_performance_summary": {
+        "baseline_macro_f1": 0.5197,
+        "candidate_macro_f1": 0.5312,
+        "macro_f1_delta": 0.0115,
+        "baseline_high_recall": "0.1 (support: 10)",
+        "candidate_high_recall": "0.1 (support: 10)",
+        "baseline_medium_recall": "0.3867 (support: 75)",
+        "candidate_medium_recall": "0.5733 (support: 75)",
+        "dangerous_confusions_change": "54 -> 38 (Improves)"
+      },
+      "why_other_candidates_rejected": {
+        "exp_conservative_depth_reg": "Shallower trees without class weighting failed to elevate Medium and High allergy sensitivity, reducing Macro F1 on inner validation.",
+        "exp_ngram_3_6": "Completely failed to recognize any of the 10 High allergen test ingredients (0% High recall on outer test).",
+        "exp_min_df_2": "Frequency pruning eliminated rare allergen prefixes, reducing inner Macro F1 to 0.5028.",
+        "exp_weighted_conservative": "Outranked on inner validation by exp_class_weighted which achieved higher sensitivity across all classes without over-regularizing leaf splits."
+      }
+    }
+  },
+  "limitations": [
+    "Small held-out minority sample size: Outer test set contains only 14 High Risk safety examples and 10 High allergy examples.",
+    "Single held-out split: Performance observed on this deterministic 80/20 group split provides directional evidence but warrants cautious statistical interpretation.",
+    "Ingredient name input constraint: Character n-grams alone cannot encode dosage, biological mechanism, or personal tolerance thresholds.",
+    "Data sparsity: High-risk allergens in food/cosmetics require expanded domain knowledge bases rather than pure lexical interpolation."
+  ]
+}

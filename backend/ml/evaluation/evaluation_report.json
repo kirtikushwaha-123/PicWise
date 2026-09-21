@@ -1,0 +1,330 @@
+{
+  "evaluation_strategy": {
+    "type": "canonical_group_split",
+    "test_size": 0.2,
+    "random_state": 42,
+    "leakage_prevention": "Canonical ingredient group split + train-only TF-IDF vectorization"
+  },
+  "dataset": {
+    "total_representations": 2232,
+    "food_representations": 1449,
+    "personal_care_representations": 783,
+    "unique_canonical_ingredients": 1245,
+    "train_canonical_ingredients": 996,
+    "test_canonical_ingredients": 249,
+    "train_representations": 1773,
+    "test_representations": 459,
+    "class_distributions": {
+      "safety_level": {
+        "overall": {
+          "Safe": {
+            "count": 1282,
+            "percentage": 57.44
+          },
+          "Very Safe": {
+            "count": 542,
+            "percentage": 24.28
+          },
+          "Moderate Risk": {
+            "count": 314,
+            "percentage": 14.07
+          },
+          "High Risk": {
+            "count": 94,
+            "percentage": 4.21
+          }
+        },
+        "train": {
+          "Safe": {
+            "count": 1045,
+            "percentage": 58.94
+          },
+          "Very Safe": {
+            "count": 401,
+            "percentage": 22.62
+          },
+          "Moderate Risk": {
+            "count": 247,
+            "percentage": 13.93
+          },
+          "High Risk": {
+            "count": 80,
+            "percentage": 4.51
+          }
+        },
+        "test": {
+          "Safe": {
+            "count": 237,
+            "percentage": 51.63
+          },
+          "Very Safe": {
+            "count": 141,
+            "percentage": 30.72
+          },
+          "Moderate Risk": {
+            "count": 67,
+            "percentage": 14.6
+          },
+          "High Risk": {
+            "count": 14,
+            "percentage": 3.05
+          }
+        }
+      },
+      "allergy_risk": {
+        "overall": {
+          "None": {
+            "count": 1048,
+            "percentage": 46.95
+          },
+          "Low": {
+            "count": 814,
+            "percentage": 36.47
+          },
+          "Medium": {
+            "count": 310,
+            "percentage": 13.89
+          },
+          "High": {
+            "count": 60,
+            "percentage": 2.69
+          }
+        },
+        "train": {
+          "None": {
+            "count": 844,
+            "percentage": 47.6
+          },
+          "Low": {
+            "count": 644,
+            "percentage": 36.32
+          },
+          "Medium": {
+            "count": 235,
+            "percentage": 13.25
+          },
+          "High": {
+            "count": 50,
+            "percentage": 2.82
+          }
+        },
+        "test": {
+          "None": {
+            "count": 204,
+            "percentage": 44.44
+          },
+          "Low": {
+            "count": 170,
+            "percentage": 37.04
+          },
+          "Medium": {
+            "count": 75,
+            "percentage": 16.34
+          },
+          "High": {
+            "count": 10,
+            "percentage": 2.18
+          }
+        }
+      }
+    }
+  },
+  "safety": {
+    "baseline": {
+      "most_frequent_class": "Safe",
+      "accuracy": 0.5163,
+      "macro_precision": 0.1291,
+      "macro_recall": 0.25,
+      "macro_f1": 0.1703,
+      "weighted_f1": 0.3516
+    },
+    "model": {
+      "accuracy": 0.634,
+      "macro_precision": 0.5892,
+      "macro_recall": 0.4653,
+      "macro_f1": 0.4964,
+      "weighted_precision": 0.6324,
+      "weighted_recall": 0.634,
+      "weighted_f1": 0.6091,
+      "per_class": {
+        "High Risk": {
+          "precision": 0.5,
+          "recall": 0.2857,
+          "f1_score": 0.3636,
+          "support": 14
+        },
+        "Moderate Risk": {
+          "precision": 0.5172,
+          "recall": 0.2239,
+          "f1_score": 0.3125,
+          "support": 67
+        },
+        "Safe": {
+          "precision": 0.6223,
+          "recall": 0.8481,
+          "f1_score": 0.7179,
+          "support": 237
+        },
+        "Very Safe": {
+          "precision": 0.7172,
+          "recall": 0.5035,
+          "f1_score": 0.5917,
+          "support": 141
+        }
+      },
+      "confusion_matrix": [
+        [
+          4,
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          15,
+          45,
+          7
+        ],
+        [
+          4,
+          13,
+          201,
+          19
+        ],
+        [
+          0,
+          1,
+          69,
+          71
+        ]
+      ],
+      "classes": [
+        "High Risk",
+        "Moderate Risk",
+        "Safe",
+        "Very Safe"
+      ]
+    },
+    "confidence": {
+      "overall": {
+        "mean": 0.7235,
+        "median": 0.7313,
+        "min": 0.3711,
+        "max": 0.9925
+      },
+      "correct_predictions": {
+        "count": 291,
+        "mean": 0.7594,
+        "median": 0.783,
+        "min": 0.3711,
+        "max": 0.9925
+      },
+      "incorrect_predictions": {
+        "count": 168,
+        "mean": 0.6613,
+        "median": 0.6259,
+        "min": 0.3979,
+        "max": 0.9818
+      }
+    }
+  },
+  "allergy": {
+    "baseline": {
+      "most_frequent_class": "None",
+      "accuracy": 0.4444,
+      "macro_precision": 0.1111,
+      "macro_recall": 0.25,
+      "macro_f1": 0.1538,
+      "weighted_f1": 0.2735
+    },
+    "model": {
+      "accuracy": 0.6797,
+      "macro_precision": 0.6418,
+      "macro_recall": 0.4937,
+      "macro_f1": 0.5197,
+      "weighted_precision": 0.6798,
+      "weighted_recall": 0.6797,
+      "weighted_f1": 0.664,
+      "per_class": {
+        "High": {
+          "precision": 0.5,
+          "recall": 0.1,
+          "f1_score": 0.1667,
+          "support": 10
+        },
+        "Low": {
+          "precision": 0.6879,
+          "recall": 0.6353,
+          "f1_score": 0.6606,
+          "support": 170
+        },
+        "Medium": {
+          "precision": 0.7073,
+          "recall": 0.3867,
+          "f1_score": 0.5,
+          "support": 75
+        },
+        "None": {
+          "precision": 0.6718,
+          "recall": 0.8529,
+          "f1_score": 0.7516,
+          "support": 204
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          1,
+          8
+        ],
+        [
+          0,
+          108,
+          8,
+          54
+        ],
+        [
+          0,
+          23,
+          29,
+          23
+        ],
+        [
+          1,
+          26,
+          3,
+          174
+        ]
+      ],
+      "classes": [
+        "High",
+        "Low",
+        "Medium",
+        "None"
+      ]
+    },
+    "confidence": {
+      "overall": {
+        "mean": 0.7195,
+        "median": 0.7291,
+        "min": 0.3498,
+        "max": 0.9745
+      },
+      "correct_predictions": {
+        "count": 312,
+        "mean": 0.7634,
+        "median": 0.7811,
+        "min": 0.3761,
+        "max": 0.9745
+      },
+      "incorrect_predictions": {
+        "count": 147,
+        "mean": 0.6263,
+        "median": 0.6103,
+        "min": 0.3498,
+        "max": 0.9622
+      }
+    }
+  }
+}

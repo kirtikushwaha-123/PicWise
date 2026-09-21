@@ -1,0 +1,176 @@
+{
+  "Safety_Level": {
+    "dangerous_confusions": {
+      "high_risk_as_safe_or_very_safe": 0,
+      "moderate_risk_as_very_safe": 1,
+      "total_dangerous_confusions": 1,
+      "details": [
+        {
+          "index": 740,
+          "true": "Moderate Risk",
+          "pred": "Very Safe",
+          "type": "Moderate Risk -> Very Safe"
+        }
+      ]
+    },
+    "high_confidence_correct (>=0.8)": 700,
+    "high_confidence_incorrect (>=0.8)": 86,
+    "low_confidence (<0.5)": 5,
+    "average_confidence_correct": 0.9374761538060077,
+    "average_confidence_error": 0.8172760638864646
+  },
+  "Allergy_Risk": {
+    "dangerous_confusions": {
+      "high_allergy_as_no_risk_or_low": 7,
+      "medium_allergy_as_no_risk": 0,
+      "total_dangerous_confusions": 7,
+      "details": [
+        {
+          "index": 102,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Allergy -> No Risk/Low"
+        },
+        {
+          "index": 768,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Allergy -> No Risk/Low"
+        },
+        {
+          "index": 807,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Allergy -> No Risk/Low"
+        },
+        {
+          "index": 839,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Allergy -> No Risk/Low"
+        },
+        {
+          "index": 840,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Allergy -> No Risk/Low"
+        },
+        {
+          "index": 841,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Allergy -> No Risk/Low"
+        },
+        {
+          "index": 844,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Allergy -> No Risk/Low"
+        }
+      ]
+    },
+    "high_confidence_correct (>=0.8)": 681,
+    "high_confidence_incorrect (>=0.8)": 74,
+    "low_confidence (<0.5)": 16,
+    "average_confidence_correct": 0.930882444152754,
+    "average_confidence_error": 0.7696928669932078
+  },
+  "Irritation_Risk": {
+    "dangerous_confusions": {
+      "high_irritation_as_no_risk_or_low": 5,
+      "medium_irritation_as_no_risk": 9,
+      "total_dangerous_confusions": 14,
+      "details": [
+        {
+          "index": 102,
+          "true": "Medium",
+          "pred": "No Risk",
+          "type": "Medium Irritation -> No Risk"
+        },
+        {
+          "index": 191,
+          "true": "Medium",
+          "pred": "No Risk",
+          "type": "Medium Irritation -> No Risk"
+        },
+        {
+          "index": 208,
+          "true": "Medium",
+          "pred": "No Risk",
+          "type": "Medium Irritation -> No Risk"
+        },
+        {
+          "index": 231,
+          "true": "Medium",
+          "pred": "No Risk",
+          "type": "Medium Irritation -> No Risk"
+        },
+        {
+          "index": 233,
+          "true": "Medium",
+          "pred": "No Risk",
+          "type": "Medium Irritation -> No Risk"
+        },
+        {
+          "index": 325,
+          "true": "High",
+          "pred": "No Risk",
+          "type": "High Irritation -> No Risk/Low"
+        },
+        {
+          "index": 401,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Irritation -> No Risk/Low"
+        },
+        {
+          "index": 402,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Irritation -> No Risk/Low"
+        },
+        {
+          "index": 503,
+          "true": "Medium",
+          "pred": "No Risk",
+          "type": "Medium Irritation -> No Risk"
+        },
+        {
+          "index": 553,
+          "true": "High",
+          "pred": "Low",
+          "type": "High Irritation -> No Risk/Low"
+        },
+        {
+          "index": 742,
+          "true": "High",
+          "pred": "No Risk",
+          "type": "High Irritation -> No Risk/Low"
+        },
+        {
+          "index": 768,
+          "true": "Medium",
+          "pred": "No Risk",
+          "type": "Medium Irritation -> No Risk"
+        },
+        {
+          "index": 839,
+          "true": "Medium",
+          "pred": "No Risk",
+          "type": "Medium Irritation -> No Risk"
+        },
+        {
+          "index": 840,
+          "true": "Medium",
+          "pred": "No Risk",
+          "type": "Medium Irritation -> No Risk"
+        }
+      ]
+    },
+    "high_confidence_correct (>=0.8)": 582,
+    "high_confidence_incorrect (>=0.8)": 93,
+    "low_confidence (<0.5)": 17,
+    "average_confidence_correct": 0.9011484551950177,
+    "average_confidence_error": 0.7638459785039439
+  }
+}

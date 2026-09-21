@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PicWise — Dashboard</title>
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & RESET
+       ========================================================================== */
+    :root {
+      --primary-blue: #2F6FED;
+      --primary-blue-hover: #2356c4;
+      --blue-tint: #EAF1FF;
+      --dark-navy: #0F172A;
+      --gray-text: #6B7280;
+      --gray-light: #9CA3AF;
+      --border-color: #E5E7EB;
+      --page-bg: #F7F8FB;
+      --card-bg: #FFFFFF;
+      
+      --green-safe: #16A34A;
+      --green-tint: #DCFCE7;
+      --red-danger: #DC2626;
+      --red-tint: #FEE2E2;
+      --amber-warning: #D97706;
+      --amber-tint: #FEF3C7;
+      --mint-banner: #EAFBF1;
+
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--page-bg);
+      color: var(--dark-navy);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* Accessibility focus styling */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 2px;
+    }
+
+    /* ==========================================================================
+       SIDEBAR
+       ========================================================================== */
+    .sidebar {
+      width: 220px;
+      min-width: 220px;
+      height: 100vh;
+      background-color: #FFFFFF;
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 16px;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    /* Brand */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 4px 24px 4px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--green-safe) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(47, 111, 237, 0.25);
+    }
+
+    .brand-logo svg {
+      width: 20px;
+      height: 20px;
+      stroke: #FFFFFF;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark-navy);
+      letter-spacing: -0.3px;
+    }
+
+    /* Navigation List */
+    .nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-item a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-text);
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-item a svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--gray-text);
+      stroke-width: 1.8;
+      fill: none;
+      transition: stroke 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-item a:hover {
+      background-color: #F3F4F6;
+      color: var(--dark-navy);
+    }
+
+    .nav-item a:hover svg {
+      stroke: var(--dark-navy);
+    }
+
+    .nav-item.active a {
+      background-color: var(--blue-tint);
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .nav-item.active a svg {
+      stroke: var(--primary-blue);
+    }
+
+    .nav-divider {
+      height: 1px;
+      background-color: var(--border-color);
+      margin: 14px 4px;
+    }
+
+    /* Support Link */
+    .support-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-text);
+      transition: background-color 0.15s ease, color 0.15s ease;
+      margin-bottom: 16px;
+    }
+
+    .support-link svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--gray-text);
+      stroke-width: 1.8;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .support-link:hover {
+      background-color: #F3F4F6;
+      color: var(--dark-navy);
+    }
+
+    .support-link:hover svg {
+      stroke: var(--dark-navy);
+    }
+
+    /* Bottom Priority Card */
+    .sidebar-bottom-card {
+      margin-top: auto;
+      background: linear-gradient(135deg, #EEF3FF 0%, #EAF6F1 100%);
+      border-radius: var(--radius-lg);
+      padding: 20px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid rgba(47, 111, 237, 0.08);
+    }
+
+    .sidebar-bottom-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--green-safe) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 10px rgba(47, 111, 237, 0.2);
+    }
+
+    .sidebar-bottom-badge svg {
+      width: 22px;
+      height: 22px;
+      stroke: #FFFFFF;
+      stroke-width: 2.2;
+      fill: none;
+    }
+
+    .sidebar-bottom-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--dark-navy);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .sidebar-bottom-title .highlight-safety {
+      color: var(--primary-blue);
+    }
+
+    .sidebar-bottom-title .highlight-priority {
+      color: var(--green-safe);
+    }
+
+    .sidebar-bottom-desc {
+      font-size: 11.5px;
+      color: var(--gray-text);
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       MAIN AREA
+       ========================================================================== */
+    .main-area {
+      flex: 1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Top Bar */
+    .topbar {
+      height: 68px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 32px;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    .notification-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-full);
+      color: var(--gray-text);
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .notification-btn:hover {
+      background-color: #F3F4F6;
+      color: var(--dark-navy);
+    }
+
+    .notification-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    .notification-dot {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background-color: var(--green-safe);
+      border: 2px solid #FFFFFF;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 6px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .user-profile:hover {
+      background-color: #F3F4F6;
+    }
+
+    .avatar-img {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      background: linear-gradient(135deg, #FFDFD3 0%, #FDC3A1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #9A3412;
+      font-size: 14px;
+      border: 1.5px solid #FFFFFF;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .avatar-img svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .user-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--dark-navy);
+    }
+
+    .user-chevron {
+      width: 16px;
+      height: 16px;
+      stroke: var(--gray-text);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* Content Area */
+    .content-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 32px;
+      background-color: var(--page-bg);
+    }
+
+    .content-container {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Page Heading */
+    .page-heading h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--dark-navy);
+      line-height: 1.2;
+      letter-spacing: -0.4px;
+    }
+
+    .page-heading h1 .highlight-name {
+      color: var(--primary-blue);
+    }
+
+    .page-heading p {
+      font-size: 14px;
+      color: var(--gray-text);
+      margin-top: 4px;
+    }
+
+    /* Two-Column Grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 65% calc(35% - 24px);
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Left Column */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Card A — Hero Scan Card */
+    .hero-scan-card {
+      background-color: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 2px dashed #BFDBFE;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-camera-bubble {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-full);
+      background-color: var(--blue-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero-camera-bubble svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--primary-blue);
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    .hero-copy {
+      flex: 1;
+    }
+
+    .hero-copy h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+
+    .hero-copy p {
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .scan-now-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary-blue);
+      color: #FFFFFF;
+      padding: 11px 22px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 2px 6px rgba(47, 111, 237, 0.25);
+    }
+
+    .scan-now-btn:hover {
+      background-color: var(--primary-blue-hover);
+    }
+
+    .scan-now-btn:active {
+      transform: scale(0.98);
+    }
+
+    .scan-now-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: #FFFFFF;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* Hero Decorative Illustration */
+    .hero-illustration {
+      width: 130px;
+      height: 100px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    /* Section — Your Recent Scans */
+    .recent-scans-section {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark-navy);
+      letter-spacing: -0.2px;
+    }
+
+    .section-header a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary-blue);
+      transition: opacity 0.15s ease;
+    }
+
+    .section-header a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .scan-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .scan-row {
+      background-color: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .scan-row:hover {
+      background-color: #FAFBFC;
+      border-color: #D1D5DB;
+    }
+
+    /* Product Thumbnails */
+    .product-thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .product-thumb.oreo {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .product-thumb.lays {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .product-thumb.dove {
+      background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
+    }
+
+    .scan-row-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .scan-row-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark-navy);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .scan-row-detail {
+      font-size: 13px;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    .scan-row-detail.contains {
+      color: #64748B;
+    }
+
+    .scan-row-detail.safe {
+      color: var(--green-safe);
+    }
+
+    .scan-row-detail.uncertain {
+      color: var(--amber-warning);
+    }
+
+    .scan-row-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .status-pill svg {
+      width: 13px;
+      height: 13px;
+      stroke-width: 2.2;
+      fill: none;
+    }
+
+    .status-pill.not-safe {
+      background-color: var(--red-tint);
+      color: var(--red-danger);
+    }
+
+    .status-pill.not-safe svg {
+      stroke: var(--red-danger);
+    }
+
+    .status-pill.safe {
+      background-color: var(--green-tint);
+      color: var(--green-safe);
+    }
+
+    .status-pill.safe svg {
+      stroke: var(--green-safe);
+    }
+
+    .status-pill.uncertain {
+      background-color: var(--amber-tint);
+      color: var(--amber-warning);
+    }
+
+    .status-pill.uncertain svg {
+      stroke: var(--amber-warning);
+    }
+
+    .scan-row-time {
+      font-size: 12px;
+      color: var(--gray-light);
+    }
+
+    .scan-row-chevron {
+      width: 16px;
+      height: 16px;
+      stroke: var(--gray-light);
+      stroke-width: 2;
+      fill: none;
+      flex-shrink: 0;
+      margin-left: 4px;
+    }
+
+    /* ==========================================================================
+       RIGHT COLUMN
+       ========================================================================== */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Card B — My Allergens */
+    .allergens-card {
+      background-color: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .allergens-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .allergens-header h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark-navy);
+      letter-spacing: -0.2px;
+    }
+
+    .allergens-header a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green-safe);
+      transition: opacity 0.15s ease;
+    }
+
+    .allergens-header a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .allergens-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .allergen-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1;
+      border: 1px solid transparent;
+    }
+
+    .allergen-tag svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.8;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .allergen-tag.peanuts {
+      background-color: #FFEDD5;
+      color: #C2410C;
+      border-color: #FED7AA;
+    }
+
+    .allergen-tag.peanuts svg {
+      stroke: #C2410C;
+    }
+
+    .allergen-tag.tree-nuts {
+      background-color: #FEF3C7;
+      color: #92400E;
+      border-color: #FDE68A;
+    }
+
+    .allergen-tag.tree-nuts svg {
+      stroke: #92400E;
+    }
+
+    .allergen-tag.milk {
+      background-color: #E0F2FE;
+      color: #0369A1;
+      border-color: #BAE6FD;
+    }
+
+    .allergen-tag.milk svg {
+      stroke: #0369A1;
+    }
+
+    .allergen-tag.shellfish {
+      background-color: #FEE2E2;
+      color: #B91C1C;
+      border-color: #FECACA;
+    }
+
+    .allergen-tag.shellfish svg {
+      stroke: #B91C1C;
+    }
+
+    .allergen-tag.soy {
+      background-color: #DCFCE7;
+      color: #15803D;
+      border-color: #BBF7D0;
+    }
+
+    .allergen-tag.soy svg {
+      stroke: #15803D;
+    }
+
+    .allergens-note {
+      background-color: #F0FDF4;
+      border: 1px solid #DCFCE7;
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .allergens-note svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--green-safe);
+      stroke-width: 2;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .allergens-note span {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #166534;
+      line-height: 1.35;
+    }
+
+    /* Card C — Safety Insights */
+    .insights-card {
+      background-color: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .insights-header {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 14px;
+      letter-spacing: -0.2px;
+    }
+
+    .insights-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .insight-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      transition: background-color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .insight-item:hover {
+      background-color: #F8FAFC;
+    }
+
+    .insight-icon-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .insight-icon-circle.blue {
+      background-color: var(--blue-tint);
+    }
+
+    .insight-icon-circle.blue svg {
+      stroke: var(--primary-blue);
+    }
+
+    .insight-icon-circle.green {
+      background-color: var(--green-tint);
+    }
+
+    .insight-icon-circle.green svg {
+      stroke: var(--green-safe);
+    }
+
+    .insight-icon-circle.amber {
+      background-color: var(--amber-tint);
+    }
+
+    .insight-icon-circle.amber svg {
+      stroke: var(--amber-warning);
+    }
+
+    .insight-icon-circle svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    .insight-label {
+      flex: 1;
+      font-size: 14px;
+      color: #4B5563;
+    }
+
+    .insight-label strong {
+      color: var(--dark-navy);
+      font-weight: 700;
+      margin-left: 6px;
+    }
+
+    .insight-chevron {
+      width: 16px;
+      height: 16px;
+      stroke: var(--gray-light);
+      stroke-width: 2;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       BOTTOM BANNER — PICWISE AI TIP
+       ========================================================================== */
+    .ai-tip-banner {
+      background-color: var(--mint-banner);
+      border: 1px solid rgba(22, 163, 74, 0.18);
+      border-radius: var(--radius-xl);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .ai-tip-left {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background-color: var(--green-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ai-tip-left svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--green-safe);
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    .ai-tip-middle {
+      flex: 1;
+    }
+
+    .ai-tip-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green-safe);
+      margin-bottom: 3px;
+    }
+
+    .ai-tip-desc {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.45;
+    }
+
+    .ai-tip-right {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background-color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .ai-tip-right svg {
+      width: 18px;
+      height: 18px;
+      stroke: #F59E0B;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE ADJUSTMENTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+      }
+      .sidebar {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .main-area {
+        height: auto;
+      }
+      .hero-scan-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. SIDEBAR
+       ======================================================================== -->
+  <aside class="sidebar" aria-label="Sidebar Navigation">
+    <!-- Top Brand -->
+    <a href="#" class="brand" aria-label="PicWise Homepage">
+      <div class="brand-logo">
+        <!-- Shield with checkmark -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <span class="brand-name">PicWise</span>
+    </a>
+
+    <!-- Navigation List -->
+    <ul class="nav-list">
+      <!-- 1. Dashboard (Active) -->
+      <li class="nav-item active">
+        <a href="#" aria-current="page">
+          <!-- House icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1V9.5z"/>
+          </svg>
+          Dashboard
+        </a>
+      </li>
+
+      <!-- 2. Scan Product -->
+      <li class="nav-item">
+        <a href="#">
+          <!-- Viewfinder/Corner brackets icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M3 8V5a2 2 0 0 1 2-2h3"/>
+            <path d="M16 3h3a2 2 0 0 1 2 2v3"/>
+            <path d="M21 16v3a2 2 0 0 1-2 2h-3"/>
+            <path d="M8 21H5a2 2 0 0 1-2-2v-3"/>
+            <line x1="8" y1="12" x2="16" y2="12" stroke-linecap="round"/>
+          </svg>
+          Scan Product
+        </a>
+      </li>
+
+      <!-- 3. History -->
+      <li class="nav-item">
+        <a href="#">
+          <!-- Clock icon -->
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <polyline points="12 7 12 12 15 15"/>
+          </svg>
+          History
+        </a>
+      </li>
+
+      <!-- 4. My Allergens -->
+      <li class="nav-item">
+        <a href="#">
+          <!-- Heart icon -->
+          <svg viewBox="0 0 24 24">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          My Allergens
+        </a>
+      </li>
+
+      <!-- 5. Insights -->
+      <li class="nav-item">
+        <a href="#">
+          <!-- Bar-chart/trend icon -->
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+            <line x1="2" y1="20" x2="22" y2="20"/>
+          </svg>
+          Insights
+        </a>
+      </li>
+
+      <!-- 6. Settings -->
+      <li class="nav-item">
+        <a href="#">
+          <!-- Gear icon -->
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </a>
+      </li>
+    </ul>
+
+    <!-- Divider -->
+    <div class="nav-divider"></div>
+
+    <!-- Help & Support -->
+    <a href="#" class="support-link">
+      <!-- Question mark in circle icon -->
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+        <line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      Help & Support
+    </a>
+
+    <!-- Bottom Priority Card -->
+    <div class="sidebar-bottom-card">
+      <div class="sidebar-bottom-badge">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <p class="sidebar-bottom-title">
+        Your <span class="highlight-safety">safety</span>, our <span class="highlight-priority">priority</span>.
+      </p>
+      <p class="sidebar-bottom-desc">
+        PicWise helps you make safer choices, every day.
+      </p>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       2. MAIN AREA
+       ======================================================================== -->
+  <div class="main-area">
+    <!-- Top Bar -->
+    <header class="topbar">
+      <!-- Notification Icon -->
+      <button class="notification-btn" type="button" aria-label="View notifications">
+        <svg viewBox="0 0 24 24">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="notification-dot"></span>
+      </button>
+
+      <!-- User Profile -->
+      <div class="user-profile" tabindex="0" role="button" aria-haspopup="true" aria-label="User menu for Amisha">
+        <div class="avatar-img" aria-hidden="true">
+          <!-- Stylized friendly avatar SVG -->
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="#FDE047"/>
+            <path d="M18 7C14.134 7 11 10.134 11 14C11 17.866 14.134 21 18 21C21.866 21 25 17.866 25 14C25 10.134 21.866 7 18 7Z" fill="#3B2E2A"/>
+            <ellipse cx="18" cy="14.5" rx="5.5" ry="6.5" fill="#FED7AA"/>
+            <circle cx="16" cy="14" r="0.8" fill="#3B2E2A"/>
+            <circle cx="20" cy="14" r="0.8" fill="#3B2E2A"/>
+            <path d="M17 17C17.5 17.5 18.5 17.5 19 17" stroke="#3B2E2A" stroke-width="0.8" stroke-linecap="round"/>
+            <path d="M13 11.5C13 11.5 14.5 9.5 18 9.5C21.5 9.5 23 11.5 23 11.5" stroke="#3B2E2A" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M8.5 31C8.5 25.4772 12.7533 21 18 21C23.2467 21 27.5 25.4772 27.5 31" fill="#2F6FED"/>
+          </svg>
+        </div>
+        <span class="user-name">Hi, Amisha</span>
+        <svg class="user-chevron" viewBox="0 0 24 24">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </div>
+    </header>
+
+    <!-- Scrollable Content Area -->
+    <main class="content-area">
+      <div class="content-container">
+
+        <!-- 3.1 Page Heading -->
+        <section class="page-heading">
+          <h1>Welcome back, <span class="highlight-name">Amisha!</span> 👋</h1>
+          <p>Let's help you make safer choices.</p>
+        </section>
+
+        <!-- 3.2 Two-Column Grid -->
+        <div class="dashboard-grid">
+
+          <!-- ================= LEFT COLUMN ================= -->
+          <div class="left-column">
+
+            <!-- Card A — "Scan a Product" Hero -->
+            <div class="hero-scan-card">
+              <div class="hero-camera-bubble">
+                <svg viewBox="0 0 24 24">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+              </div>
+              <div class="hero-copy">
+                <h2>Scan a Product</h2>
+                <p>Upload or capture a product label to check for allergens and get AI insights instantly.</p>
+                <button class="scan-now-btn" type="button">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                    <circle cx="12" cy="13" r="4"/>
+                  </svg>
+                  Scan Now
+                </button>
+              </div>
+              <div class="hero-illustration" aria-hidden="true">
+                <!-- Generic decorative illustration: bottle, chip bag, leaves -->
+                <svg viewBox="0 0 130 100" fill="none">
+                  <!-- Leaf accents -->
+                  <path d="M18 40C16 30 24 26 30 28C32 36 26 42 18 40Z" fill="#86EFAC"/>
+                  <path d="M110 32C116 24 124 26 122 34C116 38 110 36 110 32Z" fill="#86EFAC"/>
+                  
+                  <!-- Chip Bag -->
+                  <g transform="translate(68, 20)">
+                    <!-- Bag body -->
+                    <path d="M4 10L10 2L42 2L48 10L46 68L42 74L10 74L6 68L4 10Z" fill="#3B82F6"/>
+                    <path d="M6 10L11 4L41 4L46 10L44 68L40 72L12 72L8 68L6 10Z" fill="#60A5FA"/>
+                    <!-- Top crimp -->
+                    <path d="M10 2L12 6L16 2L20 6L24 2L28 6L32 2L36 6L40 2L42 2" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+                    <!-- Label badge -->
+                    <ellipse cx="26" cy="38" rx="14" ry="10" fill="#FEF08A"/>
+                    <text x="26" y="41" font-family="-apple-system, sans-serif" font-size="7" font-weight="900" fill="#1E3A8A" text-anchor="middle">CHIPS</text>
+                    <!-- Bottom crimp -->
+                    <path d="M10 74L12 70L16 74L20 70L24 74L28 70L32 74L36 70L40 74L42 74" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+                  </g>
+
+                  <!-- Bottle Shape -->
+                  <g transform="translate(24, 15)">
+                    <!-- Bottle Cap -->
+                    <rect x="15" y="6" width="12" height="7" rx="2" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.2"/>
+                    <!-- Bottle Neck -->
+                    <rect x="17" y="13" width="8" height="6" fill="#16A34A"/>
+                    <!-- Bottle Body -->
+                    <path d="M10 24C10 20 14 19 17 19H25C28 19 32 20 32 24L34 70C34 74 31 77 27 77H15C11 77 8 74 8 70L10 24Z" fill="#22C55E"/>
+                    <path d="M12 25C12 22 15 21 17 21H25C27 21 30 22 30 25L32 68C32 72 29 74 26 74H16C13 74 10 72 10 68L12 25Z" fill="#4ADE80"/>
+                    <!-- Shield/Checkmark Badge on front -->
+                    <circle cx="21" cy="46" r="8" fill="#FFFFFF"/>
+                    <path d="M18 46L20 48L24 44" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Section — "Your Recent Scans" -->
+            <section class="recent-scans-section">
+              <div class="section-header">
+                <h2>Your Recent Scans</h2>
+                <a href="#">View all</a>
+              </div>
+
+              <div class="scan-list">
+                <!-- Row 1: Oreo Original Cookies (Not Safe) -->
+                <div class="scan-row" tabindex="0" role="button">
+                  <div class="product-thumb oreo">
+                    <!-- Generic cookie / snack packaging graphic -->
+                    <svg viewBox="0 0 48 48" width="48" height="48">
+                      <rect width="48" height="48" rx="10" fill="#1E293B"/>
+                      <circle cx="24" cy="24" r="14" fill="#334155" stroke="#475569" stroke-width="2" stroke-dasharray="3,2"/>
+                      <circle cx="24" cy="24" r="8" fill="#0F172A"/>
+                      <circle cx="24" cy="24" r="4" fill="#FFFFFF" fill-opacity="0.9"/>
+                    </svg>
+                  </div>
+                  <div class="scan-row-info">
+                    <h3 class="scan-row-title">Oreo Original Cookies</h3>
+                    <p class="scan-row-detail contains">Contains: Milk, Soy</p>
+                  </div>
+                  <div class="scan-row-meta">
+                    <span class="status-pill not-safe">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                      </svg>
+                      Not Safe
+                    </span>
+                    <span class="scan-row-time">2 mins ago</span>
+                  </div>
+                  <svg class="scan-row-chevron" viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </div>
+
+                <!-- Row 2: Lays American Style (Safe) -->
+                <div class="scan-row" tabindex="0" role="button">
+                  <div class="product-thumb lays">
+                    <!-- Generic chip packaging graphic -->
+                    <svg viewBox="0 0 48 48" width="48" height="48">
+                      <rect width="48" height="48" rx="10" fill="#F59E0B"/>
+                      <path d="M16 14L32 14L30 36L18 36Z" fill="#FDE68A"/>
+                      <circle cx="24" cy="25" r="5" fill="#DC2626"/>
+                    </svg>
+                  </div>
+                  <div class="scan-row-info">
+                    <h3 class="scan-row-title">Lays American Style</h3>
+                    <p class="scan-row-detail safe">No Allergens Found</p>
+                  </div>
+                  <div class="scan-row-meta">
+                    <span class="status-pill safe">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M20 6L9 17l-5-5"/>
+                      </svg>
+                      Safe
+                    </span>
+                    <span class="scan-row-time">1 hour ago</span>
+                  </div>
+                  <svg class="scan-row-chevron" viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </div>
+
+                <!-- Row 3: Dove Intense Repair Shampoo (Uncertain) -->
+                <div class="scan-row" tabindex="0" role="button">
+                  <div class="product-thumb dove">
+                    <!-- Generic shampoo bottle graphic -->
+                    <svg viewBox="0 0 48 48" width="48" height="48">
+                      <rect width="48" height="48" rx="10" fill="#E0F2FE"/>
+                      <rect x="20" y="11" width="8" height="4" rx="1" fill="#94A3B8"/>
+                      <path d="M17 17C17 15 20 15 24 15C28 15 31 15 31 17L33 34C33 37 30 39 24 39C18 39 15 37 15 34L17 17Z" fill="#FFFFFF"/>
+                      <path d="M20 23C22 22 26 22 28 23" stroke="#0284C7" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="scan-row-info">
+                    <h3 class="scan-row-title">Dove Intense Repair Shampoo</h3>
+                    <p class="scan-row-detail uncertain">May Contain: Tree Nuts</p>
+                  </div>
+                  <div class="scan-row-meta">
+                    <span class="status-pill uncertain">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                      </svg>
+                      Uncertain
+                    </span>
+                    <span class="scan-row-time">Yesterday</span>
+                  </div>
+                  <svg class="scan-row-chevron" viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- ================= RIGHT COLUMN ================= -->
+          <div class="right-column">
+
+            <!-- Card B — "My Allergens" -->
+            <div class="allergens-card">
+              <div class="allergens-header">
+                <h2>My Allergens</h2>
+                <a href="#">Edit</a>
+              </div>
+
+              <!-- Wrapped row of allergen pill tags -->
+              <div class="allergens-pills">
+                <!-- 1. Peanuts (orange tint) -->
+                <span class="allergen-tag peanuts">
+                  <svg viewBox="0 0 24 24">
+                    <ellipse cx="9" cy="12" rx="4" ry="5"/>
+                    <ellipse cx="15" cy="12" rx="4" ry="5"/>
+                  </svg>
+                  Peanuts
+                </span>
+
+                <!-- 2. Tree Nuts (brown tint) -->
+                <span class="allergen-tag tree-nuts">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 3v3"/>
+                    <path d="M6 9h12a6 6 0 0 1-6 12A6 6 0 0 1 6 9z"/>
+                  </svg>
+                  Tree Nuts
+                </span>
+
+                <!-- 3. Milk (blue tint) -->
+                <span class="allergen-tag milk">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8 2h8l2 5v13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7l2-5z"/>
+                    <line x1="6" y1="12" x2="18" y2="12"/>
+                  </svg>
+                  Milk
+                </span>
+
+                <!-- 4. Shellfish (red tint) -->
+                <span class="allergen-tag shellfish">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="13" r="5"/>
+                    <path d="M7 10L4 7"/>
+                    <path d="M17 10l3-3"/>
+                    <path d="M6 14H3"/>
+                    <path d="M18 14h3"/>
+                  </svg>
+                  Shellfish
+                </span>
+
+                <!-- 5. Soy (green tint) -->
+                <span class="allergen-tag soy">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 22V12"/>
+                    <path d="M12 12C12 7 7 6 7 6s0 5 5 6z"/>
+                    <path d="M12 16c3-1 6-4 6-7s-5-1-6 7z"/>
+                  </svg>
+                  Soy
+                </span>
+              </div>
+
+              <!-- Note Box -->
+              <div class="allergens-note">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span>Stay safe by keeping your list updated.</span>
+              </div>
+            </div>
+
+            <!-- Card C — "Your Safety Insights" -->
+            <div class="insights-card">
+              <h2 class="insights-header">Your Safety Insights</h2>
+              <div class="insights-list">
+                <!-- Insight 1: Total Scans (Blue) -->
+                <div class="insight-item" tabindex="0" role="button">
+                  <div class="insight-icon-circle blue">
+                    <svg viewBox="0 0 24 24">
+                      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                      <polyline points="16 7 22 7 22 13"/>
+                    </svg>
+                  </div>
+                  <span class="insight-label">Total Scans <strong>24</strong></span>
+                  <svg class="insight-chevron" viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </div>
+
+                <!-- Insight 2: Safe Products (Green) -->
+                <div class="insight-item" tabindex="0" role="button">
+                  <div class="insight-icon-circle green">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                  </div>
+                  <span class="insight-label">Safe Products <strong>16 (67%)</strong></span>
+                  <svg class="insight-chevron" viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </div>
+
+                <!-- Insight 3: Potential Risks (Amber) -->
+                <div class="insight-item" tabindex="0" role="button">
+                  <div class="insight-icon-circle amber">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                      <line x1="12" y1="9" x2="12" y2="13"/>
+                      <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                  </div>
+                  <span class="insight-label">Potential Risks <strong>8 (33%)</strong></span>
+                  <svg class="insight-chevron" viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 3.3 Bottom Banner — "PicWise AI Tip" -->
+        <section class="ai-tip-banner">
+          <div class="ai-tip-left">
+            <!-- Robot / Bot glyph -->
+            <svg viewBox="0 0 24 24">
+              <rect x="4" y="8" width="16" height="12" rx="3"/>
+              <line x1="12" y1="4" x2="12" y2="8"/>
+              <circle cx="12" cy="3" r="1.2"/>
+              <circle cx="9" cy="13" r="1.5" fill="#16A34A"/>
+              <circle cx="15" cy="13" r="1.5" fill="#16A34A"/>
+              <line x1="9" y1="17" x2="15" y2="17" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="ai-tip-middle">
+            <h2 class="ai-tip-title">PicWise AI Tip ✨</h2>
+            <p class="ai-tip-desc">When in doubt, choose products with shorter ingredient lists. Less is often safer!</p>
+          </div>
+          <div class="ai-tip-right">
+            <!-- Lightbulb icon -->
+            <svg viewBox="0 0 24 24">
+              <path d="M9 18h6"/>
+              <path d="M10 22h4"/>
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .5 2.5 1.5 3.5.76.76 1.23 1.52 1.41 2.5h6.18z"/>
+            </svg>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

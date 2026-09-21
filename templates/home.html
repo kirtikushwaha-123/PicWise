@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+{% block title %}PicWise — Dashboard{% endblock %}
+
+{% block content %}
+  <!-- 3.1 Page Heading -->
+  <section class="page-heading">
+    <h1>Welcome back, <span class="highlight-name">Amisha!</span> 👋</h1>
+    <p>Let's help you make safer choices.</p>
+  </section>
+
+  <!-- 3.2 Two-Column Grid -->
+  <div class="dashboard-grid">
+
+    <!-- ================= LEFT COLUMN ================= -->
+    <div class="left-column">
+
+      <!-- Card A — "Scan a Product" Hero -->
+      <div class="hero-scan-card">
+        <div class="hero-camera-bubble">
+          <svg viewBox="0 0 24 24">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+        </div>
+        <div class="hero-copy">
+          <h2>Scan a Product</h2>
+          <p>Upload or capture a product label to check for allergens and get AI insights instantly.</p>
+          <a class="scan-now-btn" href="/upload">
+            <svg viewBox="0 0 24 24">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+            Scan Now
+          </a>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">
+          <svg viewBox="0 0 130 100" fill="none">
+            <path d="M18 40C16 30 24 26 30 28C32 36 26 42 18 40Z" fill="#86EFAC"/>
+            <path d="M110 32C116 24 124 26 122 34C116 38 110 36 110 32Z" fill="#86EFAC"/>
+            
+            <!-- Chip Bag -->
+            <g transform="translate(68, 20)">
+              <path d="M4 10L10 2L42 2L48 10L46 68L42 74L10 74L6 68L4 10Z" fill="#3B82F6"/>
+              <path d="M6 10L11 4L41 4L46 10L44 68L40 72L12 72L8 68L6 10Z" fill="#60A5FA"/>
+              <path d="M10 2L12 6L16 2L20 6L24 2L28 6L32 2L36 6L40 2L42 2" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+              <ellipse cx="26" cy="38" rx="14" ry="10" fill="#FEF08A"/>
+              <text x="26" y="41" font-family="-apple-system, sans-serif" font-size="7" font-weight="900" fill="#1E3A8A" text-anchor="middle">CHIPS</text>
+              <path d="M10 74L12 70L16 74L20 70L24 74L28 70L32 74L36 70L40 74L42 74" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+            </g>
+
+            <!-- Bottle Shape -->
+            <g transform="translate(24, 15)">
+              <rect x="15" y="6" width="12" height="7" rx="2" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.2"/>
+              <rect x="17" y="13" width="8" height="6" fill="#16A34A"/>
+              <path d="M10 24C10 20 14 19 17 19H25C28 19 32 20 32 24L34 70C34 74 31 77 27 77H15C11 77 8 74 8 70L10 24Z" fill="#22C55E"/>
+              <path d="M12 25C12 22 15 21 17 21H25C27 21 30 22 30 25L32 68C32 72 29 74 26 74H16C13 74 10 72 10 68L12 25Z" fill="#4ADE80"/>
+              <circle cx="21" cy="46" r="8" fill="#FFFFFF"/>
+              <path d="M18 46L20 48L24 44" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Section — "Your Recent Scans" -->
+      <section class="recent-scans-section">
+        <div class="section-header">
+          <h2>Your Recent Scans</h2>
+          <a href="#">View all</a>
+        </div>
+
+        <div class="scan-list">
+          <!-- Row 1: Oreo Original Cookies (Not Safe) -->
+          <div class="scan-row" tabindex="0" role="button">
+            <div class="product-thumb oreo">
+              <svg viewBox="0 0 48 48" width="48" height="48">
+                <rect width="48" height="48" rx="10" fill="#1E293B"/>
+                <circle cx="24" cy="24" r="14" fill="#334155" stroke="#475569" stroke-width="2" stroke-dasharray="3,2"/>
+                <circle cx="24" cy="24" r="8" fill="#0F172A"/>
+                <circle cx="24" cy="24" r="4" fill="#FFFFFF" fill-opacity="0.9"/>
+              </svg>
+            </div>
+            <div class="scan-row-info">
+              <h3 class="scan-row-title">Oreo Original Cookies</h3>
+              <p class="scan-row-detail contains">Contains: Milk, Soy</p>
+            </div>
+            <div class="scan-row-meta">
+              <span class="status-pill not-safe">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Not Safe
+              </span>
+              <span class="scan-row-time">2 mins ago</span>
+            </div>
+            <svg class="scan-row-chevron" viewBox="0 0 24 24">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+
+          <!-- Row 2: Lays American Style (Safe) -->
+          <div class="scan-row" tabindex="0" role="button">
+            <div class="product-thumb lays">
+              <svg viewBox="0 0 48 48" width="48" height="48">
+                <rect width="48" height="48" rx="10" fill="#F59E0B"/>
+                <path d="M16 14L32 14L30 36L18 36Z" fill="#FDE68A"/>
+                <circle cx="24" cy="25" r="5" fill="#DC2626"/>
+              </svg>
+            </div>
+            <div class="scan-row-info">
+              <h3 class="scan-row-title">Lays American Style</h3>
+              <p class="scan-row-detail safe">No Allergens Found</p>
+            </div>
+            <div class="scan-row-meta">
+              <span class="status-pill safe">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                Safe
+              </span>
+              <span class="scan-row-time">1 hour ago</span>
+            </div>
+            <svg class="scan-row-chevron" viewBox="0 0 24 24">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+
+          <!-- Row 3: Dove Intense Repair Shampoo (Uncertain) -->
+          <div class="scan-row" tabindex="0" role="button">
+            <div class="product-thumb dove">
+              <svg viewBox="0 0 48 48" width="48" height="48">
+                <rect width="48" height="48" rx="10" fill="#E0F2FE"/>
+                <rect x="20" y="11" width="8" height="4" rx="1" fill="#94A3B8"/>
+                <path d="M17 17C17 15 20 15 24 15C28 15 31 15 31 17L33 34C33 37 30 39 24 39C18 39 15 37 15 34L17 17Z" fill="#FFFFFF"/>
+                <path d="M20 23C22 22 26 22 28 23" stroke="#0284C7" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="scan-row-info">
+              <h3 class="scan-row-title">Dove Intense Repair Shampoo</h3>
+              <p class="scan-row-detail uncertain">May Contain: Tree Nuts</p>
+            </div>
+            <div class="scan-row-meta">
+              <span class="status-pill uncertain">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Uncertain
+              </span>
+              <span class="scan-row-time">Yesterday</span>
+            </div>
+            <svg class="scan-row-chevron" viewBox="0 0 24 24">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================= RIGHT COLUMN ================= -->
+    <div class="right-column">
+
+      <!-- Card B — "My Allergens" -->
+      <div class="allergens-card">
+        <div class="allergens-header">
+          <h2>My Allergens</h2>
+          <a href="#">Edit</a>
+        </div>
+
+        <div class="allergens-pills">
+          <span class="allergen-tag peanuts">
+            <svg viewBox="0 0 24 24">
+              <ellipse cx="9" cy="12" rx="4" ry="5"/>
+              <ellipse cx="15" cy="12" rx="4" ry="5"/>
+            </svg>
+            Peanuts
+          </span>
+
+          <span class="allergen-tag tree-nuts">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3v3"/>
+              <path d="M6 9h12a6 6 0 0 1-6 12A6 6 0 0 1 6 9z"/>
+            </svg>
+            Tree Nuts
+          </span>
+
+          <span class="allergen-tag milk">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 2h8l2 5v13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7l2-5z"/>
+              <line x1="6" y1="12" x2="18" y2="12"/>
+            </svg>
+            Milk
+          </span>
+
+          <span class="allergen-tag shellfish">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="13" r="5"/>
+              <path d="M7 10L4 7"/>
+              <path d="M17 10l3-3"/>
+              <path d="M6 14H3"/>
+              <path d="M18 14h3"/>
+            </svg>
+            Shellfish
+          </span>
+
+          <span class="allergen-tag soy">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22V12"/>
+              <path d="M12 12C12 7 7 6 7 6s0 5 5 6z"/>
+              <path d="M12 16c3-1 6-4 6-7s-5-1-6 7z"/>
+            </svg>
+            Soy
+          </span>
+        </div>
+
+        <div class="allergens-note">
+          <svg viewBox="0 0 24 24">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span>Stay safe by keeping your list updated.</span>
+        </div>
+      </div>
+
+      <!-- Card C — "Your Safety Insights" -->
+      <div class="insights-card">
+        <h2 class="insights-header">Your Safety Insights</h2>
+        <div class="insights-list">
+          <div class="insight-item" tabindex="0" role="button">
+            <div class="insight-icon-circle blue">
+              <svg viewBox="0 0 24 24">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                <polyline points="16 7 22 7 22 13"/>
+              </svg>
+            </div>
+            <span class="insight-label">Total Scans <strong>24</strong></span>
+            <svg class="insight-chevron" viewBox="0 0 24 24">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+
+          <div class="insight-item" tabindex="0" role="button">
+            <div class="insight-icon-circle green">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <span class="insight-label">Safe Products <strong>16 (67%)</strong></span>
+            <svg class="insight-chevron" viewBox="0 0 24 24">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+
+          <div class="insight-item" tabindex="0" role="button">
+            <div class="insight-icon-circle amber">
+              <svg viewBox="0 0 24 24">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <span class="insight-label">Potential Risks <strong>8 (33%)</strong></span>
+            <svg class="insight-chevron" viewBox="0 0 24 24">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 3.3 Bottom Banner — "PicWise AI Tip" -->
+  <section class="ai-tip-banner">
+    <div class="ai-tip-left">
+      <svg viewBox="0 0 24 24">
+        <rect x="4" y="8" width="16" height="12" rx="3"/>
+        <line x1="12" y1="4" x2="12" y2="8"/>
+        <circle cx="12" cy="3" r="1.2"/>
+        <circle cx="9" cy="13" r="1.5" fill="#16A34A"/>
+        <circle cx="15" cy="13" r="1.5" fill="#16A34A"/>
+        <line x1="9" y1="17" x2="15" y2="17" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="ai-tip-middle">
+      <h2 class="ai-tip-title">PicWise AI Tip ✨</h2>
+      <p class="ai-tip-desc">When in doubt, choose products with shorter ingredient lists. Less is often safer!</p>
+    </div>
+    <div class="ai-tip-right">
+      <svg viewBox="0 0 24 24">
+        <path d="M9 18h6"/>
+        <path d="M10 22h4"/>
+        <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .5 2.5 1.5 3.5.76.76 1.23 1.52 1.41 2.5h6.18z"/>
+      </svg>
+    </div>
+  </section>
+{% endblock %}

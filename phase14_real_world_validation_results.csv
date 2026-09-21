@@ -1,0 +1,37 @@
+image_id,category,condition,ocr_status,extracted_count,recognized_count,unrecognized_count,missed_count,fused_count,nutrition_status,warning_count,final_status,runtime_seconds,notes
+food_01_biscuit_oreo_clean,food,Clean / Easy,PARTIAL,3,0,3,10,1,MISSED,2,Safety:orange|Nut:red|Allergy:unavailable,121.565,OK
+food_02_chips_lays_angled,food,Angled (perspective distortion),PARTIAL,3,1,2,4,3,MISSED,2,Safety:yellow|Nut:unavailable|Allergy:green,89.665,OK
+food_03_noodles_maggi_dense,food,Dense text,PARTIAL,15,9,6,4,14,PARTIAL,2,Safety:orange|Nut:red|Allergy:red,72.152,OK
+food_04_cereal_kelloggs_small_text,food,Small text,PARTIAL,7,4,3,5,5,MISSED,2,Safety:orange|Nut:unavailable|Allergy:green,47.298,OK
+food_05_beverage_cola_curved,food,Curved packaging (cylindrical warp),PARTIAL,7,4,3,2,0,PARTIAL,2,Safety:red|Nut:unavailable|Allergy:yellow,63.317,OK
+food_06_sauce_heinz_low_contrast,food,Low contrast (faint print),PASS,8,6,2,2,2,PARTIAL,3,Safety:red|Nut:yellow|Allergy:yellow,65.275,OK
+food_07_snack_pretzels_blur,food,Mild blur,PARTIAL,16,8,8,4,2,PARTIAL,3,Safety:orange|Nut:yellow|Allergy:orange,67.989,OK
+food_08_protein_bar_glare,food,Glare / reflections,PARTIAL,6,1,5,3,4,PARTIAL,3,Safety:yellow|Nut:yellow|Allergy:red,122.048,OK
+food_09_staple_pasta_complex,food,Complex layout,PARTIAL,8,5,3,1,4,PARTIAL,3,Safety:orange|Nut:yellow|Allergy:orange,74.414,OK
+food_10_ready_to_eat_soup_curved,food,Curved packaging (cylindrical warp),PARTIAL,12,7,5,4,2,PARTIAL,3,Safety:orange|Nut:orange|Allergy:orange,69.896,OK
+food_11_namkeen_haldiram_dense,food,Dense text,PARTIAL,12,10,2,5,4,PARTIAL,1,Safety:orange|Nut:red|Allergy:yellow,70.614,OK
+food_12_energy_drink_redbull_units,food,"Complex layout (units: mg, kJ, kcal)",PARTIAL,7,4,3,7,1,PARTIAL,4,Safety:orange|Nut:red|Allergy:green,66.975,OK
+food_13_snack_chikki_no_nutrition,food,Missing nutrition panel (Failure Semantics: Nutrition Unavailable != Safe),PARTIAL,1,0,1,4,0,N/A,2,Safety:red|Nut:unavailable|Allergy:unavailable,47.168,OK
+food_14_exotic_botanical_food,food,Unknown ingredients (Semantics: Unknown != Safe),PARTIAL,7,1,6,5,2,N/A,2,Safety:yellow|Nut:unavailable|Allergy:green,44.297,OK
+food_15_food_front_blank,food,Front branding only (Semantics: 0 text / OCR failure != Safe),PASS,0,0,0,0,0,N/A,3,Safety:unavailable|Nut:unavailable|Allergy:unavailable,11.364,OK
+food_16_chocolate_dark_low_contrast,food,Low contrast (dark packaging),PARTIAL,5,3,2,2,0,PARTIAL,2,Safety:orange|Nut:unavailable|Allergy:orange,68.217,OK
+food_17_peanut_butter_angled,food,Angled (perspective distortion),PARTIAL,4,2,2,3,3,PARTIAL,2,Safety:orange|Nut:unavailable|Allergy:red,102.913,OK
+food_18_instant_oats_clean,food,Clean / Easy,PARTIAL,6,5,1,3,1,PARTIAL,3,Safety:orange|Nut:yellow|Allergy:green,70.155,OK
+pc_01_shampoo_head_shoulders_clean,personal_care,Clean / Easy,PASS,24,20,4,9,1,N/A,4,Safety:orange|Allergy:red|Irritant:orange,107.66,OK
+pc_02_moisturizer_cerave_dense,personal_care,Dense text,PARTIAL,14,12,2,14,1,N/A,0,Safety:orange|Allergy:red|Irritant:orange,37.838,OK
+pc_03_cleanser_cetaphil_blank,personal_care,Brand/volume only (Semantics: 0 ingredients -> Unavailable != Safe),PASS,0,0,0,0,0,N/A,2,Safety:unavailable|Allergy:unavailable|Irritant:unavailable,20.158,OK
+pc_04_sunscreen_neutrogena_angled,personal_care,Angled (perspective distortion),PASS,23,15,8,14,1,N/A,8,Safety:orange|Allergy:red|Irritant:orange,112.241,OK
+pc_05_hair_oil_blurred,personal_care,Mild blur,PASS,17,13,4,3,1,N/A,4,Safety:orange|Allergy:red|Irritant:red,76.538,OK
+pc_06_lotion_dove_lighting,personal_care,Glare / reflections / uneven lighting,PASS,28,22,6,15,1,N/A,6,Safety:orange|Allergy:red|Irritant:red,118.795,OK
+pc_07_face_wash_simple_lowres,personal_care,Small text / low resolution,FAIL,0,0,0,10,0,N/A,2,Safety:unavailable|Allergy:unavailable|Irritant:unavailable,44.272,OK
+pc_08_conditioner_tresemme_curved,personal_care,Curved packaging (cylindrical warp),PASS,20,16,4,0,2,N/A,2,Safety:orange|Allergy:red|Irritant:orange,46.861,OK
+pc_09_serum_ordinary_small_text,personal_care,Small text,PARTIAL,11,8,3,3,1,N/A,3,Safety:orange|Allergy:yellow|Irritant:yellow,73.44,OK
+pc_10_lip_balm_burts_low_contrast,personal_care,Low contrast (faint print on pale tube),PASS,13,11,2,5,1,N/A,2,Safety:yellow|Allergy:red|Irritant:orange,44.943,OK
+pc_11_foundation_maybelline_complex,personal_care,Complex layout,PASS,24,22,2,4,2,N/A,2,Safety:orange|Allergy:orange|Irritant:orange,54.534,OK
+pc_12_sunscreen_laroche_active_inactive,personal_care,Complex layout (Drug facts format),PARTIAL,18,12,6,5,0,N/A,6,Safety:orange|Allergy:yellow|Irritant:yellow,53.991,OK
+pc_13_botanical_body_wash_aliases,personal_care,Dense text / INCI packaging aliases,PASS,17,15,2,4,1,N/A,2,Safety:orange|Allergy:orange|Irritant:red,49.246,OK
+pc_14_anti_aging_cream_high_risk,personal_care,High risk detection (sensitizers & allergens),PASS,17,12,5,0,1,N/A,3,Safety:orange|Allergy:red|Irritant:red,46.652,OK
+pc_15_perfume_box_blank,personal_care,Brand name only (Semantics: 0 ingredients -> Unavailable != Safe),PASS,0,0,0,0,0,N/A,2,Safety:unavailable|Allergy:unavailable|Irritant:unavailable,13.248,OK
+pc_16_toner_witch_hazel_parentheticals,personal_care,Dense text / parentheticals,PARTIAL,2,0,2,9,0,N/A,3,Safety:unavailable|Allergy:unavailable|Irritant:unavailable,62.647,OK
+pc_17_micellar_water_bioderma_clean,personal_care,Clean / Easy,PARTIAL,10,4,6,1,1,N/A,6,Safety:yellow|Allergy:orange|Irritant:yellow,48.915,OK
+pc_18_hair_mask_shea_moisture_angled,personal_care,Angled (perspective distortion),PASS,20,17,3,6,1,N/A,3,Safety:orange|Allergy:orange|Irritant:yellow,9401.111,OK

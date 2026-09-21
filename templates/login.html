@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Login | PicWise{% endblock %}
+{% block body_class %}login-body{% endblock %}
+
+{% block shell %}
+  <main class="login-shell">
+    <section class="login-brand-panel">
+      <a class="brand login-brand" href="/">
+        <span class="brand-shield">P</span>
+        <span>PicWise</span>
+      </a>
+      <div>
+        <p class="login-kicker">Safer product choices</p>
+        <h1>Know what is inside before it goes home with you.</h1>
+        <p>
+          Scan labels, check allergens, and keep product decisions simple with
+          PicWise.
+        </p>
+      </div>
+      <div class="login-preview-card">
+        <div class="mini-scan">
+          <span class="camera-small"></span>
+          <div>
+            <strong>Quick Scan</strong>
+            <small>Label ready</small>
+          </div>
+          <span class="status-pill safe">Safe</span>
+        </div>
+        <div class="mini-bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="login-card card">
+      <p class="eyebrow">Welcome back</p>
+      <h2>Login to PicWise</h2>
+      <form class="login-form" action="/" method="get">
+        <label>
+          Email
+          <input type="email" name="email" placeholder="amisha@example.com" required>
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" placeholder="Enter password" required>
+        </label>
+        <div class="login-options">
+          <label class="checkbox-line">
+            <input type="checkbox" name="remember">
+            Remember me
+          </label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button class="primary-action full-width" type="submit">Login</button>
+      </form>
+      <p class="login-footnote">Phase 1 login is a UI placeholder; no account system is active yet.</p>
+    </section>
+  </main>
+{% endblock %}

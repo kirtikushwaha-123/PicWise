@@ -1,0 +1,1257 @@
+{
+  "dataset_summary": {
+    "test_representations": 459,
+    "test_canonical_ingredients": 249,
+    "food_test_count": 313,
+    "personal_care_test_count": 146
+  },
+  "safety_analysis": {
+    "overall_accuracy": 0.634,
+    "total_errors": 168,
+    "by_class": {
+      "High Risk": {
+        "total": 14,
+        "correct": 4,
+        "incorrect": 10,
+        "recall": 0.2857,
+        "error_breakdown": {
+          "Safe": {
+            "count": 8,
+            "percentage_of_class_errors": 80.0
+          },
+          "Very Safe": {
+            "count": 2,
+            "percentage_of_class_errors": 20.0
+          }
+        }
+      },
+      "Moderate Risk": {
+        "total": 67,
+        "correct": 15,
+        "incorrect": 52,
+        "recall": 0.2239,
+        "error_breakdown": {
+          "Safe": {
+            "count": 45,
+            "percentage_of_class_errors": 86.54
+          },
+          "Very Safe": {
+            "count": 7,
+            "percentage_of_class_errors": 13.46
+          }
+        }
+      },
+      "Safe": {
+        "total": 237,
+        "correct": 201,
+        "incorrect": 36,
+        "recall": 0.8481,
+        "error_breakdown": {
+          "Very Safe": {
+            "count": 19,
+            "percentage_of_class_errors": 52.78
+          },
+          "Moderate Risk": {
+            "count": 13,
+            "percentage_of_class_errors": 36.11
+          },
+          "High Risk": {
+            "count": 4,
+            "percentage_of_class_errors": 11.11
+          }
+        }
+      },
+      "Very Safe": {
+        "total": 141,
+        "correct": 71,
+        "incorrect": 70,
+        "recall": 0.5035,
+        "error_breakdown": {
+          "Safe": {
+            "count": 69,
+            "percentage_of_class_errors": 98.57
+          },
+          "Moderate Risk": {
+            "count": 1,
+            "percentage_of_class_errors": 1.43
+          }
+        }
+      }
+    }
+  },
+  "allergy_analysis": {
+    "overall_accuracy": 0.6797,
+    "total_errors": 147,
+    "by_class": {
+      "High": {
+        "total": 10,
+        "correct": 1,
+        "incorrect": 9,
+        "recall": 0.1,
+        "error_breakdown": {
+          "None": {
+            "count": 8,
+            "percentage_of_class_errors": 88.89
+          },
+          "Medium": {
+            "count": 1,
+            "percentage_of_class_errors": 11.11
+          }
+        }
+      },
+      "Medium": {
+        "total": 75,
+        "correct": 29,
+        "incorrect": 46,
+        "recall": 0.3867,
+        "error_breakdown": {
+          "None": {
+            "count": 23,
+            "percentage_of_class_errors": 50.0
+          },
+          "Low": {
+            "count": 23,
+            "percentage_of_class_errors": 50.0
+          }
+        }
+      },
+      "Low": {
+        "total": 170,
+        "correct": 108,
+        "incorrect": 62,
+        "recall": 0.6353,
+        "error_breakdown": {
+          "None": {
+            "count": 54,
+            "percentage_of_class_errors": 87.1
+          },
+          "Medium": {
+            "count": 8,
+            "percentage_of_class_errors": 12.9
+          }
+        }
+      },
+      "None": {
+        "total": 204,
+        "correct": 174,
+        "incorrect": 30,
+        "recall": 0.8529,
+        "error_breakdown": {
+          "Low": {
+            "count": 26,
+            "percentage_of_class_errors": 86.67
+          },
+          "Medium": {
+            "count": 3,
+            "percentage_of_class_errors": 10.0
+          },
+          "High": {
+            "count": 1,
+            "percentage_of_class_errors": 3.33
+          }
+        }
+      }
+    }
+  },
+  "confusion_pairs": {
+    "safety": [
+      {
+        "actual": "Very Safe",
+        "predicted": "Safe",
+        "count": 69,
+        "percentage_of_total_errors": 41.07
+      },
+      {
+        "actual": "Moderate Risk",
+        "predicted": "Safe",
+        "count": 45,
+        "percentage_of_total_errors": 26.79
+      },
+      {
+        "actual": "Safe",
+        "predicted": "Very Safe",
+        "count": 19,
+        "percentage_of_total_errors": 11.31
+      },
+      {
+        "actual": "Safe",
+        "predicted": "Moderate Risk",
+        "count": 13,
+        "percentage_of_total_errors": 7.74
+      },
+      {
+        "actual": "High Risk",
+        "predicted": "Safe",
+        "count": 8,
+        "percentage_of_total_errors": 4.76
+      },
+      {
+        "actual": "Moderate Risk",
+        "predicted": "Very Safe",
+        "count": 7,
+        "percentage_of_total_errors": 4.17
+      },
+      {
+        "actual": "Safe",
+        "predicted": "High Risk",
+        "count": 4,
+        "percentage_of_total_errors": 2.38
+      },
+      {
+        "actual": "High Risk",
+        "predicted": "Very Safe",
+        "count": 2,
+        "percentage_of_total_errors": 1.19
+      },
+      {
+        "actual": "Very Safe",
+        "predicted": "Moderate Risk",
+        "count": 1,
+        "percentage_of_total_errors": 0.6
+      }
+    ],
+    "allergy": [
+      {
+        "actual": "Low",
+        "predicted": "None",
+        "count": 54,
+        "percentage_of_total_errors": 36.73
+      },
+      {
+        "actual": "None",
+        "predicted": "Low",
+        "count": 26,
+        "percentage_of_total_errors": 17.69
+      },
+      {
+        "actual": "Medium",
+        "predicted": "None",
+        "count": 23,
+        "percentage_of_total_errors": 15.65
+      },
+      {
+        "actual": "Medium",
+        "predicted": "Low",
+        "count": 23,
+        "percentage_of_total_errors": 15.65
+      },
+      {
+        "actual": "High",
+        "predicted": "None",
+        "count": 8,
+        "percentage_of_total_errors": 5.44
+      },
+      {
+        "actual": "Low",
+        "predicted": "Medium",
+        "count": 8,
+        "percentage_of_total_errors": 5.44
+      },
+      {
+        "actual": "None",
+        "predicted": "Medium",
+        "count": 3,
+        "percentage_of_total_errors": 2.04
+      },
+      {
+        "actual": "High",
+        "predicted": "Medium",
+        "count": 1,
+        "percentage_of_total_errors": 0.68
+      },
+      {
+        "actual": "None",
+        "predicted": "High",
+        "count": 1,
+        "percentage_of_total_errors": 0.68
+      }
+    ]
+  },
+  "domain_analysis": {
+    "food": {
+      "test_count": 313,
+      "safety": {
+        "accuracy": 0.5847,
+        "macro_f1": 0.4807,
+        "weighted_f1": 0.5675,
+        "errors": 130,
+        "error_rate": 0.4153
+      },
+      "allergy": {
+        "accuracy": 0.6773,
+        "macro_f1": 0.4561,
+        "weighted_f1": 0.6621,
+        "errors": 101,
+        "error_rate": 0.3227
+      }
+    },
+    "personal_care": {
+      "test_count": 146,
+      "safety": {
+        "accuracy": 0.7397,
+        "macro_f1": 0.4889,
+        "weighted_f1": 0.7067,
+        "errors": 38,
+        "error_rate": 0.2603
+      },
+      "allergy": {
+        "accuracy": 0.6849,
+        "macro_f1": 0.4677,
+        "weighted_f1": 0.744,
+        "errors": 46,
+        "error_rate": 0.3151
+      }
+    }
+  },
+  "representation_analysis": {
+    "canonical": {
+      "test_count": 256,
+      "safety_accuracy": 0.6758,
+      "safety_error_rate": 0.3242,
+      "allergy_accuracy": 0.6602,
+      "allergy_error_rate": 0.3398
+    },
+    "alternate": {
+      "test_count": 203,
+      "safety_accuracy": 0.5813,
+      "safety_error_rate": 0.4187,
+      "allergy_accuracy": 0.7044,
+      "allergy_error_rate": 0.2956
+    }
+  },
+  "canonical_ingredient_errors": {
+    "total_canonical_groups": 249,
+    "groups_with_safety_errors": 102,
+    "groups_with_allergy_errors": 103,
+    "groups_with_both_errors": 54,
+    "top_repeated_safety_error_groups": [
+      {
+        "canonical_group": "Jowar (Sorghum)",
+        "domain": "food",
+        "representations_count": 5,
+        "safety_errors": 5,
+        "allergy_errors": 0,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.595,
+        "avg_allergy_confidence": 0.7754,
+        "all_safety_failed": true,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Mono- and Diglycerides of Fatty Acids",
+        "domain": "food",
+        "representations_count": 6,
+        "safety_errors": 5,
+        "allergy_errors": 0,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.7217,
+        "avg_allergy_confidence": 0.7254,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Whole Wheat Flour (Atta)",
+        "domain": "food",
+        "representations_count": 7,
+        "safety_errors": 5,
+        "allergy_errors": 5,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "Low",
+        "avg_safety_confidence": 0.7044,
+        "avg_allergy_confidence": 0.6894,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Propylene Glycol Esters of Fatty Acids",
+        "domain": "food",
+        "representations_count": 4,
+        "safety_errors": 4,
+        "allergy_errors": 1,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.8139,
+        "avg_allergy_confidence": 0.875,
+        "all_safety_failed": true,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Tartrazine (Yellow 5)",
+        "domain": "food",
+        "representations_count": 6,
+        "safety_errors": 4,
+        "allergy_errors": 6,
+        "most_common_safety_pred": "High Risk",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.5346,
+        "avg_allergy_confidence": 0.6566,
+        "all_safety_failed": false,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Textured Vegetable Protein (Soy Chunks)",
+        "domain": "food",
+        "representations_count": 10,
+        "safety_errors": 4,
+        "allergy_errors": 4,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "Medium",
+        "avg_safety_confidence": 0.646,
+        "avg_allergy_confidence": 0.5749,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Amla (Indian Gooseberry) Extract",
+        "domain": "food",
+        "representations_count": 4,
+        "safety_errors": 3,
+        "allergy_errors": 2,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "Low",
+        "avg_safety_confidence": 0.8494,
+        "avg_allergy_confidence": 0.7922,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Ammonium Phosphatide",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 3,
+        "allergy_errors": 1,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.8596,
+        "avg_allergy_confidence": 0.8178,
+        "all_safety_failed": true,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Calcium Chloride",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 3,
+        "allergy_errors": 0,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.7065,
+        "avg_allergy_confidence": 0.8208,
+        "all_safety_failed": true,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Calcium Disodium EDTA",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 3,
+        "allergy_errors": 1,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.7236,
+        "avg_allergy_confidence": 0.817,
+        "all_safety_failed": true,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Carbon Dioxide",
+        "domain": "food",
+        "representations_count": 4,
+        "safety_errors": 3,
+        "allergy_errors": 0,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.5621,
+        "avg_allergy_confidence": 0.749,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Hydrolyzed Vegetable Protein",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 3,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "Low",
+        "avg_safety_confidence": 0.7552,
+        "avg_allergy_confidence": 0.4695,
+        "all_safety_failed": true,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Mannitol",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 3,
+        "allergy_errors": 1,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.6895,
+        "avg_allergy_confidence": 0.7991,
+        "all_safety_failed": true,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Nitrogen",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 3,
+        "allergy_errors": 0,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.5609,
+        "avg_allergy_confidence": 0.8313,
+        "all_safety_failed": true,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Red Lentils (Masoor Dal)",
+        "domain": "food",
+        "representations_count": 5,
+        "safety_errors": 3,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.5883,
+        "avg_allergy_confidence": 0.5557,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      }
+    ],
+    "top_repeated_allergy_error_groups": [
+      {
+        "canonical_group": "Tartrazine (Yellow 5)",
+        "domain": "food",
+        "representations_count": 6,
+        "safety_errors": 4,
+        "allergy_errors": 6,
+        "most_common_safety_pred": "High Risk",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.5346,
+        "avg_allergy_confidence": 0.6566,
+        "all_safety_failed": false,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Pigeon Pea (Toor Dal)",
+        "domain": "food",
+        "representations_count": 6,
+        "safety_errors": 0,
+        "allergy_errors": 5,
+        "most_common_safety_pred": "Very Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.6459,
+        "avg_allergy_confidence": 0.5064,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Whole Wheat Flour (Atta)",
+        "domain": "food",
+        "representations_count": 7,
+        "safety_errors": 5,
+        "allergy_errors": 5,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "Low",
+        "avg_safety_confidence": 0.7044,
+        "avg_allergy_confidence": 0.6894,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Egg White Powder",
+        "domain": "food",
+        "representations_count": 4,
+        "safety_errors": 1,
+        "allergy_errors": 4,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.5494,
+        "avg_allergy_confidence": 0.4955,
+        "all_safety_failed": false,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Textured Vegetable Protein (Soy Chunks)",
+        "domain": "food",
+        "representations_count": 10,
+        "safety_errors": 4,
+        "allergy_errors": 4,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "Medium",
+        "avg_safety_confidence": 0.646,
+        "avg_allergy_confidence": 0.5749,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Barley",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 2,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.4863,
+        "avg_allergy_confidence": 0.6824,
+        "all_safety_failed": false,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Bromelain",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 0,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.7948,
+        "avg_allergy_confidence": 0.602,
+        "all_safety_failed": false,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Collagen Peptides",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 0,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "Low",
+        "avg_safety_confidence": 0.8514,
+        "avg_allergy_confidence": 0.7692,
+        "all_safety_failed": false,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Ghee",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 1,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.5039,
+        "avg_allergy_confidence": 0.6381,
+        "all_safety_failed": false,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Hydrolyzed Vegetable Protein",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 3,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "Low",
+        "avg_safety_confidence": 0.7552,
+        "avg_allergy_confidence": 0.4695,
+        "all_safety_failed": true,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Red Lentils (Masoor Dal)",
+        "domain": "food",
+        "representations_count": 5,
+        "safety_errors": 3,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.5883,
+        "avg_allergy_confidence": 0.5557,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Sesame Oil",
+        "domain": "food",
+        "representations_count": 3,
+        "safety_errors": 1,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.6202,
+        "avg_allergy_confidence": 0.8224,
+        "all_safety_failed": false,
+        "all_allergy_failed": true
+      },
+      {
+        "canonical_group": "Skimmed Milk Powder",
+        "domain": "food",
+        "representations_count": 4,
+        "safety_errors": 2,
+        "allergy_errors": 3,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "None",
+        "avg_safety_confidence": 0.5282,
+        "avg_allergy_confidence": 0.5203,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Amla (Indian Gooseberry) Extract",
+        "domain": "food",
+        "representations_count": 4,
+        "safety_errors": 3,
+        "allergy_errors": 2,
+        "most_common_safety_pred": "Safe",
+        "most_common_allergy_pred": "Low",
+        "avg_safety_confidence": 0.8494,
+        "avg_allergy_confidence": 0.7922,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      },
+      {
+        "canonical_group": "Chickpea Flour (Besan)",
+        "domain": "food",
+        "representations_count": 5,
+        "safety_errors": 1,
+        "allergy_errors": 2,
+        "most_common_safety_pred": "Very Safe",
+        "most_common_allergy_pred": "Low",
+        "avg_safety_confidence": 0.6283,
+        "avg_allergy_confidence": 0.6525,
+        "all_safety_failed": false,
+        "all_allergy_failed": false
+      }
+    ]
+  },
+  "high_confidence_errors": {
+    "safety": [
+      {
+        "ingredient_name": "indian gooseberry extract",
+        "canonical_group": "Amla (Indian Gooseberry) Extract",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Very Safe",
+        "predicted_label": "Safe",
+        "confidence": 0.9818
+      },
+      {
+        "ingredient_name": "Calendula Extract (Baby Care)",
+        "canonical_group": "Calendula Extract (Baby Care)",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Very Safe",
+        "predicted_label": "Safe",
+        "confidence": 0.9755
+      },
+      {
+        "ingredient_name": "Ectoin",
+        "canonical_group": "Ectoin",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Very Safe",
+        "predicted_label": "Safe",
+        "confidence": 0.9696
+      },
+      {
+        "ingredient_name": "Amla (Indian Gooseberry) Extract",
+        "canonical_group": "Amla (Indian Gooseberry) Extract",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "Very Safe",
+        "predicted_label": "Safe",
+        "confidence": 0.9673
+      },
+      {
+        "ingredient_name": "Rosemary Extract",
+        "canonical_group": "Rosemary Extract",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "Very Safe",
+        "predicted_label": "Safe",
+        "confidence": 0.9664
+      },
+      {
+        "ingredient_name": "Propylene Glycol Esters of Fatty Acids",
+        "canonical_group": "Propylene Glycol Esters of Fatty Acids",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9525
+      },
+      {
+        "ingredient_name": "Calcium Chloride",
+        "canonical_group": "Calcium Chloride",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9523
+      },
+      {
+        "ingredient_name": "Sodium Aluminium Phosphate",
+        "canonical_group": "Sodium Aluminium Phosphate",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9405
+      },
+      {
+        "ingredient_name": "Cotton Fiber (Gossypium Herbaceum)",
+        "canonical_group": "Cotton Fiber (Gossypium Herbaceum)",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Very Safe",
+        "predicted_label": "Safe",
+        "confidence": 0.9356
+      },
+      {
+        "ingredient_name": "e442",
+        "canonical_group": "Ammonium Phosphatide",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9274
+      },
+      {
+        "ingredient_name": "e491",
+        "canonical_group": "Sorbitan Monostearate",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9199
+      },
+      {
+        "ingredient_name": "wheat flour",
+        "canonical_group": "Whole Wheat Flour (Atta)",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Very Safe",
+        "predicted_label": "Safe",
+        "confidence": 0.9192
+      },
+      {
+        "ingredient_name": "e471",
+        "canonical_group": "Mono- and Diglycerides of Fatty Acids",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.917
+      },
+      {
+        "ingredient_name": "ins 442",
+        "canonical_group": "Ammonium Phosphatide",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9127
+      },
+      {
+        "ingredient_name": "Benzalkonium Chloride",
+        "canonical_group": "Benzalkonium Chloride",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9107
+      },
+      {
+        "ingredient_name": "e477",
+        "canonical_group": "Propylene Glycol Esters of Fatty Acids",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9098
+      },
+      {
+        "ingredient_name": "TEA-Lauryl Sulfate",
+        "canonical_group": "TEA-Lauryl Sulfate",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9048
+      },
+      {
+        "ingredient_name": "ins 491",
+        "canonical_group": "Sorbitan Monostearate",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9036
+      },
+      {
+        "ingredient_name": "ins 477",
+        "canonical_group": "Propylene Glycol Esters of Fatty Acids",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9036
+      },
+      {
+        "ingredient_name": "hydrolysed vegetable protein",
+        "canonical_group": "Hydrolyzed Vegetable Protein",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Moderate Risk",
+        "predicted_label": "Safe",
+        "confidence": 0.9005
+      }
+    ],
+    "allergy": [
+      {
+        "ingredient_name": "Lauramide DEA",
+        "canonical_group": "Lauramide DEA",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Medium",
+        "predicted_label": "Low",
+        "confidence": 0.9622
+      },
+      {
+        "ingredient_name": "Chamomile Extract (Wipes)",
+        "canonical_group": "Chamomile Extract (Wipes)",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Medium",
+        "predicted_label": "Low",
+        "confidence": 0.9602
+      },
+      {
+        "ingredient_name": "Amla (Indian Gooseberry) Extract",
+        "canonical_group": "Amla (Indian Gooseberry) Extract",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "None",
+        "predicted_label": "Low",
+        "confidence": 0.9491
+      },
+      {
+        "ingredient_name": "Sodium Aluminosilicate",
+        "canonical_group": "Sodium Aluminosilicate",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "None",
+        "predicted_label": "Low",
+        "confidence": 0.9346
+      },
+      {
+        "ingredient_name": "gingelly oil",
+        "canonical_group": "Sesame Oil",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "High",
+        "predicted_label": "None",
+        "confidence": 0.9131
+      },
+      {
+        "ingredient_name": "Glycerin",
+        "canonical_group": "Glycerin",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Low",
+        "predicted_label": "None",
+        "confidence": 0.8954
+      },
+      {
+        "ingredient_name": "Sodium Aluminium Phosphate",
+        "canonical_group": "Sodium Aluminium Phosphate",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "None",
+        "predicted_label": "Low",
+        "confidence": 0.8837
+      },
+      {
+        "ingredient_name": "lemon oil",
+        "canonical_group": "Natural Lemon Oil",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Low",
+        "predicted_label": "None",
+        "confidence": 0.8827
+      },
+      {
+        "ingredient_name": "Propylene Glycol Esters of Fatty Acids",
+        "canonical_group": "Propylene Glycol Esters of Fatty Acids",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "None",
+        "predicted_label": "Low",
+        "confidence": 0.8813
+      },
+      {
+        "ingredient_name": "orange oil",
+        "canonical_group": "Natural Orange Oil",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Low",
+        "predicted_label": "None",
+        "confidence": 0.8798
+      },
+      {
+        "ingredient_name": "Benzyl Salicylate",
+        "canonical_group": "Benzyl Salicylate",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Medium",
+        "predicted_label": "Low",
+        "confidence": 0.877
+      },
+      {
+        "ingredient_name": "collagen hydrolysate",
+        "canonical_group": "Collagen Peptides",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Medium",
+        "predicted_label": "Low",
+        "confidence": 0.8643
+      },
+      {
+        "ingredient_name": "Citrus Limon Peel Extract (Lemon)",
+        "canonical_group": "Citrus Limon Peel Extract (Lemon)",
+        "domain": "personal_care",
+        "is_alternate": false,
+        "actual_label": "Medium",
+        "predicted_label": "Low",
+        "confidence": 0.8535
+      },
+      {
+        "ingredient_name": "Sodium Selenite (Selenium)",
+        "canonical_group": "Sodium Selenite (Selenium)",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "None",
+        "predicted_label": "Low",
+        "confidence": 0.837
+      },
+      {
+        "ingredient_name": "besan",
+        "canonical_group": "Chickpea Flour (Besan)",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Low",
+        "predicted_label": "None",
+        "confidence": 0.8323
+      },
+      {
+        "ingredient_name": "ins 102",
+        "canonical_group": "Tartrazine (Yellow 5)",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "Medium",
+        "predicted_label": "None",
+        "confidence": 0.8318
+      },
+      {
+        "ingredient_name": "Natural Lemon Oil",
+        "canonical_group": "Natural Lemon Oil",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "Low",
+        "predicted_label": "None",
+        "confidence": 0.8292
+      },
+      {
+        "ingredient_name": "Sesame Oil",
+        "canonical_group": "Sesame Oil",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "High",
+        "predicted_label": "None",
+        "confidence": 0.8285
+      },
+      {
+        "ingredient_name": "tarbooz beej",
+        "canonical_group": "Watermelon Seeds",
+        "domain": "food",
+        "is_alternate": true,
+        "actual_label": "High",
+        "predicted_label": "None",
+        "confidence": 0.8266
+      },
+      {
+        "ingredient_name": "Nutmeg",
+        "canonical_group": "Nutmeg",
+        "domain": "food",
+        "is_alternate": false,
+        "actual_label": "None",
+        "predicted_label": "High",
+        "confidence": 0.8257
+      }
+    ]
+  },
+  "confidence_bins": {
+    "safety": {
+      "0.00-0.40": {
+        "total_predictions": 2,
+        "correct": 1,
+        "incorrect": 1,
+        "empirical_accuracy": 0.5
+      },
+      "0.40-0.50": {
+        "total_predictions": 63,
+        "correct": 27,
+        "incorrect": 36,
+        "empirical_accuracy": 0.4286
+      },
+      "0.50-0.60": {
+        "total_predictions": 76,
+        "correct": 35,
+        "incorrect": 41,
+        "empirical_accuracy": 0.4605
+      },
+      "0.60-0.70": {
+        "total_predictions": 65,
+        "correct": 43,
+        "incorrect": 22,
+        "empirical_accuracy": 0.6615
+      },
+      "0.70-0.80": {
+        "total_predictions": 70,
+        "correct": 47,
+        "incorrect": 23,
+        "empirical_accuracy": 0.6714
+      },
+      "0.80-0.90": {
+        "total_predictions": 79,
+        "correct": 54,
+        "incorrect": 25,
+        "empirical_accuracy": 0.6835
+      },
+      "0.90-1.00": {
+        "total_predictions": 104,
+        "correct": 84,
+        "incorrect": 20,
+        "empirical_accuracy": 0.8077
+      }
+    },
+    "allergy": {
+      "0.00-0.40": {
+        "total_predictions": 8,
+        "correct": 2,
+        "incorrect": 6,
+        "empirical_accuracy": 0.25
+      },
+      "0.40-0.50": {
+        "total_predictions": 49,
+        "correct": 20,
+        "incorrect": 29,
+        "empirical_accuracy": 0.4082
+      },
+      "0.50-0.60": {
+        "total_predictions": 63,
+        "correct": 27,
+        "incorrect": 36,
+        "empirical_accuracy": 0.4286
+      },
+      "0.60-0.70": {
+        "total_predictions": 83,
+        "correct": 50,
+        "incorrect": 33,
+        "empirical_accuracy": 0.6024
+      },
+      "0.70-0.80": {
+        "total_predictions": 86,
+        "correct": 68,
+        "incorrect": 18,
+        "empirical_accuracy": 0.7907
+      },
+      "0.80-0.90": {
+        "total_predictions": 93,
+        "correct": 73,
+        "incorrect": 20,
+        "empirical_accuracy": 0.7849
+      },
+      "0.90-1.00": {
+        "total_predictions": 77,
+        "correct": 72,
+        "incorrect": 5,
+        "empirical_accuracy": 0.9351
+      }
+    }
+  },
+  "name_pattern_analysis": {
+    "short_name_len_le_10": {
+      "count": 175,
+      "safety_error_rate": 0.4514,
+      "allergy_error_rate": 0.3086
+    },
+    "long_name_len_gt_30": {
+      "count": 47,
+      "safety_error_rate": 0.3191,
+      "allergy_error_rate": 0.2128
+    },
+    "single_word": {
+      "count": 126,
+      "safety_error_rate": 0.4921,
+      "allergy_error_rate": 0.3254
+    },
+    "multi_word_gte_3": {
+      "count": 137,
+      "safety_error_rate": 0.292,
+      "allergy_error_rate": 0.3504
+    },
+    "has_digits": {
+      "count": 72,
+      "safety_error_rate": 0.4444,
+      "allergy_error_rate": 0.1111
+    },
+    "has_punctuation": {
+      "count": 18,
+      "safety_error_rate": 0.2222,
+      "allergy_error_rate": 0.1111
+    },
+    "has_parentheses": {
+      "count": 80,
+      "safety_error_rate": 0.275,
+      "allergy_error_rate": 0.275
+    },
+    "has_explicit_ins_or_enum": {
+      "count": 53,
+      "safety_error_rate": 0.5849,
+      "allergy_error_rate": 0.0377
+    }
+  },
+  "cross_model_error_analysis": {
+    "total_test_representations": 459,
+    "both_wrong": 64,
+    "both_wrong_percentage": 13.94,
+    "safety_wrong_only": 104,
+    "allergy_wrong_only": 83,
+    "neither_wrong": 208,
+    "neither_wrong_percentage": 45.32,
+    "canonical_ingredients_failing_both_models_count": 51,
+    "sample_canonical_ingredients_failing_both": [
+      "Amla (Indian Gooseberry) Extract",
+      "Ammonium Phosphatide",
+      "Artificial Vanilla Flavour",
+      "Barley",
+      "Calcium Disodium EDTA",
+      "Calcium Sulphite",
+      "Chickpea Flour (Besan)",
+      "Chickpea Protein",
+      "Coconut Water",
+      "Condensed Milk",
+      "Diammonium Phosphate",
+      "Egg White Powder",
+      "Full Cream Milk Powder",
+      "Ghee",
+      "High Fructose Corn Syrup"
+    ]
+  },
+  "findings": [
+    "Moderate Risk safety class has low recall (22.39%) with 67.16% of errors misclassified as Safe.",
+    "High Allergy Risk has very low recall (10.00%) with 80% of errors misclassified as None.",
+    "Personal Care test error rate (45.71% safety) is higher than Food (31.72% safety).",
+    "High-confidence predictions (>0.80) still contain incorrect predictions, indicating model overconfidence on unseen patterns."
+  ],
+  "limitations": [
+    "Small test sample size for High Risk safety (14 examples) and High allergy risk (10 examples).",
+    "Text features alone (character n-grams) lack semantic context for complex chemical names."
+  ]
+}

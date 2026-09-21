@@ -1,0 +1,65 @@
+{
+  "model_name": "PicWise Food Safety Classifier",
+  "model_type": "Dual-stream Character TF-IDF + Pretrained MiniLM + Balanced Logistic Regression",
+  "version": "1.0.0",
+  "serialization_date": "2026-09-15T10:00:44.823390+00:00",
+  "random_seed": 42,
+  "dataset": {
+    "source_path": "data/food/food_ingredients_dataset_final.csv",
+    "total_representations": 1449,
+    "canonical_ingredients": 498,
+    "class_distribution": {
+      "Safe": 652,
+      "Very Safe": 486,
+      "Moderate Risk": 218,
+      "High Risk": 93
+    }
+  },
+  "character_tfidf": {
+    "analyzer": "char",
+    "ngram_range": [
+      3,
+      5
+    ],
+    "sublinear_tf": true,
+    "min_df": 1,
+    "vocabulary_size": 12472
+  },
+  "semantic_embeddings": {
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "dimension": 384,
+    "normalize_embeddings": true,
+    "frozen": true
+  },
+  "classifier": {
+    "type": "LogisticRegression",
+    "solver": "lbfgs",
+    "class_weight": "balanced",
+    "max_iter": 1000,
+    "random_state": 42
+  },
+  "canonical_classes": [
+    "Very Safe",
+    "Safe",
+    "Moderate Risk",
+    "High Risk"
+  ],
+  "class_index_mapping": {
+    "Very Safe": 0,
+    "Safe": 1,
+    "Moderate Risk": 2,
+    "High Risk": 3
+  },
+  "reference_validation_metrics": {
+    "benchmark_type": "Previously established leak-free outer evaluation benchmark",
+    "macro_f1": 0.7437,
+    "accuracy": 0.7631,
+    "balanced_accuracy": 0.7363,
+    "roc_auc": 0.905,
+    "high_risk_recall": 0.7391,
+    "high_risk_precision": 0.8095,
+    "high_risk_f1": 0.7727,
+    "ordinal_mae": 0.2651,
+    "severe_error_rate": 0.0201
+  }
+}

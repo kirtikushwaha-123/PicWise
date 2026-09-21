@@ -1,0 +1,54 @@
+{
+  "dataset_path": "data/personal_care/final_personal_care_dataset.csv",
+  "row_count": 926,
+  "column_count": 11,
+  "columns": [
+    "Ingredient_Name",
+    "Primary_Function",
+    "Ingredient_Category",
+    "Product_Categories",
+    "Origin",
+    "Safety_Level",
+    "Allergy_Risk",
+    "Irritation_Risk",
+    "Regulatory_Status",
+    "Packaging Names / Alternate Names",
+    "canonical_group_id"
+  ],
+  "null_counts": {
+    "Ingredient_Name": 0,
+    "Primary_Function": 0,
+    "Ingredient_Category": 0,
+    "Product_Categories": 0,
+    "Origin": 0,
+    "Safety_Level": 0,
+    "Allergy_Risk": 0,
+    "Irritation_Risk": 0,
+    "Regulatory_Status": 0,
+    "Packaging Names / Alternate Names": 0,
+    "canonical_group_id": 0
+  },
+  "duplicate_ingredient_names": 0,
+  "unique_canonical_groups": 881,
+  "target_distributions": {
+    "Safety_Level": {
+      "Safe": 651,
+      "Very Safe": 118,
+      "Moderate Risk": 112,
+      "High Risk": 45
+    },
+    "Allergy_Risk": {
+      "Low": 662,
+      "Medium": 143,
+      "No Risk": 80,
+      "High": 41
+    },
+    "Irritation_Risk": {
+      "No Risk": 446,
+      "Low": 297,
+      "Medium": 156,
+      "High": 27
+    }
+  },
+  "alternate_names_count": 256
+}

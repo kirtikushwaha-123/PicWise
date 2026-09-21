@@ -1,0 +1,501 @@
+﻿Ingredient Name,Category,Safety Level,Allergy Risk,Health Impact,Processing Level,Regulatory Status,Packaging Names / Alternate Names
+Whole Wheat Flour (Atta),Cereals & Grains,Very Safe,Medium,Positive,Minimally Processed,Approved,whole wheat flour; wheat flour; atta; wholemeal flour; whole meal atta; गेहूं का आटा
+Refined Wheat Flour (Maida),Cereals & Grains,Safe,Medium,Neutral,Processed,Approved,refined wheat flour; maida; refined flour; white flour; मैदा
+Rice Flour,Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,rice flour; ground rice; chawal ka atta; चावल का आटा
+Oats,Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,oats; oat; jai; जई
+Corn (Maize),Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,corn; maize; makka; makai; मक्का
+Semolina (Suji/Rava),Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,semolina; suji; sooji; rava; रवा; सूजी
+Barley,Cereals & Grains,Very Safe,Low,Positive,Minimally Processed,Approved,barley; jau; जौ
+Ragi (Finger Millet),Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,ragi; finger millet; nachni; mandua; रागी
+Bajra (Pearl Millet),Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,bajra; pearl millet; बाजरा
+Jowar (Sorghum),Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,jowar; sorghum; juar; ज्वार
+Brown Rice,Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,brown rice; unpolished rice; भूरा चावल
+White Rice,Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,white rice; polished rice; chawal; चावल
+Quinoa,Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,quinoa
+Buckwheat (Kuttu),Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,buckwheat; kuttu; kuttu atta; कुट्टू
+Amaranth (Rajgira),Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,amaranth; rajgira; ramdana; राजगिरा
+Wheat Bran,Cereals & Grains,Very Safe,Medium,Positive,Minimally Processed,Approved,wheat bran; chokar; चोकर
+Rice Bran,Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,rice bran; चावल की भूसी
+Cornmeal,Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,cornmeal; maize meal
+Rolled Oats,Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,rolled oats; oat flakes; porridge oats
+Puffed Rice (Murmura),Cereals & Grains,Very Safe,,Positive,Minimally Processed,Approved,puffed rice; murmura; mamra; lai; लाई
+Corn Starch,Flour & Starch,Safe,,Neutral,Processed,Approved,corn starch; cornstarch; corn flour (British usage); maize starch
+Tapioca Starch,Flour & Starch,Safe,,Neutral,Processed,Approved,tapioca starch; tapioca flour; कसावा स्टार्च
+Potato Starch,Flour & Starch,Safe,,Neutral,Processed,Approved,potato starch; aloo starch
+Modified Starch,Flour & Starch,Moderate,,Neutral,Highly Processed,Approved,modified starch; modified food starch; modified corn starch
+Arrowroot Starch,Flour & Starch,Safe,,Neutral,Processed,Approved,arrowroot starch; arrowroot powder; tikhur
+Wheat Starch,Flour & Starch,Safe,Medium,Neutral,Processed,Approved,wheat starch
+Rice Starch,Flour & Starch,Safe,,Neutral,Processed,Approved,rice starch
+Sago (Sabudana),Flour & Starch,Safe,,Neutral,Processed,Approved,sago; sabudana; tapioca pearls; साबूदाना
+Maltodextrin,Flour & Starch,Moderate,,Negative,Highly Processed,Approved,maltodextrin; INS 1400
+Dextrose Monohydrate,Flour & Starch,Safe,,Negative,Processed,Approved,dextrose monohydrate; dextrose; glucose; corn sugar; grape sugar
+Vital Wheat Gluten,Flour & Starch,Safe,High,Neutral,Processed,Approved,vital wheat gluten; wheat gluten; seitan protein
+Corn Flour,Flour & Starch,Safe,,Neutral,Processed,Approved,corn flour; maize flour; makka atta
+Rice Bran Flour,Flour & Starch,Safe,,Neutral,Processed,Approved,rice bran flour
+Chestnut Flour,Flour & Starch,Safe,,Neutral,Processed,Approved,chestnut flour
+Sorghum Flour,Flour & Starch,Safe,,Neutral,Processed,Approved,sorghum flour; jowar flour; jowar atta; ज्वार का आटा
+Chickpea Flour (Besan),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,chickpea flour; besan; gram flour; बेसन
+Soy Flour,Pulses & Legumes,Very Safe,Medium,Positive,Minimally Processed,Approved,soy flour; soya flour; सोया आटा
+Green Gram (Moong Dal),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,green gram; moong dal; mung bean; moong; मूंग दाल
+Red Lentils (Masoor Dal),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,red lentils; masoor dal; masoor; मसूर दाल
+Yellow Split Peas (Chana Dal),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,chana dal; split bengal gram; yellow split peas; बंगाल चना दाल
+Black Gram (Urad Dal),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,black gram; urad dal; urad; उड़द दाल
+Pigeon Pea (Toor Dal),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,pigeon pea; toor dal; arhar dal; तूर दाल; अरहर दाल
+Kidney Beans (Rajma),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,kidney beans; rajma; राजमा
+Black-Eyed Peas (Lobia),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,black-eyed peas; lobia; chawli; लोबिया
+Green Peas,Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,green peas; matar; हरी मटर
+Soybean,Pulses & Legumes,Very Safe,Medium,Positive,Minimally Processed,Approved,soybean; soya bean; soya; सोयाबीन
+Horse Gram (Kulthi),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,horse gram; kulthi; kulith; कुलथी
+Lentil Flour,Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,lentil flour; dal flour
+Pea Flour,Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,pea flour; matar ka atta
+Mung Bean Starch,Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,mung bean starch; moong starch
+Chickpea Protein,Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,chickpea protein; gram protein
+White Peas (Matar),Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,white peas; safed matar; dried white peas
+Soy Chunks (Textured Vegetable Protein),Pulses & Legumes,Very Safe,Medium,Positive,Processed,Approved,soy chunks; soya chunks; textured vegetable protein; TVP; meal maker; soya nuggets
+Bengal Gram,Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,bengal gram; chana; desi chana; चना
+Red Kidney Bean Flour,Pulses & Legumes,Very Safe,Low,Positive,Minimally Processed,Approved,red kidney bean flour; rajma flour
+Soy Protein Isolate,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,soy protein isolate; soya protein isolate; SPI
+Soy Protein Concentrate,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,soy protein concentrate; soya protein concentrate; SPC
+Whey Protein Isolate,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,whey protein isolate; WPI
+Whey Protein Concentrate,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,whey protein concentrate; WPC
+Casein Protein,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,casein protein; casein; milk casein
+Pea Protein Isolate,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,pea protein isolate; pea protein
+Rice Protein,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,rice protein; rice protein concentrate
+Egg White Powder,Protein Sources,Safe,High,Positive,Highly Processed,Approved,egg white powder; dried egg white; albumen powder; egg albumin
+Collagen Peptides,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,collagen peptides; hydrolyzed collagen; collagen hydrolysate
+Milk Protein Concentrate,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,milk protein concentrate; MPC
+Hydrolyzed Whey Protein,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,hydrolyzed whey protein; hydrolysed whey protein
+Wheat Gluten Protein,Protein Sources,Safe,High,Positive,Highly Processed,Approved,wheat gluten protein; wheat gluten; seitan
+Textured Vegetable Protein,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,textured vegetable protein; TVP; soya chunks; meal maker
+Soy Nuggets,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,soy nuggets; soya nuggets; mini soya chunks
+Whey Protein Hydrolysate,Protein Sources,Safe,Medium,Positive,Highly Processed,Approved,whey protein hydrolysate; hydrolysed whey protein
+Palm Oil,Vegetable Oils,Moderate,,Negative,Processed,Approved with Limits,palm oil; palm olein
+Sunflower Oil,Vegetable Oils,Safe,,Neutral,Processed,Approved,sunflower oil; surajmukhi tel
+Soybean Oil,Vegetable Oils,Safe,,Neutral,Processed,Approved,soybean oil; soya oil; soyabean tel
+Mustard Oil,Vegetable Oils,Safe,,Neutral,Processed,Approved,mustard oil; sarson ka tel; kachi ghani oil
+Rice Bran Oil,Vegetable Oils,Safe,,Neutral,Processed,Approved,rice bran oil
+Groundnut Oil,Vegetable Oils,Safe,High,Neutral,Processed,Approved,groundnut oil; peanut oil; mungfali tel
+Coconut Oil,Vegetable Oils,Moderate,,Neutral,Processed,Approved,coconut oil; nariyal tel
+Vanaspati (Hydrogenated Vegetable Oil),Vegetable Oils,Risky,,Very Negative,Ultra Processed,Approved,vanaspati; hydrogenated vegetable oil; hydrogenated vegetable fat; vanaspati ghee
+Sesame Oil,Vegetable Oils,Safe,High,Neutral,Processed,Approved,sesame oil; til oil; gingelly oil
+Cottonseed Oil,Vegetable Oils,Moderate,,Negative,Processed,Approved,cottonseed oil; kapas tel; banaspati cotton oil
+Olive Oil,Vegetable Oils,Safe,,Neutral,Processed,Approved,olive oil
+Canola Oil,Vegetable Oils,Safe,,Neutral,Processed,Approved,canola oil; rapeseed oil (low erucic)
+Palm Kernel Oil,Vegetable Oils,Safe,,Neutral,Processed,Approved,palm kernel oil
+Corn Oil,Vegetable Oils,Safe,,Neutral,Processed,Approved,corn oil; maize oil
+Interesterified Vegetable Fat,Vegetable Oils,Moderate,,Negative,Ultra Processed,Approved,interesterified vegetable fat; interesterified fat
+Full Cream Milk Powder,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,full cream milk powder; whole milk powder; FCMP
+Skimmed Milk Powder,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,skimmed milk powder; SMP; skim milk powder; non-fat dry milk
+Milk Solids Non-Fat,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,milk solids non-fat; MSNF; non-fat milk solids
+Ghee,Dairy Ingredients,Safe,Low,Neutral,Processed,Approved,ghee; clarified butter; घी
+Butter,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,butter; makkhan; मक्खन
+Cream,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,cream; milk cream; malai; क्रीम
+Cheese,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,cheese; processed cheese; cheddar cheese
+Paneer,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,paneer; indian cottage cheese; पनीर
+Curd Culture,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,curd culture; yogurt culture; dahi culture; starter culture
+Whey Powder,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,whey powder; dried whey; sweet whey powder
+Milk Fat,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,milk fat; butterfat
+Casein,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,casein; milk casein
+Lactose,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,lactose; milk sugar
+Buttermilk Powder,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,buttermilk powder; dried buttermilk
+Condensed Milk,Dairy Ingredients,Moderate,Medium,Negative,Processed,Approved,condensed milk; sweetened condensed milk
+Khoya (Mawa),Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,khoya; mawa; खोया; मावा
+Milk Protein,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,milk protein; total milk protein
+Sodium Caseinate,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,sodium caseinate; caseinate
+Calcium Caseinate,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,calcium caseinate
+Whipping Cream,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,whipping cream; whipped cream base
+Anhydrous Milk Fat,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,anhydrous milk fat; AMF
+Dairy Whitener,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,dairy whitener; milk whitener; whitener powder
+Malted Milk Powder,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,malted milk powder; malt milk powder
+Cultured Buttermilk,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,cultured buttermilk; chaas culture; छाछ
+Rennet Casein,Dairy Ingredients,Safe,Medium,Neutral,Processed,Approved,rennet casein
+Mango Pulp,Fruits,Very Safe,,Positive,Minimally Processed,Approved,mango pulp; aam pulp; आम गूदा
+Apple Pulp,Fruits,Very Safe,,Positive,Minimally Processed,Approved,apple pulp; apple puree
+Orange Juice Concentrate,Fruits,Very Safe,,Positive,Minimally Processed,Approved,orange juice concentrate; OJ concentrate
+Raisins,Fruits,Very Safe,,Positive,Minimally Processed,Approved,raisins; kishmish; किशमिश
+Dried Fig,Fruits,Very Safe,,Positive,Minimally Processed,Approved,dried fig; dried anjeer; सूखा अंजीर
+Dates,Fruits,Very Safe,,Positive,Minimally Processed,Approved,dates; khajoor; खजूर
+Dried Apricot,Fruits,Very Safe,,Positive,Minimally Processed,Approved,dried apricot; dried khumani; सूखी खुबानी
+Pineapple Chunks,Fruits,Very Safe,,Positive,Minimally Processed,Approved,pineapple chunks; annanas pieces
+Strawberry Puree,Fruits,Very Safe,,Positive,Minimally Processed,Approved,strawberry puree
+Grape Juice Concentrate,Fruits,Very Safe,,Positive,Minimally Processed,Approved,grape juice concentrate
+Pomegranate Juice,Fruits,Very Safe,,Positive,Minimally Processed,Approved,pomegranate juice; anar juice
+Lemon Juice Concentrate,Fruits,Very Safe,,Positive,Minimally Processed,Approved,lemon juice concentrate; nimbu ras concentrate
+Lime Juice,Fruits,Very Safe,,Positive,Minimally Processed,Approved,lime juice; nimbu ras
+Banana Puree,Fruits,Very Safe,,Positive,Minimally Processed,Approved,banana puree; kela puree
+Guava Pulp,Fruits,Very Safe,,Positive,Minimally Processed,Approved,guava pulp; amrud pulp
+Papaya Pulp,Fruits,Very Safe,,Positive,Minimally Processed,Approved,papaya pulp; papita pulp
+Litchi Pulp,Fruits,Very Safe,,Positive,Minimally Processed,Approved,litchi pulp; lychee pulp
+Blueberry Puree,Fruits,Very Safe,,Positive,Minimally Processed,Approved,blueberry puree
+Dried Cranberries,Fruits,Very Safe,,Positive,Minimally Processed,Approved,dried cranberries; craisins
+Kiwi Puree,Fruits,Very Safe,,Positive,Minimally Processed,Approved,kiwi puree
+Watermelon Juice,Fruits,Very Safe,,Positive,Minimally Processed,Approved,watermelon juice; tarbooz juice
+Apricot Puree,Fruits,Very Safe,,Positive,Minimally Processed,Approved,apricot puree
+Peach Puree,Fruits,Very Safe,,Positive,Minimally Processed,Approved,peach puree; aadu puree
+Black Currant Extract,Fruits,Very Safe,,Positive,Minimally Processed,Approved,black currant extract
+Tamarind Pulp,Fruits,Very Safe,,Positive,Minimally Processed,Approved,tamarind pulp; imli pulp; इमली गूदा
+Amla (Indian Gooseberry) Extract,Fruits,Very Safe,,Positive,Minimally Processed,Approved,amla extract; indian gooseberry extract; आंवला
+Jackfruit Pulp,Fruits,Very Safe,,Positive,Minimally Processed,Approved,jackfruit pulp; kathal pulp
+Custard Apple Pulp,Fruits,Very Safe,,Positive,Minimally Processed,Approved,custard apple pulp; sitaphal pulp
+Passion Fruit Pulp,Fruits,Very Safe,,Positive,Minimally Processed,Approved,passion fruit pulp; krishna phal pulp
+Fig Paste,Fruits,Very Safe,,Positive,Minimally Processed,Approved,fig paste; anjeer paste
+Prune Puree,Fruits,Very Safe,,Positive,Minimally Processed,Approved,prune puree; dried plum puree
+Coconut Milk,Fruits,Very Safe,,Positive,Minimally Processed,Approved,coconut milk; nariyal doodh
+Coconut Water,Fruits,Very Safe,,Positive,Minimally Processed,Approved,coconut water; nariyal pani
+Candied Orange Peel,Fruits,Very Safe,,Positive,Minimally Processed,Approved,candied orange peel; orange peel confit
+Pear Puree,Fruits,Very Safe,,Positive,Minimally Processed,Approved,pear puree; nashpati puree
+Tomato Paste,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,tomato paste; tamatar paste
+Onion Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,onion powder; pyaz powder
+Garlic Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,garlic powder; lehsun powder
+Potato Flakes,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,potato flakes; aloo flakes; dehydrated mashed potato
+Carrot Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,carrot powder; gajar powder
+Spinach Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,spinach powder; palak powder
+Beetroot Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,beetroot powder; chukandar powder
+Ginger Paste,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,ginger paste; adrak paste
+Green Chilli Paste,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,green chilli paste; hari mirch paste
+Capsicum (Bell Pepper),Vegetables,Very Safe,,Positive,Minimally Processed,Approved,capsicum; bell pepper; shimla mirch
+Cauliflower,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,cauliflower; gobi; phool gobi
+Dried Peas,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,dried peas; sukhi matar
+Mushroom Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,mushroom powder; khumb powder
+Pumpkin Puree,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,pumpkin puree; kaddu puree
+Sweet Potato,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,sweet potato; shakarkand
+Tomato Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,tomato powder; tamatar powder
+Onion Flakes,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,onion flakes; dehydrated onion; pyaz flakes
+Garlic Flakes,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,garlic flakes; dehydrated garlic; lehsun flakes
+Dried Coriander Leaves,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,dried coriander leaves; dried dhania patta; kasuri dhania
+Dried Curry Leaves,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,dried curry leaves; dried kadi patta; dried meetha neem
+Fenugreek Leaves (Kasuri Methi),Vegetables,Very Safe,,Positive,Minimally Processed,Approved,fenugreek leaves; kasuri methi; dried methi leaves
+Tamarind Paste,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,tamarind paste; imli paste
+Dry Ginger Powder (Sonth),Vegetables,Very Safe,,Positive,Minimally Processed,Approved,dry ginger powder; sonth; saunth
+Red Bell Pepper Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,red bell pepper powder; lal shimla mirch powder
+Cabbage,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,cabbage; patta gobi; bandh gobi
+Broccoli Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,broccoli powder
+Sweet Corn,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,sweet corn; makai dana
+Baby Corn,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,baby corn
+Green Beans,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,green beans; french beans; farasbean
+Bottle Gourd,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,bottle gourd; lauki; doodhi
+Bitter Gourd Powder,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,bitter gourd powder; karela powder
+Radish,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,radish; mooli
+Turnip,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,turnip; shalgam
+Zucchini,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,zucchini; courgette
+Celery,Vegetables,Very Safe,,Positive,Minimally Processed,Approved,celery
+Peanuts,Nuts & Seeds,Safe,High,Positive,Natural,Approved,peanuts; groundnuts; mungfali; मूंगफली
+Almonds,Nuts & Seeds,Safe,High,Very Positive,Natural,Approved,almonds; badam; बादाम
+Cashew Nuts,Nuts & Seeds,Safe,High,Positive,Natural,Approved,cashew nuts; kaju; काजू
+Sesame Seeds,Nuts & Seeds,Safe,High,Positive,Natural,Approved,sesame seeds; til; तिल
+Flax Seeds,Nuts & Seeds,Safe,Low,Very Positive,Natural,Approved,flax seeds; alsi; अलसी
+Walnuts,Nuts & Seeds,Safe,High,Positive,Natural,Approved,walnuts; akhrot; अखरोट
+Pistachios,Nuts & Seeds,Safe,High,Positive,Natural,Approved,pistachios; pista; पिस्ता
+Sunflower Seeds,Nuts & Seeds,Safe,High,Positive,Natural,Approved,sunflower seeds; surajmukhi beej
+Pumpkin Seeds,Nuts & Seeds,Safe,High,Positive,Natural,Approved,pumpkin seeds; kaddu ke beej
+Chia Seeds,Nuts & Seeds,Safe,Low,Very Positive,Natural,Approved,chia seeds
+Poppy Seeds (Khus Khus),Nuts & Seeds,Safe,Medium,Positive,Natural,Approved,poppy seeds; khus khus; posto; खसखस
+Melon Seeds (Magaz),Nuts & Seeds,Safe,High,Positive,Natural,Approved,melon seeds; magaz; muskmelon seeds; चार मगज
+Pine Nuts,Nuts & Seeds,Safe,High,Positive,Natural,Approved,pine nuts; chilgoza; चिलगोज़ा
+Hazelnuts,Nuts & Seeds,Safe,High,Positive,Natural,Approved,hazelnuts
+Watermelon Seeds,Nuts & Seeds,Safe,High,Positive,Natural,Approved,watermelon seeds; tarbooz beej
+Turmeric,Herbs & Spices,Very Safe,,Positive,Natural,Approved,turmeric; haldi; हल्दी
+Black Pepper,Herbs & Spices,Very Safe,,Positive,Natural,Approved,black pepper; kali mirch; काली मिर्च
+Cumin,Herbs & Spices,Very Safe,,Positive,Natural,Approved,cumin; jeera; जीरा
+Red Chilli Powder,Herbs & Spices,Very Safe,,Positive,Natural,Approved,red chilli powder; lal mirch powder; लाल मिर्च पाउडर
+Coriander Seed,Herbs & Spices,Very Safe,,Positive,Natural,Approved,coriander seed; dhania; धनिया
+Fennel Seeds,Herbs & Spices,Very Safe,,Positive,Natural,Approved,fennel seeds; saunf; सौंफ
+Fenugreek Seeds,Herbs & Spices,Very Safe,,Positive,Natural,Approved,fenugreek seeds; methi dana; मेथी दाना
+Mustard Seeds,Herbs & Spices,Very Safe,,Positive,Natural,Approved,mustard seeds; rai; sarson; राई
+Green Cardamom,Herbs & Spices,Very Safe,,Positive,Natural,Approved,green cardamom; elaichi; choti elaichi; हरी इलायची
+Black Cardamom,Herbs & Spices,Very Safe,,Positive,Natural,Approved,black cardamom; badi elaichi; काली इलायची
+Cinnamon,Herbs & Spices,Very Safe,,Positive,Natural,Approved,cinnamon; dalchini; दालचीनी
+Cloves,Herbs & Spices,Very Safe,,Positive,Natural,Approved,cloves; laung; लौंग
+Nutmeg,Herbs & Spices,Very Safe,,Positive,Natural,Approved,nutmeg; jaiphal; जायफल
+Mace,Herbs & Spices,Very Safe,,Positive,Natural,Approved,mace; javitri; जावित्री
+Star Anise,Herbs & Spices,Very Safe,,Positive,Natural,Approved,star anise; chakra phool; चक्र फूल
+Bay Leaf,Herbs & Spices,Very Safe,,Positive,Natural,Approved,bay leaf; tej patta; तेज पत्ता
+Asafoetida (Hing),Herbs & Spices,Very Safe,Low,Positive,Natural,Approved,asafoetida; hing; हींग
+Ajwain (Carom Seeds),Herbs & Spices,Very Safe,,Positive,Natural,Approved,ajwain; carom seeds; अजवाइन
+Dry Ginger,Herbs & Spices,Very Safe,,Positive,Natural,Approved,dry ginger; sonth; saunth (whole)
+Dry Mango Powder (Amchur),Herbs & Spices,Very Safe,,Positive,Natural,Approved,dry mango powder; amchur; आमचूर
+Black Salt (Kala Namak),Herbs & Spices,Very Safe,,Neutral,Natural,Approved,black salt; kala namak; काला नमक
+Rock Salt,Herbs & Spices,Very Safe,,Neutral,Natural,Approved,rock salt; sendha namak; सेंधा नमक
+Curry Powder,Herbs & Spices,Very Safe,,Positive,Natural,Approved,curry powder
+Garam Masala,Herbs & Spices,Very Safe,,Positive,Natural,Approved,garam masala; गरम मसाला
+Paprika,Herbs & Spices,Very Safe,,Positive,Natural,Approved,paprika
+Dried Basil,Herbs & Spices,Very Safe,,Positive,Natural,Approved,dried basil
+Oregano,Herbs & Spices,Very Safe,,Positive,Natural,Approved,oregano
+Thyme,Herbs & Spices,Very Safe,,Positive,Natural,Approved,thyme
+Rosemary,Herbs & Spices,Very Safe,,Positive,Natural,Approved,rosemary
+Dried Mint,Herbs & Spices,Very Safe,,Positive,Natural,Approved,dried mint; dried pudina; सूखा पुदीना
+Saffron,Herbs & Spices,Very Safe,,Positive,Natural,Approved,saffron; kesar; केसर
+Vanilla Pods,Herbs & Spices,Very Safe,,Positive,Natural,Approved,vanilla pods; vanilla beans
+Tamarind (Whole),Herbs & Spices,Very Safe,,Positive,Natural,Approved,tamarind; imli; इमली
+Kokum,Herbs & Spices,Very Safe,,Positive,Natural,Approved,kokum; कोकम
+Sichuan Pepper,Herbs & Spices,Very Safe,,Positive,Natural,Approved,sichuan pepper; szechuan pepper
+White Pepper,Herbs & Spices,Very Safe,,Positive,Natural,Approved,white pepper; safed mirch; सफ़ेद मिर्च
+Chaat Masala,Herbs & Spices,Very Safe,,Positive,Natural,Approved,chaat masala; चाट मसाला
+Pav Bhaji Masala,Herbs & Spices,Very Safe,,Positive,Natural,Approved,pav bhaji masala
+Sambar Masala,Herbs & Spices,Very Safe,,Positive,Natural,Approved,sambar masala; sambhar powder
+Rasam Powder,Herbs & Spices,Very Safe,,Positive,Natural,Approved,rasam powder; rasam masala
+Tandoori Masala,Herbs & Spices,Very Safe,,Positive,Natural,Approved,tandoori masala
+Chicken Masala,Herbs & Spices,Very Safe,,Positive,Natural,Approved,chicken masala
+Pickling Spice Mix,Herbs & Spices,Very Safe,,Positive,Natural,Approved,pickling spice mix; achar masala
+Panch Phoron,Herbs & Spices,Very Safe,,Positive,Natural,Approved,panch phoron; bengali five spice mix
+Kalonji (Nigella Seeds),Herbs & Spices,Very Safe,,Positive,Natural,Approved,kalonji; nigella seeds; kalaunji; कलौंजी
+Celery Seeds,Herbs & Spices,Very Safe,,Positive,Natural,Approved,celery seeds
+Dill Seeds,Herbs & Spices,Very Safe,,Positive,Natural,Approved,dill seeds; sowa seeds; suva
+Caraway Seeds,Herbs & Spices,Very Safe,,Positive,Natural,Approved,caraway seeds; shia jeera; शिया जीरा
+Anise Seed,Herbs & Spices,Very Safe,,Positive,Natural,Approved,anise seed
+Long Pepper (Pippali),Herbs & Spices,Very Safe,,Positive,Natural,Approved,long pepper; pippali; पिप्पली
+Sucrose (Sugar),Sweeteners,Moderate,,Negative,Processed,Approved,sucrose; sugar; cane sugar; refined sugar; चीनी
+Fructose,Sweeteners,Safe,,Neutral,Processed,Approved,fructose; fruit sugar
+Glucose Syrup,Sweeteners,Moderate,,Negative,Processed,Approved,glucose syrup; liquid glucose; corn syrup
+Honey,Sweeteners,Safe,,Positive,Processed,Approved,honey; shahad; शहद
+Jaggery,Sweeteners,Safe,,Neutral,Processed,Approved,jaggery; gur; गुड़
+High Fructose Corn Syrup,Sweeteners,Risky,,Very Negative,Highly Processed,Approved with Limits,high fructose corn syrup; HFCS
+Invert Sugar Syrup,Sweeteners,Moderate,,Negative,Processed,Approved,invert sugar syrup; invert syrup
+Maltose,Sweeteners,Safe,,Neutral,Processed,Approved,maltose; malt sugar
+Brown Sugar,Sweeteners,Moderate,,Negative,Processed,Approved,brown sugar
+Palm Sugar,Sweeteners,Safe,,Neutral,Processed,Approved,palm sugar; taad gur; ताड़ गुड़
+Date Sugar,Sweeteners,Safe,,Positive,Processed,Approved,date sugar; khajoor sugar
+Corn Syrup Solids,Sweeteners,Moderate,,Negative,Highly Processed,Approved,corn syrup solids
+Malt Extract,Sweeteners,Safe,,Neutral,Processed,Approved,malt extract
+Golden Syrup,Sweeteners,Moderate,,Negative,Processed,Approved,golden syrup
+Icing Sugar,Sweeteners,Moderate,,Negative,Processed,Approved,icing sugar; confectioners sugar; powdered sugar
+Aspartame,Artificial Sweeteners,Moderate,,Negative,Ultra Processed,Approved with Limits,aspartame; INS 951; E951
+Sucralose,Artificial Sweeteners,Moderate,,Negative,Ultra Processed,Approved with Limits,sucralose; INS 955; E955
+Saccharin,Artificial Sweeteners,Moderate,,Negative,Ultra Processed,Approved with Limits,saccharin; INS 954; E954
+Acesulfame Potassium,Artificial Sweeteners,Moderate,,Negative,Ultra Processed,Approved with Limits,acesulfame potassium; acesulfame K; ACE-K; INS 950; E950
+Steviol Glycosides (Stevia),Artificial Sweeteners,Safe,,Neutral,Ultra Processed,Approved with Limits,steviol glycosides; stevia; INS 960
+Neotame,Artificial Sweeteners,Moderate,,Negative,Ultra Processed,Approved with Limits,neotame; INS 961; E961
+Sorbitol (Sweetener),Artificial Sweeteners,Safe,,Negative,Ultra Processed,Approved with Limits,sorbitol; INS 420; E420
+Xylitol,Artificial Sweeteners,Safe,,Neutral,Ultra Processed,Approved with Limits,xylitol; INS 967; E967
+Erythritol,Artificial Sweeteners,Safe,,Neutral,Ultra Processed,Approved with Limits,erythritol; INS 968; E968
+Mannitol,Artificial Sweeteners,Moderate,,Negative,Ultra Processed,Approved with Limits,mannitol; INS 421; E421
+Sodium Benzoate,Preservatives,Moderate,,Negative,Processed,Approved with Limits,sodium benzoate; preservative 211; INS 211; E211
+Potassium Sorbate,Preservatives,Safe,,Neutral,Processed,Approved with Limits,potassium sorbate; INS 202; E202
+Sulphur Dioxide,Preservatives,Risky,Medium,Negative,Processed,Approved with Limits,sulphur dioxide; sulfur dioxide; SO2; INS 220; E220
+Calcium Propionate,Preservatives,Safe,,Neutral,Processed,Approved with Limits,calcium propionate; INS 282; E282
+Sodium Nitrite,Preservatives,Risky,,Very Negative,Processed,Approved with Limits,sodium nitrite; INS 250; E250
+Sodium Metabisulphite,Preservatives,Risky,Medium,Negative,Processed,Approved with Limits,sodium metabisulphite; sodium metabisulfite; INS 223; E223
+Potassium Metabisulphite,Preservatives,Risky,Medium,Negative,Processed,Approved with Limits,potassium metabisulphite; INS 224; E224
+Sodium Nitrate,Preservatives,Risky,,Negative,Processed,Approved with Limits,sodium nitrate; INS 251; E251
+Potassium Nitrate,Preservatives,Risky,,Negative,Processed,Approved with Limits,potassium nitrate; INS 252; E252
+Sodium Propionate,Preservatives,Safe,,Neutral,Processed,Approved with Limits,sodium propionate; INS 281; E281
+Benzoic Acid,Preservatives,Moderate,,Negative,Processed,Approved with Limits,benzoic acid; INS 210; E210
+Sorbic Acid,Preservatives,Safe,,Negative,Processed,Approved with Limits,sorbic acid; INS 200; E200
+Nisin,Preservatives,Safe,,Neutral,Processed,Approved with Limits,nisin; INS 234; E234
+Natamycin,Preservatives,Safe,,Neutral,Processed,Approved with Limits,natamycin; pimaricin; INS 235; E235
+Calcium Sorbate,Preservatives,Safe,,Negative,Processed,Approved with Limits,calcium sorbate; INS 203; E203
+Methyl Paraben,Preservatives,Moderate,,Negative,Processed,Restricted,methyl paraben; methylparaben; INS 218; E218
+Propyl Paraben,Preservatives,Moderate,,Negative,Processed,Restricted,propyl paraben; propylparaben; INS 216; E216
+Sodium Diacetate,Preservatives,Safe,,Negative,Processed,Approved with Limits,sodium diacetate; INS 262(ii)
+Potassium Benzoate,Preservatives,Moderate,,Negative,Processed,Approved with Limits,potassium benzoate; INS 212; E212
+Formic Acid,Preservatives,Moderate,,Negative,Processed,Approved with Limits,formic acid; INS 236
+Propionic Acid,Preservatives,Moderate,,Negative,Processed,Approved with Limits,propionic acid; INS 280; E280
+Sodium Sulphite,Preservatives,Risky,Medium,Negative,Processed,Approved with Limits,sodium sulphite; sodium sulfite; INS 221; E221
+Calcium Sulphite,Preservatives,Risky,Medium,Negative,Processed,Approved with Limits,calcium sulphite; INS 226; E226
+Sodium Bisulphite,Preservatives,Risky,Medium,Negative,Processed,Approved with Limits,sodium bisulphite; sodium hydrogen sulphite; INS 222; E222
+Calcium Disodium EDTA,Preservatives,Moderate,,Negative,Processed,Approved with Limits,calcium disodium EDTA; INS 385; E385
+Xanthan Gum,Stabilizers,Safe,,Neutral,Processed,Approved,xanthan gum; INS 415; E415
+Guar Gum,Stabilizers,Safe,,Neutral,Processed,Approved,guar gum; INS 412; E412
+Carrageenan,Stabilizers,Safe,,Neutral,Processed,Approved,carrageenan; INS 407; E407
+Sodium Alginate,Stabilizers,Safe,,Neutral,Processed,Approved,sodium alginate; INS 401; E401
+Gum Arabic (Acacia Gum),Stabilizers,Safe,,Neutral,Processed,Approved,gum arabic; acacia gum; INS 414; E414
+Gellan Gum,Stabilizers,Safe,,Neutral,Processed,Approved,gellan gum; INS 418; E418
+Karaya Gum,Stabilizers,Safe,,Neutral,Processed,Approved,karaya gum; INS 416; E416
+Tara Gum,Stabilizers,Safe,,Neutral,Processed,Approved,tara gum; INS 417; E417
+Tragacanth Gum,Stabilizers,Safe,,Neutral,Processed,Approved,tragacanth gum; gum tragacanth; INS 413; E413
+Potassium Alginate,Stabilizers,Safe,,Neutral,Processed,Approved,potassium alginate; INS 402; E402
+Ammonium Alginate,Stabilizers,Safe,,Neutral,Processed,Approved,ammonium alginate; INS 403; E403
+Furcellaran,Stabilizers,Safe,,Neutral,Processed,Approved,furcellaran; INS 407a; E407a
+Soy Lecithin,Emulsifiers,Safe,Medium,Neutral,Highly Processed,Approved,soy lecithin; soya lecithin; INS 322; E322
+Mono- and Diglycerides of Fatty Acids,Emulsifiers,Moderate,,Neutral,Highly Processed,Approved,mono and diglycerides of fatty acids; mono-diglycerides; MDG; INS 471; E471
+Polysorbate 80,Emulsifiers,Moderate,,Negative,Ultra Processed,Approved with Limits,polysorbate 80; PS80; Tween 80; INS 433; E433
+Sodium Stearoyl Lactylate,Emulsifiers,Safe,,Neutral,Highly Processed,Approved,sodium stearoyl lactylate; SSL; INS 481
+Polysorbate 60,Emulsifiers,Moderate,,Negative,Ultra Processed,Approved with Limits,polysorbate 60; PS60; INS 435; E435
+Sorbitan Monostearate,Emulsifiers,Moderate,,Neutral,Highly Processed,Approved,sorbitan monostearate; INS 491; E491
+Diacetyl Tartaric Acid Esters (DATEM),Emulsifiers,Moderate,,Neutral,Highly Processed,Approved,DATEM; diacetyl tartaric acid esters of mono and diglycerides; INS 472e; E472e
+Calcium Stearoyl Lactylate,Emulsifiers,Safe,,Neutral,Highly Processed,Approved,calcium stearoyl lactylate; CSL; INS 482
+Ammonium Phosphatide,Emulsifiers,Moderate,,Neutral,Highly Processed,Approved,ammonium phosphatide; INS 442; E442
+Sucrose Esters of Fatty Acids,Emulsifiers,Moderate,,Neutral,Highly Processed,Approved,sucrose esters of fatty acids; sucrose esters; INS 473; E473
+Propylene Glycol Esters of Fatty Acids,Emulsifiers,Moderate,,Neutral,Highly Processed,Approved,propylene glycol esters of fatty acids; PGE; INS 477; E477
+Sunflower Lecithin,Emulsifiers,Safe,,Neutral,Highly Processed,Approved,sunflower lecithin; INS 322
+Egg Yolk Lecithin,Emulsifiers,Safe,High,Neutral,Highly Processed,Approved,egg yolk lecithin
+Glycerol Monostearate,Emulsifiers,Moderate,,Neutral,Highly Processed,Approved,glycerol monostearate; GMS; mono glyceride; INS 471
+Polyglycerol Polyricinoleate (PGPR),Emulsifiers,Moderate,,Neutral,Highly Processed,Approved with Limits,PGPR; polyglycerol polyricinoleate; INS 476; E476
+Pectin,Thickeners,Safe,,Neutral,Processed,Approved,pectin; INS 440; E440
+Locust Bean Gum,Thickeners,Safe,,Neutral,Processed,Approved,locust bean gum; carob bean gum; INS 410; E410
+Carboxymethyl Cellulose,Thickeners,Safe,,Neutral,Processed,Approved,carboxymethyl cellulose; CMC; cellulose gum; INS 466; E466
+Methyl Cellulose,Thickeners,Safe,,Neutral,Processed,Approved,methyl cellulose; INS 461; E461
+Hydroxypropyl Methylcellulose,Thickeners,Safe,,Neutral,Processed,Approved,hydroxypropyl methylcellulose; HPMC; INS 464; E464
+Konjac Gum,Thickeners,Safe,,Neutral,Processed,Approved,konjac gum; INS 425; E425
+Waxy Maize Starch,Thickeners,Safe,,Neutral,Processed,Approved,waxy maize starch; waxy corn starch
+Psyllium Husk,Thickeners,Safe,,Neutral,Processed,Approved,psyllium husk; isabgol; इसबगोल
+Cassia Gum,Thickeners,Safe,,Neutral,Processed,Approved,cassia gum; INS 427; E427
+Sodium Carboxymethyl Cellulose,Thickeners,Safe,,Neutral,Processed,Approved,sodium carboxymethyl cellulose; sodium CMC; INS 466; E466
+Modified Tapioca Starch,Thickeners,Safe,,Neutral,Processed,Approved,modified tapioca starch
+Pre-gelatinized Starch,Thickeners,Safe,,Neutral,Processed,Approved,pre-gelatinized starch; pregelatinized starch; instant starch
+Citric Acid,Acidity Regulators,Safe,,Neutral,Processed,Approved,citric acid; acidity regulator (330); INS 330; E330
+Malic Acid,Acidity Regulators,Safe,,Neutral,Processed,Approved,malic acid; INS 296; E296
+Lactic Acid,Acidity Regulators,Safe,,Neutral,Processed,Approved,lactic acid; INS 270; E270
+Sodium Citrate,Acidity Regulators,Safe,,Neutral,Processed,Approved,sodium citrate; INS 331; E331
+Acetic Acid,Acidity Regulators,Safe,,Neutral,Processed,Approved,acetic acid; INS 260; E260
+Tartaric Acid,Acidity Regulators,Safe,,Neutral,Processed,Approved,tartaric acid; INS 334; E334
+Phosphoric Acid,Acidity Regulators,Safe,,Neutral,Processed,Approved,phosphoric acid; INS 338; E338
+Potassium Citrate,Acidity Regulators,Safe,,Neutral,Processed,Approved,potassium citrate; INS 332; E332
+Fumaric Acid,Acidity Regulators,Safe,,Neutral,Processed,Approved,fumaric acid; INS 297; E297
+Sodium Lactate,Acidity Regulators,Safe,,Neutral,Processed,Approved,sodium lactate; INS 325; E325
+Calcium Lactate,Acidity Regulators,Safe,,Neutral,Processed,Approved,calcium lactate; INS 327; E327
+Adipic Acid,Acidity Regulators,Safe,,Neutral,Processed,Approved,adipic acid; INS 355; E355
+Ascorbic Acid (Vitamin C),Antioxidants,Very Safe,,Positive,Processed,Approved,ascorbic acid; vitamin C; INS 300; E300
+Tocopherols (Vitamin E),Antioxidants,Very Safe,,Positive,Processed,Approved,tocopherols; vitamin E; INS 307; E307
+BHA (Butylated Hydroxyanisole),Antioxidants,Risky,,Negative,Ultra Processed,Approved with Limits,BHA; butylated hydroxyanisole; INS 320; E320
+BHT (Butylated Hydroxytoluene),Antioxidants,Risky,,Negative,Ultra Processed,Approved with Limits,BHT; butylated hydroxytoluene; INS 321; E321
+TBHQ (Tertiary Butylhydroquinone),Antioxidants,Risky,,Negative,Ultra Processed,Approved with Limits,TBHQ; tertiary butylhydroquinone; tert-butylhydroquinone; INS 319; E319
+Propyl Gallate,Antioxidants,Moderate,,Negative,Processed,Approved with Limits,propyl gallate; INS 310; E310
+Sodium Ascorbate,Antioxidants,Safe,,Positive,Processed,Approved,sodium ascorbate; INS 301; E301
+Rosemary Extract,Antioxidants,Very Safe,,Positive,Minimally Processed,Approved,rosemary extract; INS 392
+Ascorbyl Palmitate,Antioxidants,Safe,,Positive,Processed,Approved,ascorbyl palmitate; INS 304; E304
+Erythorbic Acid,Antioxidants,Safe,,Positive,Processed,Approved,erythorbic acid; isoascorbic acid; INS 315; E315
+Sodium Erythorbate,Antioxidants,Safe,,Positive,Processed,Approved,sodium erythorbate; INS 316; E316
+Mixed Tocopherols,Antioxidants,Safe,,Positive,Processed,Approved,mixed tocopherols; INS 307b
+Monosodium Glutamate (MSG),Flavour Enhancers,Moderate,Low,Neutral,Ultra Processed,Approved,monosodium glutamate; MSG; flavour enhancer (621); INS 621; E621; ajinomoto
+Disodium Inosinate,Flavour Enhancers,Moderate,Low,Neutral,Ultra Processed,Approved,disodium inosinate; IMP; INS 631; E631
+Disodium Guanylate,Flavour Enhancers,Moderate,Low,Neutral,Ultra Processed,Approved,disodium guanylate; GMP; INS 627; E627
+Disodium 5'-Ribonucleotides,Flavour Enhancers,Moderate,Low,Neutral,Ultra Processed,Approved,disodium 5'-ribonucleotides; ribonucleotides; INS 635; E635
+Yeast Extract,Flavour Enhancers,Safe,,Neutral,Ultra Processed,Approved,yeast extract
+Hydrolyzed Vegetable Protein,Flavour Enhancers,Moderate,Medium,Neutral,Ultra Processed,Approved,hydrolyzed vegetable protein; hydrolysed vegetable protein; HVP
+Glutamic Acid,Flavour Enhancers,Moderate,Low,Neutral,Ultra Processed,Approved,glutamic acid; INS 620; E620
+Autolyzed Yeast Extract,Flavour Enhancers,Safe,,Neutral,Ultra Processed,Approved,autolyzed yeast extract; autolysed yeast extract
+Artificial Vanilla Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial vanilla flavour; vanilla flavour (artificial); synthetic vanilla flavour; vanillin flavour
+Artificial Fruit Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial fruit flavour; mixed fruit flavour (artificial)
+Artificial Strawberry Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial strawberry flavour; strawberry flavour (artificial)
+Artificial Mango Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial mango flavour; mango flavour (artificial)
+Artificial Butter Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial butter flavour; butter flavour (artificial)
+Artificial Cheese Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial cheese flavour; cheese flavour (artificial)
+Artificial Chocolate Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial chocolate flavour; chocolate flavour (artificial)
+Artificial Mint Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial mint flavour; mint flavour (artificial)
+Artificial Pineapple Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial pineapple flavour; pineapple flavour (artificial)
+Artificial Orange Flavour,Artificial Flavours,Moderate,Low,Neutral,Ultra Processed,Approved,artificial orange flavour; orange flavour (artificial)
+Natural Vanilla Extract,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural vanilla extract; vanilla extract
+Natural Fruit Flavour,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural fruit flavour; natural mixed fruit flavour
+Natural Mint Extract,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural mint extract; peppermint extract
+Natural Lemon Oil,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural lemon oil; lemon oil
+Natural Orange Oil,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural orange oil; orange oil
+Natural Cardamom Extract,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural cardamom extract; elaichi extract
+Natural Ginger Extract,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural ginger extract; adrak extract
+Natural Cinnamon Extract,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural cinnamon extract; dalchini extract
+Natural Coffee Extract,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural coffee extract; coffee extract
+Natural Cocoa Flavour,Natural Flavours,Safe,Low,Neutral,Processed,Approved,natural cocoa flavour; cocoa flavour (natural)
+Tartrazine (Yellow 5),Food Colours,Risky,Medium,Negative,Processed,Approved,tartrazine; yellow 5; FD&C yellow 5; INS 102; E102
+Sunset Yellow FCF,Food Colours,Risky,Medium,Negative,Processed,Approved,sunset yellow FCF; yellow 6; INS 110; E110
+Caramel Colour,Food Colours,Moderate,,Neutral,Processed,Approved,caramel colour; caramel color; INS 150; E150
+Curcumin (Natural Yellow),Food Colours,Very Safe,,Very Positive,Minimally Processed,Approved,curcumin; natural yellow; turmeric colour; INS 100; E100
+Carmoisine (Red),Food Colours,Risky,Medium,Negative,Processed,Approved,carmoisine; azorubine; INS 122; E122
+Erythrosine (Red),Food Colours,Risky,Medium,Negative,Processed,Approved,erythrosine; red 3; INS 127; E127
+Ponceau 4R,Food Colours,Risky,Medium,Negative,Processed,Approved,ponceau 4R; cochineal red A; INS 124; E124
+Brilliant Blue FCF,Food Colours,Risky,Low,Negative,Processed,Approved,brilliant blue FCF; blue 1; INS 133; E133
+Indigo Carmine,Food Colours,Risky,Low,Negative,Processed,Approved,indigo carmine; blue 2; INS 132; E132
+Beta-Carotene,Food Colours,Very Safe,,Positive,Processed,Approved,beta-carotene; provitamin A colour; INS 160a; E160a
+Annatto Extract,Food Colours,Safe,,Neutral,Minimally Processed,Approved,annatto extract; annatto; INS 160b; E160b
+Chlorophyll,Food Colours,Very Safe,,Neutral,Minimally Processed,Approved,chlorophyll; INS 140; E140
+Anthocyanin,Food Colours,Very Safe,,Positive,Minimally Processed,Approved,anthocyanin; INS 163; E163
+Riboflavin (Colour),Food Colours,Very Safe,,Positive,Processed,Approved,riboflavin; vitamin B2 colour; INS 101; E101
+Titanium Dioxide,Food Colours,Risky,,Negative,Processed,Banned in Some Countries,titanium dioxide; INS 171; E171
+Carbon Black (Vegetable Carbon),Food Colours,Moderate,,Neutral,Processed,Restricted,carbon black; vegetable carbon; INS 153; E153
+Paprika Oleoresin,Food Colours,Safe,,Neutral,Minimally Processed,Approved,paprika oleoresin; paprika extract; INS 160c
+Beet Red (Betanin),Food Colours,Safe,,Neutral,Minimally Processed,Approved,beet red; betanin; INS 162; E162
+Copper Chlorophyllin,Food Colours,Safe,,Neutral,Processed,Approved,copper chlorophyllin; INS 141; E141
+Quinoline Yellow,Food Colours,Risky,Medium,Negative,Processed,Approved,quinoline yellow; INS 104; E104
+Vitamin A (Retinyl Palmitate),Vitamins,Safe,,Positive,Processed,Approved,vitamin A; retinyl palmitate; retinol
+Vitamin D3 (Cholecalciferol),Vitamins,Safe,,Positive,Processed,Approved,vitamin D3; cholecalciferol
+Folic Acid,Vitamins,Safe,,Positive,Processed,Approved,folic acid; vitamin B9; folate
+Vitamin B12 (Cyanocobalamin),Vitamins,Safe,,Positive,Processed,Approved,vitamin B12; cyanocobalamin
+Vitamin B1 (Thiamine),Vitamins,Safe,,Positive,Processed,Approved,vitamin B1; thiamine; thiamin
+Vitamin B2 (Riboflavin),Vitamins,Safe,,Positive,Processed,Approved,vitamin B2; riboflavin
+Vitamin B6 (Pyridoxine),Vitamins,Safe,,Positive,Processed,Approved,vitamin B6; pyridoxine
+Vitamin B3 (Niacin),Vitamins,Safe,,Positive,Processed,Approved,vitamin B3; niacin; nicotinamide; niacinamide
+Vitamin B5 (Pantothenic Acid),Vitamins,Safe,,Positive,Processed,Approved,vitamin B5; pantothenic acid; calcium pantothenate
+Biotin,Vitamins,Safe,,Positive,Processed,Approved,biotin; vitamin B7; vitamin H
+Vitamin K (Phylloquinone),Vitamins,Safe,,Positive,Processed,Approved,vitamin K; phylloquinone; vitamin K1
+Calcium Ascorbate (Vitamin C),Vitamins,Safe,,Positive,Processed,Approved,calcium ascorbate; vitamin C (calcium salt)
+Vitamin E (Tocopheryl Acetate),Vitamins,Safe,,Positive,Processed,Approved,vitamin E; tocopheryl acetate; alpha-tocopheryl acetate
+Choline,Vitamins,Safe,,Positive,Processed,Approved,choline; choline bitartrate; choline chloride
+Inositol,Vitamins,Safe,,Positive,Processed,Approved,inositol; vitamin B8
+Ferrous Sulphate (Iron),Minerals,Safe,,Positive,Processed,Approved,ferrous sulphate; ferrous sulfate; iron sulfate; iron
+Potassium Iodate (Iodine),Minerals,Safe,,Positive,Processed,Approved,potassium iodate; iodine
+Calcium Carbonate,Minerals,Safe,,Positive,Processed,Approved,calcium carbonate; chalk; INS 170; E170
+Zinc Oxide,Minerals,Safe,,Positive,Processed,Approved,zinc oxide
+Zinc Sulphate,Minerals,Safe,,Positive,Processed,Approved,zinc sulphate; zinc sulfate
+Magnesium Oxide,Minerals,Safe,,Positive,Processed,Approved,magnesium oxide; INS 530
+Magnesium Sulphate,Minerals,Safe,,Positive,Processed,Approved,magnesium sulphate; magnesium sulfate; epsom salt
+Manganese Sulphate,Minerals,Safe,,Positive,Processed,Approved,manganese sulphate; manganese sulfate
+Copper Sulphate,Minerals,Safe,,Positive,Processed,Approved,copper sulphate; copper sulfate
+Sodium Selenite (Selenium),Minerals,Safe,,Positive,Processed,Approved,sodium selenite; selenium
+Chromium Chloride,Minerals,Safe,,Positive,Processed,Approved,chromium chloride
+Potassium Chloride,Minerals,Safe,,Positive,Processed,Approved,potassium chloride; INS 508
+Sodium Chloride (Salt),Minerals,Safe,,Positive,Processed,Approved,sodium chloride; salt; namak; table salt; नमक
+Calcium Phosphate,Minerals,Safe,,Positive,Processed,Approved,calcium phosphate; INS 341
+Ferric Pyrophosphate,Minerals,Safe,,Positive,Processed,Approved,ferric pyrophosphate; iron pyrophosphate
+Calcium Citrate,Minerals,Safe,,Positive,Processed,Approved,calcium citrate; INS 333
+Potassium Phosphate,Minerals,Safe,,Positive,Processed,Approved,potassium phosphate; INS 340
+Sodium Molybdate (Molybdenum),Minerals,Safe,,Positive,Processed,Approved,sodium molybdate; molybdenum
+Sodium Bicarbonate,Raising Agents,Safe,,Neutral,Processed,Approved,sodium bicarbonate; baking soda; bicarbonate of soda; sodium hydrogen carbonate; INS 500(ii); E500(ii); मीठा सोडा
+Baking Powder,Raising Agents,Safe,,Neutral,Processed,Approved,baking powder; बेकिंग पाउडर
+Ammonium Bicarbonate,Raising Agents,Safe,,Neutral,Processed,Approved,ammonium bicarbonate; baker's ammonia; INS 503(ii)
+Monocalcium Phosphate,Raising Agents,Safe,,Neutral,Processed,Approved,monocalcium phosphate; INS 341(i)
+Sodium Aluminium Phosphate,Raising Agents,Moderate,,Neutral,Processed,Approved with Limits,sodium aluminium phosphate; SALP; INS 541
+Cream of Tartar,Raising Agents,Safe,,Neutral,Processed,Approved,cream of tartar; potassium bitartrate; INS 336
+Glucono Delta-Lactone,Raising Agents,Safe,,Neutral,Processed,Approved,glucono delta-lactone; GDL; INS 575
+Diammonium Phosphate,Raising Agents,Safe,,Neutral,Processed,Approved,diammonium phosphate; DAP; INS 342(ii)
+Silicon Dioxide,Anti-Caking Agents,Safe,,Neutral,Processed,Approved,silicon dioxide; silica; INS 551; E551
+Magnesium Carbonate,Anti-Caking Agents,Safe,,Neutral,Processed,Approved,magnesium carbonate; INS 504; E504
+Calcium Silicate,Anti-Caking Agents,Safe,,Neutral,Processed,Approved,calcium silicate; INS 552; E552
+Tricalcium Phosphate,Anti-Caking Agents,Safe,,Neutral,Processed,Approved,tricalcium phosphate; INS 341(iii); E341
+Sodium Ferrocyanide,Anti-Caking Agents,Moderate,,Neutral,Processed,Approved with Limits,sodium ferrocyanide; INS 535; E535
+Magnesium Stearate,Anti-Caking Agents,Safe,,Neutral,Processed,Approved,magnesium stearate; INS 470; E470
+Potassium Ferrocyanide,Anti-Caking Agents,Moderate,,Neutral,Processed,Approved with Limits,potassium ferrocyanide; INS 536; E536
+Sodium Aluminosilicate,Anti-Caking Agents,Safe,,Neutral,Processed,Approved,sodium aluminosilicate; INS 554; E554
+Glycerol (Glycerin),Humectants,Safe,,Neutral,Processed,Approved,glycerol; glycerin; glycerine; INS 422; E422
+Sorbitol (Humectant),Humectants,Safe,,Neutral,Processed,Approved,sorbitol; INS 420; E420
+Propylene Glycol,Humectants,Moderate,,Negative,Processed,Approved,propylene glycol; INS 1520
+Polydextrose,Humectants,Safe,,Neutral,Processed,Approved,polydextrose; INS 1200
+Lactitol,Humectants,Safe,,Neutral,Processed,Approved,lactitol; INS 966
+Triacetin,Humectants,Safe,,Neutral,Processed,Approved,triacetin; glyceryl triacetate; INS 1518
+Isomalt,Humectants,Safe,,Neutral,Processed,Approved,isomalt; INS 953
+Hexylene Glycol,Humectants,Moderate,,Neutral,Processed,Approved,hexylene glycol
+Beeswax,Glazing Agents,Safe,,Neutral,Minimally Processed,Approved,beeswax; INS 901; E901
+Shellac,Glazing Agents,Safe,,Neutral,Minimally Processed,Approved,shellac; INS 904; E904
+Carnauba Wax,Glazing Agents,Safe,,Neutral,Minimally Processed,Approved,carnauba wax; INS 903; E903
+Candelilla Wax,Glazing Agents,Safe,,Neutral,Minimally Processed,Approved,candelilla wax; INS 902; E902
+Mineral Oil (Food Grade),Glazing Agents,Moderate,,Neutral,Minimally Processed,Approved with Limits,mineral oil; food grade mineral oil; white mineral oil
+Paraffin Wax,Glazing Agents,Moderate,,Neutral,Minimally Processed,Approved with Limits,paraffin wax; INS 905
+Agar-Agar,Gelling Agents,Safe,,Neutral,Processed,Approved,agar-agar; agar; china grass; INS 406; E406
+Gelatin,Gelling Agents,Safe,Low,Neutral,Processed,Approved,gelatin; gelatine
+Fish Gelatin,Gelling Agents,Safe,High,Neutral,Processed,Approved,fish gelatin
+Low Methoxyl Pectin,Gelling Agents,Safe,,Neutral,Processed,Approved,low methoxyl pectin; LM pectin; INS 440
+Kappa Carrageenan,Gelling Agents,Safe,,Neutral,Processed,Approved,kappa carrageenan; INS 407
+Clarified Gellan Gum,Gelling Agents,Safe,,Neutral,Processed,Approved,clarified gellan gum; INS 418
+Isinglass,Gelling Agents,Safe,High,Neutral,Processed,Approved,isinglass
+Methylcellulose Gel,Gelling Agents,Safe,,Neutral,Processed,Approved,methylcellulose gel; methyl cellulose gel
+Papain,Enzymes,Safe,Low,Neutral,Processed,Approved,papain; papaya enzyme
+Amylase,Enzymes,Safe,Low,Neutral,Processed,Approved,amylase; diastase
+Rennet,Enzymes,Safe,Low,Neutral,Processed,Approved,rennet; rennin
+Bromelain,Enzymes,Safe,Low,Neutral,Processed,Approved,bromelain; pineapple enzyme
+Lactase,Enzymes,Safe,Low,Neutral,Processed,Approved,lactase
+Invertase,Enzymes,Safe,Low,Neutral,Processed,Approved,invertase
+Protease,Enzymes,Safe,Low,Neutral,Processed,Approved,protease; proteolytic enzyme
+Lipase,Enzymes,Safe,Low,Neutral,Processed,Approved,lipase
+Pectinase,Enzymes,Safe,Low,Neutral,Processed,Approved,pectinase
+Catalase,Enzymes,Safe,Low,Neutral,Processed,Approved,catalase
+Activated Carbon,Processing Aids,Safe,,Neutral,Highly Processed,Approved with Limits,activated carbon; activated charcoal
+Calcium Chloride,Processing Aids,Moderate,,Neutral,Highly Processed,Approved with Limits,calcium chloride; INS 509; E509
+Diatomaceous Earth,Processing Aids,Moderate,,Neutral,Highly Processed,Approved with Limits,diatomaceous earth; kieselguhr
+Bentonite Clay,Processing Aids,Moderate,,Neutral,Highly Processed,Approved with Limits,bentonite clay; bentonite
+Silica Gel (Processing Aid),Processing Aids,Moderate,,Neutral,Highly Processed,Approved with Limits,silica gel
+Ion Exchange Resin,Processing Aids,Moderate,,Neutral,Highly Processed,Approved with Limits,ion exchange resin
+Hydrochloric Acid (Processing),Processing Aids,Moderate,,Neutral,Highly Processed,Approved with Limits,hydrochloric acid; muriatic acid; INS 507
+Sodium Hydroxide (Processing),Processing Aids,Moderate,,Neutral,Highly Processed,Approved with Limits,sodium hydroxide; caustic soda; lye; INS 524
+Nitrogen,Packaging Gas Ingredients,Very Safe,,Neutral,Processed,Approved,nitrogen; INS 941; E941
+Carbon Dioxide,Packaging Gas Ingredients,Very Safe,,Neutral,Processed,Approved,carbon dioxide; CO2; INS 290; E290
+Oxygen,Packaging Gas Ingredients,Very Safe,,Neutral,Processed,Approved,oxygen; INS 948; E948
+Argon,Packaging Gas Ingredients,Very Safe,,Neutral,Processed,Approved,argon; INS 938; E938
+Nitrous Oxide,Packaging Gas Ingredients,Very Safe,,Neutral,Processed,Approved,nitrous oxide; INS 942; E942

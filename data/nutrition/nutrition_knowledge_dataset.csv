@@ -1,0 +1,48 @@
+Nutrient,Health Role,Health Impact,Decision Priority,Better Direction,Alternative / Packaging Names
+Energy / Calories,Context Dependent,Context Dependent,Very High,Appropriate,energy; calories; kcal; kilocalories; energy value; calorific value; energy (kcal); energy (kj); kj; cal; total energy
+Protein,Essential,Positive,Medium-High,Adequate,protein; proteins; total protein; crude protein; protein content
+Total Fat,Context Dependent,Context Dependent,High,Context Dependent,total fat; fat; total fats; fat content; fats
+Saturated Fat,Risk Factor,Negative in Excess,Very High,Lower is Better,saturated fat; sat fat; sat. fat; saturated fatty acids; SFA; saturates
+Trans Fat,Risk Factor,Very Negative,Very High,Lower is Better,trans fat; trans-fat; trans fatty acids; trans fatty acid; TFA
+Monounsaturated Fat,Beneficial,Positive,Low,Higher is Better,monounsaturated fat; MUFA; mono-unsaturated fatty acids; monounsaturated fatty acids; mono fat
+Polyunsaturated Fat,Beneficial,Positive,Low,Higher is Better,polyunsaturated fat; PUFA; poly-unsaturated fatty acids; polyunsaturated fatty acids; poly fat
+Omega-3 Fatty Acids,Beneficial,Positive,Low,Higher is Better,omega-3; omega 3; omega-3 fatty acids; n-3 fatty acids; ALA; EPA; DHA
+Omega-6 Fatty Acids,Context Dependent,Context Dependent,Low,Context Dependent,omega-6; omega 6; omega-6 fatty acids; n-6 fatty acids; linoleic acid
+Cholesterol,Risk Factor,Negative in Excess,Medium,Lower is Better,cholesterol; dietary cholesterol; chol
+Total Carbohydrate,Context Dependent,Context Dependent,Medium-High,Context Dependent,total carbohydrate; total carbohydrates; carbohydrate; carbohydrates; total carb; carbs; carbohydrates by difference
+Total Sugars,Risk Factor,Negative in Excess,High,Lower is Better,total sugars; total sugar; sugars; sugar; sugar content; of which sugars
+Added Sugars,Risk Factor,Negative,Very High,Lower is Better,added sugar; added sugars; added sugars total; added sucrose; added sweeteners; refined sugar added; sugar added
+Naturally Occurring Sugars,Context Dependent,Context Dependent,Low,Context Dependent,naturally occurring sugars; natural sugars; inherent sugars; intrinsic sugars
+Starch,Context Dependent,Context Dependent,Low,Context Dependent,starch; total starch; starch content
+Dietary Fiber,Beneficial,Very Positive,High,Higher is Better,dietary fiber; dietary fibre; fibre; fiber; total dietary fiber; total dietary fibre; crude fiber; roughage
+Soluble Fiber,Beneficial,Positive,Low,Higher is Better,soluble fiber; soluble fibre; sol. fiber; sol. fibre
+Insoluble Fiber,Beneficial,Positive,Low,Higher is Better,insoluble fiber; insoluble fibre; insol. fiber; insol. fibre
+Sugar Alcohols / Polyols,Context Dependent,Context Dependent,Low,Context Dependent,sugar alcohols; polyols; erythritol; sorbitol; xylitol; maltitol; mannitol; isomalt; lactitol
+Sodium,Essential/Risk,Negative in Excess,Very High,Lower is Better,sodium; Na; sodium content; salt; salt equivalent; sodium chloride; NaCl; salt (as sodium); salt equiv.
+Potassium,Essential,Positive,Medium,Adequate,potassium; K; potassium content
+Calcium,Essential,Positive,Medium,Adequate,calcium; Ca; calcium content
+Iron,Essential,Positive,Medium,Adequate,iron; Fe; iron content
+Magnesium,Essential,Positive,Low,Adequate,magnesium; Mg; magnesium content
+Phosphorus,Essential,Context Dependent,Low,Adequate,phosphorus; P; phosphorous; phosphorus content
+Zinc,Essential,Positive,Low,Adequate,zinc; Zn; zinc content
+Copper,Essential,Positive,Low,Adequate,copper; Cu; copper content
+Manganese,Essential,Positive,Low,Adequate,manganese; Mn; manganese content
+Selenium,Essential,Positive,Low,Adequate,selenium; Se; selenium content
+Iodine,Essential,Positive,Medium,Adequate,iodine; I; iodine content; iodized
+Chromium,Essential,Context Dependent,Low,Adequate,chromium; Cr; chromium content
+Fluoride,Essential/Risk,Context Dependent,Low,Adequate,fluoride; F; fluoride content
+Vitamin A,Essential,Positive,Medium,Adequate,vitamin a; vit a; vit. a; retinol; beta-carotene; retinol equivalent; RE
+Vitamin D,Essential,Positive,Medium,Adequate,vitamin d; vit d; vit. d; cholecalciferol; vitamin d3; vitamin d2; ergocalciferol
+Vitamin E,Essential,Positive,Low,Adequate,vitamin e; vit e; vit. e; tocopherol; alpha-tocopherol
+Vitamin K,Essential,Positive,Low,Adequate,vitamin k; vit k; vit. k; phylloquinone
+Vitamin C,Essential,Positive,Medium,Adequate,vitamin c; vit c; vit. c; ascorbic acid
+Vitamin B1 (Thiamine),Essential,Positive,Low,Adequate,vitamin b1; vit b1; vit. b1; thiamine; thiamin
+Vitamin B2 (Riboflavin),Essential,Positive,Low,Adequate,vitamin b2; vit b2; vit. b2; riboflavin
+Vitamin B3 (Niacin),Essential,Positive,Low,Adequate,vitamin b3; vit b3; vit. b3; niacin; nicotinamide; nicotinic acid
+Vitamin B5 (Pantothenic Acid),Essential,Positive,Low,Adequate,vitamin b5; vit b5; vit. b5; pantothenic acid
+Vitamin B6,Essential,Positive,Low,Adequate,vitamin b6; vit b6; vit. b6; pyridoxine
+Vitamin B7 (Biotin),Essential,Positive,Low,Adequate,vitamin b7; vit b7; vit. b7; biotin
+Vitamin B9 (Folate / Folic Acid),Essential,Positive,Medium,Adequate,vitamin b9; vit b9; vit. b9; folate; folic acid
+Vitamin B12,Essential,Positive,Medium,Adequate,vitamin b12; vit b12; vit. b12; cobalamin
+Caffeine,Context Dependent,Context Dependent,Medium,Lower is Better,caffeine; caffeine content; added caffeine
+Choline,Essential,Positive,Low,Adequate,choline; choline content

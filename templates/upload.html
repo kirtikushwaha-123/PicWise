@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+
+{% block title %}Scan Product | PicWise{% endblock %}
+
+{% block content %}
+  <section class="page-heading">
+    <h1>Scan <span>Product</span></h1>
+    <p>Upload a label image and review the knowledge-base matches.</p>
+  </section>
+
+  <section class="scan-page-grid">
+    <div class="upload-panel card">
+      <form id="uploadForm" class="upload-form">
+        <div class="category-selection-group">
+          <span id="categoryGroupLabel" class="category-group-label">Select Product Category <span class="required-star">*</span></span>
+          <div class="category-toggle-container" role="radiogroup" aria-labelledby="categoryGroupLabel">
+            <label class="category-card" for="catFood">
+              <input type="radio" id="catFood" name="category" value="food" checked>
+              <div class="category-card-inner">
+                <span class="category-icon">🍏</span>
+                <div class="category-info">
+                  <strong class="category-title">Food & Beverages</strong>
+                  <span class="category-desc">Ingredients & nutrition facts</span>
+                </div>
+              </div>
+            </label>
+            <label class="category-card" for="catPersonalCare">
+              <input type="radio" id="catPersonalCare" name="category" value="personal_care">
+              <div class="category-card-inner">
+                <span class="category-icon">🧴</span>
+                <div class="category-info">
+                  <strong class="category-title">Personal Care</strong>
+                  <span class="category-desc">Cosmetics & skin safety</span>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <label id="dropZone" class="drop-zone" for="imageInput">
+          <input id="imageInput" name="image" type="file" accept="image/jpeg,image/png,image/webp">
+          <span class="drop-camera"><span class="camera-icon"></span></span>
+          <span class="drop-title">Drop a label image here</span>
+          <span class="drop-subtitle">JPG, JPEG, PNG, or WEBP</span>
+        </label>
+
+        <p id="fileError" class="inline-error" role="alert"></p>
+
+        <div id="previewWrap" class="preview-wrap hidden">
+          <img id="previewImage" alt="Selected product label preview">
+          <button id="removeImage" class="secondary-action" type="button">Remove image</button>
+        </div>
+
+        <button id="analyzeButton" class="primary-action" type="submit" disabled>
+          <span class="button-icon camera-small"></span>
+          Analyze
+        </button>
+      </form>
+    </div>
+
+    <aside class="card scan-helper">
+      <h2>Ready for Safer Choices</h2>
+      <p>PicWise checks the uploaded label against food, nutrition, and personal-care knowledge bases.</p>
+      <div class="helper-stat">
+        <span>Knowledge rows</span>
+        <strong>1,333+</strong>
+      </div>
+      <div class="helper-stat">
+        <span>OCR status</span>
+        <strong>Integrated (PaddleOCR)</strong>
+      </div>
+    </aside>
+  </section>
+
+  <section id="loadingState" class="status-panel card hidden" aria-live="polite">
+    <div class="spinner"></div>
+    <h2>Analyzing your product...</h2>
+    <p>PicWise is sending the label through the Phase 1 API pipeline.</p>
+  </section>
+
+  <section id="resultsPanel" class="results-panel card hidden" aria-live="polite">
+    <!-- Food Analysis Results Container -->
+    <div id="foodResultsContainer" class="hidden">
+      <div class="section-title-row results-heading">
+        <div>
+          <h2>Food Product Analysis</h2>
+          <p>Independent assessments across Safety, Nutrition, and Allergens.</p>
+        </div>
+      </div>
+
+      <!-- Food Warnings Banner (Hidden by default, displayed if warnings exist) -->
+      <div id="foodWarningsBanner" class="warning-banner hidden" role="alert">
+        <div class="warning-banner-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div class="warning-banner-content">
+          <strong>Notices & Warnings</strong>
+          <ul id="foodWarningsList"></ul>
+        </div>
+      </div>
+
+      <!-- Three Independent Dimension Cards Grid -->
+      <div class="food-cards-grid">
+        <!-- 1. Food Safety Card -->
+        <div id="foodSafetyCard" class="dimension-card">
+          <div class="card-header-row">
+            <div class="dimension-title-group">
+              <span class="dimension-icon">🛡️</span>
+              <div>
+                <h3 class="dimension-title">Food Safety</h3>
+                <span class="dimension-subtitle">ML-based ingredient classification</span>
+              </div>
+            </div>
+            <span id="foodSafetyStatusBadge" class="status-pill unavailable">Unavailable</span>
+          </div>
+
+          <div class="dimension-body">
+            <div class="meta-stat-row">
+              <span class="meta-label">Ingredients Assessed:</span>
+              <strong id="foodSafetyCount" class="meta-value">0</strong>
+            </div>
+
+            <div class="ingredient-breakdown">
+              <h4 class="breakdown-title">Ingredient Risk Breakdown</h4>
+              <div id="foodSafetyIngredientsList" class="ingredient-badges-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Nutrition Card -->
+        <div id="nutritionCard" class="dimension-card">
+          <div class="card-header-row">
+            <div class="dimension-title-group">
+              <span class="dimension-icon">🥗</span>
+              <div>
+                <h3 class="dimension-title">Nutrition</h3>
+                <span class="dimension-subtitle">Deterministic 0–100 profiling</span>
+              </div>
+            </div>
+            <span id="nutritionStatusBadge" class="status-pill unavailable">Unavailable</span>
+          </div>
+
+          <div class="dimension-body">
+            <div class="nutrition-score-box">
+              <span class="score-label">Nutrition Score</span>
+              <div class="score-value-row">
+                <span id="nutritionScoreValue" class="score-number">—</span>
+                <span id="nutritionScoreDenominator" class="score-denominator">/ 100</span>
+              </div>
+              <span id="nutritionScoreNote" class="score-note"></span>
+            </div>
+
+            <div class="nutrition-nutrients-section">
+              <h4 class="breakdown-title">Key Nutrients</h4>
+              <div id="nutritionNutrientsList" class="nutrients-grid"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Allergy Risk Card -->
+        <div id="allergyCard" class="dimension-card">
+          <div class="card-header-row">
+            <div class="dimension-title-group">
+              <span class="dimension-icon">⚠️</span>
+              <div>
+                <h3 class="dimension-title">Allergy Risk</h3>
+                <span class="dimension-subtitle">Knowledge-base allergen lookup</span>
+              </div>
+            </div>
+            <span id="allergyStatusBadge" class="status-pill unavailable">Unavailable</span>
+          </div>
+
+          <div class="dimension-body">
+            <div class="allergy-content-section">
+              <h4 class="breakdown-title">Detected Allergens</h4>
+              <!-- Allergen list populated strictly from backend allergens_detected -->
+              <div id="allergyDetectedContainer" class="allergy-detected-wrap">
+                <div id="allergyDetectedList" class="allergen-pills-wrap"></div>
+                <p id="allergyEmptyNotice" class="allergy-empty-notice hidden">No specific allergens detected in scanned ingredients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal Care Results Container (Phase 10B) -->
+    <div id="personalCareResultsContainer" class="hidden">
+      <div class="section-title-row results-heading">
+        <div>
+          <h2>Personal Care Analysis</h2>
+          <p>Independent assessments across Safety, Allergy Risk, and Irritation Risk.</p>
+        </div>
+      </div>
+
+      <!-- Personal Care Warnings Banner -->
+      <div id="pcWarningsBanner" class="warning-banner hidden" role="alert">
+        <div class="warning-banner-icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div class="warning-banner-content">
+          <strong>Notices & Warnings</strong>
+          <ul id="pcWarningsList"></ul>
+        </div>
+      </div>
+
+      <!-- Three Independent Dimension Cards Grid -->
+      <div class="food-cards-grid">
+        <!-- 1. Personal Care Safety Card -->
+        <div id="personalCareSafetyCard" class="dimension-card">
+          <div class="card-header-row">
+            <div class="dimension-title-group">
+              <span class="dimension-icon">🧴</span>
+              <div>
+                <h3 class="dimension-title">Personal Care Safety</h3>
+                <span class="dimension-subtitle">ML-based ingredient safety</span>
+              </div>
+            </div>
+            <span id="pcSafetyStatusBadge" class="status-pill unavailable">Unavailable</span>
+          </div>
+
+          <div class="dimension-body">
+            <div class="meta-stat-row">
+              <span class="meta-label">Ingredients Assessed:</span>
+              <strong id="pcSafetyCount" class="meta-value">0</strong>
+            </div>
+
+            <div class="ingredient-breakdown">
+              <h4 class="breakdown-title">Ingredient Safety Breakdown</h4>
+              <div id="pcSafetyIngredientsList" class="ingredient-badges-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Allergy Risk Card -->
+        <div id="personalCareAllergyCard" class="dimension-card">
+          <div class="card-header-row">
+            <div class="dimension-title-group">
+              <span class="dimension-icon">⚠️</span>
+              <div>
+                <h3 class="dimension-title">Allergy Risk</h3>
+                <span class="dimension-subtitle">ML-based sensitization potential</span>
+              </div>
+            </div>
+            <span id="pcAllergyStatusBadge" class="status-pill unavailable">Unavailable</span>
+          </div>
+
+          <div class="dimension-body">
+            <div class="meta-stat-row">
+              <span class="meta-label">Ingredients Assessed:</span>
+              <strong id="pcAllergyCount" class="meta-value">0</strong>
+            </div>
+
+            <div class="ingredient-breakdown">
+              <h4 class="breakdown-title">Ingredient Allergy Breakdown</h4>
+              <div id="pcAllergyIngredientsList" class="ingredient-badges-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Irritation Risk Card -->
+        <div id="personalCareIrritationCard" class="dimension-card">
+          <div class="card-header-row">
+            <div class="dimension-title-group">
+              <span class="dimension-icon">🔬</span>
+              <div>
+                <h3 class="dimension-title">Irritation Risk</h3>
+                <span class="dimension-subtitle">ML-based topical irritation potential</span>
+              </div>
+            </div>
+            <span id="pcIrritationStatusBadge" class="status-pill unavailable">Unavailable</span>
+          </div>
+
+          <div class="dimension-body">
+            <div class="meta-stat-row">
+              <span class="meta-label">Ingredients Assessed:</span>
+              <strong id="pcIrritationCount" class="meta-value">0</strong>
+            </div>
+
+            <div class="ingredient-breakdown">
+              <h4 class="breakdown-title">Ingredient Irritation Breakdown</h4>
+              <div id="pcIrritationIngredientsList" class="ingredient-badges-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+{% endblock %}

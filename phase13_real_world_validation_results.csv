@@ -1,0 +1,37 @@
+image_id,category,condition,ocr_status,extracted_count,recognized_count,unrecognized_count,missed_count,fused_count,nutrition_status,warning_count,final_status,runtime_seconds,notes
+food_01_biscuit_oreo_clean,food,Clean / Easy,FAIL,2,2,0,11,0,MISSED,2,Safety:unavailable|Nut:red|Allergy:green,126.078,OK
+food_02_chips_lays_angled,food,Angled (perspective distortion),FAIL,2,2,0,6,0,MISSED,2,Safety:unavailable|Nut:unavailable|Allergy:green,60.813,OK
+food_03_noodles_maggi_dense,food,Dense text,FAIL,13,13,0,14,4,MISSED,2,Safety:unavailable|Nut:red|Allergy:red,70.809,OK
+food_04_cereal_kelloggs_small_text,food,Small text,FAIL,7,7,0,6,5,MISSED,2,Safety:unavailable|Nut:unavailable|Allergy:yellow,46.331,OK
+food_05_beverage_cola_curved,food,Curved packaging (cylindrical warp),FAIL,4,4,0,3,0,MISSED,2,Safety:unavailable|Nut:unavailable|Allergy:green,54.168,OK
+food_06_sauce_heinz_low_contrast,food,Low contrast (faint print),FAIL,8,8,0,4,2,MISSED,2,Safety:unavailable|Nut:yellow|Allergy:red,58.469,OK
+food_07_snack_pretzels_blur,food,Mild blur,FAIL,16,16,0,6,2,MISSED,3,Safety:unavailable|Nut:yellow|Allergy:orange,64.142,OK
+food_08_protein_bar_glare,food,Glare / reflections,FAIL,10,10,0,4,2,MISSED,3,Safety:unavailable|Nut:yellow|Allergy:red,99.59,OK
+food_09_staple_pasta_complex,food,Complex layout,FAIL,7,7,0,1,4,MISSED,3,Safety:unavailable|Nut:yellow|Allergy:green,66.733,OK
+food_10_ready_to_eat_soup_curved,food,Curved packaging (cylindrical warp),FAIL,11,11,0,6,1,MISSED,3,Safety:unavailable|Nut:orange|Allergy:orange,63.879,OK
+food_11_namkeen_haldiram_dense,food,Dense text,FAIL,12,12,0,7,2,MISSED,0,Safety:unavailable|Nut:red|Allergy:yellow,65.905,OK
+food_12_energy_drink_redbull_units,food,"Complex layout (units: mg, kJ, kcal)",FAIL,7,7,0,7,1,MISSED,4,Safety:unavailable|Nut:red|Allergy:green,56.779,OK
+food_13_snack_chikki_no_nutrition,food,Missing nutrition panel (Failure Semantics: Nutrition Unavailable != Safe),FAIL,1,1,0,4,0,NOT_PRESENT,1,Safety:unavailable|Nut:unavailable|Allergy:green,24.626,OK
+food_14_exotic_botanical_food,food,Unknown ingredients (Semantics: Unknown != Safe),FAIL,6,6,0,5,2,NOT_PRESENT,2,Safety:unavailable|Nut:unavailable|Allergy:green,40.068,OK
+food_15_food_front_blank,food,Front branding only (Semantics: 0 text / OCR failure != Safe),PASS,0,0,0,0,0,NOT_PRESENT,3,Safety:unavailable|Nut:unavailable|Allergy:unavailable,11.567,OK
+food_16_chocolate_dark_low_contrast,food,Low contrast (dark packaging),FAIL,5,5,0,3,1,MISSED,1,Safety:unavailable|Nut:unavailable|Allergy:orange,59.705,OK
+food_17_peanut_butter_angled,food,Angled (perspective distortion),FAIL,3,3,0,4,2,MISSED,1,Safety:unavailable|Nut:unavailable|Allergy:red,82.843,OK
+food_18_instant_oats_clean,food,Clean / Easy,FAIL,6,6,0,4,1,MISSED,2,Safety:unavailable|Nut:yellow|Allergy:green,59.947,OK
+pc_01_shampoo_head_shoulders_clean,personal_care,Clean / Easy,FAIL,25,25,0,0,1,N/A,5,Safety:orange|Allergy:red|Irritant:orange,109.939,OK
+pc_02_moisturizer_cerave_dense,personal_care,Dense text,FAIL,14,14,0,14,1,N/A,0,Safety:orange|Allergy:red|Irritant:orange,38.847,OK
+pc_03_cleanser_cetaphil_blank,personal_care,Brand/volume only (Semantics: 0 ingredients -> Unavailable != Safe),PASS,1,0,0,0,0,N/A,2,Safety:unavailable|Allergy:unavailable|Irritant:unavailable,20.341,OK
+pc_04_sunscreen_neutrogena_angled,personal_care,Angled (perspective distortion),FAIL,23,23,0,1,0,N/A,6,Safety:orange|Allergy:red|Irritant:orange,114.591,OK
+pc_05_hair_oil_blurred,personal_care,Mild blur,FAIL,3,3,0,0,0,N/A,4,Safety:unavailable|Allergy:unavailable|Irritant:unavailable,77.522,OK
+pc_06_lotion_dove_lighting,personal_care,Glare / reflections / uneven lighting,FAIL,26,26,0,1,0,N/A,4,Safety:orange|Allergy:red|Irritant:red,121.576,OK
+pc_07_face_wash_simple_lowres,personal_care,Small text / low resolution,FAIL,16,16,0,1,0,N/A,10,Safety:yellow|Allergy:yellow|Irritant:yellow,45.649,OK
+pc_08_conditioner_tresemme_curved,personal_care,Curved packaging (cylindrical warp),FAIL,14,14,0,0,1,N/A,2,Safety:orange|Allergy:red|Irritant:orange,46.538,OK
+pc_09_serum_ordinary_small_text,personal_care,Small text,FAIL,0,0,0,11,0,N/A,2,Safety:unavailable|Allergy:unavailable|Irritant:unavailable,44.898,OK
+pc_10_lip_balm_burts_low_contrast,personal_care,Low contrast (faint print on pale tube),FAIL,6,6,0,0,0,N/A,2,Safety:yellow|Allergy:orange|Irritant:orange,39.436,OK
+pc_11_foundation_maybelline_complex,personal_care,Complex layout,FAIL,20,20,0,1,1,N/A,5,Safety:orange|Allergy:orange|Irritant:orange,63.81,OK
+pc_12_sunscreen_laroche_active_inactive,personal_care,Complex layout (Drug facts format),FAIL,17,17,0,1,0,N/A,5,Safety:orange|Allergy:yellow|Irritant:yellow,59.467,OK
+pc_13_botanical_body_wash_aliases,personal_care,Dense text / INCI packaging aliases,FAIL,11,11,0,0,1,N/A,2,Safety:yellow|Allergy:orange|Irritant:orange,46.184,OK
+pc_14_anti_aging_cream_high_risk,personal_care,High risk detection (sensitizers & allergens),FAIL,10,10,0,1,1,N/A,3,Safety:orange|Allergy:orange|Irritant:red,39.055,OK
+pc_15_perfume_box_blank,personal_care,Brand name only (Semantics: 0 ingredients -> Unavailable != Safe),PASS,1,0,0,0,0,N/A,0,Safety:orange|Allergy:red|Irritant:orange,12.62,DEFECT: Blank PC label assigned orange for personal_care_safety instead of unavailable; DEFECT: Blank PC label assigned red for allergy instead of unavailable; DEFECT: Blank PC label assigned orange for irritation instead of unavailable
+pc_16_toner_witch_hazel_parentheticals,personal_care,Dense text / parentheticals,FAIL,1,1,0,0,0,N/A,2,Safety:unavailable|Allergy:unavailable|Irritant:unavailable,33.998,OK
+pc_17_micellar_water_bioderma_clean,personal_care,Clean / Easy,FAIL,2,2,0,1,0,N/A,3,Safety:unavailable|Allergy:unavailable|Irritant:unavailable,30.965,OK
+pc_18_hair_mask_shea_moisture_angled,personal_care,Angled (perspective distortion),FAIL,17,17,0,2,1,N/A,1,Safety:orange|Allergy:orange|Irritant:yellow,48.971,OK

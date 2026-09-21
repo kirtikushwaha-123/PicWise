@@ -1,0 +1,927 @@
+﻿Ingredient_Name,Primary_Function,Ingredient_Category,Product_Categories,Origin,Safety_Level,Allergy_Risk,Irritation_Risk,Regulatory_Status,Packaging Names / Alternate Names
+Aqua (Water),Solvent,Solvent,"Face Wash, Cleanser, Moisturizer, Shampoo, Conditioner, Body Wash, Toner, Serum, Sunscreen, Lotion",Natural,Very Safe,No Risk,No Risk,Approved,Water
+Butylene Glycol,Solvent,Solvent,"Toner, Serum, Moisturizer, Face Mist, Essence",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Propylene Glycol,Humectant,Humectant,"Moisturizer, Face Cream, Deodorant, Hair Gel",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Pentylene Glycol,Humectant,Humectant,"Serum, Moisturizer, Toner, Sunscreen",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Dipropylene Glycol,Solvent,Solvent,"Fragrance, Serum, Toner",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Hexylene Glycol,Solvent,Solvent,"Toner, Serum, Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Isopropyl Alcohol,Solvent,Alcohol,"Hand Sanitizer, Nail Polish Remover, Perfume",Synthetic,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Ethanol,Solvent,Alcohol,"Hand Sanitizer, Perfume, Toner, Body Mist",Naturally Derived,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Alcohol Denat.,Solvent,Alcohol,"Toner, Hair Spray, Perfume, Hand Sanitizer",Synthetic,Moderate Risk,Low,Medium,Approved,No Alternate Names
+SD Alcohol 40,Solvent,Alcohol,"Perfume, Hair Spray, Toner",Synthetic,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Caprylyl Glycol,Humectant,Humectant,"Moisturizer, Serum, Deodorant",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Glycerin,Humectant,Humectant,"Moisturizer, Face Wash, Soap, Body Lotion, Shampoo, Serum",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Sodium PCA,Humectant,Humectant,"Moisturizer, Serum, Hair Conditioner",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Propanediol,Humectant,Humectant,"Serum, Toner, Moisturizer",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sorbitol,Humectant,Sugar,"Toothpaste, Moisturizer, Cream",Naturally Derived,Very Safe,No Risk,No Risk,Approved,No Alternate Names
+Glyceryl Glucoside,Humectant,Sugar,"Serum, Moisturizer",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Trehalose,Humectant,Sugar,"Serum, Cream, Mask",Naturally Derived,Very Safe,No Risk,No Risk,Approved,No Alternate Names
+Xylitol,Humectant,Sugar,"Toothpaste, Mouthwash, Serum",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Xylitylglucoside,Humectant,Sugar,"Serum, Moisturizer",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Anhydroxylitol,Humectant,Sugar,"Serum, Moisturizer",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Inulin,Humectant,Sugar,"Serum, Cream",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Lactate,Humectant,Salt,"Moisturizer, Serum, Deodorant",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Polyglutamic Acid,Humectant,Polymer,"Serum, Moisturizer, Mask",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Beta-Glucan,Humectant,Polymer,"Serum, Moisturizer, Mask",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Betaine,Humectant,Amino Acid,"Moisturizer, Serum, Shampoo",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Urea,Humectant,Humectant,"Foot Cream, Moisturizer, Hand Cream",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Honey (Mel),Humectant,Natural Ingredient,"Face Mask, Moisturizer, Face Wash, Lip Balm",Natural,Safe,Medium,Low,Approved,Mel
+Aloe Barbadensis Leaf Juice,Humectant,Plant Extract,"Moisturizer, Gel, After Sun Gel, Face Mask",Natural,Very Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Hyaluronate,Humectant,Polymer,"Serum, Moisturizer, Eye Cream, Sheet Mask",Biotechnology Derived,Very Safe,No Risk,No Risk,Approved,No Alternate Names
+Hyaluronic Acid,Humectant,Polymer,"Serum, Moisturizer, Eye Serum",Biotechnology Derived,Very Safe,No Risk,No Risk,Approved,No Alternate Names
+Sodium Hyaluronate Crosspolymer,Humectant,Polymer,"Serum, Eye Cream",Biotechnology Derived,Safe,No Risk,No Risk,Approved,No Alternate Names
+Panthenol,Humectant,Vitamin,"Shampoo, Conditioner, Moisturizer, Serum, Baby Lotion",Synthetic,Very Safe,Low,No Risk,Approved,Pro-Vitamin B5
+Dexpanthenol,Conditioning Agent,Vitamin,"Hair Serum, Lotion, Cream",Synthetic,Very Safe,Low,No Risk,Approved,No Alternate Names
+Caprylic/Capric Triglyceride,Emollient,Oil,"Moisturizer, Serum, Body Oil, Baby Oil",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Isopropyl Myristate,Emollient,Emollient,"Moisturizer, Sunscreen, Body Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Isopropyl Palmitate,Emollient,Emollient,"Moisturizer, Body Lotion, Foundation",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Cetyl Alcohol,Emollient,Fatty Alcohol,"Cream, Lotion, Conditioner",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Stearyl Alcohol,Emollient,Fatty Alcohol,"Cream, Lotion, Conditioner",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Cetearyl Alcohol,Emollient,Fatty Alcohol,"Cream, Lotion, Conditioner, Hair Mask",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Behenyl Alcohol,Emollient,Fatty Alcohol,"Conditioner, Hair Mask",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Myristyl Alcohol,Emollient,Fatty Alcohol,"Cream, Lotion",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Lauryl Alcohol,Emollient,Fatty Alcohol,"Shampoo, Cream",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Squalane,Emollient,Oil,"Face Oil, Serum, Moisturizer",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Squalene,Emollient,Oil,"Face Oil, Serum",Animal Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Simmondsia Chinensis Seed Oil (Jojoba Oil),Emollient,Oil,"Face Oil, Hair Oil, Moisturizer, Serum",Natural,Very Safe,Low,No Risk,Approved,Jojoba Oil
+Cocos Nucifera Oil (Coconut Oil),Emollient,Oil,"Hair Oil, Body Oil, Soap, Moisturizer",Natural,Safe,Medium,Low,Approved,Coconut Oil
+Prunus Amygdalus Dulcis Oil (Sweet Almond Oil),Emollient,Oil,"Body Oil, Face Oil, Moisturizer, Baby Oil",Natural,Safe,Medium,Low,Approved,Sweet Almond Oil
+Argania Spinosa Kernel Oil (Argan Oil),Emollient,Oil,"Hair Oil, Hair Serum, Face Oil, Moisturizer",Natural,Very Safe,Low,No Risk,Approved,Argan Oil
+Butyrospermum Parkii Butter (Shea Butter),Emollient,Butter,"Body Butter, Lip Balm, Moisturizer, Body Cream",Natural,Very Safe,Low,No Risk,Approved,Shea Butter
+Theobroma Cacao Seed Butter (Cocoa Butter),Emollient,Butter,"Body Butter, Lip Balm, Body Cream, Maternity Care Products",Natural,Safe,Medium,Low,Approved,Cocoa Butter
+Paraffinum Liquidum (Mineral Oil),Occlusive,Oil,"Baby Oil, Petroleum Jelly, Moisturizer, Cleansing Oil",Mineral,Safe,Low,No Risk,Approved,Mineral Oil
+Petrolatum,Occlusive,Wax,"Petroleum Jelly, Lip Balm, Diaper Rash Cream, Moisturizer",Mineral,Very Safe,Low,No Risk,Approved,No Alternate Names
+Dimethicone,Occlusive,Silicone,"Moisturizer, Sunscreen, Primer, Conditioner",Synthetic,Very Safe,Low,No Risk,Approved,No Alternate Names
+Cyclomethicone,Emollient,Silicone,"Serum, Primer, Hair Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Cyclopentasiloxane,Emollient,Silicone,"Serum, Primer, Conditioner",Synthetic,Safe,Low,No Risk,Country Restricted,No Alternate Names
+Cyclohexasiloxane,Emollient,Silicone,"Serum, Primer",Synthetic,Safe,Low,No Risk,Country Restricted,No Alternate Names
+Isohexadecane,Emollient,Emollient,"Sunscreen, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Octyldodecanol,Emollient,Fatty Alcohol,"Cream, Lip Balm, Foundation",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+PPG-15 Stearyl Ether,Emollient,Emollient,"Moisturizer, Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Butyl Stearate,Emollient,Emollient,"Cream, Lipstick",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Isononyl Isononanoate,Emollient,Emollient,"Sunscreen, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+C12-15 Alkyl Benzoate,Emollient,Emollient,"Sunscreen, Serum, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Diisopropyl Adipate,Emollient,Emollient,"Sunscreen, Lip Balm",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Dicaprylyl Carbonate,Emollient,Emollient,"Sunscreen, Serum, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Ethylhexyl Palmitate,Emollient,Emollient,"Sunscreen, Foundation, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Glyceryl Stearate,Emulsifier,Emulsifier,"Cream, Lotion, Conditioner",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Olea Europaea Fruit Oil (Olive Oil),Emollient,Oil,"Soap, Hair Oil, Body Oil, Moisturizer",Natural,Safe,Low,No Risk,Approved,Olive Oil
+Helianthus Annuus Seed Oil (Sunflower Oil),Emollient,Oil,"Body Oil, Face Oil, Moisturizer, Baby Oil",Natural,Very Safe,Low,No Risk,Approved,Sunflower Oil
+Sesamum Indicum Seed Oil (Sesame Oil),Emollient,Oil,"Hair Oil, Body Oil, Massage Oil",Natural,Safe,Medium,Low,Approved,Sesame Oil
+Ricinus Communis Seed Oil (Castor Oil),Emollient,Oil,"Hair Oil, Lip Balm, Castor Oil Products, Mascara",Natural,Safe,Low,Low,Approved,Castor Oil
+Vitis Vinifera Seed Oil (Grapeseed Oil),Emollient,Oil,"Face Oil, Body Oil, Serum",Natural,Very Safe,Low,No Risk,Approved,Grapeseed Oil
+Prunus Armeniaca Kernel Oil (Apricot Kernel Oil),Emollient,Oil,"Face Oil, Body Oil, Scrub",Natural,Safe,Low,No Risk,Approved,Apricot Kernel Oil
+Persea Gratissima Oil (Avocado Oil),Emollient,Oil,"Face Oil, Body Butter, Hair Mask",Natural,Safe,Low,No Risk,Approved,Avocado Oil
+Oryza Sativa Bran Oil (Rice Bran Oil),Emollient,Oil,"Face Oil, Body Lotion, Serum",Natural,Safe,Low,No Risk,Approved,Rice Bran Oil
+Macadamia Ternifolia Seed Oil,Emollient,Oil,"Hair Oil, Body Oil",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Limnanthes Alba Seed Oil (Meadowfoam Seed Oil),Emollient,Oil,"Face Oil, Serum",Natural,Safe,Low,No Risk,Approved,Meadowfoam Seed Oil
+Carthamus Tinctorius Seed Oil (Safflower Oil),Emollient,Oil,"Body Oil, Cream",Natural,Safe,Low,No Risk,Approved,Safflower Oil
+Triticum Vulgare Germ Oil (Wheat Germ Oil),Emollient,Oil,"Face Oil, Serum, Hair Oil",Natural,Safe,Medium,Low,Approved,Wheat Germ Oil
+Oenothera Biennis Oil (Evening Primrose Oil),Emollient,Oil,"Face Oil, Capsule Serum, Moisturizer",Natural,Safe,Low,No Risk,Approved,Evening Primrose Oil
+Rosa Canina Fruit Oil (Rosehip Oil),Emollient,Oil,"Face Oil, Serum, Anti-Aging Products",Natural,Safe,Low,No Risk,Approved,Rosehip Oil
+Sclerocarya Birrea Seed Oil (Marula Oil),Emollient,Oil,"Face Oil, Hair Oil, Serum",Natural,Safe,Low,No Risk,Approved,Marula Oil
+Calophyllum Inophyllum Seed Oil (Tamanu Oil),Emollient,Oil,"Face Oil, Body Oil",Natural,Safe,Low,Low,Approved,Tamanu Oil
+Azadirachta Indica Seed Oil (Neem Oil),Antimicrobial,Oil,"Face Wash, Soap, Hair Oil, Anti-Acne Products",Natural,Safe,Medium,Low,Approved,Neem Oil
+Garcinia Indica Seed Butter (Kokum Butter),Emollient,Butter,"Body Butter, Lip Balm, Cream",Natural,Safe,Low,No Risk,Approved,Kokum Butter
+Mangifera Indica Seed Butter (Mango Butter),Emollient,Butter,"Body Butter, Lip Balm, Moisturizer",Natural,Safe,Low,No Risk,Approved,Mango Butter
+Shorea Robusta Seed Butter (Illipe Butter),Emollient,Butter,"Body Butter, Lip Balm",Natural,Safe,Low,No Risk,Approved,Illipe Butter
+Astrocaryum Murumuru Seed Butter,Emollient,Butter,"Hair Mask, Body Butter",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Cannabis Sativa Seed Oil (Hemp Seed Oil),Emollient,Oil,"Face Oil, Body Oil, Serum",Natural,Safe,Low,No Risk,Country Restricted,Hemp Seed Oil
+Linum Usitatissimum Seed Oil (Flaxseed Oil),Emollient,Oil,"Face Oil, Hair Oil",Natural,Safe,Low,No Risk,Approved,Flaxseed Oil
+Cucurbita Pepo Seed Oil (Pumpkin Seed Oil),Emollient,Oil,"Face Oil, Serum",Natural,Safe,Low,No Risk,Approved,Pumpkin Seed Oil
+Juglans Regia Seed Oil (Walnut Oil),Emollient,Oil,"Body Scrub, Face Oil",Natural,Safe,Medium,Low,Approved,Walnut Oil
+Citrullus Lanatus Seed Oil (Watermelon Seed Oil),Emollient,Oil,"Face Oil, Serum",Natural,Safe,Low,No Risk,Approved,Watermelon Seed Oil
+Camellia Oleifera Seed Oil,Emollient,Oil,"Hair Oil, Face Oil",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Adansonia Digitata Seed Oil (Baobab Oil),Emollient,Oil,"Body Oil, Face Oil",Natural,Safe,Low,No Risk,Approved,Baobab Oil
+Aleurites Moluccanus Seed Oil (Kukui Nut Oil),Emollient,Oil,"Body Oil, Hair Oil",Natural,Safe,Low,No Risk,Approved,Kukui Nut Oil
+Brassica Oleracea Italica Seed Oil (Broccoli Seed Oil),Emollient,Oil,"Hair Serum, Face Oil",Natural,Safe,Low,No Risk,Approved,Broccoli Seed Oil
+Salvia Hispanica Seed Oil (Chia Seed Oil),Emollient,Oil,"Face Oil, Serum",Natural,Safe,Low,No Risk,Approved,Chia Seed Oil
+Punica Granatum Seed Oil (Pomegranate Seed Oil),Emollient,Oil,"Face Oil, Serum, Anti-Aging Products",Natural,Safe,Low,No Risk,Approved,Pomegranate Seed Oil
+Nigella Sativa Seed Oil (Black Cumin Seed Oil),Emollient,Oil,"Hair Oil, Face Oil",Natural,Safe,Medium,Low,Approved,Black Cumin Seed Oil
+Beeswax (Cera Alba),Occlusive,Wax,"Lip Balm, Cream, Lip Mask",Animal Derived,Safe,Medium,No Risk,Approved,Cera Alba
+Candelilla Wax (Euphorbia Cerifera),Occlusive,Wax,"Lipstick, Lip Balm, Cream",Natural,Safe,Low,No Risk,Approved,Euphorbia Cerifera
+Carnauba Wax (Copernicia Cerifera),Occlusive,Wax,"Lipstick, Mascara, Nail Polish",Natural,Safe,Low,No Risk,Approved,Copernicia Cerifera
+Lanolin,Occlusive,Wax,"Lip Balm, Nipple Cream, Postpartum Care Products",Animal Derived,Safe,High,Medium,Approved,No Alternate Names
+Ozokerite,Occlusive,Wax,"Lipstick, Cream",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Microcrystalline Wax,Occlusive,Wax,"Lipstick, Cream, Hair Wax",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Paraffin Wax,Occlusive,Wax,"Lip Balm, Foot Cream, Cream",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Polybutene,Occlusive,Polymer,"Lip Gloss, Mascara",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Lauryl Sulfate,Surfactant,Surfactant,"Shampoo, Face Wash, Body Wash, Toothpaste",Synthetic,Moderate Risk,Medium,High,Approved,No Alternate Names
+Sodium Laureth Sulfate,Surfactant,Surfactant,"Shampoo, Body Wash, Face Wash",Synthetic,Safe,Medium,Medium,Approved,No Alternate Names
+Ammonium Lauryl Sulfate,Surfactant,Surfactant,"Shampoo, Body Wash",Synthetic,Safe,Medium,Medium,Approved,No Alternate Names
+Ammonium Laureth Sulfate,Surfactant,Surfactant,"Shampoo, Body Wash",Synthetic,Safe,Medium,Medium,Approved,No Alternate Names
+Cocamidopropyl Betaine,Surfactant,Surfactant,"Shampoo, Face Wash, Body Wash, Hand Wash",Naturally Derived,Safe,Medium,Low,Approved,No Alternate Names
+Coco-Betaine,Surfactant,Surfactant,"Body Wash, Face Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Disodium Cocoamphodiacetate,Surfactant,Surfactant,"Baby Shampoo, Face Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Cocoyl Isethionate,Cleansing Agent,Surfactant,"Cleansing Bar, Face Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Cocoyl Glycinate,Cleansing Agent,Surfactant,"Face Wash, Body Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Decyl Glucoside,Surfactant,Surfactant,"Face Wash, Baby Shampoo, Intimate Wash",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Coco-Glucoside,Surfactant,Surfactant,"Face Wash, Body Wash",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Lauryl Glucoside,Surfactant,Surfactant,"Face Wash, Shampoo",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Lauroyl Sarcosinate,Surfactant,Surfactant,"Toothpaste, Shampoo, Face Wash",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Sodium Methyl Cocoyl Taurate,Surfactant,Surfactant,"Face Wash, Shampoo",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Cocamide DEA,Surfactant,Surfactant,"Shampoo, Body Wash",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Cocamide MEA,Surfactant,Surfactant,"Shampoo, Body Wash",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Lauramide DEA,Surfactant,Surfactant,Shampoo,Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+PEG-7 Glyceryl Cocoate,Surfactant,Surfactant,"Face Wash, Micellar Water",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Polysorbate 20,Emulsifier,Surfactant,"Toner, Micellar Water, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polysorbate 80,Emulsifier,Surfactant,"Lotion, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Sorbitan Oleate,Emulsifier,Surfactant,"Cream, Lotion",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Lauryl Sulfoacetate,Surfactant,Surfactant,"Toothpaste, Bath Bomb",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Disodium Laureth Sulfosuccinate,Surfactant,Surfactant,"Baby Shampoo, Face Wash",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Sodium C14-16 Olefin Sulfonate,Surfactant,Surfactant,"Body Wash, Shampoo",Synthetic,Safe,Medium,Medium,Approved,No Alternate Names
+TEA-Lauryl Sulfate,Surfactant,Surfactant,"Shampoo, Body Wash",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Potassium Cocoate,Cleansing Agent,Surfactant,"Liquid Soap, Face Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Tallowate,Cleansing Agent,Surfactant,Soap,Animal Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Palmate,Cleansing Agent,Surfactant,Soap,Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Cocoate,Cleansing Agent,Surfactant,Soap,Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Laureth-3 Sulfate,Surfactant,Surfactant,"Shampoo, Body Wash",Synthetic,Safe,Medium,Medium,Approved,No Alternate Names
+Sodium C12-15 Pareth Sulfate,Surfactant,Surfactant,"Shampoo, Body Wash",Synthetic,Safe,Medium,Medium,Approved,No Alternate Names
+Disodium Cocoamphodipropionate,Surfactant,Surfactant,"Baby Wash, Intimate Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Cocamidopropyl Hydroxysultaine,Surfactant,Surfactant,"Shampoo, Body Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Cocoyl Glutamate,Cleansing Agent,Surfactant,"Face Wash, Cleansing Balm",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Lauroyl Glutamate,Cleansing Agent,Surfactant,Face Wash,Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Potassium Cocoyl Glycinate,Cleansing Agent,Surfactant,"Face Wash, Baby Wash",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Lauryl Betaine,Surfactant,Surfactant,"Shampoo, Hand Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Cocamidopropylamine Oxide,Surfactant,Surfactant,"Shampoo, Body Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+PEG-100 Stearate,Emulsifier,Emulsifier,"Cream, Lotion",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Cetearyl Glucoside,Emulsifier,Emulsifier,"Cream, Lotion, Conditioner",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sorbitan Stearate,Emulsifier,Emulsifier,"Cream, Lotion",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Polyglyceryl-3 Methylglucose Distearate,Emulsifier,Emulsifier,"Cream, Body Butter",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Steareth-20,Emulsifier,Emulsifier,"Cream, Lotion",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Steareth-2,Emulsifier,Emulsifier,"Cream, Lotion",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Ceteareth-20,Emulsifier,Emulsifier,"Cream, Lotion, Sunscreen",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Lecithin,Emulsifier,Phospholipid,"Lip Balm, Cream, Cleansing Balm",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Polyglyceryl-4 Caprate,Emulsifier,Emulsifier,"Serum, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Glyceryl Caprylate,Emulsifier,Preservative Booster,"Cream, Serum",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Emulsifying Wax NF,Emulsifier,Wax,"Cream, Lotion",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Dimethiconol,Conditioning Agent,Silicone,"Conditioner, Hair Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Amodimethicone,Conditioning Agent,Silicone,"Conditioner, Hair Mask, Hair Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Phenyl Trimethicone,Emollient,Silicone,"Hair Serum, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Trimethylsiloxysilicate,Film Former,Silicone,"Sunscreen, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Dimethicone Crosspolymer,Texturizer,Silicone,"Primer, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Simethicone,Anti-foaming Agent,Silicone,"Cream, Lotion",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+PEG/PPG-18/18 Dimethicone,Emulsifier,Silicone,"Cream, Sunscreen",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Cetyl Dimethicone,Emollient,Silicone,"Sunscreen, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Dimethicone Copolyol,Emulsifier,Silicone,"Conditioner, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Stearyl Dimethicone,Emollient,Silicone,"Hair Serum, Conditioner",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+PEG-8 Dimethicone,Emulsifier,Silicone,"Sunscreen, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Cyclotetrasiloxane,Emollient,Silicone,"Serum, Primer",Synthetic,Moderate Risk,Low,No Risk,Country Restricted,No Alternate Names
+Bis-Aminopropyl Dimethicone,Conditioning Agent,Silicone,"Hair Mask, Conditioner",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Stearic Acid,Emulsifier,Fatty Acid,"Cream, Soap, Lotion",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Palmitic Acid,Emollient,Fatty Acid,"Cream, Soap",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Myristic Acid,Emollient,Fatty Acid,"Soap, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Lauric Acid,Antimicrobial,Fatty Acid,"Soap, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Oleic Acid,Emollient,Fatty Acid,"Cream, Soap, Body Oil",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Linoleic Acid,Emollient,Fatty Acid,"Face Oil, Serum",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Isostearic Acid,Emollient,Fatty Acid,"Cream, Lipstick",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Camellia Sinensis Leaf Extract (Green Tea),Botanical Extract,Botanical Extract,"Serum, Toner, Face Mask, Under Eye Cream",Natural,Safe,Low,No Risk,Approved,Green Tea
+Centella Asiatica Extract (Cica),Botanical Extract,Botanical Extract,"Serum, Cream, Face Mask, After Sun Gel",Natural,Safe,Low,No Risk,Approved,Cica
+Chamomilla Recutita Flower Extract (Chamomile),Botanical Extract,Botanical Extract,"Toner, Baby Lotion, Face Mask",Natural,Safe,Medium,No Risk,Approved,Chamomile
+Calendula Officinalis Flower Extract,Botanical Extract,Botanical Extract,"Baby Cream, Toner, Diaper Rash Cream",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Curcuma Longa Root Extract (Turmeric),Botanical Extract,Botanical Extract,"Face Wash, Face Pack, Serum",Natural,Safe,Low,No Risk,Approved,Turmeric
+Azadirachta Indica Leaf Extract (Neem),Botanical Extract,Botanical Extract,"Face Wash, Soap, Anti-Acne Products",Natural,Safe,Low,No Risk,Approved,Neem
+Ocimum Sanctum Leaf Extract (Tulsi),Botanical Extract,Botanical Extract,"Face Wash, Toothpaste, Hair Oil",Natural,Safe,Low,No Risk,Approved,Tulsi
+Glycyrrhiza Glabra Root Extract (Licorice),Botanical Extract,Botanical Extract,"Serum, Cream, Brightening Products",Natural,Safe,Low,No Risk,Approved,Licorice
+Cucumis Sativus Fruit Extract (Cucumber),Botanical Extract,Botanical Extract,"Toner, Face Mist, Eye Gel",Natural,Safe,Low,No Risk,Approved,Cucumber
+Rosa Damascena Flower Water (Rose Water),Botanical Extract,Botanical Extract,"Toner, Face Mist, Face Pack",Natural,Safe,Low,No Risk,Approved,Rose Water
+Hamamelis Virginiana Extract (Witch Hazel),Botanical Extract,Botanical Extract,"Toner, Acne Products",Natural,Safe,Low,Low,Approved,Witch Hazel
+Portulaca Oleracea Extract,Botanical Extract,Botanical Extract,"Serum, Cream",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Punica Granatum Extract (Pomegranate),Botanical Extract,Botanical Extract,"Serum, Face Cream, Lip Balm",Natural,Safe,Low,No Risk,Approved,Pomegranate
+Vitis Vinifera Seed Extract (Grape Seed),Botanical Extract,Botanical Extract,"Serum, Eye Cream",Natural,Safe,Low,No Risk,Approved,Grape Seed
+Malus Domestica Fruit Extract (Apple),Botanical Extract,Botanical Extract,"Shampoo, Serum",Natural,Safe,Low,No Risk,Approved,Apple
+Citrus Limon Peel Extract (Lemon),Botanical Extract,Botanical Extract,"Face Wash, Hair Oil",Natural,Safe,Medium,Medium,Approved,Lemon
+Citrus Aurantium Dulcis Peel Extract (Orange),Botanical Extract,Botanical Extract,"Face Wash, Body Scrub",Natural,Safe,Medium,Low,Approved,Orange
+Carica Papaya Fruit Extract (Papaya),Botanical Extract,Botanical Extract,"Face Pack, Scrub, Brightening Cream",Natural,Safe,Low,No Risk,Approved,Papaya
+Mangifera Indica Fruit Extract (Mango),Botanical Extract,Botanical Extract,"Body Butter, Lip Balm",Natural,Safe,Low,No Risk,Approved,Mango
+Emblica Officinalis Fruit Extract (Amla),Botanical Extract,Botanical Extract,"Hair Oil, Shampoo, Hair Serum",Natural,Safe,Low,No Risk,Approved,Amla
+Terminalia Chebula Fruit Extract (Haritaki),Botanical Extract,Botanical Extract,"Hair Oil, Face Pack",Natural,Safe,Low,No Risk,Approved,Haritaki
+Terminalia Bellirica Fruit Extract (Bibhitaki),Botanical Extract,Botanical Extract,"Hair Oil, Shampoo",Natural,Safe,Low,No Risk,Approved,Bibhitaki
+Withania Somnifera Root Extract (Ashwagandha),Botanical Extract,Botanical Extract,"Serum, Anti-Aging Cream",Natural,Safe,Low,No Risk,Approved,Ashwagandha
+Bacopa Monnieri Extract (Brahmi),Botanical Extract,Botanical Extract,"Hair Oil, Shampoo",Natural,Safe,Low,No Risk,Approved,Brahmi
+Eclipta Alba Extract (Bhringraj),Botanical Extract,Botanical Extract,"Hair Oil, Shampoo, Hair Serum",Natural,Safe,Low,No Risk,Approved,Bhringraj
+Hibiscus Sabdariffa Flower Extract,Botanical Extract,Botanical Extract,"Shampoo, Hair Mask, Face Pack",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Santalum Album Extract (Sandalwood),Botanical Extract,Botanical Extract,"Face Pack, Soap, Face Cream",Natural,Safe,Low,No Risk,Approved,Sandalwood
+Crocus Sativus Extract (Saffron/Kesar),Botanical Extract,Botanical Extract,"Face Serum, Face Cream",Natural,Safe,Low,No Risk,Approved,Saffron; Kesar
+Kaolin (Multani Mitti / Fuller's Earth),Botanical Extract,Botanical Extract,"Face Pack, Face Mask",Natural,Safe,Low,No Risk,Approved,Multani Mitti; Fuller's Earth
+Nelumbo Nucifera Extract (Sacred Lotus),Botanical Extract,Botanical Extract,"Serum, Face Cream",Natural,Safe,Low,No Risk,Approved,Sacred Lotus
+Moringa Oleifera Seed Extract,Botanical Extract,Botanical Extract,"Face Oil, Serum, Hair Oil",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Trigonella Foenum-Graecum Seed Extract (Fenugreek),Botanical Extract,Botanical Extract,"Hair Mask, Shampoo",Natural,Safe,Low,No Risk,Approved,Fenugreek
+Zingiber Officinale Root Extract (Ginger),Botanical Extract,Botanical Extract,"Hair Oil, Anti-Dandruff Products",Natural,Safe,Medium,Medium,Approved,Ginger
+Panax Ginseng Root Extract,Botanical Extract,Botanical Extract,"Serum, Anti-Aging Cream, Shampoo",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Aesculus Hippocastanum Extract (Horse Chestnut),Botanical Extract,Botanical Extract,"Eye Cream, Body Lotion",Natural,Safe,Low,No Risk,Approved,Horse Chestnut
+Gotu Kola Extract,Botanical Extract,Botanical Extract,"Serum, Cream",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Bambusa Vulgaris Extract (Bamboo),Botanical Extract,Botanical Extract,"Serum, Toner",Natural,Safe,Low,No Risk,Approved,Bamboo
+Avena Sativa Kernel Extract (Oat),Botanical Extract,Botanical Extract,"Baby Lotion, Moisturizer, Face Mask",Natural,Safe,Low,No Risk,Approved,Oat
+Colloidal Oatmeal,Botanical Extract,Botanical Extract,"Baby Lotion, Body Lotion, Anti-Itch Cream",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Morus Alba Root Extract (Mulberry),Botanical Extract,Botanical Extract,"Serum, Brightening Cream",Natural,Safe,Low,No Risk,Approved,Mulberry
+Arctostaphylos Uva Ursi Leaf Extract (Bearberry),Botanical Extract,Botanical Extract,"Serum, Brightening Cream",Natural,Safe,Low,No Risk,Approved,Bearberry
+Glycine Soja Extract (Soybean),Botanical Extract,Botanical Extract,"Serum, Face Cream",Natural,Safe,Low,No Risk,Approved,Soybean
+Hippophae Rhamnoides Extract (Sea Buckthorn),Botanical Extract,Botanical Extract,"Face Oil, Serum",Natural,Safe,Low,No Risk,Approved,Sea Buckthorn
+Vaccinium Myrtillus Fruit Extract (Blueberry),Botanical Extract,Botanical Extract,"Face Mask, Serum",Natural,Safe,Low,No Risk,Approved,Blueberry
+Vaccinium Macrocarpon Fruit Extract (Cranberry),Botanical Extract,Botanical Extract,"Lip Balm, Face Mask",Natural,Safe,Low,No Risk,Approved,Cranberry
+Ginkgo Biloba Leaf Extract,Botanical Extract,Botanical Extract,"Serum, Eye Cream",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Equisetum Arvense Extract (Horsetail),Botanical Extract,Botanical Extract,"Shampoo, Serum",Natural,Safe,Low,No Risk,Approved,Horsetail
+Arctium Lappa Root Extract (Burdock Root),Botanical Extract,Botanical Extract,"Scalp Serum, Anti-Dandruff Products",Natural,Safe,Low,No Risk,Approved,Burdock Root
+Symphytum Officinale Extract (Comfrey),Botanical Extract,Botanical Extract,"Cream, Balm",Natural,Safe,Low,No Risk,Approved,Comfrey
+Achillea Millefolium Extract (Yarrow),Botanical Extract,Botanical Extract,"Toner, Face Mask",Natural,Safe,Low,No Risk,Approved,Yarrow
+Althaea Officinalis Root Extract (Marshmallow Root),Botanical Extract,Botanical Extract,"Cream, Baby Lotion",Natural,Safe,Low,No Risk,Approved,Marshmallow Root
+Sambucus Nigra Flower Extract (Elderflower),Botanical Extract,Botanical Extract,"Toner, Face Mist",Natural,Safe,Low,No Risk,Approved,Elderflower
+Centaurea Cyanus Flower Extract (Cornflower),Botanical Extract,Botanical Extract,"Eye Gel, Toner",Natural,Safe,Low,No Risk,Approved,Cornflower
+Rosmarinus Officinalis Leaf Extract (Rosemary),Botanical Extract,Botanical Extract,"Shampoo, Scalp Serum, Hair Oil",Natural,Safe,Low,No Risk,Approved,Rosemary
+Salvia Officinalis Leaf Extract (Sage),Botanical Extract,Botanical Extract,"Shampoo, Mouthwash",Natural,Safe,Low,No Risk,Approved,Sage
+Mentha Piperita Leaf Extract (Peppermint),Botanical Extract,Botanical Extract,"Shampoo, Scalp Serum, Toothpaste",Natural,Safe,Medium,Medium,Approved,Peppermint
+Mentha Viridis Leaf Extract (Spearmint),Botanical Extract,Botanical Extract,"Toothpaste, Mouthwash",Natural,Safe,Low,No Risk,Approved,Spearmint
+Thymus Vulgaris Extract (Thyme),Botanical Extract,Botanical Extract,"Mouthwash, Anti-Acne Products",Natural,Safe,Medium,Medium,Approved,Thyme
+Lavandula Angustifolia Extract (Lavender),Botanical Extract,Botanical Extract,"Baby Lotion, Body Wash, Toner",Natural,Safe,Low,No Risk,Approved,Lavender
+Humulus Lupulus Extract (Hops),Botanical Extract,Botanical Extract,"Shampoo, Serum",Natural,Safe,Low,No Risk,Approved,Hops
+Urtica Dioica Extract (Nettle),Botanical Extract,Botanical Extract,"Shampoo, Scalp Serum",Natural,Safe,Low,No Risk,Approved,Nettle
+Taraxacum Officinale Extract (Dandelion),Botanical Extract,Botanical Extract,"Serum, Face Mask",Natural,Safe,Low,No Risk,Approved,Dandelion
+Plantago Major Extract (Plantain),Botanical Extract,Botanical Extract,"Cream, Balm",Natural,Safe,Low,No Risk,Approved,Plantain
+Nasturtium Officinale Extract (Watercress),Botanical Extract,Botanical Extract,"Serum, Face Mask",Natural,Safe,Low,No Risk,Approved,Watercress
+Spinacia Oleracea Extract (Spinach),Botanical Extract,Botanical Extract,"Face Mask, Serum",Natural,Safe,Low,No Risk,Approved,Spinach
+Daucus Carota Sativa Extract (Carrot),Botanical Extract,Botanical Extract,"Serum, Body Lotion",Natural,Safe,Low,No Risk,Approved,Carrot
+Beta Vulgaris Root Extract (Beetroot),Botanical Extract,Botanical Extract,"Lip Tint, Face Mask",Natural,Safe,Low,No Risk,Approved,Beetroot
+Solanum Lycopersicum Fruit Extract (Tomato),Botanical Extract,Botanical Extract,"Face Pack, Serum",Natural,Safe,Low,No Risk,Approved,Tomato
+Ananas Sativus Fruit Extract (Pineapple),Botanical Extract,Botanical Extract,"Face Scrub, Enzyme Peel",Natural,Safe,Low,No Risk,Approved,Pineapple
+Actinidia Chinensis Fruit Extract (Kiwi),Botanical Extract,Botanical Extract,"Face Mask, Scrub",Natural,Safe,Low,No Risk,Approved,Kiwi
+Citrus Sinensis Fruit Extract (Orange Fruit),Botanical Extract,Botanical Extract,"Vitamin C Serum, Face Mask",Natural,Safe,Low,No Risk,Approved,Orange Fruit
+Cocos Nucifera Fruit Juice (Coconut Water),Botanical Extract,Botanical Extract,"Face Mist, Serum",Natural,Safe,Low,No Risk,Approved,Coconut Water
+Oryza Sativa Extract (Rice Extract),Botanical Extract,Botanical Extract,"Face Wash, Serum, Face Pack",Natural,Safe,Low,No Risk,Approved,Rice Extract
+Hordeum Vulgare Extract (Barley),Botanical Extract,Botanical Extract,"Face Mask, Serum",Natural,Safe,Low,No Risk,Approved,Barley
+Chenopodium Quinoa Seed Extract (Quinoa),Botanical Extract,Botanical Extract,"Shampoo, Conditioner",Natural,Safe,Low,No Risk,Approved,Quinoa
+Helianthus Annuus Seed Extract (Sunflower Seed),Botanical Extract,Botanical Extract,"Serum, Face Cream",Natural,Safe,Low,No Risk,Approved,Sunflower Seed
+Sesamum Indicum Seed Extract (Sesame Seed),Botanical Extract,Botanical Extract,"Face Cream, Hair Serum",Natural,Safe,Low,No Risk,Approved,Sesame Seed
+Tinospora Cordifolia Extract (Guduchi),Botanical Extract,Botanical Extract,"Face Serum, Immunity Skin Care",Natural,Safe,Low,No Risk,Approved,Guduchi
+Vetiveria Zizanoides Root Extract (Vetiver),Botanical Extract,Botanical Extract,"Soap, Face Mist, Perfume",Natural,Safe,Low,No Risk,Approved,Vetiver
+Symplocos Racemosa Extract (Lodhra),Botanical Extract,Botanical Extract,"Face Pack, Serum",Natural,Safe,Low,No Risk,Approved,Lodhra
+Rubia Cordifolia Root Extract (Manjistha),Botanical Extract,Botanical Extract,"Face Serum, Face Pack",Natural,Safe,Low,No Risk,Approved,Manjistha
+Berberis Aristata Extract (Daruharidra),Botanical Extract,Botanical Extract,"Face Pack, Anti-Acne Products",Natural,Safe,Low,No Risk,Approved,Daruharidra
+Cyperus Rotundus Extract (Nagarmotha),Botanical Extract,Botanical Extract,"Face Pack, Serum",Natural,Safe,Low,No Risk,Approved,Nagarmotha
+Nardostachys Jatamansi Extract,Botanical Extract,Botanical Extract,"Hair Oil, Scalp Serum",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Sapindus Mukorossi Fruit Extract (Reetha/Soapnut),Botanical Extract,Botanical Extract,"Shampoo, Face Wash",Natural,Safe,Low,No Risk,Approved,Reetha; Soapnut
+Acacia Concinna Fruit Extract (Shikakai),Botanical Extract,Botanical Extract,"Shampoo, Hair Oil",Natural,Safe,Low,No Risk,Approved,Shikakai
+Lawsonia Inermis Leaf Powder (Henna),Colorant,Botanical Extract,"Hair Color, Hair Mask, Hair Dye",Natural,Safe,Medium,Low,Approved,Henna
+Indigofera Tinctoria Leaf Powder (Indigo Powder),Colorant,Botanical Extract,"Hair Color, Hair Dye",Natural,Safe,Medium,Low,Approved,Indigo Powder
+Melaleuca Alternifolia Leaf Oil (Tea Tree Oil),Fragrance/Essential Oil,Essential Oil,"Face Wash, Anti-Acne Products, Shampoo",Natural,Moderate Risk,Medium,Medium,Restricted,Tea Tree Oil
+Cedrus Atlantica Bark Oil (Cedarwood Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Hair Oil",Natural,Moderate Risk,Medium,Medium,Restricted,Cedarwood Oil
+Lavandula Angustifolia Oil (Lavender Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Body Mist, Baby Products",Natural,Moderate Risk,Medium,Medium,Restricted,Lavender Oil
+Mentha Piperita Oil (Peppermint Oil),Fragrance/Essential Oil,Essential Oil,"Shampoo, Toothpaste, Scalp Serum",Natural,Moderate Risk,Medium,Medium,Restricted,Peppermint Oil
+Rosmarinus Officinalis Leaf Oil (Rosemary Oil),Fragrance/Essential Oil,Essential Oil,"Hair Oil, Scalp Serum",Natural,Moderate Risk,Medium,Medium,Restricted,Rosemary Oil
+Cymbopogon Schoenanthus Oil (Lemongrass Oil),Fragrance/Essential Oil,Essential Oil,"Soap, Body Wash, Perfume",Natural,Moderate Risk,Medium,Medium,Restricted,Lemongrass Oil
+Eucalyptus Globulus Leaf Oil (Eucalyptus Oil),Fragrance/Essential Oil,Essential Oil,"Balm, Chest Rub, Shampoo",Natural,Moderate Risk,Medium,Medium,Restricted,Eucalyptus Oil
+Salvia Sclarea Oil (Clary Sage Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Body Oil",Natural,Moderate Risk,Medium,Medium,Restricted,Clary Sage Oil
+Cananga Odorata Flower Oil (Ylang Ylang Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Hair Oil",Natural,Moderate Risk,Medium,Medium,Restricted,Ylang Ylang Oil
+Pelargonium Graveolens Oil (Geranium Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Soap",Natural,Moderate Risk,Medium,Medium,Restricted,Geranium Oil
+Citrus Aurantium Bergamia Peel Oil (Bergamot Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Body Mist",Natural,Moderate Risk,Medium,Medium,Restricted,Bergamot Oil
+Boswellia Carterii Oil (Frankincense Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Serum",Natural,Moderate Risk,Medium,Medium,Restricted,Frankincense Oil
+Pogostemon Cablin Oil (Patchouli Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Deodorant",Natural,Moderate Risk,Medium,Medium,Restricted,Patchouli Oil
+Santalum Album Oil (Sandalwood Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Soap, Face Cream",Natural,Moderate Risk,Medium,Medium,Restricted,Sandalwood Oil
+Jasminum Officinale Oil (Jasmine Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Hair Oil",Natural,Moderate Risk,Medium,Medium,Restricted,Jasmine Oil
+Rosa Damascena Oil (Rose Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Face Serum",Natural,Moderate Risk,Medium,Medium,Restricted,Rose Oil
+Anthemis Nobilis Flower Oil (Chamomile Oil),Fragrance/Essential Oil,Essential Oil,"Baby Products, Hair Oil",Natural,Moderate Risk,Medium,Medium,Restricted,Chamomile Oil
+Ocimum Basilicum Oil (Basil Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Mouthwash",Natural,Moderate Risk,Medium,Medium,Restricted,Basil Oil
+Cinnamomum Zeylanicum Bark Oil (Cinnamon Bark Oil),Fragrance/Essential Oil,Essential Oil,"Lip Plumper, Perfume",Natural,Moderate Risk,Medium,Medium,Restricted,Cinnamon Bark Oil
+Syzygium Aromaticum Bud Oil (Clove Bud Oil),Fragrance/Essential Oil,Essential Oil,"Toothpaste, Mouthwash",Natural,Moderate Risk,Medium,Medium,Restricted,Clove Bud Oil
+Gaultheria Procumbens Oil (Wintergreen Oil),Fragrance/Essential Oil,Essential Oil,"Balm, Toothpaste",Natural,Moderate Risk,Medium,Medium,Restricted,Wintergreen Oil
+Citrus Paradisi Peel Oil (Grapefruit Peel Oil),Fragrance/Essential Oil,Essential Oil,"Body Mist, Perfume",Natural,Moderate Risk,Medium,Medium,Restricted,Grapefruit Peel Oil
+Citrus Aurantifolia Oil (Lime Oil),Fragrance/Essential Oil,Essential Oil,"Perfume, Body Wash",Natural,Moderate Risk,Medium,Medium,Restricted,Lime Oil
+Melaleuca Cajuputi Oil (Cajeput Oil),Fragrance/Essential Oil,Essential Oil,"Balm, Hair Oil",Natural,Moderate Risk,Medium,Medium,Restricted,Cajeput Oil
+Cinnamomum Camphora Oil (Camphor Oil),Fragrance/Essential Oil,Essential Oil,"Balm, Chest Rub",Natural,Moderate Risk,Medium,Medium,Restricted,Camphor Oil
+Cetyl Ethylhexanoate,Emollient,Emollient,"Sunscreen, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Cetyl Palmitate,Emollient,Wax Ester,"Cream, Lip Balm",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Isopropyl Isostearate,Emollient,Emollient,"Foundation, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Octyldodecyl Stearoyl Stearate,Emollient,Emollient,"Lipstick, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Pentaerythrityl Tetraisostearate,Emollient,Emollient,"Sunscreen, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Neopentyl Glycol Diheptanoate,Emollient,Emollient,"Sunscreen, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Coco-Caprylate,Emollient,Emollient,"Sunscreen, Serum, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Ethylhexyl Stearate,Emollient,Emollient,"Sunscreen, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Myristyl Myristate,Emollient,Wax Ester,"Cream, Lotion",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Decyl Oleate,Emollient,Emollient,"Body Oil, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Propylene Glycol Dicaprylate/Dicaprate,Emollient,Emollient,"Sunscreen, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Behentrimonium Chloride,Conditioning Agent,Quaternary Ammonium,"Conditioner, Hair Mask",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Cetrimonium Chloride,Conditioning Agent,Quaternary Ammonium,"Conditioner, Shampoo",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Stearalkonium Chloride,Conditioning Agent,Quaternary Ammonium,"Conditioner, Hair Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Quaternium-18,Conditioning Agent,Quaternary Ammonium,"Conditioner, Hair Mask",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Quaternium-80,Conditioning Agent,Quaternary Ammonium,"Conditioner, Hair Serum",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Polyquaternium-6,Film Former,Polymer,"Hair Gel, Hair Spray",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polyquaternium-37,Film Former,Polymer,"Hair Gel, Styling Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Guar Hydroxypropyltrimonium Chloride,Conditioning Agent,Polymer,"Shampoo, Conditioner",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydroxypropyltrimonium Honey,Conditioning Agent,Humectant,"Shampoo, Conditioner",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrolyzed Quinoa,Conditioning Agent,Protein,"Shampoo, Conditioner",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Palmitoyl Pentapeptide-4 (Matrixyl),Anti-Aging Agent,Peptide,"Serum, Eye Cream, Night Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,Matrixyl
+Palmitoyl Tripeptide-1,Anti-Aging Agent,Peptide,"Serum, Eye Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Palmitoyl Tripeptide-5,Anti-Aging Agent,Peptide,"Serum, Night Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Acetyl Hexapeptide-8 (Argireline),Anti-Aging Agent,Peptide,"Serum, Eye Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,Argireline
+Copper Tripeptide-1,Anti-Aging Agent,Peptide,"Serum, Hair Serum",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrolyzed Wheat Protein,Conditioning Agent,Protein,"Shampoo, Conditioner, Hair Mask",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrolyzed Silk Protein,Conditioning Agent,Protein,"Shampoo, Hair Serum",Animal Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrolyzed Keratin,Conditioning Agent,Protein,"Shampoo, Hair Mask, Hair Serum",Animal Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrolyzed Collagen,Conditioning Agent,Protein,"Serum, Hair Mask, Cream",Animal Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrolyzed Rice Protein,Conditioning Agent,Protein,"Shampoo, Conditioner",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrolyzed Soy Protein,Conditioning Agent,Protein,"Shampoo, Conditioner",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrolyzed Oat Protein,Conditioning Agent,Protein,"Shampoo, Baby Lotion",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrolyzed Milk Protein,Conditioning Agent,Protein,"Body Lotion, Hair Mask",Animal Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Tocopherol (Vitamin E),Antioxidant,Vitamin,"Serum, Moisturizer, Face Oil, Lip Balm",Naturally Derived,Very Safe,Low,No Risk,Approved,Vitamin E
+Tocopheryl Acetate,Antioxidant,Vitamin,"Serum, Moisturizer, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Retinol,Anti-Aging Agent,Vitamin,"Night Cream, Serum, Eye Cream",Synthetic,Moderate Risk,Medium,High,Approved,No Alternate Names
+Retinyl Palmitate,Anti-Aging Agent,Vitamin,"Night Cream, Serum",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Retinaldehyde,Anti-Aging Agent,Vitamin,"Serum, Night Cream",Synthetic,Moderate Risk,Medium,High,Approved,No Alternate Names
+Ascorbic Acid (Vitamin C),Antioxidant,Vitamin,"Serum, Brightening Cream",Synthetic,Safe,Low,Medium,Approved,Vitamin C
+Ascorbyl Glucoside,Antioxidant,Vitamin,"Serum, Brightening Cream",Biotechnology Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Ascorbyl Phosphate,Antioxidant,Vitamin,"Serum, Brightening Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Magnesium Ascorbyl Phosphate,Antioxidant,Vitamin,"Serum, Brightening Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Ascorbyl Palmitate,Antioxidant,Vitamin,"Serum, Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Niacinamide (Vitamin B3),Anti-Aging Agent,Vitamin,"Serum, Moisturizer, Face Wash",Synthetic,Very Safe,Low,Low,Approved,Vitamin B3; Nicotinamide
+Biotin (Vitamin B7),Conditioning Agent,Vitamin,"Shampoo, Hair Serum",Biotechnology Derived,Very Safe,Low,No Risk,Approved,Vitamin B7
+Folic Acid,Conditioning Agent,Vitamin,"Hair Serum, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Pyridoxine HCl (Vitamin B6),Conditioning Agent,Vitamin,"Shampoo, Serum",Synthetic,Safe,Low,No Risk,Approved,Vitamin B6
+Riboflavin (Vitamin B2),Antioxidant,Vitamin,"Serum, Cream",Synthetic,Safe,Low,No Risk,Approved,Vitamin B2
+Phytonadione (Vitamin K),Conditioning Agent,Vitamin,"Eye Cream, Under Eye Serum",Synthetic,Safe,Low,No Risk,Approved,Vitamin K
+Calcium Pantothenate,Conditioning Agent,Vitamin,"Shampoo, Serum",Synthetic,Safe,Low,No Risk,Approved,Vitamin B5
+Ethylhexyl Methoxycinnamate,UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Octocrylene,UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Avobenzone (Butyl Methoxydibenzoylmethane),UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,Butyl Methoxydibenzoylmethane
+Homosalate,UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Ethylhexyl Salicylate (Octisalate),UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,Octisalate
+Oxybenzone (Benzophenone-3),UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Moderate Risk,Medium,Medium,Country Restricted,Benzophenone-3
+Ensulizole (Phenylbenzimidazole Sulfonic Acid),UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,Phenylbenzimidazole Sulfonic Acid
+Bisoctrizole (Methylene Bis-Benzotriazolyl Tetramethylbutylphenol),UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,Methylene Bis-Benzotriazolyl Tetramethylbutylphenol
+Bemotrizinol (Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine),UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine
+Diethylamino Hydroxybenzoyl Hexyl Benzoate,UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Titanium Dioxide,UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,CI 77891
+Zinc Oxide,UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Polysilicone-15,UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Diethylhexyl Butamido Triazone (Iscotrizinol),UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,Iscotrizinol
+Octyl Triazone (Ethylhexyl Triazone),UV Filter,UV Filter,"Sunscreen, Day Cream, Foundation, BB Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Ferulic Acid,Antioxidant,Antioxidant,"Vitamin C Serum, Anti-Aging Cream",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Resveratrol,Antioxidant,Antioxidant,"Serum, Anti-Aging Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Butylated Hydroxytoluene (BHT),Antioxidant,Antioxidant,"Lipstick, Cream, Sunscreen",Synthetic,Safe,Low,Low,Approved,BHT
+Butylated Hydroxyanisole (BHA),Antioxidant,Antioxidant,"Lipstick, Cream",Synthetic,Moderate Risk,Medium,Low,Restricted,BHA
+Sodium Metabisulfite,Antioxidant,Antioxidant,"Hair Color, Perm Lotion",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Astaxanthin,Antioxidant,Antioxidant,"Serum, Anti-Aging Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Ubiquinone (Coenzyme Q10),Antioxidant,Antioxidant,"Serum, Night Cream, Eye Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,Coenzyme Q10
+Alpha Lipoic Acid,Antioxidant,Antioxidant,"Serum, Anti-Aging Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Ergothioneine,Antioxidant,Antioxidant,"Serum, Anti-Aging Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Phenoxyethanol,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Restricted,No Alternate Names
+Methylparaben,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Moderate Risk,Medium,Low,Restricted,No Alternate Names
+Propylparaben,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Moderate Risk,Medium,Low,Restricted,No Alternate Names
+Butylparaben,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Moderate Risk,Medium,Low,Restricted,No Alternate Names
+Ethylparaben,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Moderate Risk,Medium,Low,Restricted,No Alternate Names
+Sodium Benzoate,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Potassium Sorbate,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Benzyl Alcohol,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Chlorphenesin,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Sodium Dehydroacetate,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Dehydroacetic Acid,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Imidazolidinyl Urea,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Diazolidinyl Urea,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+DMDM Hydantoin,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Methylisothiazolinone,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Moderate Risk,High,Medium,Restricted,No Alternate Names
+Methylchloroisothiazolinone,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Moderate Risk,High,Medium,Restricted,No Alternate Names
+Benzoic Acid,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Sorbic Acid,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Ethylhexylglycerin,Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+"1,2-Hexanediol",Preservative,Preservative,"Face Wash, Moisturizer, Shampoo, Cream, Serum, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Chlorhexidine Digluconate,Antimicrobial,Preservative,"Hand Sanitizer, Mouthwash, Intimate Wash",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Triclosan,Antimicrobial,Preservative,"Toothpaste, Hand Wash, Deodorant",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Triclocarban,Antimicrobial,Preservative,"Soap, Hand Wash",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Silver Citrate,Antimicrobial,Preservative,"Deodorant, Wet Wipes",Mineral,Safe,Low,Low,Approved,No Alternate Names
+Leuconostoc/Radish Root Ferment Filtrate,Preservative Booster,Preservative,"Serum, Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Lactobacillus Ferment,Preservative Booster,Preservative,"Serum, Toner",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Glyceryl Undecylenate,Preservative Booster,Preservative,"Deodorant, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+p-Anisic Acid,Preservative Booster,Preservative,"Serum, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Levulinate,Preservative Booster,Preservative,"Serum, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Anisate,Preservative Booster,Preservative,"Serum, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Disodium EDTA,Chelating Agent,Chelating Agent,"Shampoo, Cream, Face Wash",Synthetic,Safe,Low,Low,Approved,Disodium Ethylenediaminetetraacetate
+Tetrasodium EDTA,Chelating Agent,Chelating Agent,"Shampoo, Cream",Synthetic,Safe,Low,Low,Approved,Tetrasodium Ethylenediaminetetraacetate
+Trisodium EDTA,Chelating Agent,Chelating Agent,"Cream, Serum",Synthetic,Safe,Low,Low,Approved,Trisodium Ethylenediaminetetraacetate
+Sodium Phytate,Chelating Agent,Chelating Agent,"Serum, Natural Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Etidronic Acid,Chelating Agent,Chelating Agent,"Shampoo, Soap",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Citric Acid,pH Adjuster,Acid,"Face Wash, Shampoo, Serum, Toner",Naturally Derived,Very Safe,Low,Low,Approved,No Alternate Names
+Sodium Citrate,Buffer,Salt,"Face Wash, Shampoo",Synthetic,Very Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Hydroxide,pH Adjuster,Alkali,"Soap, Face Wash, Cream",Synthetic,Moderate Risk,Low,High,Approved,No Alternate Names
+Potassium Hydroxide,pH Adjuster,Alkali,"Liquid Soap, Shaving Cream",Synthetic,Moderate Risk,Low,High,Approved,No Alternate Names
+Triethanolamine,pH Adjuster,Amine,"Cream, Lotion",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Aminomethyl Propanol,pH Adjuster,Amine,"Cream, Gel",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Lactic Acid,pH Adjuster,Acid,"Toner, Serum, Peel",Naturally Derived,Safe,Low,Medium,Approved,No Alternate Names
+Sodium Bicarbonate,pH Adjuster,Salt,"Toothpaste, Deodorant, Bath Products",Mineral,Safe,Low,Low,Approved,No Alternate Names
+Phosphoric Acid,pH Adjuster,Acid,"Toner, Serum",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Potassium Citrate,Buffer,Salt,"Toner, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+PVP,Film Former,Polymer,"Hair Gel, Hair Spray, Mascara",Synthetic,Safe,Low,No Risk,Approved,Polyvinylpyrrolidone; Povidone
+PVP/VA Copolymer,Film Former,Polymer,"Hair Gel, Hair Spray",Synthetic,Safe,Low,No Risk,Approved,Polyvinylpyrrolidone/Vinyl Acetate Copolymer
+Polyquaternium-7,Conditioning Agent,Polymer,"Shampoo, Conditioner",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polyquaternium-10,Conditioning Agent,Polymer,"Shampoo, Conditioner",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polyquaternium-11,Film Former,Polymer,"Hair Gel, Hair Spray",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Acrylates Copolymer,Film Former,Polymer,"Mascara, Nail Polish, Hair Gel",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Carbomer,Thickener,Polymer,"Gel, Serum, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Acrylates/C10-30 Alkyl Acrylate Crosspolymer,Thickener,Polymer,"Gel, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Xanthan Gum,Thickener,Polymer,"Serum, Cream, Toothpaste",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Hydroxyethylcellulose,Thickener,Polymer,"Gel, Shampoo",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Hydroxypropyl Methylcellulose,Thickener,Polymer,"Gel, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Polyacrylate,Thickener,Polymer,"Diaper, Sanitary Pads, Cream",Synthetic,Safe,Low,No Risk,Approved,Superabsorbent Polymer
+Sclerotium Gum,Thickener,Polymer,"Serum, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Cellulose Gum (Sodium Carboxymethyl Cellulose),Thickener,Polymer,"Toothpaste, Cream",Naturally Derived,Safe,Low,No Risk,Approved,Sodium Carboxymethyl Cellulose
+Guar Gum,Thickener,Polymer,"Shampoo, Conditioner",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+PEG-150 Distearate,Thickener,Polymer,"Shampoo, Body Wash",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Chloride,Thickener,Salt,"Shampoo, Body Wash, Toothpaste",Mineral,Very Safe,No Risk,Low,Approved,Salt
+Magnesium Aluminum Silicate,Thickener,Mineral,"Cream, Sunscreen",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Hectorite,Thickener,Mineral,"Cream, Mask",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Bentonite,Thickener,Mineral,"Face Mask, Face Pack",Mineral,Safe,Low,Low,Approved,No Alternate Names
+CI 77891 (Titanium Dioxide),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,No Alternate Names
+CI 19140 (Yellow 5),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Yellow 5
+CI 16035 (Red 40),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Red 40
+CI 42090 (Blue 1),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Blue 1
+CI 77491 (Iron Oxide Red),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Iron Oxide Red
+CI 77492 (Iron Oxide Yellow),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Iron Oxide Yellow
+CI 77499 (Iron Oxide Black),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Iron Oxide Black
+Mica,Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,No Alternate Names
+Ultramarines (CI 77007),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,CI 77007
+Bismuth Oxychloride (CI 77163),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,CI 77163
+CI 15850 (Red 6/7),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Red 6/7
+CI 45410 (Red 27/28),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Red 27/28
+CI 77510 (Ferric Ferrocyanide),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Ferric Ferrocyanide
+CI 77288 (Chromium Oxide Green),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Chromium Oxide Green
+CI 77289 (Chromium Hydroxide Green),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Chromium Hydroxide Green
+CI 15985 (Yellow 6),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Yellow 6
+CI 14700 (Red 4),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Red 4
+CI 73015 (Blue 2),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Blue 2
+CI 77120 (Barium Sulfate),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Barium Sulfate
+CI 77163 (Bismuth Oxychloride),Colorant,Pigment,"Foundation, Lipstick, Eyeshadow, Blush",Mineral,Safe,Low,Low,Approved,Bismuth Oxychloride
+Parfum (Fragrance),Fragrance,Fragrance,"Perfume, Body Mist, Deodorant, Lotion, Shampoo",Synthetic,Moderate Risk,High,Medium,Approved,Fragrance
+Linalool,Fragrance,Fragrance Allergen,"Perfume, Lotion, Shampoo",Naturally Derived,Safe,Medium,Low,Approved,No Alternate Names
+Limonene,Fragrance,Fragrance Allergen,"Perfume, Body Wash, Deodorant",Naturally Derived,Safe,Medium,Low,Approved,No Alternate Names
+Citronellol,Fragrance,Fragrance Allergen,"Perfume, Lotion",Naturally Derived,Safe,Medium,Low,Approved,No Alternate Names
+Geraniol,Fragrance,Fragrance Allergen,"Perfume, Shampoo",Naturally Derived,Safe,Medium,Low,Approved,No Alternate Names
+Eugenol,Fragrance,Fragrance Allergen,"Toothpaste, Mouthwash, Perfume",Naturally Derived,Safe,Medium,Low,Approved,No Alternate Names
+Benzyl Salicylate,Fragrance,Fragrance Allergen,"Perfume, Body Mist",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Hexyl Cinnamal,Fragrance,Fragrance Allergen,"Perfume, Lotion",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Coumarin,Fragrance,Fragrance Allergen,"Perfume, Deodorant",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Menthol,Cooling Agent,Cooling Agent,"Shampoo, Toothpaste, After Shave, Body Wash",Naturally Derived,Safe,Low,Medium,Approved,No Alternate Names
+Menthyl Lactate (Frescolat),Cooling Agent,Cooling Agent,"Aftershave, Gel",Synthetic,Safe,Low,Low,Approved,Frescolat
+Camphor,Cooling Agent,Cooling Agent,"Balm, Chest Rub, Aftershave",Naturally Derived,Moderate Risk,Low,Medium,Restricted,No Alternate Names
+WS-23 (Cooling Agent),Cooling Agent,Cooling Agent,"Aftershave, Deodorant",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Salicylic Acid,Anti-Acne Agent,Acid,"Face Wash, Serum, Anti-Acne Products, Toner",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Benzoyl Peroxide,Anti-Acne Agent,Antimicrobial,"Anti-Acne Products, Face Wash",Synthetic,Moderate Risk,Medium,High,Approved,No Alternate Names
+Zinc PCA,Anti-Acne Agent,Mineral,"Anti-Acne Products, Toner",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Sulfur,Anti-Acne Agent,Mineral,"Face Mask, Anti-Acne Products",Mineral,Moderate Risk,Medium,Medium,Approved,Sulphur
+Azelaic Acid,Anti-Acne Agent,Acid,"Serum, Anti-Acne Products",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Bakuchiol,Anti-Aging Agent,Botanical Extract,"Serum, Night Cream",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Adenosine,Anti-Aging Agent,Nucleoside,"Serum, Eye Cream, Night Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Glycolic Acid,Exfoliant,Acid,"Peel, Serum, Toner",Synthetic,Moderate Risk,Medium,High,Approved,Hydroxyacetic Acid
+Mandelic Acid,Exfoliant,Acid,"Serum, Peel",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Malic Acid,Exfoliant,Acid,"Peel, Serum, Toner",Naturally Derived,Safe,Low,Medium,Approved,No Alternate Names
+Tartaric Acid,Exfoliant,Acid,"Peel, Serum",Naturally Derived,Safe,Low,Medium,Approved,No Alternate Names
+Gluconolactone (PHA),Exfoliant,Acid,"Serum, Toner",Synthetic,Safe,Low,Low,Approved,PHA
+Lactobionic Acid,Exfoliant,Acid,"Serum, Toner",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Kojic Acid,Brightening Agent,Acid,"Serum, Brightening Cream",Biotechnology Derived,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Alpha-Arbutin,Brightening Agent,Botanical Derivative,"Serum, Brightening Cream",Biotechnology Derived,Safe,Low,Low,Approved,No Alternate Names
+Arbutin,Brightening Agent,Botanical Derivative,"Serum, Brightening Cream",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Tranexamic Acid,Brightening Agent,Acid,"Serum, Brightening Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Hexylresorcinol,Brightening Agent,Phenol,"Serum, Eye Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Ectoin,Anti-Aging Agent,Amino Acid Derivative,"Serum, Moisturizer, After Sun Gel",Biotechnology Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Madecassoside,Anti-Inflammatory Agent,Botanical Derivative,"Serum, Cream, After Sun Gel",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Asiaticoside,Anti-Inflammatory Agent,Botanical Derivative,"Serum, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Allantoin,Soothing Agent,Botanical Derivative,"Baby Lotion, Cream, After Sun Gel",Synthetic,Very Safe,Low,No Risk,Approved,No Alternate Names
+Bisabolol,Soothing Agent,Botanical Derivative,"Serum, Baby Cream, After Sun Gel",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Snail Secretion Filtrate,Anti-Aging Agent,Animal Derivative,"Serum, Cream",Animal Derived,Safe,Low,Low,Approved,No Alternate Names
+Zinc Pyrithione,Anti-Dandruff Agent,Antimicrobial,"Anti-Dandruff Shampoo, Scalp Serum",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Piroctone Olamine,Anti-Dandruff Agent,Antimicrobial,"Anti-Dandruff Shampoo, Scalp Serum",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Selenium Sulfide,Anti-Dandruff Agent,Antimicrobial,Anti-Dandruff Shampoo,Synthetic,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Climbazole,Anti-Dandruff Agent,Antimicrobial,Anti-Dandruff Shampoo,Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Ketoconazole,Anti-Dandruff Agent,Antifungal,Anti-Dandruff Shampoo,Synthetic,Moderate Risk,Low,Medium,Restricted,No Alternate Names
+Coal Tar,Anti-Dandruff Agent,Antimicrobial,Anti-Dandruff Shampoo,Synthetic,Moderate Risk,Medium,Medium,Country Restricted,No Alternate Names
+Sodium Fluoride,Oral Care Ingredient,Mineral,"Toothpaste, Mouthwash",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Stannous Fluoride,Oral Care Ingredient,Mineral,Toothpaste,Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Sodium Monofluorophosphate,Oral Care Ingredient,Mineral,Toothpaste,Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Hydrated Silica,Abrasive,Mineral,Toothpaste,Mineral,Safe,Low,Low,Approved,No Alternate Names
+Cetylpyridinium Chloride,Antimicrobial,Oral Care Ingredient,"Mouthwash, Breath Freshener",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Zinc Citrate,Oral Care Ingredient,Mineral,"Toothpaste, Mouthwash",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Potassium Nitrate,Oral Care Ingredient,Mineral,Sensitivity Toothpaste,Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Saccharin,Sweetener,Sweetener,"Toothpaste, Mouthwash",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Calcium Carbonate,Abrasive,Mineral,"Tooth Powder, Toothpaste",Mineral,Safe,Low,Low,Approved,No Alternate Names
+Sodium Bicarbonate (Baking Soda),Abrasive,Mineral,"Toothpaste, Tooth Powder",Mineral,Safe,Low,Medium,Approved,Baking Soda
+Miswak Extract (Salvadora Persica),Oral Care Ingredient,Botanical Extract,"Toothpaste, Tooth Powder",Natural,Safe,Low,No Risk,Approved,Salvadora Persica
+Clove Oil (Syzygium Aromaticum),Oral Care Ingredient,Essential Oil,"Toothpaste, Mouthwash",Natural,Moderate Risk,Medium,Medium,Approved,Syzygium Aromaticum
+Xylitol (Oral Care),Sweetener,Sugar,"Toothpaste, Mouthwash, Chewing Gum",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Erythritol,Sweetener,Sugar,"Toothpaste, Mouthwash",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Lauryl Sulfoacetate (Oral),Surfactant,Surfactant,Toothpaste,Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Cellulose Gum (Oral Care),Thickener,Polymer,Toothpaste,Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Titanium Dioxide (Oral Care),Colorant,Pigment,Toothpaste,Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Papain,Exfoliant,Enzyme,"Face Scrub, Enzyme Peel",Natural,Safe,Medium,Medium,Approved,No Alternate Names
+Bromelain,Exfoliant,Enzyme,"Face Scrub, Enzyme Peel",Natural,Safe,Medium,Medium,Approved,No Alternate Names
+Protease,Exfoliant,Enzyme,"Cleanser, Peel",Biotechnology Derived,Safe,Low,Low,Approved,No Alternate Names
+Lipase,Conditioning Agent,Enzyme,Cleansing Balm,Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Amylase,Exfoliant,Enzyme,Cleanser,Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Kaolin,Absorbent,Mineral,"Face Mask, Face Pack, Compact Powder",Mineral,Very Safe,Low,No Risk,Approved,No Alternate Names
+Talc,Absorbent,Mineral,"Baby Powder, Compact Powder, Body Powder",Mineral,Moderate Risk,Low,Low,Country Restricted,Talcum
+Silica,Absorbent,Mineral,"Primer, Foundation, Toothpaste",Mineral,Safe,Low,No Risk,Approved,Silicon Dioxide
+Magnesium Sulfate (Epsom Salt),Thickener,Mineral,"Bath Salt, Body Scrub",Mineral,Safe,Low,Low,Approved,Epsom Salt
+Dead Sea Salt,Exfoliant,Mineral,"Body Scrub, Bath Products",Mineral,Safe,Low,Low,Approved,No Alternate Names
+Zea Mays Starch (Corn Starch),Absorbent,Starch,"Baby Powder, Dry Shampoo",Natural,Safe,Low,No Risk,Approved,Corn Starch
+Oryza Sativa Starch (Rice Starch),Absorbent,Starch,"Baby Powder, Compact Powder",Natural,Safe,Low,No Risk,Approved,Rice Starch
+Magnesium Stearate,Binder,Mineral,"Compact Powder, Eyeshadow",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Zinc Stearate,Binder,Mineral,"Baby Powder, Compact Powder",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Boron Nitride,Texturizer,Mineral,"Foundation, Primer",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Nylon-12,Texturizer,Polymer,"Foundation, Primer",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Ceramide NP,Skin-Repairing Agent,Lipid,"Moisturizer, Serum, Night Cream",Biotechnology Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Ceramide AP,Skin-Repairing Agent,Lipid,"Moisturizer, Serum",Biotechnology Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Ceramide EOP,Skin-Repairing Agent,Lipid,"Moisturizer, Serum",Biotechnology Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Ceramide 3,Skin-Repairing Agent,Lipid,"Moisturizer, Night Cream",Biotechnology Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Phytosphingosine,Skin-Repairing Agent,Lipid,"Moisturizer, Serum",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sphingolipids,Skin-Repairing Agent,Lipid,"Moisturizer, Serum",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Cholesterol,Skin-Repairing Agent,Lipid,"Moisturizer, Night Cream",Animal Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Nitrocellulose,Film Former,Polymer,Nail Polish,Synthetic,Moderate Risk,Low,Low,Approved,No Alternate Names
+Toluenesulfonamide/Formaldehyde Resin,Film Former,Polymer,Nail Polish,Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Dibutyl Phthalate,Plasticizer,Polymer,Nail Polish,Synthetic,Moderate Risk,Medium,Low,Restricted,No Alternate Names
+Acetone,Solvent,Solvent,Nail Polish Remover,Synthetic,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Ethyl Acetate,Solvent,Solvent,"Nail Polish, Nail Polish Remover",Synthetic,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Butyl Acetate,Solvent,Solvent,Nail Polish,Synthetic,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Tosylamide/Formaldehyde Resin,Film Former,Polymer,Nail Polish,Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Adipic Acid/Neopentyl Glycol/Trimellitic Anhydride Copolymer,Film Former,Polymer,Nail Polish,Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Stearalkonium Bentonite,Thickener,Mineral,Nail Polish,Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Trimethyl Pentanyl Diisobutyrate,Plasticizer,Emollient,Nail Polish,Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Camphor (Nail Care),Plasticizer,Botanical Derivative,Nail Polish,Naturally Derived,Moderate Risk,Low,Medium,Restricted,No Alternate Names
+Hydroxypropyl Cellulose,Film Former,Polymer,Nail Strengthener,Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Calcium Pantothenate (Nail),Conditioning Agent,Vitamin,"Nail Strengthener, Cuticle Oil",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Aluminum Chlorohydrate,Antiperspirant,Mineral Salt,"Deodorant, Antiperspirant, Roll-on",Mineral,Safe,Low,Medium,Approved,No Alternate Names
+Aluminum Zirconium Tetrachlorohydrex Gly,Antiperspirant,Mineral Salt,"Antiperspirant, Roll-on",Mineral,Safe,Low,Medium,Approved,No Alternate Names
+Zinc Ricinoleate,Odor Neutralizer,Fatty Acid Salt,Deodorant,Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Farnesol,Antimicrobial,Fragrance Allergen,"Deodorant, Perfume",Naturally Derived,Safe,Medium,Low,Approved,No Alternate Names
+Sodium Bicarbonate (Deodorant),Odor Neutralizer,Mineral,Deodorant,Mineral,Safe,Low,Medium,Approved,No Alternate Names
+Potassium Alum,Antiperspirant,Mineral Salt,"Deodorant, Alum Stick",Mineral,Safe,Low,Low,Approved,No Alternate Names
+p-Phenylenediamine (PPD),Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,High,Restricted,PPD
+Resorcinol,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Ammonia,Alkalizing Agent,Alkali,"Hair Color, Hair Dye",Synthetic,Moderate Risk,Low,High,Approved,No Alternate Names
+Hydrogen Peroxide,Oxidizing Agent,Oxidizer,"Hair Color, Hair Dye, Teeth Whitening",Synthetic,Moderate Risk,Low,High,Restricted,No Alternate Names
+"Toluene-2,5-Diamine",Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,Moderate Risk,High,Medium,Restricted,No Alternate Names
+4-Amino-2-Hydroxytoluene,Colorant,Colorant,Hair Color,Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+m-Aminophenol,Colorant,Colorant,Hair Color,Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+2-Amino-4-Hydroxyethylaminoanisole Sulfate,Colorant,Colorant,Hair Color,Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Sodium Metabisulfite (Hair Color),Antioxidant,Antioxidant,"Hair Color, Perm Lotion",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Ammonium Thioglycolate,Reducing Agent,Reducing Agent,"Hair Straightener, Perm Lotion",Synthetic,Moderate Risk,Medium,High,Restricted,No Alternate Names
+Lactic Acid (Intimate Care),pH Balancer,Acid,"Intimate Wash, Intimate Moisturizer",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Lactate (Intimate Care),Humectant,Salt,"Intimate Wash, Intimate Moisturizer",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Lactoserum (Milk Whey),Soothing Agent,Protein,Intimate Wash,Animal Derived,Safe,Low,No Risk,Approved,Milk Whey
+Fennel Extract (Foeniculum Vulgare),Soothing Agent,Botanical Extract,"Intimate Wash, Feminine Hygiene Products",Natural,Safe,Low,No Risk,Approved,Foeniculum Vulgare
+Neem Extract (Intimate Care),Antimicrobial,Botanical Extract,Intimate Wash,Natural,Safe,Medium,Low,Approved,No Alternate Names
+Turmeric Extract (Intimate Care),Antimicrobial,Botanical Extract,Intimate Wash,Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Sepicalm S (Zinc PCA/Sclerocarya Birrea Extract),Soothing Agent,Botanical Derivative,Intimate Wash,Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Zinc Oxide (Baby Care),Skin Protectant,Mineral,"Diaper Rash Cream, Baby Cream",Mineral,Very Safe,Low,No Risk,Approved,No Alternate Names
+Petrolatum (Baby Care),Skin Protectant,Wax,"Diaper Rash Cream, Baby Lotion",Mineral,Very Safe,Low,No Risk,Approved,No Alternate Names
+Calendula Extract (Baby Care),Soothing Agent,Botanical Extract,"Baby Cream, Baby Lotion",Natural,Very Safe,Low,No Risk,Approved,No Alternate Names
+Allantoin (Baby Care),Soothing Agent,Botanical Derivative,"Baby Cream, Diaper Rash Cream",Synthetic,Very Safe,Low,No Risk,Approved,No Alternate Names
+Cornstarch (Baby Powder),Absorbent,Starch,Baby Powder,Natural,Safe,Low,No Risk,Approved,Baby Powder
+Menthol (Aftershave),Cooling Agent,Cooling Agent,"Aftershave, Beard Wash",Naturally Derived,Safe,Low,Medium,Approved,No Alternate Names
+Witch Hazel Extract (Aftershave),Astringent,Botanical Extract,"Aftershave, Toner",Natural,Safe,Low,Low,Approved,No Alternate Names
+Alum (Potassium Aluminum Sulfate),Astringent,Mineral Salt,"Aftershave, Alum Block",Mineral,Safe,Low,Low,Approved,Potassium Aluminum Sulfate
+Beard Oil Blend (Argan/Jojoba/Vitamin E),Emollient,Oil Blend,Beard Oil,Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Isododecane,Emollient,Emollient,"Foundation, Mascara, Primer",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Trimethylsiloxysilicate (Makeup),Film Former,Silicone,"Foundation, Setting Spray",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+VP/Eicosene Copolymer,Film Former,Polymer,"Setting Spray, Mascara",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Aluminum Starch Octenylsuccinate,Texturizer,Starch,"Foundation, Powder",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Phenyl Trimethicone (Makeup),Emollient,Silicone,"Foundation, Primer",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Synthetic Fluorphlogopite,Texturizer,Mineral,"Highlighter, Eyeshadow",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Calcium Sodium Borosilicate,Texturizer,Mineral,Highlighter,Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Sericite,Texturizer,Mineral,"Compact Powder, Foundation",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Panthenol Triacetate,Conditioning Agent,Vitamin,"Hair Serum, Conditioner",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Glyceryl Oleate,Emulsifier,Emulsifier,"Cream, Lotion",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Glyceryl Linoleate,Emollient,Fatty Ester,"Serum, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+PEG-40 Hydrogenated Castor Oil,Solubilizer,Emulsifier,"Toner, Serum, Perfume",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+PEG-60 Hydrogenated Castor Oil,Solubilizer,Emulsifier,"Micellar Water, Serum",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Polysorbate 60,Emulsifier,Surfactant,"Cream, Lotion",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Sorbitan Laurate,Emulsifier,Surfactant,"Cream, Lotion",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Steareth-21,Emulsifier,Emulsifier,"Cream, Sunscreen",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Ceteareth-25,Emulsifier,Emulsifier,"Cream, Lotion",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Oleth-20,Emulsifier,Emulsifier,"Cream, Cleansing Balm",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Laureth-4,Emulsifier,Emulsifier,"Cleansing Oil, Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Laureth-23,Emulsifier,Emulsifier,"Cream, Toner",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+PPG-26-Buteth-26,Solubilizer,Emulsifier,"Serum, Toner",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+PEG-40 Stearate,Emulsifier,Emulsifier,"Cream, Body Wash",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Glycol Distearate,Pearlizing Agent,Emollient,"Shampoo, Body Wash",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Glycol Stearate,Pearlizing Agent,Emollient,"Shampoo, Body Wash, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Cocamide DIPA,Foam Booster,Surfactant,"Shampoo, Body Wash",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Myristamine Oxide,Foam Booster,Surfactant,"Shampoo, Body Wash",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Lauramine Oxide,Foam Booster,Surfactant,"Shampoo, Body Wash",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Cocamidopropyl Betaine (Baby),Surfactant,Surfactant,"Baby Shampoo, Baby Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Hydroxymethylglycinate,Preservative,Preservative,"Cream, Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Iodopropynyl Butylcarbamate,Preservative,Preservative,"Cream, Body Wash",Synthetic,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Benzalkonium Chloride,Preservative,Preservative,"Wet Wipes, Hand Sanitizer",Synthetic,Moderate Risk,Medium,Medium,Approved,No Alternate Names
+Undecylenamidopropyl Betaine,Antimicrobial,Surfactant,"Intimate Wash, Anti-Acne Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Capryloyl Glycine,Preservative Booster,Amino Acid Derivative,"Deodorant, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Undecylenoyl Glycine,Preservative Booster,Amino Acid Derivative,"Deodorant, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Surfactin,Cleansing Agent,Biosurfactant,"Face Wash, Serum",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Alkyl Polyglucoside,Surfactant,Surfactant,"Baby Wash, Face Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Sodium Cocoamphoacetate,Surfactant,Surfactant,"Baby Shampoo, Body Wash",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+PEG-20 Glyceryl Triisostearate,Solubilizer,Emulsifier,"Micellar Water, Toner",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polyglyceryl-10 Laurate,Emulsifier,Emulsifier,"Cleansing Oil, Serum",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Isoamyl Laurate,Emollient,Emollient,"Sunscreen, Serum",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Isopropyl Lauroyl Sarcosinate,Emollient,Emollient,"Sunscreen, Serum",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Neopentyl Glycol Dicaprylate/Dicaprate,Emollient,Emollient,"Sunscreen, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Diethylhexyl Succinate,Emollient,Emollient,"Sunscreen, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Diethylhexyl Carbonate,Emollient,Emollient,"Sunscreen, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Triethylhexanoin,Emollient,Emollient,"Foundation, Sunscreen",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Trioctyldodecyl Citrate,Emollient,Emollient,"Sunscreen, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Caprylyl Caprylate/Caprate,Emollient,Emollient,"Sunscreen, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Cetyl PEG/PPG-10/1 Dimethicone,Emulsifier,Silicone,"Sunscreen, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polyacrylate-13,Emulsifier,Polymer,"Sunscreen, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polyisobutene,Film Former,Polymer,"Lip Gloss, Sunscreen",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Trimethylolpropane Triisostearate,Emollient,Emollient,"Lipstick, Sunscreen",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Diisostearyl Malate,Emollient,Emollient,"Lipstick, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrogenated Polyisobutene,Emollient,Emollient,"Lip Gloss, Mascara",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polybutene (Cosmetic Grade),Emollient,Emollient,"Lip Gloss, Mascara",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Ozokerite (Cosmetic Grade),Occlusive,Wax,"Lip Balm, Mascara",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Synthetic Wax,Texturizer,Wax,"Lipstick, Foundation Stick",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polyethylene,Exfoliant,Polymer,"Face Scrub, Body Scrub",Synthetic,Moderate Risk,Low,Low,Country Restricted,No Alternate Names
+Jojoba Esters,Exfoliant,Wax Ester,"Face Scrub, Body Scrub",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Walnut Shell Powder (Juglans Regia Shell Powder),Exfoliant,Botanical Extract,"Face Scrub, Body Scrub",Natural,Safe,Medium,Medium,Approved,Juglans Regia Shell Powder
+Apricot Seed Powder (Prunus Armeniaca Seed Powder),Exfoliant,Botanical Extract,"Face Scrub, Body Scrub",Natural,Safe,Medium,Medium,Approved,Prunus Armeniaca Seed Powder
+Bamboo Powder (Bambusa Vulgaris Powder),Exfoliant,Botanical Extract,"Face Scrub, Body Scrub",Natural,Safe,Low,Low,Approved,Bambusa Vulgaris Powder
+Rice Bran Powder (Oryza Sativa Bran Powder),Exfoliant,Botanical Extract,"Face Scrub, Body Scrub",Natural,Safe,Low,Low,Approved,Oryza Sativa Bran Powder
+Coffee Seed Powder (Coffea Arabica Seed Powder),Exfoliant,Botanical Extract,"Body Scrub, Eye Cream",Natural,Safe,Low,Low,Approved,Coffea Arabica Seed Powder
+Sugar (Saccharum Officinarum Extract),Exfoliant,Sugar,"Lip Scrub, Body Scrub",Natural,Safe,Low,Low,Approved,Saccharum Officinarum Extract
+Sea Salt (Maris Sal),Exfoliant,Mineral,"Body Scrub, Foot Scrub",Mineral,Safe,Low,Medium,Approved,Maris Sal
+Pumice Powder,Exfoliant,Mineral,"Foot Scrub, Body Scrub",Mineral,Safe,Low,Medium,Approved,No Alternate Names
+Diatomaceous Earth,Absorbent,Mineral,"Face Mask, Face Pack",Mineral,Safe,Low,Low,Approved,No Alternate Names
+Activated Charcoal (Charcoal Powder),Absorbent,Mineral,"Face Mask, Face Wash, Soap",Natural,Safe,Low,Low,Approved,Charcoal Powder
+Volcanic Ash,Absorbent,Mineral,"Face Mask, Face Scrub",Mineral,Safe,Low,Low,Approved,No Alternate Names
+Rhassoul Clay (Moroccan Lava Clay),Absorbent,Mineral,"Face Mask, Hair Mask",Mineral,Safe,Low,Low,Approved,Moroccan Lava Clay
+French Green Clay (Illite),Absorbent,Mineral,"Face Mask, Face Pack",Mineral,Safe,Low,Low,Approved,Illite
+Sodium Cocoyl Apple Amino Acids,Cleansing Agent,Surfactant,"Baby Wash, Face Wash",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Disodium Cocoyl Glutamate,Cleansing Agent,Surfactant,"Face Wash, Body Wash",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Cocoamphoacetate (Baby),Surfactant,Surfactant,Baby Wash,Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Glucamate SSE-20,Emulsifier,Emulsifier,"Cream, Lotion",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Acrylates Copolymer,Thickener,Polymer,"Gel, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Acrylates/Steareth-20 Methacrylate Copolymer,Thickener,Polymer,"Gel, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Ammonium Acryloyldimethyltaurate/VP Copolymer,Thickener,Polymer,"Sunscreen, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polyacrylamide,Film Former,Polymer,"Serum, Mask",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+C13-14 Isoparaffin,Solvent,Emollient,"Sunscreen, Serum",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Laureth-7,Emulsifier,Emulsifier,"Sunscreen, Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+PPG-1-PEG-9 Lauryl Glycol Ether,Solubilizer,Emulsifier,"Toner, Micellar Water",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Poloxamer 407,Solubilizer,Polymer,"Toner, Serum, Micellar Water",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Poloxamer 184,Solubilizer,Polymer,"Micellar Water, Toner",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Hydroxyacetophenone,Preservative Booster,Antioxidant,"Cream, Serum",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Glyceryl Caprate,Preservative Booster,Emollient,"Cream, Serum",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Glyceryl Cocoate,Emollient,Emollient,"Cleansing Balm, Cream",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Cetearyl Isononanoate,Emollient,Emollient,"Cream, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Isodecyl Neopentanoate,Emollient,Emollient,"Foundation, Cream",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Diisostearyl Fumarate,Emollient,Emollient,"Foundation, Lipstick",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Beeswax Derivative (Cera Alba Comb),Emollient,Wax,"Lip Balm, Mascara",Natural,Safe,Medium,No Risk,Approved,Cera Alba Comb
+Copernicia Cerifera Cera (Carnauba),Texturizer,Wax,"Mascara, Lipstick",Natural,Safe,Low,No Risk,Approved,Carnauba
+Euphorbia Cerifera Cera (Candelilla),Texturizer,Wax,"Lipstick, Lip Balm",Natural,Safe,Low,No Risk,Approved,Candelilla
+Polyethylene Wax,Texturizer,Wax,"Lipstick, Mascara",Synthetic,Safe,Low,No Risk,Country Restricted,No Alternate Names
+Synthetic Beeswax,Texturizer,Wax,"Lipstick, Mascara",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Rice Wax (Oryza Sativa Cera),Texturizer,Wax,"Lipstick, Lip Balm",Natural,Safe,Low,No Risk,Approved,Oryza Sativa Cera
+Sunflower Seed Wax,Texturizer,Wax,"Lip Balm, Lipstick",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Jojoba Wax (Hydrogenated Jojoba Oil),Emollient,Wax,"Lip Balm, Lipstick",Natural,Safe,Low,No Risk,Approved,Hydrogenated Jojoba Oil
+Polyglyceryl-2 Triisostearate,Emulsifier,Emulsifier,"Sunscreen, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Polyglyceryl-3 Polyricinoleate,Emulsifier,Emulsifier,"Sunscreen, Foundation",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Aluminum Hydroxide,Texturizer,Mineral,"Sunscreen, Foundation",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Triethoxycaprylylsilane,Surface Treatment,Silicone,"Sunscreen, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Stearic Acid Coated Titanium Dioxide,UV Filter,UV Filter,"Sunscreen, Foundation",Mineral,Safe,Low,Low,Approved,No Alternate Names
+Dimethicone/Vinyl Dimethicone Crosspolymer,Texturizer,Silicone,"Foundation, Primer",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Peg-9 Polydimethylsiloxyethyl Dimethicone,Emulsifier,Silicone,"Sunscreen, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Disteardimonium Hectorite,Thickener,Mineral,"Sunscreen, Foundation",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Silica Dimethyl Silylate,Texturizer,Silica,"Primer, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Hydrogen Dimethicone,Emollient,Silicone,"Foundation, Sunscreen",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Iron Oxides (Natural),Colorant,Pigment,"Foundation, Compact Powder",Mineral,Safe,Low,Low,Approved,No Alternate Names
+Carmine (CI 75470),Colorant,Pigment,"Lipstick, Blush",Animal Derived,Moderate Risk,Medium,Low,Approved,CI 75470
+Guanine (Fish Scale Pearl Pigment),Colorant,Pigment,"Highlighter, Nail Polish",Animal Derived,Safe,Low,No Risk,Approved,Fish Scale Pearl Pigment
+Calcium Carbonate (Cosmetic Grade),Texturizer,Mineral,"Compact Powder, Toothpaste",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Magnesium Carbonate,Absorbent,Mineral,"Compact Powder, Deodorant",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Zinc Laurate,Texturizer,Fatty Acid Salt,"Compact Powder, Foundation",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Isopropyl Titanium Triisostearate,Surface Treatment,Emollient,"Foundation, Sunscreen",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Octenylsuccinate Starch,Texturizer,Starch,"Foundation, Powder",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Tapioca Starch (Manihot Esculenta Starch),Absorbent,Starch,"Dry Shampoo, Compact Powder",Natural,Safe,Low,No Risk,Approved,Manihot Esculenta Starch
+Potato Starch (Solanum Tuberosum Starch),Absorbent,Starch,"Baby Powder, Dry Shampoo",Natural,Safe,Low,No Risk,Approved,Solanum Tuberosum Starch
+Cyclodextrin,Odor Neutralizer,Polymer,"Deodorant, Body Mist",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Hyaluronate Crosspolymer (Sheet Mask),Humectant,Polymer,"Sheet Mask, Serum",Biotechnology Derived,Safe,No Risk,No Risk,Approved,No Alternate Names
+Hydrolyzed Hyaluronic Acid,Humectant,Polymer,"Serum, Sheet Mask",Biotechnology Derived,Safe,No Risk,No Risk,Approved,No Alternate Names
+Sodium Acetylated Hyaluronate,Humectant,Polymer,"Serum, Eye Cream",Biotechnology Derived,Safe,No Risk,No Risk,Approved,No Alternate Names
+Superoxide Dismutase,Antioxidant,Enzyme,"Serum, Anti-Aging Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Glutathione,Brightening Agent,Antioxidant,"Serum, Brightening Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+L-Ascorbic Acid,Antioxidant,Vitamin,Vitamin C Serum,Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+3-O-Ethyl Ascorbic Acid,Antioxidant,Vitamin,"Serum, Brightening Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Tetrahexyldecyl Ascorbate,Antioxidant,Vitamin,"Serum, Face Oil",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Idebenone,Antioxidant,Antioxidant,"Serum, Anti-Aging Cream",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Caffeine,Anti-Aging Agent,Alkaloid,"Eye Cream, Body Scrub, Anti-Cellulite Cream",Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Theobromine,Conditioning Agent,Alkaloid,"Body Lotion, Serum",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Guarana Extract (Paullinia Cupana Seed Extract),Anti-Aging Agent,Botanical Extract,"Body Scrub, Eye Cream",Natural,Safe,Low,No Risk,Approved,Paullinia Cupana Seed Extract
+Spirulina Extract (Arthrospira Platensis Extract),Antioxidant,Algae Extract,"Face Mask, Serum",Natural,Safe,Low,No Risk,Approved,Arthrospira Platensis Extract
+Chlorella Vulgaris Extract,Antioxidant,Algae Extract,"Serum, Face Mask",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Laminaria Extract (Seaweed Extract),Humectant,Algae Extract,"Face Mask, Serum, Body Wrap",Natural,Safe,Low,No Risk,Approved,Seaweed Extract
+Ascophyllum Nodosum Extract (Brown Algae),Humectant,Algae Extract,"Serum, Body Wrap",Natural,Safe,Low,No Risk,Approved,Brown Algae
+Spirulina Platensis Extract,Antioxidant,Algae Extract,"Face Mask, Serum",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Yeast Extract (Faex Extract),Conditioning Agent,Biotechnology Derivative,"Serum, Cream",Biotechnology Derived,Safe,Low,No Risk,Approved,Faex Extract
+Saccharomyces Ferment Filtrate,Anti-Aging Agent,Biotechnology Derivative,"Serum, Essence",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Bifida Ferment Lysate,Anti-Aging Agent,Biotechnology Derivative,"Serum, Essence",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Galactomyces Ferment Filtrate,Brightening Agent,Biotechnology Derivative,"Serum, Essence, Toner",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Lactobacillus/Rice Ferment Filtrate,Brightening Agent,Biotechnology Derivative,"Serum, Essence",Biotechnology Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Cocoyl Amino Acids,Cleansing Agent,Surfactant,"Baby Shampoo, Face Wash",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Sodium Lauroyl Oat Amino Acids,Cleansing Agent,Surfactant,"Baby Wash, Face Wash",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Potassium Sorbate (Baby),Preservative,Preservative,"Baby Lotion, Baby Wash",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Sodium Benzoate (Baby),Preservative,Preservative,"Baby Shampoo, Baby Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Chlorphenesin (Baby),Preservative,Preservative,"Baby Cream, Baby Lotion",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Panthenol (Baby),Soothing Agent,Vitamin,"Baby Lotion, Baby Cream",Synthetic,Very Safe,Low,No Risk,Approved,No Alternate Names
+Calendula Officinalis Oil,Emollient,Oil,"Baby Oil, Baby Massage Oil",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Chamomile Oil (Baby Care),Soothing Agent,Essential Oil,"Baby Lotion, Baby Massage Oil",Natural,Safe,Medium,Low,Approved,No Alternate Names
+Olive Oil (Baby Care),Emollient,Oil,"Baby Oil, Baby Massage Oil",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Coconut Oil (Baby Care),Emollient,Oil,"Baby Oil, Baby Massage Oil",Natural,Safe,Medium,Low,Approved,No Alternate Names
+Sweet Almond Oil (Baby Care),Emollient,Oil,"Baby Oil, Baby Massage Oil",Natural,Safe,Medium,Low,Approved,No Alternate Names
+Aloe Vera Gel (Baby Care),Soothing Agent,Botanical Extract,"Baby Lotion, After Sun Gel",Natural,Very Safe,Low,No Risk,Approved,No Alternate Names
+Menthol (Foot Care),Cooling Agent,Cooling Agent,"Foot Cream, Foot Scrub",Naturally Derived,Safe,Low,Medium,Approved,No Alternate Names
+Urea (Foot Care),Humectant,Humectant,"Foot Cream, Foot Scrub",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Salicylic Acid (Foot Care),Exfoliant,Acid,"Foot Scrub, Foot Cream",Synthetic,Safe,Low,Medium,Approved,No Alternate Names
+Tea Tree Oil (Foot Care),Antimicrobial,Essential Oil,"Foot Cream, Foot Powder",Natural,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Peppermint Oil (Foot Care),Cooling Agent,Essential Oil,"Foot Cream, Foot Scrub",Natural,Moderate Risk,Medium,Medium,Restricted,No Alternate Names
+Shea Butter (Foot Care),Emollient,Butter,"Foot Cream, Heel Balm",Natural,Very Safe,Low,No Risk,Approved,No Alternate Names
+Beeswax (Lip Care),Occlusive,Wax,"Lip Balm, Lip Mask",Animal Derived,Safe,Medium,No Risk,Approved,No Alternate Names
+Castor Oil (Lip Care),Emollient,Oil,"Lip Balm, Lip Gloss",Natural,Safe,Low,Low,Approved,No Alternate Names
+Shea Butter (Lip Care),Emollient,Butter,"Lip Balm, Lip Mask",Natural,Very Safe,Low,No Risk,Approved,No Alternate Names
+Vitamin E (Lip Care),Antioxidant,Vitamin,"Lip Balm, Lip Mask",Naturally Derived,Very Safe,Low,No Risk,Approved,No Alternate Names
+Menthol (Lip Plumper),Cooling Agent,Cooling Agent,"Lip Plumper, Lip Gloss",Naturally Derived,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Cinnamon Oil (Lip Plumper),Irritant/Plumping Agent,Essential Oil,Lip Plumper,Natural,Moderate Risk,Medium,High,Restricted,No Alternate Names
+Capsicum Extract (Lip Plumper),Irritant/Plumping Agent,Botanical Extract,Lip Plumper,Natural,Moderate Risk,Medium,High,Approved,No Alternate Names
+Hyaluronic Acid (Lip Plumper),Humectant,Polymer,"Lip Plumper, Lip Serum",Biotechnology Derived,Very Safe,No Risk,No Risk,Approved,No Alternate Names
+Titanium Dioxide (Sanitary Products),Colorant,Pigment,"Sanitary Pads, Panty Liners",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Superabsorbent Polymer (Sodium Polyacrylate),Absorbent,Polymer,"Sanitary Pads, Diapers",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Cellulose Fiber (Wood Pulp),Absorbent,Natural Polymer,"Sanitary Pads, Tampons",Natural,Safe,Low,No Risk,Approved,Wood Pulp
+Cotton Fiber (Gossypium Herbaceum),Absorbent,Natural Fiber,"Tampons, Sanitary Pads, Panty Liners",Natural,Very Safe,Low,No Risk,Approved,Gossypium Herbaceum
+Medical Grade Silicone,Material,Polymer,Menstrual Cups,Synthetic,Very Safe,Low,No Risk,Approved,No Alternate Names
+Thermoplastic Elastomer,Material,Polymer,"Period Panties, Menstrual Cups",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Isopropyl Alcohol (Menstrual Cup Cleanser),Antimicrobial,Alcohol,Menstrual Cup Cleanser,Synthetic,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Citric Acid (Menstrual Cup Cleanser),Cleansing Agent,Acid,Menstrual Cup Cleanser,Naturally Derived,Safe,Low,Low,Approved,No Alternate Names
+Benzalkonium Chloride (Wipes),Antimicrobial,Preservative,"Feminine Cleansing Wipes, Wet Wipes",Synthetic,Moderate Risk,Medium,Medium,Approved,No Alternate Names
+Polyhexamethylene Biguanide,Antimicrobial,Preservative,"Wet Wipes, Hand Sanitizer",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Ethylhexylglycerin (Wipes),Preservative Booster,Preservative,"Wet Wipes, Baby Wipes",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Aloe Vera Extract (Wipes),Soothing Agent,Botanical Extract,"Wet Wipes, Baby Wipes",Natural,Very Safe,Low,No Risk,Approved,No Alternate Names
+Chamomile Extract (Wipes),Soothing Agent,Botanical Extract,"Baby Wipes, Feminine Cleansing Wipes",Natural,Safe,Medium,Low,Approved,No Alternate Names
+Polyester Nonwoven Fabric,Material,Synthetic Fiber,"Wet Wipes, Sheet Mask",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Viscose Nonwoven Fabric,Material,Natural Fiber,"Wet Wipes, Sheet Mask",Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Cellulose Sheet Mask Fabric,Material,Natural Fiber,Sheet Mask,Naturally Derived,Safe,Low,No Risk,Approved,No Alternate Names
+Bio-Cellulose (Fermented Cellulose),Material,Biotechnology Derivative,Sheet Mask,Biotechnology Derived,Safe,Low,No Risk,Approved,Fermented Cellulose
+Hydrogel (Cross-linked Polymer),Material,Polymer,"Eye Mask, Sheet Mask",Synthetic,Safe,Low,No Risk,Approved,Cross-linked Polymer
+Ethylene Vinyl Acetate,Material,Polymer,"Hair Wax, Styling Products",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+PVP/Dimethylaminoethylmethacrylate Copolymer,Film Former,Polymer,"Hair Gel, Hair Wax",Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Acrylamidopropyltrimonium Chloride/Acrylamide Copolymer,Film Former,Polymer,Hair Gel,Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Beeswax (Hair Wax),Texturizer,Wax,"Hair Wax, Hair Pomade",Animal Derived,Safe,Medium,No Risk,Approved,No Alternate Names
+Carnauba Wax (Hair Wax),Texturizer,Wax,"Hair Wax, Hair Pomade",Natural,Safe,Low,No Risk,Approved,No Alternate Names
+Petrolatum (Hair Pomade),Occlusive,Wax,"Hair Wax, Hair Pomade",Mineral,Safe,Low,No Risk,Approved,No Alternate Names
+Lanolin (Hair Pomade),Emollient,Wax,"Hair Wax, Hair Pomade",Animal Derived,Safe,High,Medium,Approved,No Alternate Names
+Butylene Glycol (Hair Spray),Solvent,Solvent,"Hair Spray, Styling Gel",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Dimethyl Ether,Propellant,Propellant,"Hair Spray, Deodorant",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Butane,Propellant,Propellant,"Deodorant, Hair Spray, Shaving Foam",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Isobutane,Propellant,Propellant,"Deodorant, Shaving Foam",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Propane,Propellant,Propellant,"Deodorant, Hair Spray",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Nitrous Oxide,Propellant,Propellant,"Shaving Foam, Mousse",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Stearamidopropyl Dimethylamine,Conditioning Agent,Amine,"Conditioner, Hair Mask",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Dicetyldimonium Chloride,Conditioning Agent,Quaternary Ammonium,"Conditioner, Hair Mask",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Isopropyl Titanium Triisostearate (Sunscreen),Surface Treatment,Emollient,Sunscreen,Synthetic,Safe,Low,No Risk,Approved,No Alternate Names
+Ethylhexyl Triazone,UV Filter,UV Filter,Sunscreen,Synthetic,Safe,Low,Low,Country Restricted,No Alternate Names
+Drometrizole Trisiloxane,UV Filter,UV Filter,Sunscreen,Synthetic,Safe,Low,Low,Country Restricted,No Alternate Names
+Polysilicone-15 (Sunscreen),UV Filter,UV Filter,Sunscreen,Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Terephthalylidene Dicamphor Sulfonic Acid,UV Filter,UV Filter,Sunscreen,Synthetic,Safe,Low,Low,Country Restricted,No Alternate Names
+Disodium Phenyl Dibenzimidazole Tetrasulfonate,UV Filter,UV Filter,Sunscreen,Synthetic,Safe,Low,Low,Country Restricted,No Alternate Names
+4-Methylbenzylidene Camphor,UV Filter,UV Filter,Sunscreen,Synthetic,Moderate Risk,Medium,Medium,Country Restricted,No Alternate Names
+PEG-25 PABA,UV Filter,UV Filter,Sunscreen,Synthetic,Moderate Risk,Medium,Medium,Country Restricted,No Alternate Names
+Padimate O,UV Filter,UV Filter,Sunscreen,Synthetic,Moderate Risk,Medium,Medium,Country Restricted,No Alternate Names
+o-Phenylenediamine,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+m-Phenylenediamine,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+"2,4-Diaminoanisole",Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+"2,4-Diaminoanisole Sulfate",Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+4-Amino-3-Nitrophenol,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,Medium,Restricted,No Alternate Names
+2-Nitro-p-Phenylenediamine,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,Medium,Restricted,No Alternate Names
+4-Nitro-o-Phenylenediamine,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,Medium,Restricted,No Alternate Names
+4-Methoxy-m-Phenylenediamine,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+"2,4-Diaminotoluene",Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+o-Toluidine,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+o-Anisidine,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+4-Chloro-m-Phenylenediamine,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+2-Amino-4-Nitrophenol,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+4-Nitro-m-Phenylenediamine,Colorant,Colorant,"Hair Color, Hair Dye",Synthetic,High Risk,High,Medium,Restricted,No Alternate Names
+HC Blue No. 1,Colorant,Colorant,"Hair Color, Semi-Permanent Hair Dye",Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+HC Red No. 3,Colorant,Colorant,"Hair Color, Semi-Permanent Hair Dye",Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+Disperse Blue 1,Colorant,Colorant,"Hair Color, Semi-Permanent Hair Dye",Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+Basic Blue 99,Colorant,Colorant,"Hair Color, Semi-Permanent Hair Dye",Synthetic,High Risk,High,Medium,Restricted,No Alternate Names
+Solvent Yellow 2,Colorant,Colorant,"Hair Color, Cosmetic Colorant",Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+Sudan I (CI 12055),Colorant,Colorant,Cosmetic Colorant,Synthetic,High Risk,Medium,Medium,Restricted,CI 12055
+Lead Acetate,Colorant,Colorant,Progressive Hair Dye,Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+Thimerosal,Preservative,Preservative,Eye Cosmetics,Synthetic,High Risk,High,Medium,Restricted,No Alternate Names
+Hydroquinone,Skin Lightening Agent,Active Ingredient,"Skin Lightening Cream, Spot Corrector",Synthetic,High Risk,Medium,High,Restricted,No Alternate Names
+Methylene Glycol (Formaldehyde Solution),Hair Straightening Agent,Preservative,"Keratin Hair Treatment, Hair Straightening",Synthetic,High Risk,High,High,Restricted,Formaldehyde Solution
+Formaldehyde,Preservative,Preservative,"Nail Hardener, Keratin Hair Treatment",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+Musk Ambrette,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+Musk Xylene,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,High Risk,Low,Low,Restricted,No Alternate Names
+Musk Ketone,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,High Risk,Low,Low,Restricted,No Alternate Names
+Musk Moskene,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,High Risk,Low,Low,Restricted,No Alternate Names
+Methyleugenol,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Naturally Derived,High Risk,Medium,Medium,Restricted,No Alternate Names
+Butylphenyl Methylpropional (Lilial),Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance, Body Wash",Synthetic,High Risk,Medium,Medium,Restricted,Lilial
+Hydroxyisohexyl 3-Cyclohexene Carboxaldehyde (Lyral),Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,High Risk,High,Medium,Restricted,Lyral
+Atranol,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Natural,High Risk,High,Medium,Restricted,No Alternate Names
+Chloroatranol,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Natural,High Risk,High,Medium,Restricted,No Alternate Names
+Isobutylparaben,Preservative,Preservative,"Moisturizer, Lotion",Synthetic,High Risk,Low,Low,Restricted,No Alternate Names
+Isopropylparaben,Preservative,Preservative,"Moisturizer, Lotion",Synthetic,High Risk,Low,Low,Restricted,No Alternate Names
+Chloroacetamide,Preservative,Preservative,"Cream, Lotion",Synthetic,High Risk,Medium,Medium,Restricted,No Alternate Names
+Diethanolamine,Emulsifier,Amine,"Shampoo, Body Wash, Cream",Synthetic,High Risk,Low,Medium,Restricted,No Alternate Names
+8-Methoxypsoralen,Tanning Accelerant,Active Ingredient,Tanning Accelerator,Naturally Derived,High Risk,Medium,High,Restricted,No Alternate Names
+Bergapten (5-Methoxypsoralen),Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Natural,High Risk,Medium,High,Restricted,5-Methoxypsoralen
+Quaternium-15,Preservative,Preservative,"Shampoo, Cleanser, Cosmetic Cream",Synthetic,High Risk,High,Medium,Restricted,No Alternate Names
+Myroxylon Pereirae Resin Extract (Peru Balsam),Fragrance Ingredient,Botanical Extract,"Perfume, Lip Balm, Fragrance",Natural,Moderate Risk,High,Medium,Restricted,Peru Balsam
+Evernia Prunastri Extract (Oakmoss),Fragrance Ingredient,Botanical Extract,"Perfume, Fragrance",Natural,Moderate Risk,High,Medium,Restricted,Oakmoss
+Evernia Furfuracea Extract (Treemoss),Fragrance Ingredient,Botanical Extract,"Perfume, Fragrance",Natural,Moderate Risk,High,Medium,Restricted,Treemoss
+Cinnamal (Cinnamaldehyde),Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance, Toothpaste",Naturally Derived,Moderate Risk,High,Medium,Restricted,Cinnamaldehyde
+Cinnamyl Alcohol,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Naturally Derived,Moderate Risk,High,Medium,Approved,No Alternate Names
+Isoeugenol,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Naturally Derived,Moderate Risk,High,Medium,Restricted,No Alternate Names
+Amyl Cinnamal,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Amylcinnamyl Alcohol,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Alpha-Isomethyl Ionone,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Anisyl Alcohol,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,Safe,Low,Low,Approved,No Alternate Names
+Benzyl Cinnamate,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Naturally Derived,Safe,Medium,Low,Approved,No Alternate Names
+Benzyl Benzoate,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,Safe,Medium,Low,Approved,No Alternate Names
+Lanolin Alcohol (Wool Alcohols),Emollient,Emollient,"Lip Balm, Cream, Ointment",Animal Derived,Safe,High,Medium,Approved,Wool Alcohols
+Colophonium (Rosin),Film Former,Polymer,"Mascara, Hair Wax, Adhesive",Natural,Moderate Risk,High,Medium,Approved,Rosin
+p-Aminobenzoic Acid (PABA),UV Filter,UV Filter,Sunscreen,Synthetic,Moderate Risk,High,Medium,Restricted,PABA
+Glyceryl Thioglycolate,Reducing Agent,Reducing Agent,"Perm Solution, Hair Straightener",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+"2-Bromo-2-Nitropropane-1,3-Diol (Bronopol)",Preservative,Preservative,"Shampoo, Cream, Lotion",Synthetic,Moderate Risk,Medium,Medium,Approved,Bronopol
+Tosylamide/Epoxy Resin,Film Former,Polymer,Nail Polish,Synthetic,Moderate Risk,High,Medium,Approved,No Alternate Names
+p-tert-Butylphenol Formaldehyde Resin,Film Former,Polymer,"Nail Polish, Adhesive",Synthetic,High Risk,High,Medium,Restricted,No Alternate Names
+Propolis Extract (Bee Propolis),Skin Conditioning Agent,Botanical Extract,"Lip Balm, Cream, Toothpaste",Natural,Safe,High,Medium,Approved,Bee Propolis
+Diazolidinyl Urea/Formaldehyde Complex,Preservative,Preservative,"Shampoo, Lotion",Synthetic,Moderate Risk,High,Medium,Approved,No Alternate Names
+Cobalt Chloride (Trace Colorant),Colorant,Colorant,"Tattoo Ink, Cosmetic Colorant",Synthetic,High Risk,High,High,Restricted,No Alternate Names
+Potassium Chloride,Salt,Salt,"Deodorant, Toner, Electrolyte Mist",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Magnesium Chloride,Salt,Salt,"Bath Salt, Body Spray",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Calcium Chloride,Desiccant,Salt,"Deodorant, Bath Product",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Sodium Sulfate,Filler,Salt,"Bath Salt, Powder",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Zinc Sulfate,Skin Conditioning Agent,Mineral,"Deodorant, Astringent Toner",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Calcium Silicate,Anti-Caking Agent,Mineral,"Powder, Deodorant",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Magnesium Silicate,Anti-Caking Agent,Mineral,"Powder, Face Powder",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Aluminum Oxide,Abrasive,Mineral,"Exfoliating Scrub, Nail Buffer",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Perlite,Exfoliant,Mineral,"Facial Scrub, Body Scrub",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Glycine,Buffering Agent,Amino Acid,"Skincare Serum, Haircare, Oral Care",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Alanine,Skin Conditioning Agent,Amino Acid,"Serum, Moisturizer",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Arginine,pH Adjuster,Amino Acid,"Serum, Haircare, Cleanser",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Serine,Skin Conditioning Agent,Amino Acid,"Moisturizer, Serum",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Proline,Skin Conditioning Agent,Amino Acid,Anti-Aging Serum,Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Threonine,Skin Conditioning Agent,Amino Acid,"Moisturizer, Serum",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Aspartic Acid,Skin Conditioning Agent,Amino Acid,"Moisturizer, Serum",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Ceramide 1,Skin Conditioning Agent,Lipid,"Moisturizer, Barrier Repair Cream",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Ceramide 2,Skin Conditioning Agent,Lipid,"Moisturizer, Barrier Repair Cream",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Ceramide 6-II,Skin Conditioning Agent,Lipid,"Moisturizer, Barrier Repair Cream",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Beta-Sitosterol,Skin Conditioning Agent,Lipid,"Moisturizer, Anti-Aging Serum",Natural,Very Safe,No Risk,Low,Approved,No Alternate Names
+Inositol,Hair Conditioning Agent,Vitamin,"Conditioner, Serum",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Sodium Ascorbate,Antioxidant,Vitamin,"Serum, Moisturizer",Synthetic,Very Safe,No Risk,Low,Approved,No Alternate Names
+Calcium Ascorbate,Antioxidant,Vitamin,"Serum, Moisturizer",Synthetic,Very Safe,No Risk,Low,Approved,No Alternate Names
+Zinc Gluconate,Skin Conditioning Agent,Mineral,"Deodorant, Toothpaste",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Magnesium Aspartate,Skin Conditioning Agent,Mineral,Bath Product,Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Potassium Sorbate (Baby Care Grade),Preservative,Preservative,"Baby Wipes, Baby Lotion",Synthetic,Very Safe,No Risk,Low,Approved,No Alternate Names
+Hydrogenated Starch Hydrolysate,Humectant,Humectant,"Toothpaste, Moisturizer",Naturally Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Maltodextrin,Film Former,Polysaccharide,"Face Mask, Powder",Naturally Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Pullulan,Film Former,Polysaccharide,"Peel-Off Mask, Serum",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Cyclodextrin (Beta-Cyclodextrin),Odor Absorber,Polysaccharide,"Deodorant, Fragrance",Naturally Derived,Very Safe,No Risk,Low,Approved,Beta-Cyclodextrin
+Sclerotium Gum (Baby Care Grade),Thickener,Polysaccharide,"Baby Lotion, Baby Cream",Naturally Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Sodium Hyaluronate (Low Molecular Weight),Humectant,Humectant,"Serum, Moisturizer",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Beta Glucan (Yeast Derived),Skin Conditioning Agent,Polysaccharide,"Serum, Moisturizer",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Trehalose (Baby Care Grade),Humectant,Humectant,"Baby Cream, Baby Lotion",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Sodium Cocoyl Isethionate (Baby Care Grade),Surfactant,Surfactant,"Baby Wash, Baby Shampoo",Naturally Derived,Very Safe,Low,Low,Approved,No Alternate Names
+Panthenyl Ethyl Ether,Hair Conditioning Agent,Vitamin,"Conditioner, Leave-In Treatment",Synthetic,Very Safe,No Risk,Low,Approved,No Alternate Names
+Biotinyl Tripeptide-1,Hair Conditioning Agent,Peptide,"Hair Serum, Scalp Treatment",Biotechnology Derived,Very Safe,Low,Low,Approved,No Alternate Names
+Copper Gluconate,Skin Conditioning Agent,Mineral,Anti-Aging Serum,Mineral,Very Safe,Low,Low,Approved,No Alternate Names
+Manganese Gluconate,Skin Conditioning Agent,Mineral,Anti-Aging Serum,Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Sodium Gluconate,Chelating Agent,Chelating Agent,"Shampoo, Cleanser",Synthetic,Very Safe,No Risk,Low,Approved,No Alternate Names
+Piperonal,Fragrance Ingredient,Fragrance Allergen,"Perfume, Fragrance",Synthetic,Moderate Risk,Low,Low,Approved,No Alternate Names
+Diethylene Glycol Monoethyl Ether,Solvent,Solvent,"Fragrance, Nail Polish Remover",Synthetic,Moderate Risk,Low,Medium,Approved,No Alternate Names
+Ethylhexylglycerin (Deodorant Grade),Deodorant Agent,Deodorant Agent,"Deodorant, Antiperspirant",Synthetic,Moderate Risk,Low,Low,Approved,No Alternate Names
+Zirconium Trichlorohydrex Gly,Antiperspirant Agent,Antiperspirant Agent,"Antiperspirant, Deodorant",Mineral,Moderate Risk,Low,Medium,Restricted,No Alternate Names
+Sodium Perborate,Bleaching Agent,Oxidizing Agent,Teeth Whitening Product,Synthetic,Moderate Risk,Low,Medium,Restricted,No Alternate Names
+Sodium Cetearyl Sulfate,Emulsifier,Surfactant,"Cream, Lotion",Synthetic,Safe,No Risk,Low,Approved,No Alternate Names
+Cetearyl Olivate,Emulsifier,Emulsifier,"Cream, Lotion",Naturally Derived,Safe,No Risk,Low,Approved,No Alternate Names
+Sorbitan Olivate,Emulsifier,Emulsifier,"Cream, Lotion",Naturally Derived,Safe,No Risk,Low,Approved,No Alternate Names
+Polyglyceryl-6 Distearate,Emulsifier,Emulsifier,"Cream, Lotion",Synthetic,Safe,No Risk,Low,Approved,No Alternate Names
+Cetyl PEG/PPG-10/1 Dimethicone (Emulsifier Grade),Emulsifier,Silicone,"Sunscreen, Foundation",Synthetic,Safe,No Risk,Low,Approved,No Alternate Names
+Sodium Stearoyl Glutamate,Emulsifier,Surfactant,"Cream, Lotion",Naturally Derived,Safe,No Risk,Low,Approved,No Alternate Names
+Isoamyl Cocoate,Emollient,Emollient,"Sunscreen, Lotion",Synthetic,Safe,No Risk,Low,Approved,No Alternate Names
+Coco-Caprylate/Caprate,Emollient,Emollient,"Facial Oil, Serum",Naturally Derived,Safe,No Risk,Low,Approved,No Alternate Names
+Neopentyl Glycol Diethylhexanoate,Emollient,Emollient,"Lotion, Sunscreen",Synthetic,Safe,No Risk,Low,Approved,No Alternate Names
+Dicaprylyl Ether,Emollient,Emollient,"Serum, Facial Oil",Naturally Derived,Safe,No Risk,Low,Approved,No Alternate Names
+Sodium Phosphate,pH Adjuster,Salt,"Bath Product, Toothpaste",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Disodium Phosphate,pH Adjuster,Salt,"Cream, Lotion",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Trisodium Phosphate,pH Adjuster,Salt,"Cleanser, Bath Product",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Sodium Metasilicate,pH Adjuster,Mineral,"Bath Product, Cleanser",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Ammonium Alum,Astringent,Salt,Deodorant Crystal,Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Zeolite,Odor Absorber,Mineral,"Deodorant, Antiperspirant",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Sodium Aluminosilicate,Anti-Caking Agent,Mineral,"Powder, Face Powder",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Nylon-6,Viscosity Controlling Agent,Polymer,"Powder, Makeup",Synthetic,Very Safe,No Risk,Low,Approved,No Alternate Names
+Silica Microspheres,Optical Diffuser,Mineral,"Foundation, Primer",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Polymethyl Methacrylate (PMMA),Optical Diffuser,Polymer,"Foundation, Primer",Synthetic,Very Safe,No Risk,Low,Approved,PMMA
+Calcium Phosphate,Abrasive,Mineral,Toothpaste,Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Potassium Bicarbonate,pH Adjuster,Salt,"Bath Product, Effervescent Bath Bomb",Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Ammonium Bicarbonate,pH Adjuster,Salt,Effervescent Bath Bomb,Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Magnesium Citrate,Skin Conditioning Agent,Salt,Bath Salt,Mineral,Very Safe,No Risk,Low,Approved,No Alternate Names
+Valine,Skin Conditioning Agent,Amino Acid,"Serum, Haircare",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Leucine,Skin Conditioning Agent,Amino Acid,"Serum, Haircare",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Isoleucine,Skin Conditioning Agent,Amino Acid,"Serum, Haircare",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Histidine,Skin Conditioning Agent,Amino Acid,"Serum, Haircare",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Lysine HCl,Skin Conditioning Agent,Amino Acid,"Serum, Haircare",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Glutamic Acid,Skin Conditioning Agent,Amino Acid,"Serum, Haircare",Biotechnology Derived,Very Safe,No Risk,Low,Approved,No Alternate Names
+Trimethylsiloxyphenyl Dimethicone,Emollient,Silicone,"Foundation, Serum",Synthetic,Very Safe,No Risk,Low,Approved,No Alternate Names
+PEG-10 Dimethicone,Emulsifier,Silicone,"Sunscreen, Foundation",Synthetic,Very Safe,No Risk,Low,Approved,No Alternate Names

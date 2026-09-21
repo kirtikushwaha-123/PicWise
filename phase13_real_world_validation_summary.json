@@ -1,0 +1,1590 @@
+{
+  "total_images_tested": 36,
+  "total_elapsed_seconds": 2107.46,
+  "runtime": {
+    "min_seconds": 11.567,
+    "median_seconds": 58.469,
+    "max_seconds": 126.078
+  },
+  "memory": {
+    "peak_mb": 492.88,
+    "final_mb": 192.89
+  },
+  "ocr_distribution": {
+    "PASS": 3,
+    "PARTIAL": 0,
+    "FAIL": 33
+  },
+  "failure_semantics_violations": 1,
+  "results": [
+    {
+      "image_id": "food_01_biscuit_oreo_clean",
+      "category": "food",
+      "product_type": "Biscuits / Cookies",
+      "product_name": "Oreo Chocolate Sandwich Cookies",
+      "condition": "Clean / Easy",
+      "runtime_seconds": 126.078,
+      "ocr_status": "FAIL",
+      "extracted_count": 2,
+      "recognized_count": 2,
+      "unrecognized_count": 0,
+      "missed_count": 11,
+      "fused_count": 0,
+      "split_count": 0,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 2,
+      "warnings": [
+        "Added Sugars not reported; fell back to Total Sugars with adjusted benchmark.",
+        "1 of 2 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:red|Allergy:green",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "green",
+          "label": "Allergen-Free",
+          "risk_level": "No Risk"
+        },
+        "nutrition": {
+          "status": "red",
+          "label": "Low Nutrition",
+          "score": 14.9
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_02_chips_lays_angled",
+      "category": "food",
+      "product_type": "Chips / Snacks",
+      "product_name": "Lay's Classic Potato Chips",
+      "condition": "Angled (perspective distortion)",
+      "runtime_seconds": 60.813,
+      "ocr_status": "FAIL",
+      "extracted_count": 2,
+      "recognized_count": 2,
+      "unrecognized_count": 0,
+      "missed_count": 6,
+      "fused_count": 0,
+      "split_count": 0,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 2,
+      "warnings": [
+        "Fewer than 3 core nutrients detected. Minimum required for scoring is 3.",
+        "1 of 2 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:unavailable|Allergy:green",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "green",
+          "label": "Allergen-Free",
+          "risk_level": "No Risk"
+        },
+        "nutrition": {
+          "status": "unavailable"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_03_noodles_maggi_dense",
+      "category": "food",
+      "product_type": "Instant Noodles",
+      "product_name": "Maggi 2-Minute Masala Noodles",
+      "condition": "Dense text",
+      "runtime_seconds": 70.809,
+      "ocr_status": "FAIL",
+      "extracted_count": 13,
+      "recognized_count": 13,
+      "unrecognized_count": 0,
+      "missed_count": 14,
+      "fused_count": 4,
+      "split_count": 0,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 2,
+      "warnings": [
+        "Added Sugars not reported; fell back to Total Sugars with adjusted benchmark.",
+        "4 of 13 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:red|Allergy:red",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "risk_level": "High"
+        },
+        "nutrition": {
+          "status": "red",
+          "label": "Low Nutrition",
+          "score": 20.7
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_04_cereal_kelloggs_small_text",
+      "category": "food",
+      "product_type": "Breakfast Cereal",
+      "product_name": "Kellogg's Corn Flakes",
+      "condition": "Small text",
+      "runtime_seconds": 46.331,
+      "ocr_status": "FAIL",
+      "extracted_count": 7,
+      "recognized_count": 7,
+      "unrecognized_count": 0,
+      "missed_count": 6,
+      "fused_count": 5,
+      "split_count": 0,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 2,
+      "warnings": [
+        "Fewer than 3 core nutrients detected. Minimum required for scoring is 3.",
+        "1 of 7 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:unavailable|Allergy:yellow",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "yellow",
+          "label": "Low Allergy Risk",
+          "risk_level": "Low"
+        },
+        "nutrition": {
+          "status": "unavailable"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_05_beverage_cola_curved",
+      "category": "food",
+      "product_type": "Beverages",
+      "product_name": "Classic Cola Can",
+      "condition": "Curved packaging (cylindrical warp)",
+      "runtime_seconds": 54.168,
+      "ocr_status": "FAIL",
+      "extracted_count": 4,
+      "recognized_count": 4,
+      "unrecognized_count": 0,
+      "missed_count": 3,
+      "fused_count": 0,
+      "split_count": 1,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 2,
+      "warnings": [
+        "Fewer than 3 core nutrients detected. Minimum required for scoring is 3.",
+        "2 of 4 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:unavailable|Allergy:green",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "green",
+          "label": "Allergen-Free",
+          "risk_level": "No Risk"
+        },
+        "nutrition": {
+          "status": "unavailable"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_06_sauce_heinz_low_contrast",
+      "category": "food",
+      "product_type": "Sauces / Condiments",
+      "product_name": "Heinz Tomato Ketchup",
+      "condition": "Low contrast (faint print)",
+      "runtime_seconds": 58.469,
+      "ocr_status": "FAIL",
+      "extracted_count": 8,
+      "recognized_count": 8,
+      "unrecognized_count": 0,
+      "missed_count": 4,
+      "fused_count": 2,
+      "split_count": 0,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 2,
+      "warnings": [
+        "Added Sugars not reported; fell back to Total Sugars with adjusted benchmark.",
+        "Energy/Calories not reported; energy penalty treated as 0.0."
+      ],
+      "final_status": "Safety:unavailable|Nut:yellow|Allergy:red",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "risk_level": "High"
+        },
+        "nutrition": {
+          "status": "yellow",
+          "label": "Better Nutrition",
+          "score": 52.8
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_07_snack_pretzels_blur",
+      "category": "food",
+      "product_type": "Packaged Snacks",
+      "product_name": "Cheddar Cheese Pretzel Pieces",
+      "condition": "Mild blur",
+      "runtime_seconds": 64.142,
+      "ocr_status": "FAIL",
+      "extracted_count": 16,
+      "recognized_count": 16,
+      "unrecognized_count": 0,
+      "missed_count": 6,
+      "fused_count": 2,
+      "split_count": 1,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 3,
+      "warnings": [
+        "Added Sugars not reported; fell back to Total Sugars with adjusted benchmark.",
+        "Energy/Calories not reported; energy penalty treated as 0.0.",
+        "3 of 16 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:yellow|Allergy:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "orange",
+          "label": "Moderate Allergy Risk",
+          "risk_level": "Medium"
+        },
+        "nutrition": {
+          "status": "yellow",
+          "label": "Better Nutrition",
+          "score": 52.6
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_08_protein_bar_glare",
+      "category": "food",
+      "product_type": "Protein / Health Food",
+      "product_name": "Quest Nutrition Chocolate Almond Crunch Protein Bar",
+      "condition": "Glare / reflections",
+      "runtime_seconds": 99.59,
+      "ocr_status": "FAIL",
+      "extracted_count": 10,
+      "recognized_count": 10,
+      "unrecognized_count": 0,
+      "missed_count": 4,
+      "fused_count": 2,
+      "split_count": 1,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 3,
+      "warnings": [
+        "Added Sugars not reported; fell back to Total Sugars with adjusted benchmark.",
+        "Energy/Calories not reported; energy penalty treated as 0.0.",
+        "1 of 10 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:yellow|Allergy:red",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "risk_level": "High"
+        },
+        "nutrition": {
+          "status": "yellow",
+          "label": "Better Nutrition",
+          "score": 66.5
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_09_staple_pasta_complex",
+      "category": "food",
+      "product_type": "Packaged Staples",
+      "product_name": "Barilla Penne Rigate Pasta",
+      "condition": "Complex layout",
+      "runtime_seconds": 66.733,
+      "ocr_status": "FAIL",
+      "extracted_count": 7,
+      "recognized_count": 7,
+      "unrecognized_count": 0,
+      "missed_count": 1,
+      "fused_count": 4,
+      "split_count": 1,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 3,
+      "warnings": [
+        "Added Sugars not reported; fell back to Total Sugars with adjusted benchmark.",
+        "Energy/Calories not reported; energy penalty treated as 0.0.",
+        "1 of 7 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:yellow|Allergy:green",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "green",
+          "label": "Allergen-Free",
+          "risk_level": "No Risk"
+        },
+        "nutrition": {
+          "status": "yellow",
+          "label": "Better Nutrition",
+          "score": 62.5
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_10_ready_to_eat_soup_curved",
+      "category": "food",
+      "product_type": "Ready-to-eat Foods",
+      "product_name": "Chunky Chicken Noodle Soup",
+      "condition": "Curved packaging (cylindrical warp)",
+      "runtime_seconds": 63.879,
+      "ocr_status": "FAIL",
+      "extracted_count": 11,
+      "recognized_count": 11,
+      "unrecognized_count": 0,
+      "missed_count": 6,
+      "fused_count": 1,
+      "split_count": 0,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 3,
+      "warnings": [
+        "Added Sugars not reported; fell back to Total Sugars with adjusted benchmark.",
+        "Energy/Calories not reported; energy penalty treated as 0.0.",
+        "2 of 11 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:orange|Allergy:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "orange",
+          "label": "Moderate Allergy Risk",
+          "risk_level": "Medium"
+        },
+        "nutrition": {
+          "status": "orange",
+          "label": "Slightly Better Nutrition",
+          "score": 28.1
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_11_namkeen_haldiram_dense",
+      "category": "food",
+      "product_type": "Chips / Namkeen",
+      "product_name": "Haldiram's Bhujia Sev",
+      "condition": "Dense text",
+      "runtime_seconds": 65.905,
+      "ocr_status": "FAIL",
+      "extracted_count": 12,
+      "recognized_count": 12,
+      "unrecognized_count": 0,
+      "missed_count": 7,
+      "fused_count": 2,
+      "split_count": 1,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 0,
+      "warnings": [],
+      "final_status": "Safety:unavailable|Nut:red|Allergy:yellow",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "yellow",
+          "label": "Low Allergy Risk",
+          "risk_level": "Low"
+        },
+        "nutrition": {
+          "status": "red",
+          "label": "Low Nutrition",
+          "score": 7.0
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_12_energy_drink_redbull_units",
+      "category": "food",
+      "product_type": "Beverages",
+      "product_name": "Red Bull Energy Drink",
+      "condition": "Complex layout (units: mg, kJ, kcal)",
+      "runtime_seconds": 56.779,
+      "ocr_status": "FAIL",
+      "extracted_count": 7,
+      "recognized_count": 7,
+      "unrecognized_count": 0,
+      "missed_count": 7,
+      "fused_count": 1,
+      "split_count": 0,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 4,
+      "warnings": [
+        "Added Sugars not reported; fell back to Total Sugars with adjusted benchmark.",
+        "Sugar Guardrail Triggered: Sugar (27.0g) >= 15.625g. Positive nutrition and micronutrient contributions nullified.",
+        "Catastrophic Risk Guardrail Triggered: Primary risk nutrient exceeded 2.5x threshold. Score clamped to ceiling 35.0.",
+        "2 of 7 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:red|Allergy:green",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "green",
+          "label": "Allergen-Free",
+          "risk_level": "No Risk"
+        },
+        "nutrition": {
+          "status": "red",
+          "label": "Low Nutrition",
+          "score": 25.0
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_13_snack_chikki_no_nutrition",
+      "category": "food",
+      "product_type": "Packaged Snacks",
+      "product_name": "Traditional Peanut Chikki Jaggery Bar",
+      "condition": "Missing nutrition panel (Failure Semantics: Nutrition Unavailable != Safe)",
+      "runtime_seconds": 24.626,
+      "ocr_status": "FAIL",
+      "extracted_count": 1,
+      "recognized_count": 1,
+      "unrecognized_count": 0,
+      "missed_count": 4,
+      "fused_count": 0,
+      "split_count": 0,
+      "nutrition_status": "NOT_PRESENT",
+      "allergy_status": "success",
+      "warning_count": 1,
+      "warnings": [
+        "Fewer than 3 core nutrients detected. Minimum required for scoring is 3."
+      ],
+      "final_status": "Safety:unavailable|Nut:unavailable|Allergy:green",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "green",
+          "label": "Allergen-Free",
+          "risk_level": "No Risk"
+        },
+        "nutrition": {
+          "status": "unavailable"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_14_exotic_botanical_food",
+      "category": "food",
+      "product_type": "Protein / Health Food",
+      "product_name": "Ayurvedic Ashwagandha Herbal Elixir",
+      "condition": "Unknown ingredients (Semantics: Unknown != Safe)",
+      "runtime_seconds": 40.068,
+      "ocr_status": "FAIL",
+      "extracted_count": 6,
+      "recognized_count": 6,
+      "unrecognized_count": 0,
+      "missed_count": 5,
+      "fused_count": 2,
+      "split_count": 0,
+      "nutrition_status": "NOT_PRESENT",
+      "allergy_status": "success",
+      "warning_count": 2,
+      "warnings": [
+        "Fewer than 3 core nutrients detected. Minimum required for scoring is 3.",
+        "5 of 6 ingredients could not be matched to the food knowledge base."
+      ],
+      "final_status": "Safety:unavailable|Nut:unavailable|Allergy:green",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "green",
+          "label": "Allergen-Free",
+          "risk_level": "No Risk"
+        },
+        "nutrition": {
+          "status": "unavailable"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_15_food_front_blank",
+      "category": "food",
+      "product_type": "Biscuits / Cookies",
+      "product_name": "Royal Butter Cookies Gift Tin (Front Panel)",
+      "condition": "Front branding only (Semantics: 0 text / OCR failure != Safe)",
+      "runtime_seconds": 11.567,
+      "ocr_status": "PASS",
+      "extracted_count": 0,
+      "recognized_count": 0,
+      "unrecognized_count": 0,
+      "missed_count": 0,
+      "fused_count": 0,
+      "split_count": 0,
+      "nutrition_status": "NOT_PRESENT",
+      "allergy_status": "no_ingredients",
+      "warning_count": 3,
+      "warnings": [
+        "No ingredients detected in OCR output.",
+        "Fewer than 3 core nutrients detected. Minimum required for scoring is 3.",
+        "No ingredients detected for allergy risk analysis."
+      ],
+      "final_status": "Safety:unavailable|Nut:unavailable|Allergy:unavailable",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "unavailable"
+        },
+        "nutrition": {
+          "status": "unavailable"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_16_chocolate_dark_low_contrast",
+      "category": "food",
+      "product_type": "Packaged Snacks",
+      "product_name": "Lindt Excellence 85% Cocoa Dark Chocolate",
+      "condition": "Low contrast (dark packaging)",
+      "runtime_seconds": 59.705,
+      "ocr_status": "FAIL",
+      "extracted_count": 5,
+      "recognized_count": 5,
+      "unrecognized_count": 0,
+      "missed_count": 3,
+      "fused_count": 1,
+      "split_count": 1,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 1,
+      "warnings": [
+        "Fewer than 3 core nutrients detected. Minimum required for scoring is 3."
+      ],
+      "final_status": "Safety:unavailable|Nut:unavailable|Allergy:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "orange",
+          "label": "Moderate Allergy Risk",
+          "risk_level": "Medium"
+        },
+        "nutrition": {
+          "status": "unavailable"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_17_peanut_butter_angled",
+      "category": "food",
+      "product_type": "Packaged Staples",
+      "product_name": "Skippy Creamy Peanut Butter",
+      "condition": "Angled (perspective distortion)",
+      "runtime_seconds": 82.843,
+      "ocr_status": "FAIL",
+      "extracted_count": 3,
+      "recognized_count": 3,
+      "unrecognized_count": 0,
+      "missed_count": 4,
+      "fused_count": 2,
+      "split_count": 1,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 1,
+      "warnings": [
+        "Fewer than 3 core nutrients detected. Minimum required for scoring is 3."
+      ],
+      "final_status": "Safety:unavailable|Nut:unavailable|Allergy:red",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "risk_level": "High"
+        },
+        "nutrition": {
+          "status": "unavailable"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "food_18_instant_oats_clean",
+      "category": "food",
+      "product_type": "Breakfast Cereal",
+      "product_name": "Quaker Instant Oatmeal Original",
+      "condition": "Clean / Easy",
+      "runtime_seconds": 59.947,
+      "ocr_status": "FAIL",
+      "extracted_count": 6,
+      "recognized_count": 6,
+      "unrecognized_count": 0,
+      "missed_count": 4,
+      "fused_count": 1,
+      "split_count": 0,
+      "nutrition_status": "MISSED",
+      "allergy_status": "success",
+      "warning_count": 2,
+      "warnings": [
+        "Added Sugars not reported; fell back to Total Sugars with adjusted benchmark.",
+        "Energy/Calories not reported; energy penalty treated as 0.0."
+      ],
+      "final_status": "Safety:unavailable|Nut:yellow|Allergy:green",
+      "semantics_ok": true,
+      "presentation": {
+        "food_safety": {
+          "status": "unavailable"
+        },
+        "allergy": {
+          "status": "green",
+          "label": "Allergen-Free",
+          "risk_level": "No Risk"
+        },
+        "nutrition": {
+          "status": "yellow",
+          "label": "Better Nutrition",
+          "score": 68.9
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_01_shampoo_head_shoulders_clean",
+      "category": "personal_care",
+      "product_type": "Shampoo / Hair Care",
+      "product_name": "Head & Shoulders Classic Clean",
+      "condition": "Clean / Easy",
+      "runtime_seconds": 109.939,
+      "ocr_status": "FAIL",
+      "extracted_count": 25,
+      "recognized_count": 25,
+      "unrecognized_count": 0,
+      "missed_count": 0,
+      "fused_count": 1,
+      "split_count": 14,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 5,
+      "warnings": [
+        "Unrecognized ingredient: sodum lauryd sultite",
+        "Unrecognized ingredient: sodum aylenesulfonate",
+        "Unrecognized ingredient: sodum",
+        "Unrecognized ingredient: ea-dodecybezenesufonate",
+        "Unrecognized ingredient: tridrceth-10"
+      ],
+      "final_status": "Safety:orange|Allergy:red|Irritant:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "color": "red",
+          "risk_class": "High"
+        },
+        "irritation": {
+          "status": "orange",
+          "label": "Moderate Irritation Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_02_moisturizer_cerave_dense",
+      "category": "personal_care",
+      "product_type": "Moisturizer / Skin Care",
+      "product_name": "CeraVe Moisturizing Cream",
+      "condition": "Dense text",
+      "runtime_seconds": 38.847,
+      "ocr_status": "FAIL",
+      "extracted_count": 14,
+      "recognized_count": 14,
+      "unrecognized_count": 0,
+      "missed_count": 14,
+      "fused_count": 1,
+      "split_count": 1,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 0,
+      "warnings": [],
+      "final_status": "Safety:orange|Allergy:red|Irritant:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "color": "red",
+          "risk_class": "High"
+        },
+        "irritation": {
+          "status": "orange",
+          "label": "Moderate Irritation Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_03_cleanser_cetaphil_blank",
+      "category": "personal_care",
+      "product_type": "Cleanser / Skin Care",
+      "product_name": "Cetaphil Gentle Skin Cleanser (Front Panel)",
+      "condition": "Brand/volume only (Semantics: 0 ingredients -> Unavailable != Safe)",
+      "runtime_seconds": 20.341,
+      "ocr_status": "PASS",
+      "extracted_count": 1,
+      "recognized_count": 0,
+      "unrecognized_count": 0,
+      "missed_count": 0,
+      "fused_count": 0,
+      "split_count": 0,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 2,
+      "warnings": [
+        "Unrecognized ingredient: skincare brand name 100ml/3.4floz",
+        "OCR quality may be unreliable: image appears degraded or blurred. Please capture a clearer, well-lit photo of the ingredient list."
+      ],
+      "final_status": "Safety:unavailable|Allergy:unavailable|Irritant:unavailable",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "allergy": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "irritation": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_04_sunscreen_neutrogena_angled",
+      "category": "personal_care",
+      "product_type": "Sunscreen",
+      "product_name": "Neutrogena Ultra Sheer Sunscreen",
+      "condition": "Angled (perspective distortion)",
+      "runtime_seconds": 114.591,
+      "ocr_status": "FAIL",
+      "extracted_count": 23,
+      "recognized_count": 23,
+      "unrecognized_count": 0,
+      "missed_count": 1,
+      "fused_count": 0,
+      "split_count": 15,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 6,
+      "warnings": [
+        "Unrecognized ingredient: sodum laut suud",
+        "Unrecognized ingredient: sodum npenesultonate",
+        "Unrecognized ingredient: tea-dodecybenzenesuonae",
+        "Unrecognized ingredient: trideceth-10",
+        "Unrecognized ingredient: benzyr aicohl",
+        "Unrecognized ingredient: pump activation procedure"
+      ],
+      "final_status": "Safety:orange|Allergy:red|Irritant:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "color": "red",
+          "risk_class": "High"
+        },
+        "irritation": {
+          "status": "orange",
+          "label": "Moderate Irritation Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_05_hair_oil_blurred",
+      "category": "personal_care",
+      "product_type": "Hair Care / Oil",
+      "product_name": "Moroccanoil Treatment Original",
+      "condition": "Mild blur",
+      "runtime_seconds": 77.522,
+      "ocr_status": "FAIL",
+      "extracted_count": 3,
+      "recognized_count": 3,
+      "unrecognized_count": 0,
+      "missed_count": 0,
+      "fused_count": 0,
+      "split_count": 5,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 4,
+      "warnings": [
+        "Unrecognized ingredient: fragrance cieric",
+        "Unrecognized ingredient: berapats",
+        "Unrecognized ingredient: heryl ca aicoh",
+        "OCR quality may be unreliable: image appears degraded or blurred. Please capture a clearer, well-lit photo of the ingredient list."
+      ],
+      "final_status": "Safety:unavailable|Allergy:unavailable|Irritant:unavailable",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "allergy": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "irritation": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_06_lotion_dove_lighting",
+      "category": "personal_care",
+      "product_type": "Body Lotion",
+      "product_name": "Dove Nourishing Body Lotion",
+      "condition": "Glare / reflections / uneven lighting",
+      "runtime_seconds": 121.576,
+      "ocr_status": "FAIL",
+      "extracted_count": 26,
+      "recognized_count": 26,
+      "unrecognized_count": 0,
+      "missed_count": 1,
+      "fused_count": 0,
+      "split_count": 16,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 4,
+      "warnings": [
+        "Unrecognized ingredient: chu hidnc afold conact wiat eyes. if contact occurs",
+        "Unrecognized ingredient: hirtqe encrooghay inun if znga. incredients : water",
+        "Unrecognized ingredient: ea-dodecyfbenzenesulfonate",
+        "Unrecognized ingredient: trideceth-10"
+      ],
+      "final_status": "Safety:orange|Allergy:red|Irritant:red",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "color": "red",
+          "risk_class": "High"
+        },
+        "irritation": {
+          "status": "red",
+          "label": "High Irritation Risk",
+          "color": "red",
+          "risk_class": "High"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_07_face_wash_simple_lowres",
+      "category": "personal_care",
+      "product_type": "Face Wash",
+      "product_name": "Simple Kind to Skin Refreshing Facial Wash",
+      "condition": "Small text / low resolution",
+      "runtime_seconds": 45.649,
+      "ocr_status": "FAIL",
+      "extracted_count": 16,
+      "recognized_count": 16,
+      "unrecognized_count": 0,
+      "missed_count": 1,
+      "fused_count": 0,
+      "split_count": 9,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 10,
+      "warnings": [
+        "Unrecognized ingredient: head & shouldersttm 7in1 anti-dandruffshampoo 1.upto dandruff protection\" 2.itch relief\" 3.reduces dryness 4.deep cleanse 5.soft",
+        "Unrecognized ingredient: smooth hair 6.nourishes hair & scalp benefits 7.strong healthy hair flakes",
+        "Unrecognized ingredient: byol detsarate",
+        "Unrecognized ingredient: hpl c pump activation procedure m.n. hsv cf10-5-10-0-1o02-2 chaoes 130 nn & onwoth 2 wdsan ogenet",
+        "Unrecognized ingredient: close closure tighitly at & shoulters is a tademark of the cockmise shampoo-surfactant based mfd by: procter & gamble home products private ltd",
+        "Unrecognized ingredient: plot no.1",
+        "Unrecognized ingredient: industrial area",
+        "Unrecognized ingredient: katha",
+        "Unrecognized ingredient: p.o. baddi",
+        "Unrecognized ingredient: h.p"
+      ],
+      "final_status": "Safety:yellow|Allergy:yellow|Irritant:yellow",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "yellow",
+          "label": "Safe",
+          "color": "yellow",
+          "risk_class": "Safe"
+        },
+        "allergy": {
+          "status": "yellow",
+          "label": "Low Allergy Risk",
+          "color": "yellow",
+          "risk_class": "Low"
+        },
+        "irritation": {
+          "status": "yellow",
+          "label": "Low Irritation Risk",
+          "color": "yellow",
+          "risk_class": "Low"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_08_conditioner_tresemme_curved",
+      "category": "personal_care",
+      "product_type": "Conditioner / Hair Care",
+      "product_name": "Tresemme Keratin Smooth Conditioner",
+      "condition": "Curved packaging (cylindrical warp)",
+      "runtime_seconds": 46.538,
+      "ocr_status": "FAIL",
+      "extracted_count": 14,
+      "recognized_count": 14,
+      "unrecognized_count": 0,
+      "missed_count": 0,
+      "fused_count": 1,
+      "split_count": 17,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 2,
+      "warnings": [
+        "Unrecognized ingredient: ystem pro collection",
+        "Unrecognized ingredient: ngredients"
+      ],
+      "final_status": "Safety:orange|Allergy:red|Irritant:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "color": "red",
+          "risk_class": "High"
+        },
+        "irritation": {
+          "status": "orange",
+          "label": "Moderate Irritation Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_09_serum_ordinary_small_text",
+      "category": "personal_care",
+      "product_type": "Skin Care / Serum",
+      "product_name": "The Ordinary Niacinamide 10% + Zinc 1%",
+      "condition": "Small text",
+      "runtime_seconds": 44.898,
+      "ocr_status": "FAIL",
+      "extracted_count": 0,
+      "recognized_count": 0,
+      "unrecognized_count": 0,
+      "missed_count": 11,
+      "fused_count": 0,
+      "split_count": 0,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 2,
+      "warnings": [
+        "No ingredients detected in OCR output.",
+        "OCR quality may be unreliable: image appears degraded or blurred. Please capture a clearer, well-lit photo of the ingredient list."
+      ],
+      "final_status": "Safety:unavailable|Allergy:unavailable|Irritant:unavailable",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "allergy": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "irritation": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_10_lip_balm_burts_low_contrast",
+      "category": "personal_care",
+      "product_type": "Cosmetic Products / Lip Care",
+      "product_name": "Burt's Bees Beeswax Lip Balm",
+      "condition": "Low contrast (faint print on pale tube)",
+      "runtime_seconds": 39.436,
+      "ocr_status": "FAIL",
+      "extracted_count": 6,
+      "recognized_count": 6,
+      "unrecognized_count": 0,
+      "missed_count": 0,
+      "fused_count": 0,
+      "split_count": 12,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 2,
+      "warnings": [
+        "Unrecognized ingredient: cruelty free",
+        "Unrecognized ingredient: ingredients"
+      ],
+      "final_status": "Safety:yellow|Allergy:orange|Irritant:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "yellow",
+          "label": "Safe",
+          "color": "yellow",
+          "risk_class": "Safe"
+        },
+        "allergy": {
+          "status": "orange",
+          "label": "Moderate Allergy Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        },
+        "irritation": {
+          "status": "orange",
+          "label": "Moderate Irritation Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_11_foundation_maybelline_complex",
+      "category": "personal_care",
+      "product_type": "Cosmetic Products",
+      "product_name": "Maybelline Fit Me Matte + Poreless Foundation",
+      "condition": "Complex layout",
+      "runtime_seconds": 63.81,
+      "ocr_status": "FAIL",
+      "extracted_count": 20,
+      "recognized_count": 20,
+      "unrecognized_count": 0,
+      "missed_count": 1,
+      "fused_count": 1,
+      "split_count": 21,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 5,
+      "warnings": [
+        "Unrecognized ingredient: oll-free",
+        "Unrecognized ingredient: ingredients",
+        "Unrecognized ingredient: aqua/water /eau",
+        "Unrecognized ingredient: disodiumstearoyl glutamate",
+        "Unrecognized ingredient: hdi/trimethylol hexyllactonecrosspolymer"
+      ],
+      "final_status": "Safety:orange|Allergy:orange|Irritant:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "orange",
+          "label": "Moderate Allergy Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        },
+        "irritation": {
+          "status": "orange",
+          "label": "Moderate Irritation Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_12_sunscreen_laroche_active_inactive",
+      "category": "personal_care",
+      "product_type": "Sunscreen",
+      "product_name": "La Roche-Posay Anthelios 50 Mineral Sunscreen",
+      "condition": "Complex layout (Drug facts format)",
+      "runtime_seconds": 59.467,
+      "ocr_status": "FAIL",
+      "extracted_count": 17,
+      "recognized_count": 17,
+      "unrecognized_count": 0,
+      "missed_count": 1,
+      "fused_count": 0,
+      "split_count": 16,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 5,
+      "warnings": [
+        "Unrecognized ingredient: cellox-b3 shield",
+        "Unrecognized ingredient: drugfacts - active ingredients",
+        "Unrecognized ingredient: inactive ingredients",
+        "Unrecognized ingredient: undecane",
+        "Unrecognized ingredient: polyhydroxystearic"
+      ],
+      "final_status": "Safety:orange|Allergy:yellow|Irritant:yellow",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "yellow",
+          "label": "Low Allergy Risk",
+          "color": "yellow",
+          "risk_class": "Low"
+        },
+        "irritation": {
+          "status": "yellow",
+          "label": "Low Irritation Risk",
+          "color": "yellow",
+          "risk_class": "Low"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_13_botanical_body_wash_aliases",
+      "category": "personal_care",
+      "product_type": "Body Lotion / Wash",
+      "product_name": "Aveeno Daily Moisturizing Body Wash",
+      "condition": "Dense text / INCI packaging aliases",
+      "runtime_seconds": 46.184,
+      "ocr_status": "FAIL",
+      "extracted_count": 11,
+      "recognized_count": 11,
+      "unrecognized_count": 0,
+      "missed_count": 0,
+      "fused_count": 1,
+      "split_count": 13,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 2,
+      "warnings": [
+        "Unrecognized ingredient: dye-free",
+        "Unrecognized ingredient: ingredients"
+      ],
+      "final_status": "Safety:yellow|Allergy:orange|Irritant:orange",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "yellow",
+          "label": "Safe",
+          "color": "yellow",
+          "risk_class": "Safe"
+        },
+        "allergy": {
+          "status": "orange",
+          "label": "Moderate Allergy Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        },
+        "irritation": {
+          "status": "orange",
+          "label": "Moderate Irritation Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_14_anti_aging_cream_high_risk",
+      "category": "personal_care",
+      "product_type": "Skin Care",
+      "product_name": "Revitalizing Intensive Retinol Night Cream",
+      "condition": "High risk detection (sensitizers & allergens)",
+      "runtime_seconds": 39.055,
+      "ocr_status": "FAIL",
+      "extracted_count": 10,
+      "recognized_count": 10,
+      "unrecognized_count": 0,
+      "missed_count": 1,
+      "fused_count": 1,
+      "split_count": 14,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 3,
+      "warnings": [
+        "Unrecognized ingredient: nighttreatment",
+        "Unrecognized ingredient: ingredients",
+        "Unrecognized ingredient: bh"
+      ],
+      "final_status": "Safety:orange|Allergy:orange|Irritant:red",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "orange",
+          "label": "Moderate Allergy Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        },
+        "irritation": {
+          "status": "red",
+          "label": "High Irritation Risk",
+          "color": "red",
+          "risk_class": "High"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_15_perfume_box_blank",
+      "category": "personal_care",
+      "product_type": "Cosmetic Products",
+      "product_name": "Eau de Parfum Luxury Fragrance (Front Panel)",
+      "condition": "Brand name only (Semantics: 0 ingredients -> Unavailable != Safe)",
+      "runtime_seconds": 12.62,
+      "ocr_status": "PASS",
+      "extracted_count": 1,
+      "recognized_count": 0,
+      "unrecognized_count": 0,
+      "missed_count": 0,
+      "fused_count": 0,
+      "split_count": 0,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 0,
+      "warnings": [],
+      "final_status": "Safety:orange|Allergy:red|Irritant:orange",
+      "semantics_ok": false,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "red",
+          "label": "High Allergy Risk",
+          "color": "red",
+          "risk_class": "High"
+        },
+        "irritation": {
+          "status": "orange",
+          "label": "Moderate Irritation Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        }
+      },
+      "error": null,
+      "notes": "DEFECT: Blank PC label assigned orange for personal_care_safety instead of unavailable; DEFECT: Blank PC label assigned red for allergy instead of unavailable; DEFECT: Blank PC label assigned orange for irritation instead of unavailable"
+    },
+    {
+      "image_id": "pc_16_toner_witch_hazel_parentheticals",
+      "category": "personal_care",
+      "product_type": "Skin Care / Toner",
+      "product_name": "Thayers Witch Hazel Facial Toner",
+      "condition": "Dense text / parentheticals",
+      "runtime_seconds": 33.998,
+      "ocr_status": "FAIL",
+      "extracted_count": 1,
+      "recognized_count": 1,
+      "unrecognized_count": 0,
+      "missed_count": 0,
+      "fused_count": 0,
+      "split_count": 9,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 2,
+      "warnings": [
+        "Unrecognized ingredient: dermatalaa",
+        "OCR quality may be unreliable: image appears degraded or blurred. Please capture a clearer, well-lit photo of the ingredient list."
+      ],
+      "final_status": "Safety:unavailable|Allergy:unavailable|Irritant:unavailable",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "allergy": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "irritation": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_17_micellar_water_bioderma_clean",
+      "category": "personal_care",
+      "product_type": "Cleanser / Skin Care",
+      "product_name": "Bioderma Sensibio H2O Micellar Water",
+      "condition": "Clean / Easy",
+      "runtime_seconds": 30.965,
+      "ocr_status": "FAIL",
+      "extracted_count": 2,
+      "recognized_count": 2,
+      "unrecognized_count": 0,
+      "missed_count": 1,
+      "fused_count": 0,
+      "split_count": 9,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 3,
+      "warnings": [
+        "Unrecognized ingredient: von-rinse",
+        "Unrecognized ingredient: ingredients",
+        "OCR quality may be unreliable: image appears degraded or blurred. Please capture a clearer, well-lit photo of the ingredient list."
+      ],
+      "final_status": "Safety:unavailable|Allergy:unavailable|Irritant:unavailable",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "allergy": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        },
+        "irritation": {
+          "status": "unavailable",
+          "label": "Unavailable",
+          "color": "unavailable",
+          "risk_class": null
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    },
+    {
+      "image_id": "pc_18_hair_mask_shea_moisture_angled",
+      "category": "personal_care",
+      "product_type": "Hair Care / Conditioner",
+      "product_name": "SheaMoisture Manuka Honey & Mafura Oil Hair Mask",
+      "condition": "Angled (perspective distortion)",
+      "runtime_seconds": 48.971,
+      "ocr_status": "FAIL",
+      "extracted_count": 17,
+      "recognized_count": 17,
+      "unrecognized_count": 0,
+      "missed_count": 2,
+      "fused_count": 1,
+      "split_count": 6,
+      "nutrition_status": "N/A",
+      "allergy_status": "N/A",
+      "warning_count": 1,
+      "warnings": [
+        "Unrecognized ingredient: fragrance (essential oilblend)"
+      ],
+      "final_status": "Safety:orange|Allergy:orange|Irritant:yellow",
+      "semantics_ok": true,
+      "presentation": {
+        "personal_care_safety": {
+          "status": "orange",
+          "label": "Moderate Risk",
+          "color": "orange",
+          "risk_class": "Moderate Risk"
+        },
+        "allergy": {
+          "status": "orange",
+          "label": "Moderate Allergy Risk",
+          "color": "orange",
+          "risk_class": "Medium"
+        },
+        "irritation": {
+          "status": "yellow",
+          "label": "Low Irritation Risk",
+          "color": "yellow",
+          "risk_class": "Low"
+        }
+      },
+      "error": null,
+      "notes": "OK"
+    }
+  ]
+}
