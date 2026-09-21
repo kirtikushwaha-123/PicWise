@@ -8,7 +8,7 @@ Supports pluggable external correctors (like an LLM) later.
 """
 
 import re
-from detection.ocr_detector import normalize_ocr_text
+from backend.services.ocr_service.detection.ocr_detector import normalize_ocr_text
 
 class IngredientCorrector:
     """

@@ -18,6 +18,7 @@ class FoodSafetyIngredientResult:
     raw_text: str = ""
     matched_name: Optional[str] = None
     match_type: str = "unmatched"
+    source: str = "unrated"
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)

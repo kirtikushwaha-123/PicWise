@@ -13,9 +13,9 @@ columns, instructions, allergen, manufacturer, storage, mrp, legal, and contact 
 and computes final tight polygon ROIs for Ingredients and Nutrition.
 """
 
-import config
-from detection.geometry import bbox_iou, validate_region
-from detection.tight_roi import refine_ingredient_roi, refine_nutrition_roi
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.geometry import bbox_iou, validate_region
+from backend.services.ocr_service.detection.tight_roi import refine_ingredient_roi, refine_nutrition_roi
 
 def classify_line_ownership(line):
     """

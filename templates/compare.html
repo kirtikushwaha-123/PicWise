@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Compare Food Products | PicWise{% endblock %}
+
+{% block content %}
+  <section class="page-heading">
+    <h1>Compare <span>Food Products</span></h1>
+    <p>Compare 2–4 analyzed food products across Food Safety, Allergy Risk, and Nutrition independently.</p>
+  </section>
+
+  <!-- Product Input / Selection Panel -->
+  <section class="compare-input-panel card">
+    <div class="compare-header-row">
+      <div>
+        <h2>Select Products to Compare</h2>
+        <p class="compare-subtitle">Add 2 to 4 analyzed food products. Paste analysis JSON or load sample products.</p>
+      </div>
+      <div class="compare-actions">
+        <button id="addSlotBtn" class="secondary-action" type="button">+ Add Product</button>
+        <button id="loadSamplesBtn" class="secondary-action" type="button">Load Sample Products</button>
+      </div>
+    </div>
+
+    <!-- Product Slots Container -->
+    <div id="productSlotsContainer" class="product-slots-grid">
+      <!-- Slot 1 -->
+      <div class="product-slot card" data-slot="1">
+        <div class="slot-header">
+          <span class="slot-badge">Product 1</span>
+          <button class="remove-slot-btn hidden" type="button" title="Remove Product">&times;</button>
+        </div>
+        <div class="slot-body">
+          <label class="slot-label" for="slotName1">Product Name</label>
+          <input type="text" id="slotName1" class="slot-input-name" placeholder="e.g. Whole Wheat Bread" required>
+
+          <label class="slot-label" for="slotAnalysis1">Analysis JSON</label>
+          <textarea id="slotAnalysis1" class="slot-input-json" rows="6" placeholder='Paste /api/food/analyze JSON response here...' required></textarea>
+          <span class="slot-status-indicator empty">No analysis loaded</span>
+        </div>
+      </div>
+
+      <!-- Slot 2 -->
+      <div class="product-slot card" data-slot="2">
+        <div class="slot-header">
+          <span class="slot-badge">Product 2</span>
+          <button class="remove-slot-btn hidden" type="button" title="Remove Product">&times;</button>
+        </div>
+        <div class="slot-body">
+          <label class="slot-label" for="slotName2">Product Name</label>
+          <input type="text" id="slotName2" class="slot-input-name" placeholder="e.g. Peanut Butter" required>
+
+          <label class="slot-label" for="slotAnalysis2">Analysis JSON</label>
+          <textarea id="slotAnalysis2" class="slot-input-json" rows="6" placeholder='Paste /api/food/analyze JSON response here...' required></textarea>
+          <span class="slot-status-indicator empty">No analysis loaded</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="compareError" class="inline-error hidden" role="alert"></div>
+
+    <div class="compare-submit-row">
+      <button id="compareBtn" class="primary-action" type="button">
+        <span class="button-icon">📊</span>
+        Compare Products
+      </button>
+    </div>
+  </section>
+
+  <!-- Comparison Results Panel -->
+  <section id="comparisonResultsPanel" class="results-panel card hidden" aria-live="polite">
+    <div class="section-title-row results-heading">
+      <div>
+        <h2>Comparison Results</h2>
+        <p>Independent side-by-side assessment. No combined score or ranking.</p>
+      </div>
+    </div>
+
+    <!-- Comparison Table Container -->
+    <div id="comparisonTableWrap" class="comparison-table-wrap">
+      <table id="comparisonTable" class="comparison-table">
+        <thead>
+          <tr id="comparisonTableHeaderRow">
+            <th class="dim-col-header">Dimension</th>
+            <!-- Product headers injected via safe DOM textContent -->
+          </tr>
+        </thead>
+        <tbody id="comparisonTableBody">
+          <!-- Rows: Food Safety, Allergy Risk, Nutrition, Nutrition Score -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='compare.js') }}"></script>
+{% endblock %}

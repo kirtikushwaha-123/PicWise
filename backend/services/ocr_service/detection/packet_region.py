@@ -10,7 +10,7 @@ than no crop.
 import cv2
 import numpy as np
 
-import config
+from backend.services.ocr_service import config
 
 
 def _largest_quad_or_box(contours, image_area):

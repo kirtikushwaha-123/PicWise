@@ -9,41 +9,35 @@ file talks to OpenCV/PaddleOCR directly - it is pure data + simple helpers.
 """
 
 import os
+from backend import config as backend_config
 
 # Constrain native OpenMP and MKL thread pools for local runtime stability
-os.environ.setdefault("OMP_NUM_THREADS", "2")
-os.environ.setdefault("MKL_NUM_THREADS", "2")
+backend_config.setup_runtime_environment()
 
 # --------------------------------------------------------------------------
 # PATHS
 # --------------------------------------------------------------------------
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-PICWISE_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT, "..", "..", ".."))
+PICWISE_ROOT = str(backend_config.PROJECT_ROOT)
 
 INPUT_DIR = os.path.join(PROJECT_ROOT, "input")
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, "output")
 KNOWLEDGE_BASE_DIR = os.path.join(PROJECT_ROOT, "knowledge_base")
 
-_DEFAULT_ING_CSV = os.path.join(PICWISE_ROOT, "data", "food", "food_ingredients_dataset_corrected(2)(1).csv")
-_FALLBACK_ING_CSV = os.path.join(PICWISE_ROOT, "data", "food", "ingredient_knowledge_base_500_with_alternate_names.csv")
-_DEFAULT_NUT_CSV = os.path.join(PICWISE_ROOT, "data", "nutrition", "nutrition_knowledge_dataset.csv")
-_DEFAULT_PC_XLSX = os.path.join(PICWISE_ROOT, "data", "personal_care", "personal_care_ingredients_dataset_csv.xlsx")
+_DEFAULT_ING_CSV = os.path.join(PICWISE_ROOT, backend_config.DEFAULT_FOOD_DATA_PATH)
+_FALLBACK_ING_CSV = os.path.join(PICWISE_ROOT, backend_config.FALLBACK_FOOD_ALT_DATA_PATH)
+_DEFAULT_NUT_CSV = os.path.join(PICWISE_ROOT, backend_config.DEFAULT_NUTRITION_DATA_PATH)
+_DEFAULT_PC_XLSX = os.path.join(PICWISE_ROOT, backend_config.FALLBACK_PERSONAL_CARE_DATA_PATH)
 
-INGREDIENT_KB_CSV = os.getenv(
-    "FOOD_DATA_PATH",
-    _DEFAULT_ING_CSV if os.path.exists(_DEFAULT_ING_CSV) else (
-        _FALLBACK_ING_CSV if os.path.exists(_FALLBACK_ING_CSV) else os.path.join(KNOWLEDGE_BASE_DIR, "food_ingredients_dataset_corrected(2)(1).csv")
-    )
-)
-NUTRITION_KB_CSV = os.getenv(
-    "NUTRITION_DATA_PATH",
-    _DEFAULT_NUT_CSV if os.path.exists(_DEFAULT_NUT_CSV) else os.path.join(KNOWLEDGE_BASE_DIR, "nutrition_knowledge_dataset.csv")
-)
-PERSONAL_CARE_KB_XLSX = os.getenv(
-    "PERSONAL_CARE_DATA_PATH",
-    _DEFAULT_PC_XLSX if os.path.exists(_DEFAULT_PC_XLSX) else os.path.join(KNOWLEDGE_BASE_DIR, "personal_care_ingredients_dataset_csv.xlsx")
-)
+_resolved_ing = backend_config.resolve_food_kb_path()
+INGREDIENT_KB_CSV = _resolved_ing if os.path.isabs(_resolved_ing) else os.path.join(PICWISE_ROOT, _resolved_ing)
+
+_resolved_nut = backend_config.resolve_nutrition_kb_path()
+NUTRITION_KB_CSV = _resolved_nut if os.path.isabs(_resolved_nut) else os.path.join(PICWISE_ROOT, _resolved_nut)
+
+_resolved_pc = backend_config.resolve_personal_care_kb_path()
+PERSONAL_CARE_KB_XLSX = _resolved_pc if os.path.isabs(_resolved_pc) else os.path.join(PICWISE_ROOT, _resolved_pc)
 
 # --------------------------------------------------------------------------
 # IMAGE NORMALIZATION

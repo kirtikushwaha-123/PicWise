@@ -16,7 +16,7 @@ simply falls back to "no match" rather than crashing the pipeline.
 
 import os
 
-import config
+from backend.services.ocr_service import config
 
 try:
     from rapidfuzz import process as _rf_process, fuzz as _rf_fuzz

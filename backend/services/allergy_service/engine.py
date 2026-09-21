@@ -246,6 +246,21 @@ def calculate_allergy_risk(
                 f"{unknown_count} of {total_count} ingredients could not be matched to the food knowledge base."
             )
 
+        # If all known ingredients are No Risk but there are unknown ingredients,
+        # we cannot treat unknown as safe or report Allergen-Free / No Risk.
+        if highest_risk == RISK_NO_RISK and unknown_count > 0:
+            return AllergyResult(
+                status=STATUS_INSUFFICIENT_DATA,
+                product_risk_level=None,
+                product_ui_label=INSUFFICIENT_DATA_LABEL,
+                allergens_detected=[],
+                ingredients=[r.to_dict() for r in all_results],
+                total_ingredients=total_count,
+                known_ingredients=known_count,
+                unknown_ingredients=unknown_count,
+                warnings=warnings,
+            )
+
         return AllergyResult(
             status=STATUS_SUCCESS,
             product_risk_level=highest_risk,

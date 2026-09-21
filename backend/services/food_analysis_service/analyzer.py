@@ -31,7 +31,50 @@ from backend.services.food_status_service import (
     map_food_analysis_presentation,
 )
 
+from backend.services.knowledge_base import normalize_value
+
 logger = logging.getLogger(__name__)
+
+CANONICAL_SAFETY_CLASSES = ["Very Safe", "Safe", "Moderate Risk", "High Risk"]
+CANONICAL_SAFETY_MAP = {
+    "very safe": "Very Safe",
+    "safe": "Safe",
+    "moderate risk": "Moderate Risk",
+    "high risk": "High Risk",
+}
+
+
+def _lookup_in_kb(query: str, kb: Any) -> Optional[Dict[str, Any]]:
+    """Helper to look up a food ingredient row in the KnowledgeBase."""
+    if not query or not isinstance(query, str) or kb is None:
+        return None
+
+    # 1. Preferred method: get_food_ingredient
+    if hasattr(kb, "get_food_ingredient"):
+        res = kb.get_food_ingredient(query)
+        if res:
+            return res
+
+    # 2. Check food_index dictionary directly
+    if hasattr(kb, "food_index") and isinstance(kb.food_index, dict):
+        norm_key = normalize_value(query)
+        if norm_key in kb.food_index:
+            return kb.food_index[norm_key]
+
+    # 3. Fallback: linear scan over kb.food if available
+    if hasattr(kb, "food") and isinstance(kb.food, list):
+        norm_query = normalize_value(query)
+        for row in kb.food:
+            name = row.get("Ingredient Name")
+            if name and normalize_value(name) == norm_query:
+                return row
+            alts = row.get("Packaging Names / Alternate Names")
+            if alts:
+                for alt in str(alts).split(";"):
+                    if normalize_value(alt) == norm_query:
+                        return row
+
+    return None
 
 
 def analyze_food(
@@ -106,38 +149,104 @@ def analyze_food(
         try:
             safety_items: List[Dict[str, Any]] = []
             for item in raw_ingredients:
+                if isinstance(item, str):
+                    raw_text = item.strip()
+                    matched_name = None
+                    match_type = "unmatched"
+                    candidates = [raw_text] if raw_text else []
+                elif isinstance(item, dict):
+                    raw_text = str(
+                        item.get("raw_text")
+                        or item.get("ocr_text")
+                        or item.get("name")
+                        or ""
+                    ).strip()
+                    matched_name = item.get("matched_name")
+                    match_type = item.get("method") or item.get("match_type") or "unmatched"
+
+                    candidates = []
+                    if matched_name and str(matched_name).strip():
+                        candidates.append(str(matched_name).strip())
+                    if raw_text and raw_text not in candidates:
+                        candidates.append(raw_text)
+                    name_val = item.get("name")
+                    if name_val and str(name_val).strip() not in candidates:
+                        candidates.append(str(name_val).strip())
+                    ocr_val = item.get("ocr_text")
+                    if ocr_val and str(ocr_val).strip() not in candidates:
+                        candidates.append(str(ocr_val).strip())
+                else:
+                    raw_text = str(item).strip()
+                    matched_name = None
+                    match_type = "unmatched"
+                    candidates = [raw_text] if raw_text else []
+
                 target_name = (
-                    item.get("matched_name")
-                    or item.get("raw_text")
-                    or item.get("ocr_text")
-                    or item.get("name")
-                    or ""
+                    matched_name
+                    or (candidates[0] if candidates else raw_text)
                 ).strip()
 
                 if not target_name:
                     continue
 
-                # Production Food Safety ML inference (Frozen TF-IDF + MiniLM + Balanced LogReg)
-                pred = predict_food_safety(target_name)
+                # 1. For an ingredient FOUND in the Knowledge Base:
+                #    use KB Safety Level, source = "knowledge_base", confidence = 1.0
+                row = None
+                if knowledge_base is not None:
+                    for cand in candidates:
+                        row = _lookup_in_kb(cand, knowledge_base)
+                        if row:
+                            break
+
+                kb_safety = row.get("Safety Level") if row else None
+
+                if row and kb_safety and str(kb_safety).strip().lower() in CANONICAL_SAFETY_MAP:
+                    risk_class = CANONICAL_SAFETY_MAP[str(kb_safety).strip().lower()]
+                    source = "knowledge_base"
+                    confidence = 1.0
+                    resolved_name = row.get("Ingredient Name") or matched_name or target_name
+                    probabilities = {c: (1.0 if c == risk_class else 0.0) for c in CANONICAL_SAFETY_CLASSES}
+                else:
+                    # 2. For an ingredient NOT found in the Knowledge Base:
+                    #    run ML predictor, accept only when top probability >= 0.60
+                    pred = predict_food_safety(target_name)
+                    pred_conf = float(pred.get("confidence", 0.0))
+                    pred_risk = pred.get("risk_class")
+                    probabilities = pred.get("probabilities", {})
+                    resolved_name = pred.get("ingredient") or target_name
+
+                    if pred_conf >= 0.60 and pred_risk and str(pred_risk).strip().lower() in CANONICAL_SAFETY_MAP:
+                        risk_class = CANONICAL_SAFETY_MAP[str(pred_risk).strip().lower()]
+                        source = "model"
+                        confidence = pred_conf
+                    else:
+                        # If ML confidence < 0.60: risk_class = None, source = "unrated"
+                        risk_class = None
+                        source = "unrated"
+                        confidence = pred_conf
 
                 safety_entry = FoodSafetyIngredientResult(
-                    ingredient=pred.get("ingredient") or target_name,
-                    risk_class=pred.get("risk_class"),
-                    confidence=float(pred.get("confidence", 0.0)),
-                    probabilities=pred.get("probabilities", {}),
-                    raw_text=item.get("raw_text") or item.get("ocr_text") or "",
-                    matched_name=item.get("matched_name"),
-                    match_type=item.get("method", "unmatched"),
+                    ingredient=resolved_name,
+                    risk_class=risk_class,
+                    confidence=confidence,
+                    probabilities=probabilities,
+                    raw_text=raw_text,
+                    matched_name=matched_name,
+                    match_type=match_type,
+                    source=source,
                 )
                 entry_dict = safety_entry.to_dict()
-                ing_pres = map_food_safety_status(pred.get("risk_class"))
+                ing_pres = map_food_safety_status(risk_class)
                 entry_dict["presentation_status"] = ing_pres.status
                 entry_dict["presentation"] = ing_pres.to_dict()
                 safety_items.append(entry_dict)
 
             # Compute product-level risk_class using worst-case aggregation:
-            # High Risk > Moderate Risk > Safe > Very Safe
+            # Very Safe < Safe < Moderate Risk < High Risk
             product_risk_class = None
+            rated_count = 0
+            unrated_count = 0
+            food_safety_warnings = []
             if safety_items:
                 risk_order = {
                     "high risk": (4, "High Risk"),
@@ -148,17 +257,35 @@ def analyze_food(
                 max_rank = 0
                 for item in safety_items:
                     rc = item.get("risk_class")
-                    if rc and isinstance(rc, str):
-                        rank, canonical_rc = risk_order.get(rc.lower().strip(), (0, None))
+                    if rc and isinstance(rc, str) and rc.strip().lower() in risk_order:
+                        rank, canonical_rc = risk_order[rc.strip().lower()]
+                        rated_count += 1
                         if rank > max_rank:
                             max_rank = rank
                             product_risk_class = canonical_rc
+                    else:
+                        unrated_count += 1
+
+                # If no ingredients are rated, Food Safety = Unavailable
+                if rated_count == 0:
+                    product_risk_class = None
+
+                # If some ingredients are unrated, keep the overall result based on rated ingredients
+                # and show the warning.
+                if unrated_count > 0:
+                    if rated_count > 0:
+                        unrated_warn = f"{unrated_count} of {len(safety_items)} ingredients could not be evaluated for food safety."
+                    else:
+                        unrated_warn = f"None of the {len(safety_items)} ingredients could be evaluated for food safety."
+                    food_safety_warnings.append(unrated_warn)
+                    if unrated_warn not in all_warnings:
+                        all_warnings.append(unrated_warn)
 
             food_safety_dict = FoodSafetyResult(
                 status="success",
                 ingredients=safety_items,
                 total_ingredients=len(safety_items),
-                warnings=[],
+                warnings=food_safety_warnings,
                 risk_class=product_risk_class,
             ).to_dict()
         except Exception as exc:

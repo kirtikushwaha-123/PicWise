@@ -18,8 +18,8 @@ right boundary.
 
 import re
 
-import config
-from detection.ocr_detector import normalize_ocr_text, best_anchor_match
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.ocr_detector import normalize_ocr_text, best_anchor_match
 
 
 _NUTRITION_UNIT_RE = re.compile(config.NUTRITION_ROW_UNIT_PATTERN, re.IGNORECASE)

@@ -1,8 +1,7 @@
-import os
+from backend import config
 
 # Constrain native OpenMP and MKL thread pools for local runtime stability
-os.environ.setdefault("OMP_NUM_THREADS", "2")
-os.environ.setdefault("MKL_NUM_THREADS", "2")
+config.setup_runtime_environment()
 
 from flask import Flask, render_template, jsonify
 
@@ -13,7 +12,7 @@ from backend.services.knowledge_base import KnowledgeBase
 def create_app():
     app = Flask(__name__, static_folder="../static", template_folder="../templates")
     app.config["KNOWLEDGE_BASE"] = KnowledgeBase.from_env()
-    app.config.setdefault("MAX_CONTENT_LENGTH", 16 * 1024 * 1024)  # 16 MB ceiling
+    app.config.setdefault("MAX_CONTENT_LENGTH", config.MAX_CONTENT_LENGTH)
 
     app.register_blueprint(api_bp)
 
@@ -43,5 +42,9 @@ def create_app():
     @app.get("/upload")
     def upload():
         return render_template("upload.html", active_page="scan")
+
+    @app.get("/compare")
+    def compare():
+        return render_template("compare.html", active_page="compare")
 
     return app

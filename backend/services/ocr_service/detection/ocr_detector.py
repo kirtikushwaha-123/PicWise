@@ -12,9 +12,9 @@ detection/ocr_detector.py
 import re
 import unicodedata
 
-from ocr.paddle_engine import run_ocr
-from detection.geometry import poly_to_rect, polygon_angle, polygon_area
-import config
+from backend.services.ocr_service.ocr.paddle_engine import run_ocr
+from backend.services.ocr_service.detection.geometry import poly_to_rect, polygon_angle, polygon_area
+from backend.services.ocr_service import config
 
 try:
     from rapidfuzz import fuzz as _rf_fuzz
@@ -334,8 +334,8 @@ def run_full_image_ocr(image, quality=None):
     avg_conf = float(np.mean([it.get("confidence", 0.0) for it in raw_items])) if raw_items else 0.0
     
     if avg_conf < 0.82:
-        from preprocessing.image_utils import check_image_quality
-        from preprocessing.enhancement import preprocess_roi
+        from backend.services.ocr_service.preprocessing.image_utils import check_image_quality
+        from backend.services.ocr_service.preprocessing.enhancement import preprocess_roi
         
         if quality is None:
             quality = check_image_quality(image)

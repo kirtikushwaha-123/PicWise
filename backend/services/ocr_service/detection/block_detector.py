@@ -7,9 +7,9 @@ and classifies each cluster into one of the key semantic block types.
 """
 
 import numpy as np
-import config
-from detection.geometry import union_rect, vertical_distance, horizontal_overlap_ratio
-from detection.ocr_detector import normalize_ocr_text
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.geometry import union_rect, vertical_distance, horizontal_overlap_ratio
+from backend.services.ocr_service.detection.ocr_detector import normalize_ocr_text
 
 def detect_logical_blocks(lines, image_shape, ingredient_vocab=None):
     """

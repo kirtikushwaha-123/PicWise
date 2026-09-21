@@ -103,87 +103,44 @@
         </div>
       </div>
 
-      <!-- Three Independent Dimension Cards Grid -->
-      <div class="food-cards-grid">
-        <!-- 1. Food Safety Card -->
-        <div id="foodSafetyCard" class="dimension-card">
-          <div class="card-header-row">
-            <div class="dimension-title-group">
-              <span class="dimension-icon">🛡️</span>
-              <div>
-                <h3 class="dimension-title">Food Safety</h3>
-                <span class="dimension-subtitle">ML-based ingredient classification</span>
-              </div>
-            </div>
-            <span id="foodSafetyStatusBadge" class="status-pill unavailable">Unavailable</span>
+      <!-- Food Analysis Result Summary Card (STEP 4A) -->
+      <div id="foodSummaryCard" class="card result-summary-card">
+        <div class="summary-rows-list">
+          <!-- Row 1: Food Safety -->
+          <div id="foodSafetyCard" class="summary-row">
+            <span class="summary-row-label">Food Safety</span>
+            <span id="foodSafetyStatusBadge" class="status-pill unavailable">⚪ Unavailable</span>
           </div>
 
-          <div class="dimension-body">
-            <div class="meta-stat-row">
-              <span class="meta-label">Ingredients Assessed:</span>
-              <strong id="foodSafetyCount" class="meta-value">0</strong>
-            </div>
+          <!-- Row 2: Allergy Risk -->
+          <div id="allergyCard" class="summary-row">
+            <span class="summary-row-label">Allergy Risk</span>
+            <span id="allergyStatusBadge" class="status-pill unavailable">⚪ Unavailable</span>
+          </div>
 
-            <div class="ingredient-breakdown">
-              <h4 class="breakdown-title">Ingredient Risk Breakdown</h4>
-              <div id="foodSafetyIngredientsList" class="ingredient-badges-list"></div>
-            </div>
+          <!-- Row 3: Nutrition -->
+          <div id="nutritionCard" class="summary-row">
+            <span class="summary-row-label">Nutrition</span>
+            <span id="nutritionStatusBadge" class="status-pill unavailable">⚪ Unavailable</span>
           </div>
         </div>
 
-        <!-- 2. Nutrition Card -->
-        <div id="nutritionCard" class="dimension-card">
-          <div class="card-header-row">
-            <div class="dimension-title-group">
-              <span class="dimension-icon">🥗</span>
-              <div>
-                <h3 class="dimension-title">Nutrition</h3>
-                <span class="dimension-subtitle">Deterministic 0–100 profiling</span>
-              </div>
-            </div>
-            <span id="nutritionStatusBadge" class="status-pill unavailable">Unavailable</span>
-          </div>
-
-          <div class="dimension-body">
-            <div class="nutrition-score-box">
-              <span class="score-label">Nutrition Score</span>
-              <div class="score-value-row">
-                <span id="nutritionScoreValue" class="score-number">—</span>
-                <span id="nutritionScoreDenominator" class="score-denominator">/ 100</span>
-              </div>
-              <span id="nutritionScoreNote" class="score-note"></span>
-            </div>
-
-            <div class="nutrition-nutrients-section">
-              <h4 class="breakdown-title">Key Nutrients</h4>
-              <div id="nutritionNutrientsList" class="nutrients-grid"></div>
-            </div>
-          </div>
+        <!-- Nutrition Score: NN / 100 -->
+        <div class="summary-nutrition-score-row">
+          <span class="summary-score-label">Nutrition Score:</span>
+          <span class="summary-score-value">
+            <span id="nutritionScoreValue">—</span>
+            <span id="nutritionScoreDenominator"> / 100</span>
+          </span>
         </div>
 
-        <!-- 3. Allergy Risk Card -->
-        <div id="allergyCard" class="dimension-card">
-          <div class="card-header-row">
-            <div class="dimension-title-group">
-              <span class="dimension-icon">⚠️</span>
-              <div>
-                <h3 class="dimension-title">Allergy Risk</h3>
-                <span class="dimension-subtitle">Knowledge-base allergen lookup</span>
-              </div>
-            </div>
-            <span id="allergyStatusBadge" class="status-pill unavailable">Unavailable</span>
-          </div>
-
-          <div class="dimension-body">
-            <div class="allergy-content-section">
-              <h4 class="breakdown-title">Detected Allergens</h4>
-              <!-- Allergen list populated strictly from backend allergens_detected -->
-              <div id="allergyDetectedContainer" class="allergy-detected-wrap">
-                <div id="allergyDetectedList" class="allergen-pills-wrap"></div>
-                <p id="allergyEmptyNotice" class="allergy-empty-notice hidden">No specific allergens detected in scanned ingredients.</p>
-              </div>
-            </div>
-          </div>
+        <!-- Hidden elements preserved for contract and test compatibility -->
+        <div class="hidden" aria-hidden="true">
+          <span id="foodSafetyCount">0</span>
+          <div id="foodSafetyIngredientsList"></div>
+          <div id="nutritionNutrientsList"></div>
+          <div id="allergyDetectedList"></div>
+          <span id="nutritionScoreNote"></span>
         </div>
       </div>
     </div>

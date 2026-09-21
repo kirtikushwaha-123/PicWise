@@ -6,40 +6,34 @@ Adapts the accepted final-ocr pipeline for in-memory byte buffers and category-d
 """
 
 import os
-import sys
 import time
 
-# Ensure ocr_service directory is in sys.path so submodules resolve cleanly
-OCR_SERVICE_DIR = os.path.dirname(os.path.abspath(__file__))
-if OCR_SERVICE_DIR not in sys.path:
-    sys.path.insert(0, OCR_SERVICE_DIR)
-
-import config
-from preprocessing.image_utils import (
+from backend.services.ocr_service import config
+from backend.services.ocr_service.preprocessing.image_utils import (
     load_image,
     normalize_image,
     check_image_quality,
     safe_crop,
     save_image,
 )
-from preprocessing.enhancement import preprocess_roi
-from preprocessing.deskew import deskew
-from preprocessing.perspective import correct_perspective
+from backend.services.ocr_service.preprocessing.enhancement import preprocess_roi
+from backend.services.ocr_service.preprocessing.deskew import deskew
+from backend.services.ocr_service.preprocessing.perspective import correct_perspective
 
-from detection.packet_region import detect_packet_region
-from detection.ocr_detector import run_full_image_ocr
-from detection.ingredient_region import detect_ingredient_region
-from detection.nutrition_region import detect_nutrition_region
-from detection.region_reconciliation import reconcile_regions
-from detection.document_layout import analyze_document
+from backend.services.ocr_service.detection.packet_region import detect_packet_region
+from backend.services.ocr_service.detection.ocr_detector import run_full_image_ocr
+from backend.services.ocr_service.detection.ingredient_region import detect_ingredient_region
+from backend.services.ocr_service.detection.nutrition_region import detect_nutrition_region
+from backend.services.ocr_service.detection.region_reconciliation import reconcile_regions
+from backend.services.ocr_service.detection.document_layout import analyze_document
 
-from ocr.ensemble import run_variant_ocr
+from backend.services.ocr_service.ocr.ensemble import run_variant_ocr
 
-from parsing.ingredient_parser import parse_ingredients
-from parsing.nutrition_parser import parse_nutrition
+from backend.services.ocr_service.parsing.ingredient_parser import parse_ingredients
+from backend.services.ocr_service.parsing.nutrition_parser import parse_nutrition
 
-from matching.knowledge_base import KnowledgeBase
-from nlp.ingredient_corrector import IngredientCorrector
+from backend.services.ocr_service.matching.knowledge_base import KnowledgeBase
+from backend.services.ocr_service.nlp.ingredient_corrector import IngredientCorrector
 
 # Module-level cached KnowledgeBase singleton for OCR fuzzy matching
 _CACHED_KB = None

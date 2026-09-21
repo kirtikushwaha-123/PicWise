@@ -8,8 +8,8 @@ and section candidates.
 
 import numpy as np
 import re
-import config
-from detection.geometry import (
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.geometry import (
     union_rect,
     vertical_distance,
     horizontal_overlap_ratio,
@@ -18,11 +18,11 @@ from detection.geometry import (
     cluster_into_columns,
     find_column_for_line,
 )
-from detection.line_builder import reconstruct_lines
-from detection.line_classifier import classify_lines
-from detection.block_detector import detect_logical_blocks
-from detection.ocr_detector import normalize_ocr_text, best_anchor_match
-from detection.section_signals import classify_nutrition_row, detect_section_boundaries
+from backend.services.ocr_service.detection.line_builder import reconstruct_lines
+from backend.services.ocr_service.detection.line_classifier import classify_lines
+from backend.services.ocr_service.detection.block_detector import detect_logical_blocks
+from backend.services.ocr_service.detection.ocr_detector import normalize_ocr_text, best_anchor_match
+from backend.services.ocr_service.detection.section_signals import classify_nutrition_row, detect_section_boundaries
 
 def analyze_document(ocr_items, image_shape, ingredient_vocab=None):
     """
@@ -44,7 +44,7 @@ def analyze_document(ocr_items, image_shape, ingredient_vocab=None):
     lines = reconstruct_lines(ocr_items, image_shape)
     
     # Split merged lines if they have wide horizontal gaps (like side-by-side layout)
-    from detection.ingredient_region import split_merged_lines
+    from backend.services.ocr_service.detection.ingredient_region import split_merged_lines
     lines = split_merged_lines(lines, image_shape[1])
 
     # 2. Classify every line into 9 classes

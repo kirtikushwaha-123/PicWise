@@ -14,8 +14,8 @@ Groups word/fragment polygon items into logical text lines using:
 
 import numpy as np
 import cv2
-import config
-from detection.geometry import (
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.geometry import (
     poly_to_rect,
     union_rect,
     vertical_overlap_ratio,
@@ -50,7 +50,7 @@ def detect_columns(ocr_items, image_shape):
     for it in ocr_items:
         it["column_id"] = 0
         if "rect" not in it and "bbox" in it:
-            from detection.geometry import poly_to_rect
+            from backend.services.ocr_service.detection.geometry import poly_to_rect
             it["rect"] = poly_to_rect(it["bbox"])
         r = it.get("rect", [0, 0, 0, 0])
         if "width" not in it:

@@ -1,21 +1,36 @@
 import json
 import os
-import sys
 import threading
 from pathlib import Path
-
-# Ensure project root is in sys.path
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
 
 import joblib
 import numpy as np
 from scipy.sparse import csr_matrix, hstack
-from sentence_transformers import SentenceTransformer
 
-DEFAULT_FOOD_SAFETY_MODEL_DIR = "backend/ml/models/food_safety"
+from backend import config
+
+DEFAULT_FOOD_SAFETY_MODEL_DIR = config.DEFAULT_FOOD_SAFETY_MODEL_DIR
 CANONICAL_CLASSES = ["Very Safe", "Safe", "Moderate Risk", "High Risk"]
+
+_EMBEDDER_CACHE = {}
+_EMBEDDER_LOCK = threading.Lock()
+
+
+def get_sentence_transformer(model_name: str = "sentence-transformers/all-MiniLM-L6-v2"):
+    """
+    Thread-safe lazy loader and cache for SentenceTransformer models.
+    Avoids importing/loading sentence_transformers at module import time,
+    and avoids re-initializing or re-downloading the model on each request.
+    """
+    if model_name in _EMBEDDER_CACHE:
+        return _EMBEDDER_CACHE[model_name]
+
+    with _EMBEDDER_LOCK:
+        if model_name not in _EMBEDDER_CACHE:
+            from sentence_transformers import SentenceTransformer
+
+            _EMBEDDER_CACHE[model_name] = SentenceTransformer(model_name)
+        return _EMBEDDER_CACHE[model_name]
 
 
 class FoodSafetyPredictor:
@@ -33,12 +48,24 @@ class FoodSafetyPredictor:
         self.vectorizer = None
         self.classifier = None
         self.metadata = None
-        self.embedder = None
+        self.embedder_model_name = "sentence-transformers/all-MiniLM-L6-v2"
+        self._embedder = None
         self.class_order = CANONICAL_CLASSES
         self.class_to_idx = {c: i for i, c in enumerate(CANONICAL_CLASSES)}
         self.idx_to_class = {i: c for i, c in enumerate(CANONICAL_CLASSES)}
         self._loaded = False
         self._load_artifacts()
+
+    @property
+    def embedder(self):
+        """Lazily obtains and caches the SentenceTransformer instance."""
+        if self._embedder is None:
+            self._embedder = get_sentence_transformer(self.embedder_model_name)
+        return self._embedder
+
+    @embedder.setter
+    def embedder(self, val):
+        self._embedder = val
 
     @classmethod
     def get_instance(cls, model_dir=DEFAULT_FOOD_SAFETY_MODEL_DIR):
@@ -75,11 +102,11 @@ class FoodSafetyPredictor:
                 f"Classifier classes mismatch! Found: {classifier_classes}, expected: {expected_classes}"
             )
 
-        # Load frozen semantic embedding model
-        model_name = self.metadata.get("semantic_embeddings", {}).get(
+        # Configure semantic embedding model name (loading is deferred until prediction)
+        self.embedder_model_name = self.metadata.get("semantic_embeddings", {}).get(
             "model_name", "sentence-transformers/all-MiniLM-L6-v2"
         )
-        self.embedder = SentenceTransformer(model_name)
+        self._embedder = None
         self._loaded = True
 
     def predict(self, ingredient_name: str) -> dict:

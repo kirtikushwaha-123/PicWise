@@ -221,6 +221,13 @@ def map_food_analysis_presentation(
             risk_level=al_risk,
             raw_status=allergy.get("status"),
         )
+    elif hasattr(allergy, "status"):
+        al_dict = allergy.to_dict() if hasattr(allergy, "to_dict") else allergy.__dict__
+        al_risk = al_dict.get("product_risk_level") or al_dict.get("risk_level")
+        al_pres = map_allergy_status(
+            risk_level=al_risk,
+            raw_status=al_dict.get("status"),
+        )
     else:
         al_pres = AllergyPresentation(status=STATUS_UNAVAILABLE, label=None, risk_level=None)
 

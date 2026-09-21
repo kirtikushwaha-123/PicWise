@@ -11,8 +11,8 @@ INS numbers), and vocabulary matching.
 """
 
 import re
-import config
-from detection.ocr_detector import normalize_ocr_text, best_anchor_match
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.ocr_detector import normalize_ocr_text, best_anchor_match
 
 # Regex patterns
 _INS_NUMBER_RE = re.compile(r'\b(?:ins|e)\s*\d+[a-z]?(\([i|v|x]+\))?\b', re.IGNORECASE)

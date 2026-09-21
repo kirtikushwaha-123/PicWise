@@ -25,11 +25,14 @@ whatever comes back and adapts.
 
 import numpy as np
 import os
+import threading
 
-import config
+from backend.services.ocr_service import config
 
 _OCR_ENGINE = None
 _INIT_ERROR = None
+_ENGINE_LOCK = threading.Lock()
+_INFERENCE_LOCK = threading.Lock()
 
 
 def _init_engine():
@@ -38,32 +41,36 @@ def _init_engine():
     if _OCR_ENGINE is not None or _INIT_ERROR is not None:
         return
 
-    try:
-        os.environ.setdefault(
-            "PADDLE_PDX_CACHE_HOME",
-            os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", ".paddlex-cache")),
-        )
+    with _ENGINE_LOCK:
+        if _OCR_ENGINE is not None or _INIT_ERROR is not None:
+            return
 
-        import sys
-        if sys.platform == "win32":
-            try:
-                import importlib.util
-                spec = importlib.util.find_spec("torch")
-                if spec and spec.origin:
-                    tlib = os.path.join(os.path.dirname(spec.origin), "lib")
-                    if os.path.exists(tlib):
-                        os.add_dll_directory(tlib)
-                        import torch
-            except Exception:
-                pass
-        from paddleocr import PaddleOCR
-    except ImportError as e:
-        _INIT_ERROR = (
-            "PaddleOCR is not installed. Install it with:\n"
-            "  pip install paddlepaddle paddleocr\n"
-            f"(original error: {e})"
-        )
-        return
+        try:
+            os.environ.setdefault(
+                "PADDLE_PDX_CACHE_HOME",
+                os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", ".paddlex-cache")),
+            )
+
+            import sys
+            if sys.platform == "win32":
+                try:
+                    import importlib.util
+                    spec = importlib.util.find_spec("torch")
+                    if spec and spec.origin:
+                        tlib = os.path.join(os.path.dirname(spec.origin), "lib")
+                        if os.path.exists(tlib):
+                            os.add_dll_directory(tlib)
+                            import torch
+                except Exception:
+                    pass
+            from paddleocr import PaddleOCR
+        except ImportError as e:
+            _INIT_ERROR = (
+                "PaddleOCR is not installed. Install it with:\n"
+                "  pip install paddlepaddle paddleocr\n"
+                f"(original error: {e})"
+            )
+            return
 
     # Different PaddleOCR versions accept different constructor kwargs.
     # On Windows / PaddlePaddle 3.x, enable_mkldnn=False prevents PIR ArrayAttribute conversion errors.
@@ -330,23 +337,23 @@ def run_ocr(image):
         img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
     raw_result = None
-
-    # Newer API: .predict(img) -> list of OCRResult-like dicts
-    if hasattr(_OCR_ENGINE, "predict"):
-        try:
-            raw_result = _OCR_ENGINE.predict(img)
-        except Exception:
-            raw_result = None
-
-    if raw_result is None and hasattr(_OCR_ENGINE, "ocr"):
-        for kwargs in (dict(cls=config.OCR_USE_ANGLE_CLS), dict()):
+    with _INFERENCE_LOCK:
+        # Newer API: .predict(img) -> list of OCRResult-like dicts
+        if hasattr(_OCR_ENGINE, "predict"):
             try:
-                raw_result = _OCR_ENGINE.ocr(img, **kwargs)
-                break
-            except TypeError:
-                continue
+                raw_result = _OCR_ENGINE.predict(img)
             except Exception:
                 raw_result = None
-                break
+
+        if raw_result is None and hasattr(_OCR_ENGINE, "ocr"):
+            for kwargs in (dict(cls=config.OCR_USE_ANGLE_CLS), dict()):
+                try:
+                    raw_result = _OCR_ENGINE.ocr(img, **kwargs)
+                    break
+                except TypeError:
+                    continue
+                except Exception:
+                    raw_result = None
+                    break
 
     return _standardize_result(raw_result)

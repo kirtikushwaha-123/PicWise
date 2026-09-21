@@ -225,7 +225,10 @@ class TestFoodBackendHardening(unittest.TestCase):
         dummy_bytes = _create_dummy_image_bytes()
         mock_ocr_data = {
             "domain": "food",
-            "ingredients": [{"matched_name": "Almonds", "raw_text": "Almonds"}],
+            "ingredients": [
+                {"matched_name": "Almonds", "raw_text": "Almonds"},
+                {"matched_name": None, "raw_text": "UnknownCompoundXYZ"},
+            ],
             "nutrition": {
                 "energy": {"value": 500.0, "unit": "kcal", "per_100g": {"value": 500.0, "unit": "kcal"}},
                 "total_sugars": {"value": 5.0, "unit": "g", "per_100g": {"value": 5.0, "unit": "g"}},

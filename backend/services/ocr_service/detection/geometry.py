@@ -21,7 +21,7 @@ Two additions over the original version fix the "ROI too small" problem:
 import cv2
 import numpy as np
 
-import config
+from backend.services.ocr_service import config
 
 
 # --------------------------------------------------------------------------

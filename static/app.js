@@ -227,6 +227,14 @@ function resetResults() {
    Consumes backend presentation object strictly.
    NO overall product health score, NO overall product color.
    ========================================================================== */
+const STATUS_EMOJI_MAP = {
+  green: "🟢",
+  yellow: "🟡",
+  orange: "🟠",
+  red: "🔴",
+  unavailable: "⚪"
+};
+
 function renderFoodAnalysis(data) {
   if (personalCareResultsContainer) personalCareResultsContainer.classList.add("hidden");
   if (foodResultsContainer) foodResultsContainer.classList.remove("hidden");
@@ -234,158 +242,130 @@ function renderFoodAnalysis(data) {
   const pres = data.presentation || {};
 
   renderFoodSafetyCard(data, pres.food_safety);
-  renderNutritionCard(data, pres.nutrition);
   renderAllergyCard(data, pres.allergy);
+  renderNutritionCard(data, pres.nutrition);
   renderFoodWarnings(data.warnings);
 }
 
 /**
- * Renders the Food Safety card based strictly on backend presentation status.
+ * Renders the Food Safety row based strictly on backend presentation status.
+ * Food Safety is ONE overall product-level categorical result.
+ * No Food Safety score, no individual ingredient breakdowns, no confidence values.
  */
 function renderFoodSafetyCard(data, fsPres) {
   fsPres = fsPres || {};
   const status = fsPres.color || fsPres.status || "unavailable";
   const label = fsPres.label || "Unavailable";
+  const emoji = STATUS_EMOJI_MAP[status] || "⚪";
 
-  foodSafetyStatusBadge.className = `status-pill ${escapeHtml(status)}`;
-  foodSafetyStatusBadge.textContent = label;
-
-  const totalCount = data.food_safety?.total_ingredients || (data.food_safety?.ingredients ? data.food_safety.ingredients.length : 0);
-  foodSafetyCount.textContent = String(totalCount);
-
-  foodSafetyIngredientsList.innerHTML = "";
-  const ingredients = data.food_safety?.ingredients || [];
-
-  if (ingredients.length === 0) {
-    const emptyNotice = document.createElement("p");
-    emptyNotice.className = "allergy-empty-notice";
-    emptyNotice.textContent = "No ingredients detected by OCR.";
-    foodSafetyIngredientsList.appendChild(emptyNotice);
-    return;
+  if (foodSafetyStatusBadge) {
+    foodSafetyStatusBadge.className = `status-pill ${escapeHtml(status)}`;
+    foodSafetyStatusBadge.textContent = `${emoji} ${label}`;
   }
 
-  ingredients.forEach((item) => {
-    const row = document.createElement("div");
-    row.className = "ingredient-badge-row";
-
-    const itemStatus = item.presentation_status || (item.presentation && item.presentation.status) || "unavailable";
-    const itemLabel = (item.presentation && item.presentation.label) || item.risk_class || "Assessed";
-    const name = item.ingredient || item.matched_name || item.raw_text || unavailable;
-    const confStr = Number.isFinite(item.confidence) ? `Confidence: ${Math.round(item.confidence * 100)}%` : "";
-
-    row.innerHTML = `
-      <div class="ingredient-info">
-        <span class="ingredient-name" title="${escapeHtml(name)}">${escapeHtml(name)}</span>
-        ${confStr ? `<span class="ingredient-confidence">${escapeHtml(confStr)}</span>` : ""}
-      </div>
-      <span class="status-pill ${escapeHtml(itemStatus)}">${escapeHtml(itemLabel)}</span>
-    `;
-    foodSafetyIngredientsList.appendChild(row);
-  });
-}
-
-/**
- * Renders the Nutrition card based strictly on backend presentation status and score.
- * Never defaults missing data to 0 or red.
- */
-function renderNutritionCard(data, nutPres) {
-  nutPres = nutPres || {};
-  const status = nutPres.color || nutPres.status || "unavailable";
-  const label = nutPres.label || "Unavailable";
-
-  nutritionStatusBadge.className = `status-pill ${escapeHtml(status)}`;
-  nutritionStatusBadge.textContent = label;
-
-  const score = nutPres.score !== undefined && nutPres.score !== null
-    ? nutPres.score
-    : (data.nutrition && data.nutrition.nutrition_score !== undefined ? data.nutrition.nutrition_score : null);
-
-  if (typeof score === "number" && !isNaN(score)) {
-    const formattedScore = Number.isInteger(score) ? score : score.toFixed(1);
-    nutritionScoreValue.textContent = formattedScore;
-    nutritionScoreDenominator.classList.remove("hidden");
-    nutritionScoreNote.textContent = label;
-  } else {
-    nutritionScoreValue.textContent = "Unavailable";
-    nutritionScoreDenominator.classList.add("hidden");
-    nutritionScoreNote.textContent = "Nutrition facts not detected on label";
+  if (foodSafetyCount) {
+    const totalCount = data.food_safety?.total_ingredients || (data.food_safety?.ingredients ? data.food_safety.ingredients.length : 0);
+    foodSafetyCount.textContent = String(totalCount);
   }
 
-  // Key nutrients breakdown
-  nutritionNutrientsList.innerHTML = "";
-  const components = data.nutrition?.components || data.nutrition?.nutrients;
-
-  if (components && typeof components === "object" && Object.keys(components).length > 0) {
-    Object.entries(components).forEach(([key, val]) => {
-      const card = document.createElement("div");
-      card.className = "nutrient-card";
-      let displayVal = unavailable;
-
-      if (val && typeof val === "object") {
-        if (val.value !== undefined && val.value !== null) {
-          displayVal = `${val.value} ${val.unit || "g"}`.trim();
-        } else if (val.amount !== undefined && val.amount !== null) {
-          displayVal = `${val.amount} ${val.unit || "g"}`.trim();
-        }
-      } else if (val !== null && val !== undefined) {
-        displayVal = String(val);
-      }
-
-      card.innerHTML = `
-        <span class="nutrient-name">${escapeHtml(formatNutrientName(key))}</span>
-        <span class="nutrient-value">${escapeHtml(displayVal)}</span>
-      `;
-      nutritionNutrientsList.appendChild(card);
-    });
-  } else {
-    const emptyNotice = document.createElement("p");
-    emptyNotice.className = "allergy-empty-notice";
-    emptyNotice.style.gridColumn = "1 / -1";
-    emptyNotice.textContent = "Detailed nutrient breakdown unavailable.";
-    nutritionNutrientsList.appendChild(emptyNotice);
+  // Individual ingredient breakdowns and confidences are NOT shown in this summary
+  if (foodSafetyIngredientsList) {
+    foodSafetyIngredientsList.innerHTML = "";
   }
 }
 
 /**
- * Renders the Allergy Risk card based strictly on backend presentation status.
- * CRITICAL: Renders allergen items ONLY if returned in data.allergy.allergens_detected.
- * Never fabricates or guesses allergens from risk levels.
+ * Renders the Allergy Risk row based strictly on backend presentation status.
+ * No Allergy score and no individual breakdown in this summary.
  */
 function renderAllergyCard(data, alPres) {
   alPres = alPres || {};
   const status = alPres.color || alPres.status || "unavailable";
   const label = alPres.label || "Unavailable";
+  const emoji = STATUS_EMOJI_MAP[status] || "⚪";
 
-  allergyStatusBadge.className = `status-pill ${escapeHtml(status)}`;
-  allergyStatusBadge.textContent = label;
+  if (allergyStatusBadge) {
+    allergyStatusBadge.className = `status-pill ${escapeHtml(status)}`;
+    allergyStatusBadge.textContent = `${emoji} ${label}`;
+  }
 
-  allergyDetectedList.innerHTML = "";
-
+  // Preserve reference to data.allergy?.allergens_detected while keeping summary clean
   const allergensDetected = data.allergy?.allergens_detected;
+  if (allergyDetectedList) {
+    allergyDetectedList.innerHTML = "";
+  }
+}
 
-  if (Array.isArray(allergensDetected) && allergensDetected.length > 0) {
-    allergyEmptyNotice.classList.add("hidden");
-    allergensDetected.forEach((allergen) => {
-      const pill = document.createElement("span");
-      pill.className = "allergen-item-pill";
-      pill.innerHTML = `
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="8" x2="12" y2="12"></line>
-          <line x1="12" y1="16" x2="12.01" y2="16"></line>
-        </svg>
-        <span>${escapeHtml(allergen)}</span>
-      `;
-      allergyDetectedList.appendChild(pill);
-    });
-  } else {
-    allergyEmptyNotice.classList.remove("hidden");
-    if (status === "green") {
-      allergyEmptyNotice.textContent = "No allergens detected in scanned ingredients.";
-    } else if (status === "unavailable") {
-      allergyEmptyNotice.textContent = "Allergen information not available.";
+/**
+ * Renders the Nutrition row and numerical Nutrition Score based strictly on backend presentation status.
+ * Nutrition Score remains the only numerical score displayed in this summary.
+ */
+function renderNutritionCard(data, nutPres) {
+  nutPres = nutPres || {};
+  const status = nutPres.color || nutPres.status || "unavailable";
+  const label = nutPres.label || "Unavailable";
+  const emoji = STATUS_EMOJI_MAP[status] || "⚪";
+
+  if (nutritionStatusBadge) {
+    nutritionStatusBadge.className = `status-pill ${escapeHtml(status)}`;
+    nutritionStatusBadge.textContent = `${emoji} ${label}`;
+  }
+
+  const score = nutPres.score !== undefined && nutPres.score !== null
+    ? nutPres.score
+    : (data.nutrition && data.nutrition.nutrition_score !== undefined ? data.nutrition.nutrition_score : null);
+
+  if (nutritionScoreValue) {
+    if (typeof score === "number" && !isNaN(score)) {
+      const formattedScore = Number.isInteger(score) ? score : Math.round(score);
+      nutritionScoreValue.textContent = formattedScore;
+      if (nutritionScoreDenominator) {
+        nutritionScoreDenominator.textContent = " / 100";
+        nutritionScoreDenominator.classList.remove("hidden");
+      }
     } else {
-      allergyEmptyNotice.textContent = "No specific allergens listed by name in scanned text.";
+      nutritionScoreValue.textContent = "Unavailable";
+      if (nutritionScoreDenominator) {
+        nutritionScoreDenominator.classList.add("hidden");
+      }
+    }
+  }
+
+  if (nutritionNutrientsList) {
+    nutritionNutrientsList.innerHTML = "";
+
+    const evaluated = data.nutrition?.nutrients_evaluated;
+    if (Array.isArray(evaluated) && evaluated.length > 0) {
+      const validNutrients = evaluated.filter(
+        (item) => typeof item.amount_per_100g === "number" && !isNaN(item.amount_per_100g)
+      );
+
+      if (validNutrients.length > 0) {
+        validNutrients.forEach((item) => {
+          const row = document.createElement("div");
+          row.className = "nutrient-item-row";
+
+          const nutrientName = item.nutrient || "Unknown Nutrient";
+          const val = Number.isInteger(item.amount_per_100g)
+            ? item.amount_per_100g
+            : Math.round(item.amount_per_100g * 10) / 10;
+          const unit = item.unit || "g";
+          const itemStatus = item.status || "Assessed";
+
+          row.textContent = `${nutrientName}: ${val} ${unit} / 100 g · ${itemStatus}`;
+          nutritionNutrientsList.appendChild(row);
+        });
+      } else {
+        const emptyNotice = document.createElement("p");
+        emptyNotice.className = "allergy-empty-notice";
+        emptyNotice.textContent = "Detailed nutrient breakdown unavailable.";
+        nutritionNutrientsList.appendChild(emptyNotice);
+      }
+    } else {
+      const emptyNotice = document.createElement("p");
+      emptyNotice.className = "allergy-empty-notice";
+      emptyNotice.textContent = "Detailed nutrient breakdown unavailable.";
+      nutritionNutrientsList.appendChild(emptyNotice);
     }
   }
 }

@@ -11,7 +11,7 @@ import os
 import cv2
 import numpy as np
 
-import config
+from backend.services.ocr_service import config
 
 
 def load_image_from_bytes(image_bytes):

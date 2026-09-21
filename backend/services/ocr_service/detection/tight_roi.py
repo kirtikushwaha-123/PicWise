@@ -8,8 +8,8 @@ to produce the final roi_polygon (primary) and bounding box (secondary).
 """
 
 import numpy as np
-import config
-from detection.geometry import (
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.geometry import (
     convex_hull,
     polygon_to_bbox,
     median_line_height,

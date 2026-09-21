@@ -9,7 +9,7 @@ Draws the final debugging visualization:
 
 import cv2
 import numpy as np
-import config
+from backend.services.ocr_service import config
 
 def _draw_polygon_region(image, poly, bbox, color, label, thickness=3):
     if not poly and not bbox:

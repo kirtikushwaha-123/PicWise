@@ -7,9 +7,9 @@ Parses raw OCR'd nutrition-table text into a structured dict of
 
 import re
 import numpy as np
-import config
-from detection.geometry import union_rect
-from detection.ocr_detector import normalize_ocr_text
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.geometry import union_rect
+from backend.services.ocr_service.detection.ocr_detector import normalize_ocr_text
 
 
 # Canonical nutrient key -> list of text patterns (already lowercase) that
@@ -58,11 +58,11 @@ def parse_nutrition(raw_text, ocr_dict=None):
         return _parse_nutrition_string_fallback(raw_text)
 
     items = ocr_dict["best_items"]
-    from detection.ocr_detector import enrich_items
+    from backend.services.ocr_service.detection.ocr_detector import enrich_items
     if items and "height" not in items[0]:
         items = enrich_items(items)
     # Reconstruct lines
-    from detection.line_builder import reconstruct_lines
+    from backend.services.ocr_service.detection.line_builder import reconstruct_lines
     # Fake image shape since we don't need real clipping here, just sorted lines
     lines = reconstruct_lines(items, (1000, 1000))
     if not lines:

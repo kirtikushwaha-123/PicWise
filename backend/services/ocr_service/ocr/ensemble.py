@@ -8,8 +8,8 @@ STEP 14 of the spec.
 
 import re
 
-from ocr.paddle_engine import run_ocr
-import config
+from backend.services.ocr_service.ocr.paddle_engine import run_ocr
+from backend.services.ocr_service import config
 
 
 GARBAGE_CHAR_PATTERN = re.compile(r"[^a-zA-Z0-9%.,:;()\-\s]")
@@ -237,7 +237,7 @@ def run_variant_ocr(variants, mode="generic"):
           }
         }
     """
-    from preprocessing.image_utils import check_image_quality
+    from backend.services.ocr_service.preprocessing.image_utils import check_image_quality
 
     all_results = {}
     best_variant = None

@@ -6,8 +6,8 @@ Generates detailed layout analysis debug visualizations for PicWise.
 
 import cv2
 import os
-import config
-from detection.geometry import union_rect
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.geometry import union_rect
 
 # Colors for 9 classes
 CLASS_COLORS = {

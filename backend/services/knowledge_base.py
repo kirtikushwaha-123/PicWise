@@ -3,13 +3,15 @@ import os
 import re
 from pathlib import Path
 
-DEFAULT_FOOD_DATA_PATH = "data/food/food_ingredients_dataset_corrected(2)(1).csv"
-FALLBACK_FOOD_DATA_PATH = "data/food/ingredient_knowledge_base_500_cleaned.csv"
+from backend import config
 
-DEFAULT_PERSONAL_CARE_DATA_PATH = "data/personal_care/personal_care_ingredients_dataset_cleaned.xlsx"
-FALLBACK_PERSONAL_CARE_DATA_PATH = "data/personal_care/personal_care_ingredients_dataset_csv.xlsx"
+DEFAULT_FOOD_DATA_PATH = config.DEFAULT_FOOD_DATA_PATH
+FALLBACK_FOOD_DATA_PATH = config.FALLBACK_FOOD_DATA_PATH
 
-DEFAULT_NUTRITION_DATA_PATH = "data/nutrition/nutrition_knowledge_dataset.csv"
+DEFAULT_PERSONAL_CARE_DATA_PATH = config.DEFAULT_PERSONAL_CARE_DATA_PATH
+FALLBACK_PERSONAL_CARE_DATA_PATH = config.FALLBACK_PERSONAL_CARE_DATA_PATH
+
+DEFAULT_NUTRITION_DATA_PATH = config.DEFAULT_NUTRITION_DATA_PATH
 
 REQUIRED_FOOD_COLUMNS = [
     "Ingredient Name",

@@ -7,8 +7,8 @@ determine precise bounds. Operates completely independently of Ingredients.
 """
 
 import numpy as np
-import config
-from detection.geometry import (
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.geometry import (
     union_rect,
     vertical_distance,
     horizontal_overlap_ratio,
@@ -19,11 +19,11 @@ from detection.geometry import (
     rect_height,
     rect_width,
 )
-from detection.line_builder import reconstruct_lines
-from detection.line_classifier import classify_lines
-from detection.block_detector import detect_logical_blocks
-from detection.ocr_detector import normalize_ocr_text, find_anchor_candidates, best_anchor_match
-from detection.section_signals import classify_nutrition_row, classify_ingredient_line, detect_section_boundaries
+from backend.services.ocr_service.detection.line_builder import reconstruct_lines
+from backend.services.ocr_service.detection.line_classifier import classify_lines
+from backend.services.ocr_service.detection.block_detector import detect_logical_blocks
+from backend.services.ocr_service.detection.ocr_detector import normalize_ocr_text, find_anchor_candidates, best_anchor_match
+from backend.services.ocr_service.detection.section_signals import classify_nutrition_row, classify_ingredient_line, detect_section_boundaries
 
 def find_nutrition_anchor_candidates(lines, top_n=None):
     """
@@ -516,7 +516,7 @@ def detect_nutrition_region(layout_analysis, image_shape, ingredient_vocab=None,
     """
     # 1. Backward-compatibility / Direct call support
     if not isinstance(layout_analysis, dict) or "lines" not in layout_analysis:
-        from detection.document_layout import analyze_document
+        from backend.services.ocr_service.detection.document_layout import analyze_document
         layout_analysis = analyze_document(layout_analysis, image_shape, ingredient_vocab)
 
     include_debug = debug or config.DEBUG_REGION_DETECTION

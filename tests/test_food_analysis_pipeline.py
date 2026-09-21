@@ -310,7 +310,7 @@ class TestFoodAnalysisPipeline(unittest.TestCase):
         dummy_bytes = _create_dummy_image_bytes()
         mocked_ocr_output = {
             "domain": "food",
-            "ingredients": [{"matched_name": "Sugar", "raw_text": "Sugar"}],
+            "ingredients": [{"matched_name": None, "raw_text": "UnknownChemicalXYZ"}],
             "nutrition": {
                 "energy": {"value": 400.0, "unit": "kcal", "per_100g": {"value": 400.0, "unit": "kcal"}},
                 "total_sugars": {"value": 10.0, "unit": "g", "per_100g": {"value": 10.0, "unit": "g"}},

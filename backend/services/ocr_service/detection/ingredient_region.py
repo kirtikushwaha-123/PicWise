@@ -7,8 +7,8 @@ ensure a tight bounding box that excludes unrelated surrounding text.
 """
 
 import numpy as np
-import config
-from detection.geometry import (
+from backend.services.ocr_service import config
+from backend.services.ocr_service.detection.geometry import (
     union_rect,
     vertical_distance,
     horizontal_overlap_ratio,
@@ -16,11 +16,11 @@ from detection.geometry import (
     sort_reading_order,
     validate_region,
 )
-from detection.line_builder import reconstruct_lines
-from detection.line_classifier import classify_lines
-from detection.block_detector import detect_logical_blocks
-from detection.ocr_detector import normalize_ocr_text, find_anchor_candidates, best_anchor_match
-from detection.section_signals import classify_nutrition_row, detect_section_boundaries
+from backend.services.ocr_service.detection.line_builder import reconstruct_lines
+from backend.services.ocr_service.detection.line_classifier import classify_lines
+from backend.services.ocr_service.detection.block_detector import detect_logical_blocks
+from backend.services.ocr_service.detection.ocr_detector import normalize_ocr_text, find_anchor_candidates, best_anchor_match
+from backend.services.ocr_service.detection.section_signals import classify_nutrition_row, detect_section_boundaries
 
 def split_merged_lines(lines, image_width):
     """
@@ -467,7 +467,7 @@ def detect_ingredient_region(layout_analysis, image_shape, ingredient_vocab=None
     and applies fallbacks only when no heading exists.
     """
     if not isinstance(layout_analysis, dict) or "lines" not in layout_analysis:
-        from detection.document_layout import analyze_document
+        from backend.services.ocr_service.detection.document_layout import analyze_document
         layout_analysis = analyze_document(layout_analysis, image_shape, ingredient_vocab)
 
     include_debug = debug or config.DEBUG_REGION_DETECTION

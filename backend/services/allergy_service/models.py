@@ -38,5 +38,10 @@ class AllergyResult:
     warnings: List[str] = field(default_factory=list)
     error: Optional[str] = None
 
+    @property
+    def presentation(self) -> Any:
+        from backend.services.food_status_service.mapper import map_allergy_status
+        return map_allergy_status(self.product_risk_level, self.status)
+
     def to_dict(self) -> Dict[str, Any]:
         return {k: v for k, v in asdict(self).items() if v is not None}

@@ -8,13 +8,6 @@ strictly as a historical experiment artifact and is NOT used for production food
 """
 
 import os
-import sys
-from pathlib import Path
-
-# Ensure project root is in sys.path
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
 
 import joblib
 from backend.ml.inference.food_safety_service import predict_food_safety
