@@ -227,8 +227,14 @@ def classify_lines(lines, ingredient_vocab=None):
         if nut_hits > 0:
             nut_score += min(0.50, 0.18 * nut_hits)
 
-        if _NUTRITION_UNIT_RE.search(norm):
-            nut_score += 0.35
+        m_nut_unit = _NUTRITION_UNIT_RE.search(norm)
+        if m_nut_unit:
+            unit_str = m_nut_unit.group(2).lower() if m_nut_unit.group(2) else ""
+            if unit_str == "%":
+                if nut_hits > 0 or any(sk in norm for sk in ["rda", "dv", "daily value", "% rda", "% dv"]):
+                    nut_score += 0.35
+            else:
+                nut_score += 0.35
 
         serving_kws = ["serving", "servings", "serves", "pack size", "per 100g", "per 100ml", "per serving", "approx.", "rda", "gda", "daily value"]
         if any(sk in norm for sk in serving_kws):
@@ -372,7 +378,8 @@ def classify_lines(lines, ingredient_vocab=None):
         marketing_signals = getattr(config, "MARKETING_SIGNALS", [
             "taste the goodness", "100% natural", "no artificial", "guaranteed quality", "premium quality",
             "provides strong protection", "protection from germs", "keeps your skin", "moisturizing", "with soothing",
-            "clinically proven", "dermatologist recommended"
+            "clinically proven", "dermatologist recommended", "cocoa life", "sustainably sourced", "thanks to",
+            "100% veg", "vegetarian", "100% pure", "source of", "rich in", "100% sustainably sourced"
         ])
         matched_mkt, mkt_anchor_score = best_anchor_match(
             text, marketing_signals, threshold=config.STOP_WORD_CONTEXTUAL_SCORE

@@ -225,15 +225,24 @@ if (rerunOcrBtn) {
 if (confirmAnalyzeBtn) {
   confirmAnalyzeBtn.addEventListener("click", async () => {
     if (isAnalyzing) return;
+    console.log("[PicWise] Confirm & Analyze clicked");
     setLoadingState(true, "Analyzing your product...", "PicWise is evaluating Food Safety, Allergy Risk, and Nutrition.");
     fileError.textContent = "";
 
     try {
+      const ingVal = ocrIngredientsInput ? ocrIngredientsInput.value : "";
+      const nutVal = ocrNutritionInput ? ocrNutritionInput.value : "";
+      const otherVal = ocrOtherInput ? ocrOtherInput.value : "";
+
+      console.log(`[PicWise] Edited ingredients length: ${ingVal.length}`);
+      console.log(`[PicWise] Edited nutrition length: ${nutVal.length}`);
+      console.log("[PicWise] Calling /api/food/analyze-text");
+
       const payload = {
         category: "food",
-        ingredients_text: ocrIngredientsInput ? ocrIngredientsInput.value : "",
-        nutrition_text: ocrNutritionInput ? ocrNutritionInput.value : "",
-        all_text: ocrOtherInput ? ocrOtherInput.value : "",
+        ingredients_text: ingVal,
+        nutrition_text: nutVal,
+        all_text: otherVal,
       };
 
       const response = await fetch("/api/food/analyze-text", {
@@ -243,6 +252,8 @@ if (confirmAnalyzeBtn) {
         },
         body: JSON.stringify(payload),
       });
+
+      console.log(`[PicWise] /api/food/analyze-text response: ${response.status}`);
 
       let data;
       try {

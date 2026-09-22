@@ -210,6 +210,93 @@ class TestOCRReviewAndQualityGate(unittest.TestCase):
         # Healthier profile should have higher nutrition score
         self.assertGreater(res_low.nutrition["nutrition_score"], res_high.nutrition["nutrition_score"])
 
+    def test_edited_protein_alters_nutrients_evaluated_and_score(self):
+        """Editing Protein from 5g to 25g alters evaluated nutrients and score via /api/food/analyze-text."""
+        payload_baseline = {
+            "category": "food",
+            "ingredients_text": "Wheat Flour, Water",
+            "nutrition_text": "Energy 200 kcal\nProtein 5.0 g\nTotal Fat 5.0 g\nTotal Sugars 5.0 g",
+        }
+        resp_base = self.client.post("/api/food/analyze-text", json=payload_baseline)
+        self.assertEqual(resp_base.status_code, 200)
+        data_base = resp_base.get_json()
+
+        payload_edited = {
+            "category": "food",
+            "ingredients_text": "Wheat Flour, Water",
+            "nutrition_text": "Energy 200 kcal\nProtein 25.0 g\nTotal Fat 5.0 g\nTotal Sugars 5.0 g",
+        }
+        resp_edit = self.client.post("/api/food/analyze-text", json=payload_edited)
+        self.assertEqual(resp_edit.status_code, 200)
+        data_edit = resp_edit.get_json()
+
+        # Both scored
+        self.assertEqual(data_base["nutrition"]["status"], "scored")
+        self.assertEqual(data_edit["nutrition"]["status"], "scored")
+
+        # Verify evaluated nutrient for protein reflects exact edited value
+        nutrients_base = {n["nutrient"].lower(): n.get("amount_per_100g") for n in data_base["nutrition"]["nutrients_evaluated"]}
+        nutrients_edit = {n["nutrient"].lower(): n.get("amount_per_100g") for n in data_edit["nutrition"]["nutrients_evaluated"]}
+
+        self.assertIn("protein", nutrients_base)
+        self.assertIn("protein", nutrients_edit)
+        self.assertEqual(nutrients_base["protein"], 5.0)
+        self.assertEqual(nutrients_edit["protein"], 25.0)
+
+        # Higher protein results in higher nutrition score
+        self.assertGreater(data_edit["nutrition"]["nutrition_score"], data_base["nutrition"]["nutrition_score"])
+
+    def test_edited_ingredients_removes_allergen_and_drops_risk_level(self):
+        """Editing ingredients to remove Milk Solids Non-Fat removes Milk allergen and drops risk level."""
+        payload_with_milk = {
+            "category": "food",
+            "ingredients_text": "Potato Flakes, Rock Salt, Milk Solids Non-Fat",
+            "nutrition_text": "Energy 200 kcal\nProtein 5.0 g\nTotal Fat 5.0 g\nTotal Sugars 5.0 g",
+        }
+        resp_milk = self.client.post("/api/food/analyze-text", json=payload_with_milk)
+        self.assertEqual(resp_milk.status_code, 200)
+        data_milk = resp_milk.get_json()
+
+        payload_without_milk = {
+            "category": "food",
+            "ingredients_text": "Potato Flakes, Rock Salt",
+            "nutrition_text": "Energy 200 kcal\nProtein 5.0 g\nTotal Fat 5.0 g\nTotal Sugars 5.0 g",
+        }
+        resp_no_milk = self.client.post("/api/food/analyze-text", json=payload_without_milk)
+        self.assertEqual(resp_no_milk.status_code, 200)
+        data_no_milk = resp_no_milk.get_json()
+
+        # Check allergen results
+        allergens_milk = [a.lower() for a in data_milk["allergy"].get("allergens_detected", [])]
+        allergens_no_milk = [a.lower() for a in data_no_milk["allergy"].get("allergens_detected", [])]
+
+        self.assertTrue(any("milk" in a for a in allergens_milk))
+        self.assertFalse(any("milk" in a for a in allergens_no_milk))
+
+        # Risk level should drop from Medium/High to Low/None
+        self.assertIn(data_milk["allergy"]["product_risk_level"], ["Medium", "High"])
+        self.assertIn(data_no_milk["allergy"]["product_risk_level"], ["Low", "None", "No Risk"])
+
+    def test_original_ocr_never_silently_reused(self):
+        """POST /api/food/analyze-text never queries original OCR or uses unedited cached data."""
+        # Custom unique ingredient that cannot be in any image
+        payload = {
+            "category": "food",
+            "ingredients_text": "Organic Quinoa, Chia Seeds, Himalayan Pink Salt",
+            "nutrition_text": "Energy: 350 kcal\nProtein: 14 g\nTotal Fat: 6 g\nTotal Carbohydrate: 60 g\nTotal Sugars: 2 g",
+            "all_text": "Custom Brand Organic Superfood",
+        }
+        resp = self.client.post("/api/food/analyze-text", json=payload)
+        self.assertEqual(resp.status_code, 200)
+        data = resp.get_json()
+
+        # Food safety evaluated our custom ingredients
+        raw_ings = data.get("ocr", {}).get("raw_text", {}).get("ingredients_text", "")
+        self.assertEqual(raw_ings, payload["ingredients_text"])
+        fs_ings = [it.get("ingredient") for it in data["food_safety"].get("ingredients", [])]
+        self.assertTrue(any("quinoa" in (i or "").lower() for i in fs_ings))
+        self.assertTrue(any("chia" in (i or "").lower() for i in fs_ings))
+
     # ----------------------------------------------------------------------
     # Backward Compatibility Tests
     # ----------------------------------------------------------------------

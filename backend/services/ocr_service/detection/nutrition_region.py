@@ -6,6 +6,7 @@ Uses OCR line builder, line classifier, block detector, and table heuristics to
 determine precise bounds. Operates completely independently of Ingredients.
 """
 
+import re
 import numpy as np
 from backend.services.ocr_service import config
 from backend.services.ocr_service.detection.geometry import (
@@ -97,15 +98,16 @@ def _expand_directional(seed_rect, band, ordered_lines, line_h, max_gap, band_to
         if (is_strictly_left or is_strictly_right) and overlap_ratio < 0.15:
             is_ing_or_other = (
                 ln.get("ingredient_score", 0.0) > ln.get("nutrition_score", 0.0)
-                or ln.get("predicted_class") in ["ingredients", "other", "manufacturer", "instructions"]
+                or ln.get("predicted_class") in [
+                    "ingredients", "other", "manufacturer", "instructions",
+                    "marketing", "contact", "storage", "legal", "mrp"
+                ]
             )
+            # A line strictly in a separate horizontal column is ONLY a nutrition row
+            # if it contains explicit nutrient keywords and is not a competitor section
             is_nut_row = (
                 not is_ing_or_other
-                and (
-                    ln.get("predicted_class") == "nutrition"
-                    or classify_nutrition_row(ln["text"])["keyword_hits"]
-                    or (ln.get("nutrition_score", 0.0) >= 0.25 and classify_nutrition_row(ln["text"])["has_number_unit"])
-                )
+                and bool(classify_nutrition_row(ln["text"])["keyword_hits"])
             )
             if not is_nut_row:
                 rejected.append({"text": ln["text"], "reason": "different_horizontal_column"})
@@ -115,9 +117,11 @@ def _expand_directional(seed_rect, band, ordered_lines, line_h, max_gap, band_to
         overlaps_band = overlap_ratio >= config.REGION_BAND_OVERLAP_MIN_RATIO
 
         if not (left_close or overlaps_band):
-            if ln.get("nutrition_score", 0.0) < 0.25 and ln.get("predicted_class") != "nutrition":
+            if not classify_nutrition_row(ln["text"])["keyword_hits"]:
                 rejected.append({"text": ln["text"], "reason": "outside_table_band"})
                 continue
+
+        in_table_band = (left_close or overlaps_band) and not (is_strictly_left or is_strictly_right)
 
         # Rule 6: STOP CONDITIONS on competitor sections
         norm_text = normalize_ocr_text(ln["text"])
@@ -126,44 +130,65 @@ def _expand_directional(seed_rect, band, ordered_lines, line_h, max_gap, band_to
         if ln.get("ingredient_score", 0.0) > 0.50 and ln.get("ingredient_score", 0.0) > ln.get("nutrition_score", 0.0):
             stop_reason = "ingredient_line_detected"
             rejected.append({"text": ln["text"], "reason": stop_reason})
-            break
+            if in_table_band:
+                break
+            else:
+                continue
 
         # Manufacturer stop
         if ln.get("manufacturer_score", 0.0) > 0.50 or any(msig in norm_text for msig in getattr(config, "MANUFACTURER_SIGNALS", [])):
             stop_reason = "manufacturer_boundary"
             rejected.append({"text": ln["text"], "reason": stop_reason})
-            break
+            if in_table_band:
+                break
+            else:
+                continue
 
         # Instructions stop
         if ln.get("instruction_score", 0.0) > 0.50 or any(isig in norm_text for isig in getattr(config, "INSTRUCTION_SIGNALS", [])):
             stop_reason = "instruction_boundary"
             rejected.append({"text": ln["text"], "reason": stop_reason})
-            break
+            if in_table_band:
+                break
+            else:
+                continue
 
         # Contact stop
         if ln.get("contact_score", 0.0) > 0.50 or any(csig in norm_text for csig in getattr(config, "CONTACT_SIGNALS", [])):
             stop_reason = "contact_boundary"
             rejected.append({"text": ln["text"], "reason": stop_reason})
-            break
+            if in_table_band:
+                break
+            else:
+                continue
 
         # Storage stop
         if ln.get("storage_score", 0.0) > 0.50 or any(ssig in norm_text for ssig in getattr(config, "STORAGE_SIGNALS", [])):
             stop_reason = "storage_boundary"
             rejected.append({"text": ln["text"], "reason": stop_reason})
-            break
+            if in_table_band:
+                break
+            else:
+                continue
 
         # MRP / Date stop
         if ln.get("mrp_score", 0.0) > 0.50 or any(msig in norm_text for msig in getattr(config, "MRP_SIGNALS", [])):
             if not (ln.get("nutrition_score", 0.0) >= 0.20 or classify_nutrition_row(ln["text"])["keyword_hits"] or any(sk in norm_text for sk in ["average", "per 100", "per serve", "serving", "approx"])):
                 stop_reason = "mrp_boundary"
                 rejected.append({"text": ln["text"], "reason": stop_reason})
-                break
+                if in_table_band:
+                    break
+                else:
+                    continue
 
         # Legal stop
         if ln.get("legal_score", 0.0) > 0.50 or "fssai" in norm_text or "lic. no" in norm_text:
             stop_reason = "legal_boundary"
             rejected.append({"text": ln["text"], "reason": stop_reason})
-            break
+            if in_table_band:
+                break
+            else:
+                continue
 
         # Stop words: filter out nutrition anchors, nutrient keywords, and serving terms
         nut_stop_words = [
@@ -179,13 +204,19 @@ def _expand_directional(seed_rect, band, ordered_lines, line_h, max_gap, band_to
             if not (ln.get("nutrition_score", 0.0) >= 0.35 or classify_nutrition_row(ln["text"])["keyword_hits"]):
                 stop_reason = f"stop_word:{stop_anchor}({reason})"
                 rejected.append({"text": ln["text"], "reason": stop_reason})
-                break
+                if in_table_band:
+                    break
+                else:
+                    continue
 
         if ln.get("other_score", 0.0) > 0.65:
             if not (ln.get("nutrition_score", 0.0) >= 0.25 or classify_nutrition_row(ln["text"])["keyword_hits"] or classify_nutrition_row(ln["text"])["has_number_unit"]):
                 stop_reason = "other_section_dominance"
                 rejected.append({"text": ln["text"], "reason": stop_reason})
-                break
+                if in_table_band:
+                    break
+                else:
+                    continue
 
         collected.append(ln)
         current_rect = union_rect([current_rect, rect])
@@ -328,8 +359,21 @@ def _absorb_table_columns(collected, all_lines, line_h):
                     continue
                 if ln.get("storage_score", 0.0) >= 0.50:
                     continue
+                if ln.get("marketing_score", 0.0) >= 0.35:
+                    continue
                 norm_text = normalize_ocr_text(ln["text"])
-                if any(sw in norm_text for sw in ["ingredients:", "ingredients", "mfg", "fssai", "batch"]):
+                if any(sw in norm_text for sw in [
+                    "ingredients:", "ingredients", "mfg", "fssai", "batch",
+                    "cocoa life", "thanks to", "sustainably sourced", "www.", "http"
+                ]):
+                    continue
+                # Line must look like table data: nutrient keyword, numeric/unit, or table column header
+                has_nut_kw = bool(classify_nutrition_row(ln["text"])["keyword_hits"])
+                has_num = bool(re.search(r'\d', norm_text))
+                is_nut_col_header = any(h in norm_text for h in [
+                    "per 100", "per serve", "serving", "approx", "values", "amount", "unit", "rda", "daily value", "% dv", "% rda"
+                ])
+                if not (has_nut_kw or has_num or is_nut_col_header):
                     continue
                 absorbed.append(ln)
 

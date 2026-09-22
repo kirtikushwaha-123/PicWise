@@ -43,7 +43,16 @@ def classify_nutrition_row(line_text):
     """
     norm = normalize_ocr_text(line_text)
     keyword_hits = [kw for kw in config.NUTRIENT_KEYWORDS if kw in norm]
-    has_number_unit = bool(_NUTRITION_UNIT_RE.search(norm))
+    has_number_unit = False
+    for m in _NUTRITION_UNIT_RE.finditer(norm):
+        unit = m.group(2).lower() if m.group(2) else ""
+        if unit == "%":
+            if keyword_hits or any(marker in norm for marker in ["rda", "dv", "daily value", "% rda", "% dv", "per"]):
+                has_number_unit = True
+                break
+        else:
+            has_number_unit = True
+            break
 
     is_strong = False
     if keyword_hits and has_number_unit:

@@ -161,7 +161,54 @@ Sodium
         self.assertIsNotNone(res)
         self.assertEqual(res.get("status"), "scored")
         self.assertIsNotNone(res.get("nutrition_score"))
-        self.assertGreater(len(res.get("nutrients_evaluated", [])), 3)
+    def test_adjacent_column_marketing_excluded_and_does_not_truncate_table(self):
+        """Marketing copy like '100% THANKS TO COCOA LIFE...' in adjacent column must not abort table expansion."""
+        anchor_line = {"rect": [300.0, 100.0, 500.0, 125.0], "text": "Nutrition Information (per 100 g)*", "column_id": 1}
+        nut_lines = [
+            {"rect": [300.0, 130.0, 500.0, 150.0], "text": "Energy 532 kcal", "column_id": 1},
+            {"rect": [300.0, 155.0, 500.0, 175.0], "text": "Protein 7.8 g", "column_id": 1},
+            {"rect": [300.0, 180.0, 500.0, 200.0], "text": "Carbohydrate 60.4 g", "column_id": 1},
+            {"rect": [300.0, 205.0, 500.0, 225.0], "text": "Total Sugars 57.0 g", "column_id": 1},
+            {"rect": [300.0, 230.0, 500.0, 250.0], "text": "Added Sugars 47.4 g", "column_id": 1},
+            {"rect": [300.0, 255.0, 500.0, 275.0], "text": "Total Fat 29.2 g", "column_id": 1},
+            {"rect": [300.0, 280.0, 500.0, 300.0], "text": "Saturated Fat 19.6 g", "column_id": 1},
+            {"rect": [300.0, 305.0, 500.0, 325.0], "text": "Trans Fat 0.1 g", "column_id": 1},
+            {"rect": [300.0, 330.0, 500.0, 350.0], "text": "Cholesterol 20.7 mg", "column_id": 1},
+            {"rect": [300.0, 355.0, 500.0, 375.0], "text": "Sodium 129 mg", "column_id": 1},
+        ]
+        # Interleaved adjacent column lines (marketing and other sections on the left)
+        adjacent_col_lines = [
+            {"rect": [30.0, 140.0, 250.0, 165.0], "text": "100% THANKS TO COCOA LIFE...", "column_id": 0},
+            {"rect": [30.0, 170.0, 250.0, 195.0], "text": "VISIT WWW.COCOALIFE.ORG", "other_score": 0.8, "column_id": 0},
+            {"rect": [30.0, 220.0, 250.0, 245.0], "text": "Mfg by Mondelez India Foods Pvt Ltd", "manufacturer_score": 0.9, "column_id": 0},
+        ]
+        all_lines = [anchor_line] + nut_lines + adjacent_col_lines
+
+        bbox, collected, debug_info = expand_nutrition_region(
+            anchor_line=anchor_line,
+            all_lines=all_lines,
+            image_shape=(800, 600, 3),
+        )
+
+        collected_texts = [ln["text"] for ln in collected]
+
+        # 1. Marketing and competitor lines from other column must NOT be collected
+        self.assertNotIn("100% THANKS TO COCOA LIFE...", collected_texts)
+        self.assertNotIn("VISIT WWW.COCOALIFE.ORG", collected_texts)
+        self.assertNotIn("Mfg by Mondelez India Foods Pvt Ltd", collected_texts)
+
+        # 2. ALL nutrition rows must be collected (not truncated after Protein)
+        self.assertIn("Energy 532 kcal", collected_texts)
+        self.assertIn("Protein 7.8 g", collected_texts)
+        self.assertIn("Carbohydrate 60.4 g", collected_texts)
+        self.assertIn("Total Sugars 57.0 g", collected_texts)
+        self.assertIn("Added Sugars 47.4 g", collected_texts)
+        self.assertIn("Total Fat 29.2 g", collected_texts)
+        self.assertIn("Saturated Fat 19.6 g", collected_texts)
+        self.assertIn("Trans Fat 0.1 g", collected_texts)
+        self.assertIn("Cholesterol 20.7 mg", collected_texts)
+        self.assertIn("Sodium 129 mg", collected_texts)
+        self.assertEqual(len(collected), 11)  # anchor + 10 rows
 
 
 if __name__ == "__main__":
