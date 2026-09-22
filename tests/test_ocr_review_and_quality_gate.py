@@ -231,6 +231,39 @@ class TestOCRReviewAndQualityGate(unittest.TestCase):
         self.assertEqual(data.get("category"), "food")
         self.assertIn("presentation", data)
 
+    # ----------------------------------------------------------------------
+    # HTML Structure & Sibling Sections Regression Test
+    # ----------------------------------------------------------------------
+    def test_upload_template_html_structure_and_sibling_sections(self):
+        """Verify upload.html contains independent sibling sections and proper loading copy."""
+        resp = self.client.get("/upload")
+        self.assertEqual(resp.status_code, 200)
+        html = resp.get_data(as_text=True)
+
+        # 1. Independent sibling sections: loadingState must close before qualityErrorPanel
+        import re
+        self.assertRegex(
+            html,
+            r'<section id="loadingState"[^>]*>[\s\S]*?</section>\s*(?:<!--[\s\S]*?-->\s*)?<section id="qualityErrorPanel"',
+        )
+        # qualityErrorPanel must close before ocrReviewPanel
+        self.assertRegex(
+            html,
+            r'<section id="qualityErrorPanel"[^>]*>[\s\S]*?</section>\s*(?:<!--[\s\S]*?-->\s*)?<section id="ocrReviewPanel"',
+        )
+        # ocrReviewPanel must close before resultsPanel
+        self.assertRegex(
+            html,
+            r'<section id="ocrReviewPanel"[^>]*>[\s\S]*?</section>\s*(?:<!--[\s\S]*?-->\s*)?<section id="resultsPanel"',
+        )
+
+        # 2. Loading messages must be accurate for OCR
+        self.assertIn("Reading your product label...", html)
+        self.assertIn("PicWise is extracting text from the uploaded label.", html)
+
+        # 3. Cache-busting on app.js
+        self.assertRegex(html, r'src="[^"]*app\.js\?v=[^"]*"')
+
 
 if __name__ == "__main__":
     unittest.main()

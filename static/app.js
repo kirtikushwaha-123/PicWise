@@ -11,6 +11,8 @@ const previewImage = document.querySelector("#previewImage");
 const removeImage = document.querySelector("#removeImage");
 const analyzeButton = document.querySelector("#analyzeButton");
 const loadingState = document.querySelector("#loadingState");
+const loadingHeading = document.querySelector("#loadingHeading");
+const loadingMessage = document.querySelector("#loadingMessage");
 const resultsPanel = document.querySelector("#resultsPanel");
 
 // OCR Review & Quality Gate Elements (STEP 9)
@@ -132,17 +134,24 @@ form.addEventListener("submit", async (event) => {
   formData.append("image", selectedFile);
   formData.append("category", selectedCategory);
 
-  setLoadingState(true);
+  if (selectedCategory === "food") {
+    setLoadingState(true, "Reading your product label...", "PicWise is extracting text from the uploaded label.");
+  } else {
+    setLoadingState(true, "Analyzing your product...", "PicWise is evaluating Personal Care safety, allergens, and irritation.");
+  }
   resetResults();
   fileError.textContent = "";
 
   try {
     if (selectedCategory === "food") {
+      console.log("[PicWise] Starting /api/food/ocr");
       // Step 1, 2, 3: Quality Check & OCR
       const response = await fetch("/api/food/ocr", {
         method: "POST",
         body: formData,
       });
+
+      console.log("[PicWise] /api/food/ocr response: " + response.status);
 
       let data;
       try {
@@ -150,6 +159,8 @@ form.addEventListener("submit", async (event) => {
       } catch (parseErr) {
         throw new Error("Received an invalid response from the server.");
       }
+
+      console.log("[PicWise] OCR status: " + (data && data.status));
 
       if (!response.ok) {
         if (data && data.status === "unusable_image") {
@@ -161,6 +172,7 @@ form.addEventListener("submit", async (event) => {
       }
 
       // Step 4: Show OCR Review Screen
+      console.log("[PicWise] Showing OCR Review");
       if (ocrIngredientsInput) {
         ocrIngredientsInput.value = (data.raw_text && data.raw_text.ingredients_text) || "";
       }
@@ -213,7 +225,7 @@ if (rerunOcrBtn) {
 if (confirmAnalyzeBtn) {
   confirmAnalyzeBtn.addEventListener("click", async () => {
     if (isAnalyzing) return;
-    setLoadingState(true);
+    setLoadingState(true, "Analyzing your product...", "PicWise is evaluating Food Safety, Allergy Risk, and Nutrition.");
     fileError.textContent = "";
 
     try {
@@ -297,14 +309,30 @@ function setSelectedFile(file) {
   analyzeButton.disabled = false;
 }
 
-function setLoadingState(isLoading) {
+function setLoadingState(isLoading, heading, message) {
   isAnalyzing = isLoading;
   if (isLoading) {
+    if (loadingHeading) {
+      loadingHeading.textContent = heading || "Reading your product label...";
+    }
+    if (loadingMessage) {
+      loadingMessage.textContent = message || "PicWise is extracting text from the uploaded label.";
+    }
     loadingState.classList.remove("hidden");
     analyzeButton.disabled = true;
+    if (confirmAnalyzeBtn) confirmAnalyzeBtn.disabled = true;
+    if (rerunOcrBtn) rerunOcrBtn.disabled = true;
   } else {
     loadingState.classList.add("hidden");
     analyzeButton.disabled = !selectedFile;
+    if (confirmAnalyzeBtn) confirmAnalyzeBtn.disabled = false;
+    if (rerunOcrBtn) rerunOcrBtn.disabled = false;
+    if (loadingHeading) {
+      loadingHeading.textContent = "Reading your product label...";
+    }
+    if (loadingMessage) {
+      loadingMessage.textContent = "PicWise is extracting text from the uploaded label.";
+    }
   }
 }
 

@@ -74,8 +74,10 @@
 
   <section id="loadingState" class="status-panel card hidden" aria-live="polite">
     <div class="spinner"></div>
-    <h2>Analyzing your product...</h2>
-    <p>PicWise is sending the label through the Phase 1 API pipeline.</p>
+    <h2 id="loadingHeading">Reading your product label...</h2>
+    <p id="loadingMessage">PicWise is extracting text from the uploaded label.</p>
+  </section>
+
   <!-- Image Quality Error / Blurry Image Gate Panel (STEP 9) -->
   <section id="qualityErrorPanel" class="status-panel card hidden" aria-live="polite">
     <div class="quality-warning-icon">
@@ -307,5 +309,5 @@
     </div>
   </section>
 
-  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <script src="{{ url_for('static', filename='app.js') }}?v=20260922_01"></script>
 {% endblock %}
